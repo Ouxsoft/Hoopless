@@ -1,19 +1,18 @@
 <?php
-echo "<style><!-- ";
-echo ".right {float: right;} ";
-echo ".title {text-align: center; font-size: 200%; font-weight: bold;} ";
-echo "--></style>";
 
-echo "<div class=\"container bg-true\">";
+echo "<h1 class=\"container center\">Resume</h1>";
+
+echo "<div class=\"container background-white\">";
 // objective
-echo "<p class=\"title\">Matthew Heroux<a href=\"{$instance->href("resume.pdf")}\" target=\"_blank\" class=\"right\"><img src=\"{$instance->href("img/file-icon/pdf.png")}\"/></a></p>";
+echo "<a href=\"{$instance->href("resume.pdf")}\" target=\"_blank\" class=\"right\"><img src=\"{$instance->href("img/file-icon/pdf.png")}\"/></a>";
 
-echo "<hr/>";
-echo "<h1>OBJECTIVE:</h1>";
+echo "<h2>Objective:</h2>";
 echo "<p>Work on a team to develop and evolve powerful, attractive, and user-friendly web applications that makes life easier for everyone.</p>";
-echo "<hr/>";
+echo "</div>";
+
 // skills
-echo "<h1>SKILLS:</h1>";
+echo "<div class=\"container background-white\">";
+echo "<h2>Skills:</h2>";
 echo "<div class=\"row\">";
 
 echo "<ul>";
@@ -35,10 +34,12 @@ echo "<li>Documentation</li>";
 echo "<li>Customer Relations</li>";
 echo "</div>";
 echo "</ul>";
-
 echo "</div>";
+echo "</div>";
+
 // professional experience
-echo "<h1>PROFESSIONAL EXPERIENCE:</h1>";
+echo "<div class=\"container background-white\">";
+echo "<h2>Professional Experience:</h2>";
 echo "<ul>";
 echo "<li><b>Lead Web Developer</b><span class=\"right\">2012 to Present</span><br/><i>JNH Environmental Services, Inc. (Turnkey EHS Services Provider) &mdash; Rutland, Vermont.</i>";
 echo "<ul>";
@@ -91,7 +92,7 @@ echo "</li>";
 
 echo "</ul>";
 
-echo "<li><b>Programmer</b><span class=\"right\">2006 to 2011</span><br/><i>Leddy Group (Staffing Agency) / Decorative Accessories Manufacturer &mdash; Rutland, Vermont.</i>";
+echo "<li><b>Programmer Operator</b><span class=\"right\">2006 to 2011</span><br/><i>Leddy Group (Staffing Agency) / Questech&reg; Corporation Decorative Accessories Manufacturer &mdash; Rutland, Vermont.</i>";
 echo "<ul>";
 echo "<li><b>FULL STACK DEVELOPMENT. Developed software applications and tools used on multiple abstraction layers.</b>";
 echo "<ul>";
@@ -126,8 +127,11 @@ echo "</ul>";
 echo "</ul>";
 echo "</li>";
 echo "</ul>";
+echo "</div>";
+
 // teaching experience
-echo "<h1>TEACHING EXPERIENCE:</h1>";
+echo "<div class=\"container background-white\">";
+echo "<h2>Teaching Experience:</h2>";
 echo "<ul>";
 echo "<li><i>JNH Environmental Services, Inc. (Turnkey EHS Services Provider) &mdash; Rutland, Vermont.</i><span class=\"right\">2012 to Present</span>";
 echo "<ul>";
@@ -139,25 +143,28 @@ echo "<ul>";
 echo "<li>Assisted in providing motorcycle training as part of the Vermont Rider Education Program.</li>";
 echo "</ul>";
 echo "</li>";
-
 echo "</ul>";
+echo "</div>";
 
 // education
-echo "<h1>EDUCATION:</h1>";
+echo "<div class=\"container background-white\">";
+echo "<h2>Education:</h2>";
 echo "<ul>";
 echo "<li><b>Bachelor of Science in Computer Information Systems/Business</b><span class=\"right\">2012</span><br/><i>Castleton University, Castleton, Vermont</i></li>";
 echo "<li><b>Associate of Science Degree, Computer Systems Management</b>	<span class=\"right\">2009</span><br/><i>Community College of Vermont, Newport, Vermont</i></li>";
 echo "<li><b>Fundamentals of Web Design</b><span class=\"right\">2005</span><br/><i>Cisco Systems Networking Academy, Lyndon Center, Vermont</i></li>";
 echo "<li><b>Leadership Conference</b><span class=\"right\">2005</span><br/><i>Skills USA, Burlington, Vermont</i></li>";
 echo "</ul>";
+echo "</div>";
+
 // awards
-echo "<h1>AWARDS:</h1>";
+echo "<div class=\"container background-white\">";
+echo "<h2>Awards:</h2>";
 echo "<ul>";
 echo "<li><b>SkillsUSA Computer Programming</b><span class=\"right\">2005</span><br/>Programmed a banking system within the allowed time to win 2nd place in SkillsUSA State of Vermont competition for computer programming.</li>";
 echo "<li><b>Senator James M. Jeffords Award</b><span class=\"right\">2005</span><br/>Painted to win Senator James M. Jeffords award for statewide art competition.</li>";
 echo "<li><b>American Computer Science League</b><span class=\"right\">2003 to 2004</span><br/>Programmed several applications over the course of the year to win 1st place in American Computer Science League competition.</li>";
 echo "</ul>";
-
 echo "</div>";
-
+echo "</div>";
 ?>

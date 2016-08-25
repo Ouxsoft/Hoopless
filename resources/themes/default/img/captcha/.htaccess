@@ -1,0 +1,2 @@
+RewriteEngine on
+RewriteRule norobot.png image.php [NC,L]

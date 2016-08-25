@@ -9,7 +9,14 @@ switch ($instance->page["current"]["state"]) {
 	case "active":
 		// require signin for specific pages if not signed in
 		if(($instance->page["current"]["signin_required"]==1)&&(!isset($instance->user["id"]))){
-			// to do
+			$instance->window("header", true);
+			include("lib/alert.class.php");
+			echo "<div class=\"container\">";
+			$alert->add("alert","<a href=\"{$instance->href("users/sign-up.html")}\">Sign up</a> to access this page");
+			$alert->get();	
+			echo "</div>";
+			include("pages/users/sign-in.php");
+			$instance->window("footer", true);
 		} else {
 			$instance->window("header");
 			include("pages/{$instance->page["current"]["file"]}");
@@ -17,7 +24,36 @@ switch ($instance->page["current"]["state"]) {
 		}
 		break;
 	case "protected":
-		// to do
+		// check for account has access to protected access 
+		if (isset($instance->user["id"])) {
+			if($instance->user["permission"]==1){
+				$instance->window("header");
+				include("pages/{$instance->page["current"]["file"]}");
+				$instance->window("footer");
+			} else { 
+				// deny access
+				include("lib/alert.class.php");
+				$instance->window("header", true);
+				echo "<div class=\"container\">";
+				$alert->add("alert","<b style=\"text-transform: uppercase;\">{$instance->user["username"]}</b>, your account is not authorized to access this page. Sign in with an account authorized to use this page");
+				$alert->get();
+				echo "<div class=\"pagepad\" style=\"display: block; text-align: center; font-weight: bold; text-transform: uppercase; font-size: 18px; font-family: Arial, Helvetica, sans-serif; margin-top: 25px;\">Authorized Users Only</div>";
+				echo "</div>";
+				include("pages/users/sign-in.php");
+				$instance->window("footer", true);
+			}
+		} else {
+			// sign required
+			$instance->window("header", true);
+			include("lib/alert.class.php");
+			echo "<div class=\"container\">";
+			$alert->add("alert","You must sign-in to an authorized account to access this page");
+			$alert->get();
+			echo "<div class=\"pagepad\" style=\"display: block; text-align: center; font-weight: bold; text-transform: uppercase; font-size: 18px; font-family: Arial, Helvetica, sans-serif; margin-top: 25px;\">Authorized Users Only</div>";
+			echo "</div>";
+			include("pages/users/sign-in.php");
+			$instance->window("footer", true);
+		}
 		break;
 	default:
 		$instance->page["current"]["name"] = "Page Not Found";

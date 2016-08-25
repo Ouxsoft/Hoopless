@@ -1,0 +1,5 @@
+@font-face {
+	font-family: 'big-n-bold';
+	src: url(../fonts/big-n-bold/file.woff2) format('woff2'),
+	url(../fonts/big-n-bold/file.woff) format('woff');
+}

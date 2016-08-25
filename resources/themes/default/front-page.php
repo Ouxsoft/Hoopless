@@ -1,14 +1,15 @@
 <?php
+echo "<style><!-- .brand {display: none;} --></style>";
 echo "<div class=\"cover\">";
 echo "<div class=\"container\">";
 echo "<div class=\"jumbotron\">";
 echo "<div class=\"row\">";
 echo "<div class=\"col-md-6 ss-transparent\">";
-echo "<h1>Mr. Heroux</h1>";
-echo "<h2>Web Designer & Developer</h2>";
-echo "<p>I am a creative web developer from New England. I enjoy building and maintaining systems to solve problems from small business sites to enterprise level solutions. My work has been used to manage hazardous waste, entertain kids, manufacturer home decor, and protect employees and the environment. If you are a business seeking a web presence or an employer looking to hire, you can get in touch with me <a href=\"{$instance->href("contact.html")}\">here</a>.</p>";
-echo "<button type=\"button\" class=\"btn btn-primary btn-lg\" onclick=\"window.location.href='{$instance->href("contact.html")}'\">I need a website <span class=\"glyphicon glyphicon-menu-right\"></span></button>";
-echo "<button type=\"button\" class=\"btn btn-secondary btn-lg\" onclick=\"window.location.href='{$instance->href("contact.html")}'\">I'm looking to hire <span class=\"glyphicon glyphicon-menu-right\"></span></button>";
+echo "<h1><img src=\"{$instance->href("img/common/logo-big.png")}\"/><span class=\"normal\"> / <abbr title=\"also known as Mr. Heroux\">Mr. Heroux</abbr></span></h1>";
+echo "<h3>Designer & Developer</h3>";
+echo "<p>I am a creative PHP web developer. I build and evolve web solutions from small business sites to complex enterprise level software.</p><p>My work has been used to train employees, entertain children, manufacturer home decor, manage and ship hazardous materials, and protect the environment.</p><p>If you are a business seeking a web presence or an employer looking to hire, the time is now. I am willing to relocate. <a href=\"{$instance->href("contact.html")}\">Get in touch with me</a>.</p>";
+echo "<br/><p><button type=\"button\" class=\"btn btn-primary btn-lg\" onclick=\"window.location.href='{$instance->href("contact.html")}'\">I'm looking to hire<span class=\"glyphicon glyphicon-menu-right\"></span></button> <button type=\"button\" class=\"btn btn-default btn-lg\" onclick=\"window.location.href='{$instance->href("contact.html")}'\">I need a website <span class=\"glyphicon glyphicon-menu-right\"></span></button></p>";
+//echo "<div class=\"linkedin\"><a href=\"https://github.com/mrheroux/hxcms\" target=\"_blank\"><img src=\"{$instance->href("img/common/github.png")}\"/></a> <a href=\"https://www.linkedin.com/in/mrheroux\" target=\"_blank\"><img src=\"{$instance->href("img/common/linkedin.png")}\"/></a></div>";
 echo "</div>";
 echo "</div>";
 echo "</div>";

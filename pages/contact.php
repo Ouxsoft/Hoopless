@@ -2,7 +2,16 @@
 include_once("lib/alert.class.php");
 
 // set var
-if(isset($_POST["contact"])){$contact = $_POST["contact"];}
+if(isset($_POST["contact"])){
+	$contact = $_POST["contact"];
+} else {
+	$contact = array(
+		"name" => null,
+		"subject" => null,
+		"email" => null,
+		"message" => null
+	);
+}
 if(isset($_SESSION["account"]["username"])){$contact["name"] = $_SESSION["account"]["username"];}
 
 // handled post
@@ -40,17 +49,23 @@ if(isset($_POST["contact"])) {
 		$message .= "Subject: {$contact["subject"]}<br/>";
 		$message .= "IP address: {$_SERVER['REMOTE_ADDR']}<br/><br/>";
 		$message .= "{$contact["message"]}\n";
-		mail("contact@mrheroux.com", $contact["subject"], "<html><body>{$message}</body></html>", $headers);
+		mail($instance->website["email"], $contact["subject"], "<html><body>{$message}</body></html>", $headers);
 		$alert->add("success","Your message was successfully sent. I will be in contact with you shortly");
 		$contact["subject"] = "";
 		$contact["message"] = "";
 	}
 }
 
-echo "<div class=\"container instructions\"><strong>Instructions</strong>: Complete the form below to contact me and I will do everything I can to respond as quickly as possible.</div>";
+echo "<h1 class=\"container center\">Contact</h1>";
 
-echo "<div class=\"container bg-true\">";
+echo "<div class=\"container background-white\">";
+echo "<div class=\"row\">";
+echo "<div class=\"col-md-8\">";
+echo "<h2>Message</h2>";
+echo "<p>Complete the form below to contact me and I will do everything I can to respond as quickly as possible.</p>";
+
 $alert->get();
+
 echo "<form name=\"contact\" id=\"contact\" method=\"post\" enctype=\"multipart/form-data\">";
 
 echo "<fieldset class=\"form-group\">";
@@ -71,7 +86,7 @@ echo "</fieldset>";
 
 echo "<fieldset class=\"form-group\">";
 echo "<label for=\"Message\">Message<em class=\"required\">*</em></label>";
-echo "<textarea name=\"contact[message]\" id=\"message\" class=\"form-control\" placeholder=\"Enter message\" aria-required=\"true\"/>{$contact[message]}</textarea>";
+echo "<textarea name=\"contact[message]\" id=\"message\" class=\"form-control\" placeholder=\"Enter message\" aria-required=\"true\"/>{$contact["message"]}</textarea>";
 echo "</fieldset>";
 
 echo "<fieldset class=\"form-group\">";
@@ -84,3 +99,30 @@ echo "</fieldset>";
 echo "<input type=\"submit\" class=\"btn btn-lg\" name=\"command\" title=\"Send\"/>";
 echo "</form>";
 echo "</div>";
+
+echo "<div class=\"col-md-4\">";
+
+// stay connected
+echo "<h2>Stay Connected</h2>";
+echo "<h4>Linkedin <span class=\"glyphicon glyphicon-thumbs-up\"></span></h4>";
+echo "<p>Please feel free to connect with me:</p>";
+echo "<p><a href=\"https://www.linkedin.com/in/mrheroux\" target=\"_blank\"><img src=\"https://static.licdn.com/scds/common/u/img/webpromo/btn_myprofile_160x33.png\" width=\"160\" height=\"33\" border=\"0\" alt=\"View Matt Heroux's profile on LinkedIn\"></a></p>";
+echo "<hr/>";
+
+// contribute
+echo "<h2>Contributions</h2>";
+echo "<h4>Stack Overflow <span class=\"glyphicon glyphicon-sunglasses\"></span></h4>";
+echo "<p><a href=\"http://stackoverflow.com/users/6701768/mrheroux\" target=\"_blank\"><img src=\"http://stackoverflow.com/users/flair/6701768.png\" width=\"208\" height=\"58\" alt=\"profile for mrheroux at Stack Overflow, Q&amp;A for professional and enthusiast programmers\" title=\"profile for mrheroux at Stack Overflow, Q&amp;A for professional and enthusiast programmers\"></a></p>";
+echo "<hr/>";
+
+// repo
+echo "<h2>Repositories</h2>";
+echo "<h4>GitHub <span class=\"glyphicon glyphicon-retweet\"></span></h4>";
+echo "<p><a href=\"https://github.com/mrheroux\" target=\"_blank\">Check me out on GitHub <img src=\"https://a248.e.akamai.net/assets.github.com/images/icons/emoji/octocat.png\" height=\"20\" width=\"20\"/></a></p>";
+echo "<hr/>";
+
+echo "</div>";
+echo "</div>";
+echo "</div>";
+echo "</div>";
+?>

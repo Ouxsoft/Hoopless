@@ -1,0 +1,137 @@
+Time : 22:05:48
+SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'char_id' cannot be null
+Raw SQL : INSERT INTO `action_queue` (`char_id`,`action_id`, `wait_expiration`, `action_expiration`, `recovery_expiration`) VALUES (:char_id, :action_id, ADDTIME(NOW(), :wait_time), ADDTIME(NOW(), :action_time), ADDTIME(NOW(), :recovery_time));
+
+Time : 22:05:17
+SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'char_id' cannot be null
+Raw SQL : INSERT INTO `action_queue` (`char_id`,`action_id`, `wait_expiration`, `action_expiration`, `recovery_expiration`) VALUES (:char_id, :action_id, ADDTIME(NOW(), :wait_time), ADDTIME(NOW(), :action_time), ADDTIME(NOW(), :recovery_time));
+
+Time : 19:41:55
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '` LIMIT 1' at line 1
+Raw SQL : SELECT `life_value`, `drive_value`, `strength_value`, `agility_value`, `stamina_value`, `intellect_value`, `spirit_value`, `charisma_value`, `luck_value` FROM `char_stats` WHERE `char_id` = :char_id` LIMIT 1;
+
+Time : 18:51:02
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'afflictions.affiction_id' in 'on clause'
+Raw SQL : SELECT `afflictions`.`affliction_id` AS `id`, `afflictions`.`name` FROM `char_afflictions` LEFT JOIN `afflictions` ON `char_afflictions`.`affliction_id` = `afflictions`.`affiction_id` WHERE `char_id` = :char_id;
+
+Time : 18:48:53
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'afflictions.affiction_id' in 'on clause'
+Raw SQL : SELECT `afflictions`.`affliction_id` AS `id`, `afflictions`.`name` FROM `char_afflictions` LEFT JOIN `afflictions` ON `char_afflictions`.`affliction_id` = `afflictions`.`affiction_id` WHERE `char_id` = :char_id;
+
+Time : 18:46:02
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM `char_afflictions` LEFT JOIN `afflictions` ON `char_afflictions`.`afflictio' at line 1
+Raw SQL : SELECT * FROM `afflictions`.`affliction_id` AS `id`, `afflictions`.`name` FROM `char_afflictions` LEFT JOIN `afflictions` ON `char_afflictions`.`affliction_id` = `afflictions`.`affiction_id` WHERE `char_id` = :char_id;
+
+Time : 18:44:47
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM `char_afflictions` LEFT JOIN `afflictions` ON `char_afflictions`.`afflictio' at line 1
+Raw SQL : SELECT * FROM `afflictions`.`affliction_id` AS `id`, `afflictions`.`name` FROM `char_afflictions` LEFT JOIN `afflictions` ON `char_afflictions`.`affliction_id` = ` `afflictions`.`affiction_id` WHERE `char_id` = :char_id;
+
+Time : 18:44:35
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM `char_afflictions` LEFT JOIN `afflictions` ON `char_afflictions`.`afflictio' at line 1
+Raw SQL : SELECT * FROM `afflictions`.`affliction_id` AS `id`, `afflictions`.`name` FROM `char_afflictions` LEFT JOIN `afflictions` ON `char_afflictions`.`affliction_id` = `afflictions`.`id` LEFT JOIN `afflictions` ON `char_afflictions`.`affliction_id` = ` `afflictions`.`affiction_id` WHERE `char_id` = :char_id;
+
+Time : 18:42:45
+SQLSTATE[42000]: Syntax error or access violation: 1066 Not unique table/alias: 'afflictions'
+Raw SQL : SELECT `afflictions`.`affliction_id` AS `id`, `afflictions`.`name` FROM `char_afflictions` LEFT JOIN `afflictions` ON `char_afflictions` LEFT JOIN `afflictions` ON `char_afflictions`.`affliction_id` = ` `afflictions`.`affiction_id` WHERE `char_id` = :char_id;
+
+Time : 18:42:42
+SQLSTATE[42000]: Syntax error or access violation: 1066 Not unique table/alias: 'afflictions'
+Raw SQL : SELECT `afflictions`.`affliction_id` AS `id`, `afflictions`.`name` FROM `char_afflictions` LEFT JOIN `afflictions` ON `char_afflictions` LEFT JOIN `afflictions` ON `char_afflictions`.`affliction_id` = ` `afflictions`.`affiction_id` WHERE `char_id` = :char_id;
+
+Time : 18:41:42
+SQLSTATE[42000]: Syntax error or access violation: 1066 Not unique table/alias: 'afflictions'
+Raw SQL : SELECT `afflictions`.`affliction_id` AS `id`, `affliction`.`name` FROM `char_afflictions` LEFT JOIN `afflictions` ON `char_afflictions` LEFT JOIN `afflictions` ON `char_afflictions`.`affliction_id` = ` `afflictions`.`affiction_id` WHERE `char_id` = :char_id;
+
+Time : 18:41:33
+SQLSTATE[42000]: Syntax error or access violation: 1066 Not unique table/alias: 'afflictions'
+Raw SQL : SELECT `afflictions`,`affliction_id` AS `id`, `affliction`.`name` FROM `char_afflictions` LEFT JOIN `afflictions` ON `char_afflictions` LEFT JOIN `afflictions` ON `char_afflictions`.`affliction_id` = ` `afflictions`.`affiction_id` WHERE `char_id` = :char_id;
+
+Time : 18:38:27
+SQLSTATE[42000]: Syntax error or access violation: 1066 Not unique table/alias: 'afflictions'
+Raw SQL : SELECT `affliction_id` AS `id`, `affliction`.`name` FROM `char_afflictions` LEFT JOIN `afflictions` ON `char_afflictions` LEFT JOIN `afflictions` ON `char_afflictions`.`affliction_id` = ` `afflictions`.`affiction_id` WHERE `char_id` = :char_id;
+
+Time : 17:57:04
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'char_id' in 'field list'
+Raw SQL : INSERT INTO `action_queue` (`char_id`,`action_id`, `wait_expiration`, `action_expiration`, `recovery_expiration`) VALUES (:char_id, :action_id, ADDTIME(NOW(), :wait_time), ADDTIME(NOW(), :action_time), ADDTIME(NOW(), :recovery_time));
+
+Time : 17:56:11
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'char_id' in 'field list'
+Raw SQL : SELECT `char_id` AS `id`, CONCAT(`first_name`, ' ',`last_name`) AS `name` FROM `chars` WHERE `char_id` = :char_id LIMIT 1;
+
+Time : 17:36:54
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ': character_id LIMIT 1' at line 1
+Raw SQL : SELECT `character_id` AS `id`, CONCAT(`first_name`, ' ',`last_name`) AS `name` FROM `characters` WHERE `character_id` = : character_id LIMIT 1;
+
+Time : 17:35:49
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ': character_id LIMIT 1' at line 1
+Raw SQL : SELECT `character_id` AS `id`, CONCAT(`first_name`, ' ',`last_name`) AS `name` FROM `characters` WHERE `character_id` = : character_id LIMIT 1;
+
+Time : 07:12:46
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : INSERT INTO `action_queue` (`character_id`,`action_id`, `wait_expiration`, `action_expiration`, `recovery_expiration`) VALUES (:character_id, :action_id, ADDTIME(NOW(), :wait_time), ADDTIME(NOW(), :action_time), ADDTIME(NOW(), :recovery_time));
+
+Time : 07:12:15
+SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+Raw SQL : INSERT INTO `action_queue` (`character_id`,`action_id`, `wait_expiration`, `action_expiration`, `recovery_expiration`) VALUES (:character_id, :action_id, ADDTIME(NOW(), :wait_time), ADDTIME(NOW(), :action_time), ADDTIME(NOW(), :recovery_time));
+
+Time : 05:01:07
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?), DATE_ADD(NOW(),?), DATE_ADD(NOW(),?))' at line 1
+Raw SQL : INSERT INTO `action_queue` (`character_id`,`action_id`, `wait_expiration`, `action_expiration`, `recovery_expiration`) VALUES (:character_id, :action_id, DATE_ADD(NOW(),:wait_time), DATE_ADD(NOW(),:action_time), DATE_ADD(NOW(),:recovery_time));
+
+Time : 04:59:54
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?), DATE_ADD(NOW(),?), DATE_ADD(NOW(),?)' at line 1
+Raw SQL : INSERT INTO `action_queue` (`character_id`,`action_id`, `wait_expiration`, `action_expiration`, `recovery_expiration`) VALUES (:character_id, :action_id, DATE_ADD(NOW(),:wait_time), DATE_ADD(NOW(),:action_time), DATE_ADD(NOW(),:recovery_time);
+
+Time : 04:01:45
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?), DATE_ADD(NOW(),?), DATE_ADD(NOW(),?)' at line 1
+Raw SQL : INSERT INTO `action_queue` (`character_id`,`action_id`, `wait_expiration`, `action_expiration`, `recovery_expiration`) VALUES (:character_id, :action_id, DATE_ADD(NOW(),:wait_time), DATE_ADD(NOW(),:action_time), DATE_ADD(NOW(),:recovery_time);
+
+Time : 04:00:57
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?), DATE_ADD(NOW(),?), DATE_ADD(NOW(),?)' at line 1
+Raw SQL : INSERT INTO `action_queue` (`character_id`,`action_id`, `wait_expiration`, `action_expiration`, `recovery_expiration`) VALUES (:character_id, :action_id, DATE_ADD(NOW(),:wait_expiration), DATE_ADD(NOW(),:action_expiration), DATE_ADD(NOW(),:recovery_expiration);
+
+Time : 03:55:33
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mqbtg.action_que' doesn't exist
+Raw SQL : INSERT INTO `action_que` (`character_id`,`action_id`, `wait_expiration`, `action_expiration`, `recovery_expiration`) VALUES (:character_id, :action_id, :wait_expiration, :action_expiration, :recovery_expiration);
+
+Time : 03:53:56
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mqbtg.action_que' doesn't exist
+Raw SQL : INSERT INTO `action_que` (`character_id`,`action_id`, `wait_expiration`, `action_expiration`, `recovery_expiration`) VALUES (:character_id, :action_id, :wait_expiration, :action_expiration, :recovery_expiration);
+
+Time : 03:53:54
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mqbtg.action_que' doesn't exist
+Raw SQL : INSERT INTO `action_que` (`character_id`,`action_id`, `wait_expiration`, `action_expiration`, `recovery_expiration`) VALUES (:character_id, :action_id, :wait_expiration, :action_expiration, :recovery_expiration);
+
+Time : 03:53:24
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mqbtg.action_que' doesn't exist
+Raw SQL : INSERT INTO `action_que` (`character_id`,`action_id`, `wait_expiration`, `action_expiration`, `recovery_expiration`) VALUES (:character_id, :action_id, :wait_expiration, :action_expiration, :recovery_expiration);
+
+Time : 03:51:22
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mqbtg.action_que' doesn't exist
+Raw SQL : INSERT INTO `action_que` (`character_id`,`action_id`, `wait_expiration`, `action_expiration`, `recovery_expiration`) VALUES (:character_id, :action_id, :wait_expiration, :action_expiration, :recovery_expiration);
+
+Time : 03:23:24
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '` FROM `actions` WHERE `action_id` = ? LIMIT 1' at line 1
+Raw SQL : SELECT `wait`, `action, `recovery` FROM `actions` WHERE `action_id` = :action_id LIMIT 1;
+
+Time : 03:23:23
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '` FROM `actions` WHERE `action_id` = ? LIMIT 1' at line 1
+Raw SQL : SELECT `wait`, `action, `recovery` FROM `actions` WHERE `action_id` = :action_id LIMIT 1;
+
+Time : 03:21:23
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '` FROM `actions` WHERE `action_id` = ? LIMIT 1' at line 1
+Raw SQL : SELECT `wait`, `action, `recovery` FROM `actions` WHERE `action_id` = :action_id LIMIT 1;
+
+Time : 03:20:55
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '` FROM `action_id` = ? LIMIT 1' at line 1
+Raw SQL : SELECT `wait`, `action, `recovery` FROM `action_id` = :action_id LIMIT 1;
+
+Time : 03:20:36
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '` FROM `action_id` = ? LIMIT 1' at line 1
+Raw SQL : SELECT `wait`, `action, `recovery` FROM `action_id` = :action_id LIMIT 1;
+
+Time : 03:04:41
+SQLSTATE[HY000] [1044] Access denied for user 'hxcmsdbrw'@'localhost' to database 'mqbtg'
+
+Time : 03:04:32
+SQLSTATE[HY000] [1045] Access denied for user ''@'localhost' (using password: NO)

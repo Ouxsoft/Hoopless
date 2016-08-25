@@ -6,7 +6,7 @@ HXCMS is a light-weight content management system (CMS) designed for PHP develop
 
 Select source code has been provided only. The SQL setup script will be released soon.
 
-System Requirements:
+##System Requirements:
 * MySQL
 * PHP with pdo extention
 * Configure php.ini
@@ -15,6 +15,6 @@ System Requirements:
  * post_max_size = 20M
  * Apache with mod_rewrite
 
-Installation:
+##Installation:
  1. Run SQL in database (unaviable).
  2. Edit config.ini.php and enter server and database settings.

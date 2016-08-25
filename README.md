@@ -1,4 +1,4 @@
 # hxcms
-Light weight fast content management system for PHP developers.
+HXCMS is a light-weight content management system (CMS) designed for PHP developers to create fast websites.
 
-Only select source code is provided. The instance class lib is intentionally missing, as are config.ini.php settings, SQL setup script, and resources/portfolio/ images. These will be released when all security issues have been addressed.
+Select source code has been provided only. The instance class lib is intentionally missing, as are config.ini.php settings, SQL setup script, and resources/portfolio/images. These will be released when all security issues have been addressed.

@@ -44,7 +44,7 @@ echo "</div>";
 echo "</footer>";
 
 
-// jquery 
+// jquery
 echo "<script src=\"{$instance->href("js/jquery.min.js")}\"></script>";
 
 // Bootstrap core JavaScript placed at the end of the document so the pages load faster

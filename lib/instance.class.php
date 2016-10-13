@@ -97,7 +97,6 @@ class instance {
 		}
 
 		$db = new database($this->config["host"], $this->config["user"], $this->config["password"], $this->config["dbname"]);
-
 		// parse raw request to determine page requested
 		if(isset($_GET["request"])){
 			$this->raw_request = preg_split("/\//", substr($_GET["request"],1));	

@@ -16,17 +16,7 @@ echo "<meta name=\"mobile-web-app-capable\" content=\"yes\">";
 echo "<meta name=\"theme-color\" content=\"#000000\">";
 echo "<link rel=\"shortcut icon\" href=\"{$instance->href("img/favicon/favicon.ico")}\" type=\"image/x-icon\">";
 echo "<link rel=\"icon\" href=\"{$instance->href("icons/favicon/favicon.ico")}\" type=\"image/x-icon\">";
-echo "<link rel=\"stylesheet\" href=\"{$instance->href("css/general.css")}\" type=\"text/css\"/>";
-
-/*
-
-// meta
-;
-echo "<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\"/>";
-echo "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1\">";
-echo "<meta name=\"apple-mobile-web-app-capable\" content=\"yes\">";
-echo "<meta name=\"mobile-web-app-capable\" content=\"yes\">";
-*/
+echo "<link rel=\"stylesheet\" href=\"{$instance->href("css/general.min.css")}\" type=\"text/css\"/>";
 
 echo "</head>";
 echo "<body style=\"background-image: url('{$instance->href("img/body-container/".$instance->page["current"]["id"].".jpg")}');\">";
@@ -75,13 +65,22 @@ foreach($menu as $key => $value){
 		echo "<a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">{$value["title"]} <b class=\"caret\"></b></a>";
 		echo "<ul class=\"dropdown-menu multi-level\">";
 		foreach($value["submenu"] as $key2 => $value2){
-			echo "<li".(($value2["link"]==$instance->page["current"]["link"])?" class=\"active\"":"")."><a ".(!isset($value2["class"])?:" class=\"{$value2["class"]}\"").(!isset($value2["target"])?:" target=\"{$value2["target"]}\"")." href=\"{$instance->href($value2["link"])}\">{$value2["title"]}</a></li>";
+			echo "<li".(($value2["link"]==$instance->page["current"]["link"])?" class=\"active\"":"")."><a ";
+			if(!isset($value2["class"])){
+				echo " class=\"{$value2["class"]}\"";
+			}
+			if(!isset($value2["target"])){
+				echo " target=\"{$value2["target"]}\"";
+			}
+			echo " href=\"{$instance->href($value2["link"])}\">{$value2["title"]}</a></li>";
 		}
 		echo "</ul>";
 	} else {
-		echo "<a ".(!isset($value["class"])?:" class=\"{$value["class"]}\"").(!isset($value["target"])?:" target=\"{$value["target"]}\"")." href=\"{$instance->href($value["link"])}\">{$value["title"]}</a>";
-		
-	} 
+		echo "<a ".(!isset($value["class"])?"":" class=\"{$value["class"]}\"");
+		echo (!isset($value["target"])?"":" target=\"{$value["target"]}\"");
+		echo " href=\"{$instance->href($value["link"])}\">{$value["title"]}</a>";
+
+	}
 	echo "</li>";
 }
 echo "</ul>";

@@ -13,13 +13,12 @@ Select source code has been provided only. The SQL setup script will be released
  * post_max_size = 20M
  * Apache with mod_rewrite
 
-##Installation:
-##Configure Server
- 1. sudo apt-get install apache2 php7.0 php7.0-mbstring mysql-server mysql-client php7.0-mysql
- 2. create virtualhost
-  sudo vim /etc/apache2/sites-avaliable/sites.conf
-  sudo a2enmod rewrite
-sudo a2enmod headers
+1. Setup Server
+* sudo apt-get install apache2 php7.0 php7.0-mbstring mysql-server mysql-client php7.0-mysql
+* create virtualhost
+* sudo vim /etc/apache2/sites-avaliable/sites.conf
+* sudo a2enmod rewrite
+* sudo a2enmod headers
 
 Service apache2 restart
  1. Run SQL in database (not released).

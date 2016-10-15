@@ -39,7 +39,7 @@ if(isset($_POST["contact"])) {
 		$error = true;
 		$alert->add("warning","Incorrect security code supplied");
 	}
-	
+
 	if($error==false) {
 		$headers = "From: contact form <{$contact["email"]}>\r\n";
 		$headers .= "Reply-To: <{$contact["email"]}>\r\n";
@@ -85,8 +85,8 @@ echo "<input name=\"contact[subject]\" id=\"subject\" value=\"{$contact["subject
 echo "</fieldset>";
 
 echo "<fieldset class=\"form-group\">";
-echo "<label for=\"Message\">Message<em class=\"required\">*</em></label>";
-echo "<textarea name=\"contact[message]\" id=\"message\" class=\"form-control\" placeholder=\"Enter message\" aria-required=\"true\"/>{$contact["message"]}</textarea>";
+echo "<label for=\"message\">Message<em class=\"required\">*</em></label>";
+echo "<textarea name=\"contact[message]\" id=\"message\" class=\"form-control\" placeholder=\"Enter message\" aria-required=\"true\">{$contact["message"]}</textarea>";
 echo "</fieldset>";
 
 echo "<fieldset class=\"form-group\">";
@@ -106,7 +106,7 @@ echo "<div class=\"col-md-4\">";
 echo "<h2>Stay Connected</h2>";
 echo "<h4>Linkedin <span class=\"glyphicon glyphicon-thumbs-up\"></span></h4>";
 echo "<p>Please feel free to connect with me:</p>";
-echo "<p><a href=\"https://www.linkedin.com/in/mrheroux\" target=\"_blank\"><img src=\"https://static.licdn.com/scds/common/u/img/webpromo/btn_myprofile_160x33.png\" width=\"160\" height=\"33\" border=\"0\" alt=\"View Matt Heroux's profile on LinkedIn\"></a></p>";
+echo "<p><a href=\"https://www.linkedin.com/in/mrheroux\" target=\"_blank\"><img src=\"https://static.licdn.com/scds/common/u/img/webpromo/btn_myprofile_160x33.png\" width=\"160\" height=\"33\" alt=\"View Matt Heroux's profile on LinkedIn\"></a></p>";
 echo "<hr/>";
 
 // contribute
@@ -118,10 +118,9 @@ echo "<hr/>";
 // repo
 echo "<h2>Repositories</h2>";
 echo "<h4>GitHub <span class=\"glyphicon glyphicon-retweet\"></span></h4>";
-echo "<p><a href=\"https://github.com/mrheroux\" target=\"_blank\">Check me out on GitHub <img src=\"https://a248.e.akamai.net/assets.github.com/images/icons/emoji/octocat.png\" height=\"20\" width=\"20\"/></a></p>";
+echo "<p><a href=\"https://github.com/mrheroux\" target=\"_blank\">Check me out on GitHub <img src=\"https://a248.e.akamai.net/assets.github.com/images/icons/emoji/octocat.png\" alt=\"GitHub\" height=\"20\" width=\"20\"/></a></p>";
 echo "<hr/>";
 
-echo "</div>";
 echo "</div>";
 echo "</div>";
 echo "</div>";

@@ -112,7 +112,7 @@ echo "</li>";
 // web developer
 echo "<li><b>Web Developer / Game Developer</b><span class=\"right\">2004 to 2006</span><br/><i>Small Startup Studio (Game Designer) &mdash; Online.</i>";
 echo "<ul>";
-echo "<li>"
+echo "<li>";
 echo "<ul>";
 echo "<li>Built development platform utilizing LAMP, Wordpress, phpBB, punBB, DokuWiki, et al. to enable users to collaborate effectively.</li>";
 echo "<li>Managed a team of eight (8) developers to release game for entry in PS2Dev competition.</li>";

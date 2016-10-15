@@ -112,6 +112,7 @@ echo "</li>";
 // web developer
 echo "<li><b>Web Developer / Game Developer</b><span class=\"right\">2004 to 2006</span><br/><i>Small Startup Studio (Game Designer) &mdash; Online.</i>";
 echo "<ul>";
+echo "<li>"
 echo "<ul>";
 echo "<li>Built development platform utilizing LAMP, Wordpress, phpBB, punBB, DokuWiki, et al. to enable users to collaborate effectively.</li>";
 echo "<li>Managed a team of eight (8) developers to release game for entry in PS2Dev competition.</li>";
@@ -120,14 +121,17 @@ echo "<li>Programmed 2D isometric game engine for Portable Sony PlayStation&reg;
 echo "<li>Programmed visual level editor in C# and .NET for quick and efficient level design.</li>";
 echo "<li>Designed interface elements through pixel incorporation to effectively communicate game stats on mobile (3.8 inch) screen.</li>";
 echo "</ul>";
+echo "</li>";
 echo "</ul>";
 echo "</li>";
 // layout editor
 echo "<li><b>Layout Editor</b><span class=\"right\">2003</span><br/><i>Lyndon Institute (Independent Publication) &mdash; Lyndon Center, Vermont.</i>";
 echo "<ul>";
+echo "<li>";
 echo "<ul>";
 echo "<li>Arranged and balanced content for reoccurring publication using primarily Adobe&reg; Illustrator.</li>";
 echo "</ul>";
+echo "</li>";
 echo "</ul>";
 echo "</li>";
 echo "</ul>";

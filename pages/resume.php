@@ -45,7 +45,6 @@ echo "</div>";
 echo "<div class=\"container background-white\">";
 echo "<h2>Professional Experience:</h2>";
 echo "<ul>";
-
 echo "<li><b>Lead Web Developer</b><span class=\"right\">2012 to Present</span><br/><i>JNH Environmental Services, Inc. (Turnkey EHS Services Provider) &mdash; Rutland, Vermont.</i>";
 echo "<ul>";
 echo "<li><b>FULL STACK DEVELOPMENT. Spearheaded both the front-end and back-end development of proprietary web services.</b>";
@@ -60,7 +59,6 @@ echo "<li>Architected the development of SaaS services through the design of dat
 echo "<li>Obtained data for employee payroll and improved tracking billable time by creating a timesheet and project management system using C#, ASP.NET, and .NET framework.</li>";
 echo "</ul>";
 echo "</li>";
-
 echo "<li><b>PROJECT MANAGEMENT. Managed projects throughout all development phases.</b>";
 echo "<ul>";
 echo "<li>Decreased development requirements by leading a team in the creation and maintenance of in-house mobile-friendly custom-written Content Management System (CMS) built primarily with PHP, MySQL, HTML5, CSS3, JavaScript, jQuery, BASH, and Git.</li>";
@@ -68,7 +66,6 @@ echo "<li>Reduced development costs and times by introducing Agile Development (
 echo "<li>Completed projects on time and within budget by effectively communicating with staff, subcontractors, vendors, and clientele.</li>";
 echo "</ul>";
 echo "</li>";
-
 echo "<li><b>ART DESIGN. Created assets to help promote the company's brand and products.</b>";
 echo "<ul>";
 echo "<li>Revitalized company image by refining the company's logo and working with the USPTO on registration.</li>";
@@ -77,14 +74,12 @@ echo "<li>Improved SEO ranking and creditability by revamping the company's main
 echo "<li>Generated web assets and print assets, including report covers, presentations themes, web images, icons, banners, facility logos, etc.</li>";
 echo "</ul>";
 echo "</li>";
-
 echo "<li><b>HARDWARE. Researched, built, and maintained systems designed to support current needs and allow for growth.</b>";
 echo "<ul>";
 echo "<li>Supported reliable web application design by selecting and managing web development back-end, including CentOS Linux servers.</li>";
 echo "<li>Enabled employees to perform daily job duties by selecting, configuring, and/or maintaining company's infrastructure including: workstations, network configurations, NAS servers, VoIP systems, printers, fax machine, et al.</li>";
 echo "</ul>";
 echo "</li>";
-
 echo "<li><b>ENGINEERING. Created engineering deliverables that were reviewed, approved, and certified by Professional Engineers.</b>";
 echo "<ul>";
 echo "<li>Defined project requirements through requirements analysis, design, implementation, testing and evolution of products and through working with clients, consulting authorities, and learning applicable federal, state, and local regulations.</li>";
@@ -93,9 +88,7 @@ echo "<li>Designed facility sitemaps to accompany deliverables using CAD (DraftS
 echo "<li>Protected human health and the environment as well as ensured compliance by conducting analytical testing, performing engineering calculations (e.g. stack testing, industrial hygiene exposure, etc.), and authoring reports.</li>";
 echo "</ul>";
 echo "</li>";
-
 echo "</ul>";
-
 echo "<li><b>Programmer Operator</b><span class=\"right\">2006 to 2011</span><br/><i>Leddy Group (Staffing Agency) / Questech&reg; Corporation Decorative Accessories Manufacturer &mdash; Rutland, Vermont.</i>";
 echo "<ul>";
 echo "<li><b>FULL STACK DEVELOPMENT. Developed software applications and tools used on multiple abstraction layers.</b>";
@@ -173,6 +166,5 @@ echo "<li><b>SkillsUSA Computer Programming</b><span class=\"right\">2005</span>
 echo "<li><b>Senator James M. Jeffords Award</b><span class=\"right\">2005</span><br/>Painted to win Senator James M. Jeffords award for statewide art competition.</li>";
 echo "<li><b>American Computer Science League</b><span class=\"right\">2003 to 2004</span><br/>Programmed several applications over the course of the year to win 1st place in American Computer Science League competition.</li>";
 echo "</ul>";
-echo "</div>";
 echo "</div>";
 ?>

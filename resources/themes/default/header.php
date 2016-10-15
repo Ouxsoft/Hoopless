@@ -69,7 +69,7 @@ foreach($menu as $key => $value){
 			if(!isset($value2["class"])){
 				echo " class=\"{$value2["class"]}\"";
 			}
-			if(!isset($value2["target"])){
+			if(isset($value2["target"])){
 				echo " target=\"{$value2["target"]}\"";
 			}
 			echo " href=\"{$instance->href($value2["link"])}\">{$value2["title"]}</a></li>";

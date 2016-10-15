@@ -2,10 +2,9 @@
 
 echo "<h1 class=\"container center\">Resume</h1>";
 
-echo "<div class=\"container background-white\">";
 // objective
-echo "<a href=\"{$instance->href("resume.pdf")}\" target=\"_blank\" class=\"right\"><img src=\"{$instance->href("img/file-icon/pdf.png")}\"/></a>";
-
+echo "<div class=\"container background-white\">";
+echo "<a href=\"{$instance->href("resume.pdf")}\" target=\"_blank\" class=\"right\"><img src=\"{$instance->href("img/file-icon/pdf.png")}\" alt=\"PDF\"/></a>";
 echo "<h2>Objective:</h2>";
 echo "<p>Work on a team to develop and evolve powerful, attractive, and user-friendly web applications that makes life easier for everyone.</p>";
 echo "</div>";
@@ -15,25 +14,30 @@ echo "<div class=\"container background-white\">";
 echo "<h2>Skills:</h2>";
 echo "<div class=\"row\">";
 
-echo "<ul>";
 echo "<div class=\"col-md-3\">";
+echo "<ul>";
 echo "<li>Full Stack Development</li>";
 echo "<li>Coding and Scripting</li>";
 echo "<li>Database Development</li>";
+echo "</ul>";
 echo "</div>";
 
 echo "<div class=\"col-md-3\">";
+echo "<ul>";
 echo "<li>Project Management</li>";
 echo "<li>Graphic Design</li>";
 echo "<li>Troubleshooting and Debugging</li>";
+echo "</ul>";
 echo "</div>";
 
 echo "<div class=\"col-md-3\">";
+echo "<ul>";
 echo "<li>Responsive Web Design</li>";
 echo "<li>Documentation</li>";
 echo "<li>Customer Relations</li>";
-echo "</div>";
 echo "</ul>";
+echo "</div>";
+
 echo "</div>";
 echo "</div>";
 
@@ -41,9 +45,9 @@ echo "</div>";
 echo "<div class=\"container background-white\">";
 echo "<h2>Professional Experience:</h2>";
 echo "<ul>";
+
 echo "<li><b>Lead Web Developer</b><span class=\"right\">2012 to Present</span><br/><i>JNH Environmental Services, Inc. (Turnkey EHS Services Provider) &mdash; Rutland, Vermont.</i>";
 echo "<ul>";
-
 echo "<li><b>FULL STACK DEVELOPMENT. Spearheaded both the front-end and back-end development of proprietary web services.</b>";
 echo "<ul>";
 echo "<li>Enabled for the proper characterization, packaging, labeling, shipping, and tracking of thousands of hazardous shipments in United States and Canada annually through the development of a comprehensive waste management system.</li>";

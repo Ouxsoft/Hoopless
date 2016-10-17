@@ -23,9 +23,9 @@ echo "<body style=\"background-image: url('{$instance->href("img/body-container/
 echo "<div class=\"window\" id=\"pagetop\">";
 echo "<form method=\"post\" name=\"user\">";
 if($instance->page["current"]["link"]!="home.html"){
-	echo "<div class=\"brand\">";
 	echo "<div class=\"container\">";
-	echo "<a href=\"{$instance->href("home.html")}\" title=\"Home\"><img src=\"{$instance->href("img/common/logo.png")}\" alt=\"Mr. Heroux\"/></a>";
+	echo "<div class=\"brand\">";
+	echo "<a href=\"{$instance->href("home.html")}\" title=\"Home\"><em>Matt</em> Heroux</a>";
 	echo "</div>";
 	echo "</div>";
 }

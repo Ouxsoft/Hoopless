@@ -1,0 +1,126 @@
+/* headings */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0.67em;
+  margin-bottom: 0.2em;
+}
+
+h1 {
+  font-family: 'big-n-bold', Helvetica, sans-serif;
+  color: #FFFFFF;
+  clear: both;
+  display: block;
+  font-weight: 500;
+  line-height: 1.1;
+  text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+  em {
+    font-style: normal !important;
+    color: #384B63 !important;
+  }
+  >.normal {
+    font-size: 12px !important;
+  }
+  &.center {
+    text-align: center;
+  }
+  font-size: 300%;
+  .small, small {
+    font-size: 65%;
+    font-weight: 400;
+    line-height: 1;
+    color: #777;
+  }
+}
+
+h2 {
+  font-family: 'big-n-bold', Helvetica, sans-serif;
+  color: #384B63;
+  clear: both;
+  display: block;
+  font-weight: 500;
+  line-height: 1.1;
+  font-size: 160%;
+  &.center {
+    text-align: center;
+  }
+  .small, small {
+    font-weight: 400;
+    line-height: 1;
+    color: #777;
+    font-size: 65%;
+  }
+}
+
+h3 {
+  color: #384B63;
+  font-family: 'Istok Web', Helvetica, sans-serif;
+  clear: both;
+  display: block;
+  font-weight: 500;
+  line-height: 1.1;
+  font-size: 160%;
+  &.center {
+    text-align: center;
+  }
+  .small, small {
+    font-weight: 400;
+    line-height: 1;
+    color: #777;
+    font-size: 65%;
+  }
+}
+
+h4 {
+  color: #384B63;
+  font-family: 'Istok Web', Helvetica, sans-serif;
+  clear: both;
+  display: block;
+  font-weight: 500;
+  line-height: 1.1;
+  font-size: 120%;
+  font-weight: 700;
+  &.center {
+    text-align: center;
+  }
+  .small, small {
+    font-weight: 400;
+    line-height: 1;
+    color: #777;
+    font-size: 75%;
+  }
+}
+
+h5 {
+  font-family: 'Istok Web', Helvetica, sans-serif;
+  clear: both;
+  display: block;
+  font-weight: 500;
+  line-height: 1.1;
+  font-size: 115%;
+  &.center {
+    text-align: center;
+  }
+  .small, small {
+    font-weight: 400;
+    line-height: 1;
+    color: #777;
+    font-size: 75%;
+  }
+}
+
+h6 {
+  font-family: 'Istok Web', Helvetica, sans-serif;
+  clear: both;
+  display: block;
+  font-weight: 500;
+  line-height: 1.1;
+  font-size: 110%;
+  &.center {
+    text-align: center;
+  }
+  .small, small {
+    font-weight: 400;
+    line-height: 1;
+    color: #777;
+    font-size: 75%;
+  }
+}

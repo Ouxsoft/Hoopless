@@ -1501,60 +1501,6 @@ a.thumbnail {
   text-align: left;
 }
 
-
-.media {
-  margin-top: 15px;
-  &:first-child {
-    margin-top: 0;
-  }
-  overflow: hidden;
-  zoom: 1;
-}
-
-.media-body {
-  overflow: hidden;
-  zoom: 1;
-  width: 10000px;
-}
-
-.media-object {
-  display: block;
-  &.img-thumbnail {
-    max-width: none;
-  }
-}
-
-.media-right, .media > .pull-right {
-  padding-left: 10px;
-}
-
-.media-left, .media > .pull-left {
-  padding-right: 10px;
-}
-
-.media-body, .media-left, .media-right {
-  display: table-cell;
-  vertical-align: top;
-}
-
-.media-middle {
-  vertical-align: middle;
-}
-
-.media-bottom {
-  vertical-align: bottom;
-}
-
-.media-heading {
-  margin-top: 0;
-  margin-bottom: 5px;
-}
-
-.media-list {
-  padding-left: 0;
-  list-style: none;
-}
-
 .list-group {
   padding-left: 0;
   margin-bottom: 20px;
@@ -1933,29 +1879,6 @@ button.list-group-item-danger.active {
     cursor: pointer;
     filter: alpha(opacity = 50);
     opacity: .5;
-  }
-}
-
-button.close {
-  -webkit-appearance: none;
-  padding: 0;
-  cursor: pointer;
-  background: 0 0;
-  border: 0;
-}
-
-
-.btn-group-vertical > .btn-group {
-  &:after, &:before {
-    display: table;
-    content: " ";
-  }
-}
-
-.btn-toolbar {
-  &:after, &:before {
-    display: table;
-    content: " ";
   }
 }
 
@@ -2423,8 +2346,6 @@ ul.features_list {
   background-color: #ECE7E2;
   color: #000000;
 }
-
-
 
 /* sign-in */
 

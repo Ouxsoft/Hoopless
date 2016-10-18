@@ -11,16 +11,15 @@ function portfolio_href($type, $string){
 }
 
 echo "<h1 class=\"container center\">Art Design</h1>";
-
-echo "<div class=\"container background-white\">";
 // experiences
+echo "<div class=\"container background-white\">";
 echo "<h2 class=\"center\">Experiences</h2>";
 echo "<h3>Careers</h3>";
 
 echo "<div class=\"row\">";
 echo "<div class=\"col-md-4\"><h4>JNH Environmental Service, Inc.</h4>2012 to Present</div>";
 echo "<div class=\"col-md-8\"><h4>Lead Developer</h4>";
-echo "<p>Design web content, promotion items, and updated company's logo.</a></p>";
+echo "<p>Design web content, promotion items, and updated company's logo.</p>";
 echo "<div class=\"experience-details\">";
 echo "<span class=\"glyphicon glyphicon-map-marker\"></span>Rutland and Brandon, Vermont USA | <span class=\"glyphicon glyphicon-link\"></span> <a href=\"https://jnhes.com\">https://jnhes.com</a>";
 echo "</div>";
@@ -40,16 +39,14 @@ echo "</div>";
 echo "<div class=\"row\">";
 echo "<div class=\"col-md-4\"><h4>Lyndon Institute (Independent Publication)</h4>2012 to Present</div>";
 echo "<div class=\"col-md-8\"><h4>Layout Editor</h4>";
-echo "<p>Arranged and balanced content for reoccurring publication using primarily Adobe® Illustrator.</a></p>";
+echo "<p>Arranged and balanced content for reoccurring publication using primarily Adobe® Illustrator.</p>";
 echo "<div class=\"experience-details\">";
 echo "<span class=\"glyphicon glyphicon-map-marker\"></span>Lyndon Center, Vermont";
 echo "</div>";
 echo "</div>";
 echo "</div>";
-echo "</div>";
 
 //echo "<p>I have always like drawing and admire the works of Alex Grey (who I've enjoyed watching paint at CoSM) and Kentaro Miura.</p>";
-
 
 // abilities
 echo "<div class=\"container background-white\">";
@@ -68,13 +65,14 @@ if(count($results)>0){
 		echo "<span class=\"ability-title\">{$row["title"]}</span>";
 		echo "<span class=\"ability-score\">";
 		for($i = 1; $i<=5; $i++){
-			echo "<span class=\"glyphicon glyphicon-star".(($i<=$row["score"])?" filled":"")."\"></span>";		
+			echo "<span class=\"glyphicon glyphicon-star".(($i<=$row["score"])?" filled":"")."\"></span>";
 		}
 		echo "</span>";
 		echo "</li>";
-		echo "</div>";	
+		echo "</ul>";
+		echo "</div>";
 	}
-	echo "</div>";	
+	echo "</div>";
 }
 
 // tools
@@ -90,11 +88,12 @@ if(count($results)>0){
 		echo "<span class=\"ability-title\">{$row["title"]}</span>";
 		echo "<span class=\"ability-score\">";
 		for($i = 1; $i<=5; $i++){
-			echo "<span class=\"glyphicon glyphicon-star".(($i<=$row["score"])?" filled":"")."\"></span>";		
+			echo "<span class=\"glyphicon glyphicon-star".(($i<=$row["score"])?" filled":"")."\"></span>";
 		}
 		echo "</span>";
 		echo "</li>";
-		echo "</div>";	
+		echo "</ul>";
+		echo "</div>";
 	}
 	echo "</div>";
 }

@@ -57,6 +57,9 @@ echo "<script src=\"https://getbootstrap.com/assets/js/ie10-viewport-bug-workaro
 echo "<script src=\"{$instance->href("js/lightbox.js")}\"></script>";
 echo "<script>$(document).delegate('*[data-toggle=\"lightbox\"]', 'click', function(event) { event.preventDefault(); $(this).ekkoLightbox();}); </script>";
 
+// prism
+echo "<script src=\"{$instance->href("js/prism.js")}\"></script>";
+
 // css
 echo "<link rel=\"stylesheet\" href=\"{$instance->href("css/fonts.css")}\" type=\"text/css\"/>";
 echo "<link rel=\"stylesheet\" href=\"//fonts.googleapis.com/css?family=Istok+Web\" type=\"text/css\"/>";

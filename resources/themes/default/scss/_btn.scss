@@ -1,3 +1,25 @@
+button.close {
+  -webkit-appearance: none;
+  padding: 0;
+  cursor: pointer;
+  background: 0 0;
+  border: 0;
+}
+
+
+.btn-group-vertical > .btn-group {
+  &:after, &:before {
+    display: table;
+    content: " ";
+  }
+}
+
+.btn-toolbar {
+  &:after, &:before {
+    display: table;
+    content: " ";
+  }
+}
 
 .btn {
   display: inline-block;

@@ -5,6 +5,7 @@ echo "<p>Essentially a website is a content delivery system and each delivery is
 echo "<h3>Code</h3>";
 ?>
 <pre>
+<code class="language-php">
 class instance {
 	private $config;
 	private $raw_request;
@@ -15,7 +16,7 @@ class instance {
 	public $page = array();
 	public $user = array("id" =&gt; null);
 	public $support = array();
-	
+
 	private function href_hash($record_id, $page){
 		$ui = "{$page}{$record_id}";
 		if(array_key_exists($ui, $this-&gt;hash_cache)){
@@ -106,7 +107,7 @@ class instance {
 
 		// parse raw request to determine page requested
 		if(isset($_GET["request"])){
-			$this-&gt;raw_request = preg_split("/\//", substr($_GET["request"],1));	
+			$this-&gt;raw_request = preg_split("/\//", substr($_GET["request"],1));
 		} else {
 			$this-&gt;raw_request[0] = "home.html";
 		}
@@ -114,7 +115,7 @@ class instance {
 		// 	end(explode('.', end($this-&gt;raw_request)));
 		$this-&gt;page["current"]["link"] = implode("/", $this-&gt;raw_request);
 		$this-&gt;page["current"]["file"] = str_replace(".{$_extension}",".php", $this-&gt;page["current"]["link"]);
-	
+
 		// load page info based on page file name if available
 		$db-&gt;bind("link",$this-&gt;page["current"]["link"]);
 		$row = $db-&gt;row("SELECT `pages`.`id`, `pages`.`name`, `pages`.`standalone`, `pages`.`signin_required`, `pages`.`meta_description`, `page_permissions`.`state` FROM `pages` LEFT JOIN `page_permissions` ON `pages`.`id` = `page_permissions`.`page_id` WHERE `link` = :link LIMIT 1;");
@@ -141,10 +142,10 @@ class instance {
 				$this-&gt;page["current"]["name"] = "Home";
 				$this-&gt;page["current"]["standalone"] = false;
 				$this-&gt;page["current"]["state"] = "active";
-				$this-&gt;page["breadcrumbs"] = array(array("id" =&gt; 1, "link" =&gt; "home.html", "name"=&gt;"Home"));	
+				$this-&gt;page["breadcrumbs"] = array(array("id" =&gt; 1, "link" =&gt; "home.html", "name"=&gt;"Home"));
 			}
 		}
-		
+
 		// find out who user is
 		$this-&gt;user_get();
 
@@ -157,7 +158,7 @@ class instance {
 		} else {
 			$this-&gt;user["permission"] = false;
 		}
-		
+
 		// get uri
 		$this-&gt;uri = $this-&gt;href($this-&gt;page["current"]["link"]);
 		if(count($_GET)&gt;1){
@@ -197,7 +198,7 @@ class instance {
 		if(isset($_POST["user-sign-out"])&&($_POST["user-sign-out"]==1)){
 			// sign out user if requested
 			if(isset($_SESSION["account"]["id"])){
-				// add sign off record, which invalidates token		
+				// add sign off record, which invalidates token
 				$db-&gt;bind("remote_address",$_SERVER["REMOTE_ADDR"]);
 				$db-&gt;bind("user_id",$_SESSION["account"]["id"]);
 				$db-&gt;query("UPDATE `user_authentication` SET `sign_out_time` = NOW() WHERE `remote_address` = :remote_address AND `user_id` = :user_id AND `sign_out_time` IS NULL LIMIT 1;");
@@ -206,7 +207,7 @@ class instance {
 			// destroy cookie
 			unset($_COOKIE["site_nosense"]);
 			@setcookie("site_nosense", null, -1, '/');
-		} 
+		}
 		if (isset($_SESSION["account"]["id"])) {
 			// check for session
 			$this-&gt;user = $_SESSION["account"];
@@ -234,8 +235,8 @@ class instance {
 				global $brute_force_detected;
 				$brute_force_detected = true;
 			} else {
-				// trying to sign-in salt and password for check		
-				// check if user exist			
+				// trying to sign-in salt and password for check
+				// check if user exist
 				$db-&gt;bind("email", $_POST["authorization"]["email"]);
 				$row = $db-&gt;row("SELECT `id`, `username`, `dateformat`, `timeformat`, `timezone`, `salt`, `password` FROM `users` WHERE `email` = :email LIMIT 1;");
 				if ($row==null){
@@ -250,7 +251,7 @@ class instance {
 					if($row["password"] == crypt($_POST["authorization"]["password"], "\$4\$31\${$row["salt"]}")){
 						unset($row["salt"]);
 						unset($row["password"]);
-						$this-&gt;user = $row;	
+						$this-&gt;user = $row;
 						$_SESSION["account"] = $row;
 						$db-&gt;bind("remote_address", $_SERVER['REMOTE_ADDR']);
 						$db-&gt;bind("user_id",$row["id"]);
@@ -264,7 +265,7 @@ class instance {
 							$db-&gt;bind("token",null);
 							$db-&gt;bind("stay_signed_in",0);
 						}
-						$db-&gt;query("INSERT INTO `user_authentication` (`id`, `remote_address`, `user_id`, `authenticated`, `sign_in_time`, `sign_out_time`, `stay_signed_in`, `token`, `timestamp`) VALUES (NULL, :remote_address, :user_id, :authenticated, NOW(), NULL, :stay_signed_in, :token, CURRENT_TIMESTAMP);");					
+						$db-&gt;query("INSERT INTO `user_authentication` (`id`, `remote_address`, `user_id`, `authenticated`, `sign_in_time`, `sign_out_time`, `stay_signed_in`, `token`, `timestamp`) VALUES (NULL, :remote_address, :user_id, :authenticated, NOW(), NULL, :stay_signed_in, :token, CURRENT_TIMESTAMP);");
 						return true;
 					} else {
 						// show authorication failed and add brute force protection record
@@ -292,4 +293,4 @@ class instance {
 		}
 	}
 }
-</pre></div>
+</code></pre></div>

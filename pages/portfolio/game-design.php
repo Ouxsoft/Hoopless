@@ -11,7 +11,6 @@ function portfolio_href($type, $string){
 }
 
 
-echo "<h1 class=\"container center\">Game Design</h1>";
 
 echo "<div class=\"container background-white\">";
 
@@ -47,13 +46,13 @@ if(count($results)>0){
 		echo "<span class=\"ability-title\">{$row["title"]}</span>";
 		echo "<span class=\"ability-score\">";
 		for($i = 1; $i<=5; $i++){
-			echo "<span class=\"glyphicon glyphicon-star".(($i<=$row["score"])?" filled":"")."\"></span>";		
+			echo "<span class=\"glyphicon glyphicon-star".(($i<=$row["score"])?" filled":"")."\"></span>";
 		}
 		echo "</span>";
 		echo "</li>";
-		echo "</div>";	
+		echo "</div>";
 	}
-	echo "</div>";	
+	echo "</div>";
 }
 
 // tools
@@ -69,11 +68,11 @@ if(count($results)>0){
 		echo "<span class=\"ability-title\">{$row["title"]}</span>";
 		echo "<span class=\"ability-score\">";
 		for($i = 1; $i<=5; $i++){
-			echo "<span class=\"glyphicon glyphicon-star".(($i<=$row["score"])?" filled":"")."\"></span>";		
+			echo "<span class=\"glyphicon glyphicon-star".(($i<=$row["score"])?" filled":"")."\"></span>";
 		}
 		echo "</span>";
 		echo "</li>";
-		echo "</div>";	
+		echo "</div>";
 	}
 	echo "</div>";
 }
@@ -96,6 +95,6 @@ if(count($results)>0){
 	}
 	echo "</div>";
 }
-	
+
 echo "</div>";
 ?>

@@ -35,7 +35,7 @@ echo "<div class=\"container\">";
 echo "<div class=\"row\">";
 echo "<div class=\"col-xs-4 text-left\"><a class=\"block\" href=\"{$instance->href("resume.html")}\"><span class=\"glyphicon glyphicon-copyright-mark\"></span> ".date("Y")." Mr. Heroux. All rights reserved.</a></div>";
 echo "<div class=\"col-xs-4 text-center\"><a class=\"block\" href=\"https://validator.w3.org/nu/?doc=".urlencode($instance->href($instance->page["current"]["link"]))."\" target=\"_blank\" rel=\"nofollow\"><img src=\"{$instance->href("img/common/html5.png")}\" alt=\"HTML5\"></a></div>";
-echo "<div class=\"col-xs-4 text-center\"><a class=\"block\" href=\"#pagetop\"><span class=\"glyphicon glyphicon glyphicon-chevron-up\"></span></a></div>";
+echo "<div class=\"col-xs-4 text-center\"><a class=\"block\" href=\"#page-top\"><span class=\"glyphicon glyphicon glyphicon-chevron-up\"></span></a></div>";
 echo "</div>";
 echo "</div>";
 echo "</div>";

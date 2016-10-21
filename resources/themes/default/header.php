@@ -1,5 +1,20 @@
 <?php
 global $db;
+// build custom menu
+$menu = array(
+	array("title" => "Portfolio", "link" => "portfolio.html",
+		"submenu" => array(
+			array("title" => "Web Design & Development", "link" => "portfolio/web-design-and-development.html",),
+			array("title" => "Art Design", "link" => "portfolio/art-design.html"),
+			array("title" => "Robotic Programming", "link" => "portfolio/robotics-development.html",),
+			array("title" => "Game Design", "link" => "portfolio/game-design.html",),
+		),
+	),
+	array("title" => "Snippets", "link" => "snippets.html"),
+	array("title" => "Resume", "link" => "resume.html"),
+	array("title" => "Contact", "link" => "contact.html", "class" => "outline"),
+);
+
 echo "<!DOCTYPE html>";
 echo "<html lang=\"en\">";
 echo "<head>";
@@ -19,47 +34,21 @@ echo "<link rel=\"icon\" href=\"{$instance->href("icons/favicon/favicon.ico")}\"
 echo "<link rel=\"stylesheet\" href=\"{$instance->href("css/general.min.css")}\" type=\"text/css\"/>";
 
 echo "</head>";
-echo "<body style=\"background-image: url('{$instance->href("img/body-container/".$instance->page["current"]["id"].".jpg")}');\">";
-echo "<div class=\"window\" id=\"pagetop\">";
-echo "<form method=\"post\" name=\"user\">";
+echo "<body>";
+
+echo '<div class="window" id="pagetop">';
+echo '<form method="get" name="top" action="'.$instance->href("search.html").'" enctype="multipart/form-data">';
+echo '<nav class="navbar navbar-default navbar-static-top">';
+echo '<div class="container">';
 if($instance->page["current"]["link"]!="home.html"){
-	echo "<div class=\"container\">";
 	echo "<div class=\"brand\">";
 	echo "<a href=\"{$instance->href("home.html")}\" title=\"Home\"><em>Matt</em> Heroux</a>";
 	echo "</div>";
-	echo "</div>";
 }
-
-echo "<nav class=\"navbar navbar-default navbar-static-top\">";
-
-echo "<div class=\"container\">";
-
-echo "<div class=\"navbar-header\">";
-echo "<button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navbar\" >"; /*aria-expanded=\"false\" aria-controls=\"navbar\"*/
-echo "<span class=\"sr-only\">Toggle navigation</span>";
-echo "<span class=\"icon-bar\"></span>";
-echo "<span class=\"icon-bar\"></span>";
-echo "<span class=\"icon-bar\"></span>";
-echo "</button>";
-//echo "<div class=\"navbar-brand\"><a href=\"{$instance->href("home.html")}\" title=\"Home\"><span class=\"firstname\">Matt</span><span class=\"lastname\">Heroux</span></a></div>";
-echo "</div>";
-
-// build custom menu
-$menu = array(
-	array("title" => "Portfolio", "link" => "portfolio.html",
-		"submenu" => array(
-			array("title" => "Web Design & Development", "link" => "portfolio/web-design-and-development.html",),
-			array("title" => "Art Design", "link" => "portfolio/art-design.html"),
-			array("title" => "Robotic Programming", "link" => "portfolio/robotics-development.html",),
-			array("title" => "Game Design", "link" => "portfolio/game-design.html",),
-		),
-	),
-	array("title" => "Snippets", "link" => "snippets.html"),
-	array("title" => "Resume", "link" => "resume.html"),
-	array("title" => "Contact", "link" => "contact.html", "class" => "outline"),
-);
-echo "<div id=\"navbar\" class=\"navbar-collapse collapse window\">";
-echo "<ul class=\"nav navbar-nav navbar-left\">";
+echo '<div class="navbar-header">';
+echo '<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" ><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button></div>';
+echo '<div id="navbar" class="navbar-collapse collapse window">';
+echo '<ul class="nav navbar-nav navbar-left">';
 foreach($menu as $key => $value){
 	echo "<li".(($value["link"]==$instance->page["current"]["link"])?" class=\"active\"":"").">";
 	if(isset($value["submenu"])&&(is_array($value["submenu"]))){
@@ -80,15 +69,29 @@ foreach($menu as $key => $value){
 		echo "<a ".(!isset($value["class"])?"":" class=\"{$value["class"]}\"");
 		echo (!isset($value["target"])?"":" target=\"{$value["target"]}\"");
 		echo " href=\"{$instance->href($value["link"])}\">{$value["title"]}</a>";
-
 	}
 	echo "</li>";
 }
-echo "</ul>";
-echo "</div><!--/.nav-collapse -->";
-echo "</div>";
-echo "</nav>";
-echo "</form>";
-echo "</div>";
+echo '</ul>';
+echo '<div class="nav navbar-nav navbar-right">';
+echo '<div class="input-group">';
+//echo '<input type="hidden" name="search_param" value="all" id="search_param">';
+echo '<input type="text" class="form-control" id="search" name="q" placeholder="Search">';
+echo '<span class="input-group-btn">';
+echo '<button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>';
+echo '</span>';
+echo '</div>';
+echo '</div>';
+echo '</div>';
+echo '<!--/.nav-collapse -->';
+echo '</div>';
+echo '</nav>';
+echo '</form>';
+echo '</div>';
 
+if($instance->page["current"]["link"]!="home.html"){
+	echo '<div id="page-title" style="background-image: url(\''.$instance->href('img/body-container/'.$instance->page["current"]["id"].'.jpg').'\');">';
+	echo '<h1 class="container text-center">'.$instance->page["current"]["name"].'</h1>';
+	echo '</div>';
+}
 ?>

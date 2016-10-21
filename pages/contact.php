@@ -56,8 +56,6 @@ if(isset($_POST["contact"])) {
 	}
 }
 
-echo "<h1 class=\"container center\">Contact</h1>";
-
 echo "<div class=\"container background-white\">";
 echo "<div class=\"row\">";
 echo "<div class=\"col-md-8\">";

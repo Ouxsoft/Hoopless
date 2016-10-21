@@ -1,5 +1,5 @@
 <?php
-/* 
+/*
 This is a work in progress likely the final version will involve WebSockets
 will need to seporate the affected from action initialize
 */
@@ -19,12 +19,12 @@ class game_instance {
 	Step 5) Remainder * DTM = Damage (how much?)
 	Step 6) Display damage
 	*/
-	
+
 	function __construct() {
 		$this->process_queue();
 		$this->vital_check();
 	}
-	
+
 	private function process_queue(){
 		global $db;
 		// process wait queues
@@ -33,7 +33,7 @@ class game_instance {
 			$db->bind("action_queue_id",$row["action_queue_id"]);
 			$db->query("UPDATE `action_queue` SET `category` = 'action' WHERE `action_queue_id` = :action_queue_id LIMIT 1;");
 		}
-		
+
 		// process actions on effected targets
 
 		// determine skills area of effect / todo
@@ -42,8 +42,8 @@ class game_instance {
 			"y" => array("min" => 0,"max" => 10),
 			"z" => array("min" => 0,"max" => 10),
 		);
-		
-		// determine who/what is affected 
+
+		// determine who/what is affected
 		$db->bind("x_min",$aoe["x"]["min"]);
 		$db->bind("x_max",$aoe["x"]["max"]);
 		$db->bind("y_min",$aoe["y"]["min"]);
@@ -54,10 +54,10 @@ class game_instance {
 		foreach($results as $row){
 			echo "character #{$row["character_id"]} was affected";
 		}
-		
+
 		// only if character succeeds in performing move should count ++
 	}
-	
+
 	function action(&$char, $action_id) {
 		global $db;
 		$this->char = &$char;
@@ -69,25 +69,25 @@ class game_instance {
 
 		// modify w.a.r. timers based on character's proficiency
 		// todo
-		
+
 		// add static w.a.r. times to action_que fix
 		$db->bind("char_id", $char->info["id"]);
 		$db->bind("action_id", $action_id);
 		$db->bind("wait_time", $row["wait_time"]); // occurs now
 		$db->query("INSERT INTO `action_queue` (`char_id`,`action_id`, `category`, `expiration`) VALUES (:char_id, :action_id, 'wait', ADDTIME(NOW(), :wait_time)) ON DUPLICATE KEY UPDATE `expiration` = NOW(), `bonus`=`bonus` + 1;");
-		
+
 		// add support for dynamic w.a.r. times
 		// dynamic moves use up constant amount of resources until resources run out or until canceled.
-		// dynamic wait timers – allow the user to put more resources into the maneuver 
+		// dynamic wait timers – allow the user to put more resources into the maneuver
 		// (example: user holds circle to put more stamina into Jump)
-		// dynamic action timers – allow for the action to have an extended duration 
+		// dynamic action timers – allow for the action to have an extended duration
 		// (example: Warding of a monster for a static duration of time)
-		// dynamic recovery timer – make it harder for a player to recovery 
+		// dynamic recovery timer – make it harder for a player to recovery
 		// (example: a player must press Action button until they recover)
 	}
-	
+
 	public function vital_check(){
-		// routine check of characters vitals 
+		// routine check of characters vitals
 		global $db;
 
 		// apply cooresponding affliction if any base stats are 0
@@ -106,7 +106,7 @@ class game_instance {
 				if($row[$key]==0){
 					$db->bind("char_id",$row["char_id"]);
 					$db->bind("affliction_id",$value);
-					if($db->single("SELECT 1 FROM `char_afflictions` WHERE `char_id` = :char_id AND `affliction_id` = :affliction_id;")!==1){	
+					if($db->single("SELECT 1 FROM `char_afflictions` WHERE `char_id` = :char_id AND `affliction_id` = :affliction_id;")!==1){
 						$db->bind("char_id",$row["char_id"]);
 						$db->bind("affliction_id",$value);
 						$db->query("INSERT INTO `char_afflictions` (`char_id`,`affliction_id`) VALUES (:char_id,:affliction_id);");
@@ -121,24 +121,24 @@ class game_instance {
 		$luck_min = 0;
 		$luck_applicable = mt_rand(0, $this->char->stats["luck_value"]) + 1; // luck is not always applicable
 		$roll_outcome =  round(mt_rand($roll_min, $roll_max),2) + ($luck_applicable * 0.1);
-		
-		if ($roll_outcome > $roll_max) {$roll_outcome = $roll_max;} 
-		
+
+		if ($roll_outcome > $roll_max) {$roll_outcome = $roll_max;}
+
 		// adjust luck based on roll_outcome and the applicability of luck
 		if ($roll_outcome > ($roll_max * 0.618)) { // luck increases
 			if ($this->char->stats["luck_value"] <= $luck_min) {
 				$this->char->stats["luck_value"]++;
-			} else { 
+			} else {
 				$this->char->stats["luck_value"] += $luck_applicable;
 			}
 			if ($this->char->stats["luck_value"] > $this->char->stats["luck_max"]) { $this->char->stats["luck_value"] = $this->char->stats["luck_max"]; }
 		} else if ($roll_outcome < ($roll_max * 0.382)) { // luck decreases
-			$this->char->stats["luck_value"] -= $luck_applicable;    
+			$this->char->stats["luck_value"] -= $luck_applicable;
 			if ($this->char->stats["luck_value"] < $luck_min) { $this->char->stats["luck_value"] = 0; }
 		}
 		return $roll_outcome;
 	}
-	
+
 	/*
 	Damage Formula
 	Hit = check (User’s Accuracy) – check (Target’s Evasion)
@@ -168,7 +168,7 @@ class character {
 	public $stats;
 	public $gauges;
 	public $afflictions;
-	public $dtm; 
+	public $dtm;
 	public $immunities;
 	public $gear;
 
@@ -176,25 +176,25 @@ class character {
 		global $db;
 		// "level" => 10, // basic assessment of skill level
 		// level = function level(experience)
-		// experience = character sum of action experience  
-		
+		// experience = character sum of action experience
+
 		$db->bind("char_id", $char_id);
 		$this->info = $db->row("SELECT `char_id` AS `id`, CONCAT(`first_name`, ' ',`last_name`) AS `name` FROM `chars` WHERE `char_id` = :char_id LIMIT 1;");
-		
+
 		// damage type modifiers
 		$this->dtm = array("nature" => 0, "electric" => 0, "fire" => 0, "water" => 0, "air" => 0, "earth" => 0, "darkness" => 0, "light" => 0, "physical" => 0, "psychic" => 0, );
-	
+
 		// load afflictions
 		$db->bind("char_id", $char_id);
 		$this->afflictions = $db->query("SELECT `afflictions`.`affliction_id` AS `id`, `afflictions`.`name` FROM `char_afflictions` LEFT JOIN `afflictions` ON `char_afflictions`.`affliction_id` = `afflictions`.`affliction_id` WHERE `char_id` = :char_id;");
-				
+
 		// load character stats (all stats are gauges)
 		// figure how to handle "weight" => array("value"=>10,"modifers"=>10,"value"=>10), // used for checks
 
 		$db->bind("char_id", $char_id);
 		$this->stats = $db->row("SELECT `life_value`, `drive_value`, `strength_value`, `agility_value`, `stamina_value`, `intellect_value`, `spirit_value`, `charisma_value`, `luck_value`, `luck_max` FROM `char_stats` WHERE `char_id` = :char_id LIMIT 1;");
 	}
-	
+
 	public function stat_check($stat){
 		// for checks character stats are rolled based on maximum potential and are generally close to orignal stats with some variation
 		return ($this->roll($this->stats[$stat]["value"])+$this->stats[$stat]["value"])*0.618;
@@ -210,12 +210,12 @@ $game_instance->action($player1, 1);
 
 
 /*
-SELECT  `pages`.`id` ,  `parent_id` ,  `name` ,  `link` 
-FROM  `pages` 
-LEFT JOIN  `page_permissions` ON  `pages`.`id` =  `page_permissions`.`page_id` 
+SELECT  `pages`.`id` ,  `parent_id` ,  `name` ,  `link`
+FROM  `pages`
+LEFT JOIN  `page_permissions` ON  `pages`.`id` =  `page_permissions`.`page_id`
 WHERE  `state` =  'active'
 AND  `menu_item` =1
-ORDER BY  `parent_id` ,  `link` 
+ORDER BY  `parent_id` ,  `link`
 
 $menu = array(
 	array("title" => "Home", "link" => "home.html"),
@@ -236,4 +236,3 @@ $menu = array(
 //www.linkedin.com/in/mrheroux
 
 ?>
-

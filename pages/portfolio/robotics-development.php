@@ -12,10 +12,6 @@ function portfolio_href($type, $string){
 
 
 // introduction
-
-
-echo "<h1 class=\"container center\">Robotics Development</h1>";
-
 echo "<div class=\"container alert alert-info\" role=\"alert\"><b>Fun fact</b>: Did you know my grandfather, the late <b>Norman Heroux</b>, invented the <em>first</em> successful industrial robot? <a href=\"https://en.wikipedia.org/wiki/Industrial_robot\"><span class=\"glyphicon glyphicon-link\"></span> Read more</a>.</div>";
 
 echo "<div class=\"container background-white\">";
@@ -50,13 +46,13 @@ if(count($results)>0){
 		echo "<span class=\"ability-title\">{$row["title"]}</span>";
 		echo "<span class=\"ability-score\">";
 		for($i = 1; $i<=5; $i++){
-			echo "<span class=\"glyphicon glyphicon-star".(($i<=$row["score"])?" filled":"")."\"></span>";		
+			echo "<span class=\"glyphicon glyphicon-star".(($i<=$row["score"])?" filled":"")."\"></span>";
 		}
 		echo "</span>";
 		echo "</li>";
-		echo "</div>";	
+		echo "</div>";
 	}
-	echo "</div>";	
+	echo "</div>";
 }
 
 // tools
@@ -72,11 +68,11 @@ if(count($results)>0){
 		echo "<span class=\"ability-title\">{$row["title"]}</span>";
 		echo "<span class=\"ability-score\">";
 		for($i = 1; $i<=5; $i++){
-			echo "<span class=\"glyphicon glyphicon-star".(($i<=$row["score"])?" filled":"")."\"></span>";		
+			echo "<span class=\"glyphicon glyphicon-star".(($i<=$row["score"])?" filled":"")."\"></span>";
 		}
 		echo "</span>";
 		echo "</li>";
-		echo "</div>";	
+		echo "</div>";
 	}
 	echo "</div>";
 }

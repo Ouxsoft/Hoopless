@@ -1,13 +1,12 @@
 <?php
 echo "<div class=\"container background-white\">";
-echo "<h1 class=\"center\">Thoughts & Stories</h1>";
 
 // actually you can add these later maybe as &? uses a switch statement
 // consider get($atribute)
-// consider set($attribute, $value) 
+// consider set($attribute, $value)
 
 /*
-Designed by Matt Heroux (c) 2008-2016 
+Designed by Matt Heroux (c) 2008-2016
 */
 class character {
 	public $luck;
@@ -29,26 +28,26 @@ class character {
 		);
 	}
 	public function roll($max = null){
-		/* 
+		/*
 		a roll is used to determines a character's chances of success, which is influenced by luck.
-		luck is designed to be variable and elusive in both is value, ability to change, and applicability. 
+		luck is designed to be variable and elusive in both is value, ability to change, and applicability.
 		*/
 		if(isset($max)){$this->roll["max"];}
 		$this->luck["applicable"] = mt_rand(0, $this->luck["current"]) + 1; // luck is not always applicable
 		$this->roll["outcome"] =  round(mt_rand($this->roll["min"], $this->roll["max"]),2) + ($this->luck["applicable"] * 0.1);
-		
-		if ($this->roll["outcome"] > $this->roll["max"]) {$this->roll["outcome"] = $this->roll["max"];} 
-		
+
+		if ($this->roll["outcome"] > $this->roll["max"]) {$this->roll["outcome"] = $this->roll["max"];}
+
 		// adjust luck based on roll_outcome and the applicability of luck
 		if ($this->roll["outcome"] > ($this->roll["max"] * 0.618)) { // luck increases
 			if ($this->luck["current"] <= $this->luck["min"]) {
 				$this->luck["current"]++;
-			} else { 
+			} else {
 				$this->luck["current"] += $this->luck["applicable"];
 			}
 			if ($this->luck["current"] > $this->luck["max"]) { $this->luck["current"] = $this->luck["max"]; }
 		} else if ($this->roll["outcome"] < ($this->roll["max"] * 0.382)) { // luck decreases
-			$this->luck["current"] -= $this->luck["applicable"];    
+			$this->luck["current"] -= $this->luck["applicable"];
 			if ($this->luck["current"] < $this->luck["min"]) { $this->luck["current"] = 0; }
 		}
 		return $this->roll["outcome"];
@@ -64,7 +63,7 @@ echo "<h3>Code</h3>";
 ?>
 <pre>
 /*
-Designed by Matt Heroux (c) 2008-2016 
+Designed by Matt Heroux (c) 2008-2016
 */
 class character {
 	public $luck;
@@ -86,26 +85,26 @@ class character {
 		);
 	}
 	public function roll($max = null){
-		/* 
+		/*
 		a roll is used to determines a character's chances of success, which is influenced by luck.
-		luck is designed to be variable and elusive in both is value, ability to change, and applicability. 
+		luck is designed to be variable and elusive in both is value, ability to change, and applicability.
 		*/
 		if(isset($max)){$this->roll["max"];}
 		$this->luck["applicable"] = mt_rand(0, $this->luck["current"]) + 1; // luck is not always applicable
 		$this->roll["outcome"] =  round(mt_rand($this->roll["min"], $this->roll["max"]),2) + ($this->luck["applicable"] * 0.1);
-		
-		if ($this->roll["outcome"] > $this->roll["max"]) {$this->roll["outcome"] = $this->roll["max"];} 
-		
+
+		if ($this->roll["outcome"] > $this->roll["max"]) {$this->roll["outcome"] = $this->roll["max"];}
+
 		// adjust luck based on roll_outcome and the applicability of luck
 		if ($this->roll["outcome"] > ($this->roll["max"] * 0.618)) { // luck increases
 			if ($this->luck["current"] <= $this->luck["min"]) {
 				$this->luck["current"]++;
-			} else { 
+			} else {
 				$this->luck["current"] += $this->luck["applicable"];
 			}
 			if ($this->luck["current"] > $this->luck["max"]) { $this->luck["current"] = $this->luck["max"]; }
 		} else if ($this->roll["outcome"] < ($this->roll["max"] * 0.382)) { // luck decreases
-			$this->luck["current"] -= $this->luck["applicable"];    
+			$this->luck["current"] -= $this->luck["applicable"];
 			if ($this->luck["current"] < $this->luck["min"]) { $this->luck["current"] = 0; }
 		}
 		return $this->roll["outcome"];
@@ -117,27 +116,27 @@ echo "<h3>Example <button class=\"btn btn-primary\" onclick=\"javascript:window.
 
 for ($i = 0; $i < 10; $i++) {
 	echo "<div class=\"row\">";
-	
+
 	$roll = $player->roll(100);
 	$pb_percent = number_format($roll/$player->roll["max"] * 100, 2);
 	echo "<div class=\"col-md-4\">Roll Outcome ({$roll}/{$player->roll["max"]})";
 	echo "<div class=\"progress\"><div class=\"progress-bar progress-bar-success\" role=\"progressbar\" aria-valuenow=\"{$roll}\" aria-valuemin=\"0\" aria-valuemax=\"{$player->roll["max"]}\" style=\"width:{$pb_percent}%\">{$pb_percent}%</div></div>";
 	echo "</div>";
-	
+
 	echo "<div class=\"col-md-4\">Luck Applicability ({$player->luck["applicable"]}/{$player->luck["current"]})<div class=\"progress\">";
 	if($player->luck["current"]==0){
-		echo "N/A";		
+		echo "N/A";
 	} else {
-		$pb_percent = number_format($player->luck["applicable"]/$player->luck["current"] * 100, 2);	
+		$pb_percent = number_format($player->luck["applicable"]/$player->luck["current"] * 100, 2);
 		echo "<div class=\"progress-bar  progress-bar-info\" role=\"progressbar\" aria-valuenow=\"{$pb_percent}\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:{$pb_percent}%\">{$pb_percent}%</div>";
 	}
 	echo "</div></div>";
-	
+
 
 	echo "<div class=\"col-md-4\">Luck ({$player->luck["current"]}/{$player->luck["max"]})";
 	echo "<div class=\"progress\"><div class=\"progress-bar progress-bar-warning\" role=\"progressbar\" aria-valuenow=\"{$player->luck["current"]}\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:{$player->luck["current"]}%\">{$player->luck["current"]}%</div></div>";
 	echo "</div>";
-	
+
 	echo "</div>";
 }
 
@@ -191,7 +190,7 @@ namespace Game
             character meeku = new character();
 
            meeku.life = 5;
-           
+
             combat test = new combat();
 
             string testrun = ",";
@@ -292,13 +291,13 @@ namespace Game
 Character Stats
 */
 
-/* 
+/*
 Primary Stats
 These stats are the bases for using the character existing with on the game board.
 */
-        
+
 // Name (S) – what the character is called.
-// Weight (I) – how heavy the character is. 
+// Weight (I) – how heavy the character is.
 // Disciplines (T) – The classes per say that the character has taken up.
 // Actions (T) – The actions the character can do.
 
@@ -310,12 +309,12 @@ Secondary stats are stats that are based on base stats and have modifiers of the
 // Life (G) – a character’s ability to stay alive.
 // Formula:  based on Stamina
 // Drive (G) – a character’s ability to do drive maneuvers. A characters Drive gauge represents their determination.
-// Formula: 
+// Formula:
 // Speed (S) – a character’s movement speed.
 // Formula: based on Agility
 // Power (S) – a character’s maximum physical potential.
-// Formula: 
-// Defense (S) – Used to determine if physical attack hits hard enough to do damage. 
+// Formula:
+// Defense (S) – Used to determine if physical attack hits hard enough to do damage.
 // Formula: Determined by Armor and Agility.
 // Accuracy (S) – Used to determine how well character hits opponent
 // Formula: determined by Agility.
@@ -324,12 +323,12 @@ Secondary stats are stats that are based on base stats and have modifiers of the
 // Luck (S) – Luck is used to aid the Rolls made by character.
 
 /*
-Damage Type Modifiers 
+Damage Type Modifiers
 */
 
 /*
-Afflictions (T) 
-*/	
+Afflictions (T)
+*/
 
 /*
 Immunities (T)
@@ -339,7 +338,7 @@ Gear (T)
 )
 
         public int stat_max = 1000; // maximum amount a character stat can be
-    
+
         //Gauges are going to need a current and a max value
 
         /* CHARACTER DATA */
@@ -350,7 +349,7 @@ Gear (T)
             get { return _name; }
             set { _name = value; }
         }
-        // Weight (I) – how heavy is the character 
+        // Weight (I) – how heavy is the character
         private decimal _weight = 0;
         public decimal weight
         {
@@ -472,19 +471,19 @@ Gear (T)
             {
                 int local_luck = random_seed.Next(0, _luck + 1);
                 int local_roll = random_seed.Next(0, Convert.ToInt16(_roll) * 100); // multipled by 100 to accomendate for lower numbers.
-                decimal local_amount = _roll * 100; 
+                decimal local_amount = _roll * 100;
 
                 decimal rolled = Math.Round(local_roll + (local_luck * 0.1m),2);
                 // if Roll Outcome is greater than Roll Max then Roll Outcome equals Roll Max.
                 if (rolled > local_amount) { rolled = local_amount; }
-   
+
                 // adjust luck based on rolled
                 if ((rolled >= (local_amount * 0.60m))) // luck increases
                 {
                     if (luck < 1) { _luck = _luck + 1;}
                     else { _luck += local_luck;}
                 } else if ((rolled*0.40m) < local_roll ) { // luck decreases
-                    luck = luck - (local_luck+1);                
+                    luck = luck - (local_luck+1);
                 }
                 // adjust luck if too high or low
                 if (luck < 0) { luck = 0;}
@@ -534,16 +533,16 @@ namespace Game
     }
 
 /*
-Nature - this is the damage type modifier for nature 
-Electric - this is the damage type modifier for lightning 
-Fire - this is the damage type modifier for fire  
-Water - this is the damage type modifier for water 
-Air - this is the damage type modifier for wind 
-Earth - this is the damage type modifier for earth 
+Nature - this is the damage type modifier for nature
+Electric - this is the damage type modifier for lightning
+Fire - this is the damage type modifier for fire
+Water - this is the damage type modifier for water
+Air - this is the damage type modifier for wind
+Earth - this is the damage type modifier for earth
 Darkness - this is the damage type modifier for darkness.
 Light - this is the damage type modifier for light.
 Physical - this is the damage type modifier for physical.
-Psychic - this is the damage type modifier for psychic 
+Psychic - this is the damage type modifier for psychic
 */
 
     /*
@@ -554,18 +553,18 @@ Confused –
 Drunk – character accuracy decreases.
 Doomed – heal before timer runs out or character KOs
 Mortally Wounded –
-Frozen – 
+Frozen –
 Cold – Speed reduced
 Burned –
-Bound – character can only try to Break Free or use Tool 
+Bound – character can only try to Break Free or use Tool
 Sleepy –
 Down – character is disabled and has fallen down
 Disarmed – character must get weapon and arm self again in order to attack.
 Bound – Cannot do anything but Break Free (interaction)
-Blitz – Strength and are speed modified for only duration of battle (-5x through +5x) 
-Exiled – Kick out of battle cannot return until battle is over 
-Infection – Damage is received each turn until infliction is healed. 
-Metamorphic – You are inflicted with random status affect each turn. 
+Blitz – Strength and are speed modified for only duration of battle (-5x through +5x)
+Exiled – Kick out of battle cannot return until battle is over
+Infection – Damage is received each turn until infliction is healed.
+Metamorphic – You are inflicted with random status affect each turn.
 Omni – character enters a berserk like mode and attacks uncontrollable.
 Fear – character cannot move.
 Stupid – character unable to use Learn

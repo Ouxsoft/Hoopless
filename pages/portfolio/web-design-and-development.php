@@ -10,8 +10,6 @@ function portfolio_href($type, $string){
 	}
 }
 
-echo "<h1 class=\"container center\">Web Design and Development</h1>";
-
 // experience
 echo "<div class=\"container background-white\">";
 echo "<h2 class=\"center\">Experiences</h2>";
@@ -106,11 +104,11 @@ foreach($results as $row) {
 	echo "<span class=\"ability-title\">{$row["title"]}</span>";
 	echo "<span class=\"ability-score\">";
 	for($i = 1; $i<=5; $i++){
-		echo "<span class=\"glyphicon glyphicon-star".(($i<=$row["score"])?" filled":"")."\"></span>";		
+		echo "<span class=\"glyphicon glyphicon-star".(($i<=$row["score"])?" filled":"")."\"></span>";
 	}
 	echo "</span>";
 	echo "</li>";
-	echo "</div>";	
+	echo "</div>";
 }
 echo "</div>";
 
@@ -125,11 +123,11 @@ foreach($results as $row) {
 	echo "<span class=\"ability-title\">{$row["title"]}</span>";
 	echo "<span class=\"ability-score\">";
 	for($i = 1; $i<=5; $i++){
-		echo "<span class=\"glyphicon glyphicon-star".(($i<=$row["score"])?" filled":"")."\"></span>";		
+		echo "<span class=\"glyphicon glyphicon-star".(($i<=$row["score"])?" filled":"")."\"></span>";
 	}
 	echo "</span>";
 	echo "</li>";
-	echo "</div>";	
+	echo "</div>";
 }
 echo "</div>";
 echo "<br/>";
@@ -146,11 +144,11 @@ foreach($results as $row) {
 	echo "<span class=\"ability-title\">{$row["title"]}</span>";
 	echo "<span class=\"ability-score\">";
 	for($i = 1; $i<=5; $i++){
-		echo "<span class=\"glyphicon glyphicon-star".(($i<=$row["score"])?" filled":"")."\"></span>";		
+		echo "<span class=\"glyphicon glyphicon-star".(($i<=$row["score"])?" filled":"")."\"></span>";
 	}
 	echo "</span>";
 	echo "</li>";
-	echo "</div>";	
+	echo "</div>";
 }
 echo "</div>";
 echo "</div>";

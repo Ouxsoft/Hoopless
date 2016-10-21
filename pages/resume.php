@@ -1,7 +1,4 @@
 <?php
-
-echo "<h1 class=\"container center\">Resume</h1>";
-
 // objective
 echo "<div class=\"container background-white\">";
 echo "<a href=\"{$instance->href("resume.pdf")}\" target=\"_blank\" class=\"right\"><img src=\"{$instance->href("img/file-icon/pdf.png")}\" alt=\"PDF\"/></a>";

@@ -1,3 +1,4 @@
 *.ini.php
 config.ini.php
 resume.pdf
+logs/*.*

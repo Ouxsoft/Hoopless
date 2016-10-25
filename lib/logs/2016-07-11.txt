@@ -1,7 +1,0 @@
-Time : 00:51:59
-SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pages.category' in 'field list'
-Raw SQL : SELECT `pages`.`id`, `pages`.`category`, `pages`.`name`, `pages`.`standalone`, `pages`.`signin_required`, `pages`.`page_description`, `page_permissions`.`state` FROM `pages` LEFT JOIN `page_permissions` ON `pages`.`id` = `page_permissions`.`page_id` WHERE `link` = :link LIMIT 1;
-
-Time : 00:50:48
-SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pages.category' in 'field list'
-Raw SQL : SELECT `pages`.`id`, `pages`.`category`, `pages`.`name`, `pages`.`standalone`, `pages`.`signin_required`, `pages`.`page_description`, `page_permissions`.`state` FROM `pages` LEFT JOIN `page_permissions` ON `pages`.`id` = `page_permissions`.`page_id` WHERE `link` = :link LIMIT 1;

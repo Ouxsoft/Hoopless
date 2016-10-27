@@ -28,9 +28,9 @@ echo '<meta name="viewport" content="width=device-width, initial-scale=1, maximu
 echo '<meta name="apple-mobile-web-app-capable" content="yes">';
 echo '<meta name="mobile-web-app-capable" content="yes">';
 echo '<meta name="theme-color" content="#000">';
-echo '<link rel="shortcut icon" href="'.$instance->href('img/favicon/favicon.ico').'" type="image/x-icon">';
+echo '<link rel="shortcut icon" href="'.$instance->href('images/favicon/favicon.ico').'" type="image/x-icon">';
 echo '<link rel="icon" href="'.$instance->href('icons/favicon/favicon.ico').'" type="image/x-icon">';
-echo '<link rel="stylesheet" href="'.$instance->href('css/general.min.css').'" type="text/css"/>';
+echo '<link rel="stylesheet" href="'.$instance->href('stylesheets/top.min.css').'" type="text/css"/>';
 echo '</head>';
 echo '<body>';
 
@@ -88,7 +88,7 @@ echo '</form>';
 echo '</div>';
 
 if($instance->page['current']['link']!='home.html'){
-	echo '<div id="page-title" style="background-image: url(\''.$instance->href('img/body-container/'.$instance->page['current']['id'].'.jpg').'\');">';
+	echo '<div id="page-title" style="background-image: url(\''.$instance->href('images/body-container/'.$instance->page['current']['id'].'.jpg').'\');">';
 	echo '<h1 class="container text-center">'.$instance->page['current']['name'].'</h1>';
 	echo '</div>';
 }

@@ -6,7 +6,7 @@ function portfolio_href($type, $string){
 	if(substr($string, 0, 4) === "http"){
 		return($string);
 	} else {
-		return SERVER."/resources/portfolio/{$type}/{$string}";
+		return SERVER.'/assets/portfolio/'.$type.'/'.$string;
 	}
 }
 
@@ -91,7 +91,7 @@ if(count($results)>0){
 	echo "<div class=\"row\">";
 	foreach ($results as $row){
 		echo "<div class=\"col-xs-3\">";
-		echo "<div class=\"thumbnail\"><a href=\"".portfolio_href("img", $row["href"])."\" alt=\"{$row["title"]}\" data-toggle=\"lightbox\" data-gallery=\"multiimages\" data-title=\"{$row["title"]}\"><img src=\"".portfolio_href("thumbnail", $row["thumbnail"])."\" style=\"\"/></a></div>";
+		echo "<div class=\"thumbnail\"><a href=\"".portfolio_href("images", $row["href"])."\" alt=\"{$row["title"]}\" data-toggle=\"lightbox\" data-gallery=\"multiimages\" data-title=\"{$row["title"]}\"><img src=\"".portfolio_href("thumbnails", $row["thumbnail"])."\" style=\"\"/></a></div>";
 		echo "</div>";
 	}
 	echo "</div>";

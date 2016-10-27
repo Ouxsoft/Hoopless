@@ -6,7 +6,7 @@ function portfolio_href($type, $string){
 	if(substr($string, 0, 4) === "http"){
 		return($string);
 	} else {
-		return SERVER."/resources/portfolio/{$type}/{$string}";
+		return SERVER.'/assets/portfolio/'.$type.'/'.$string;
 	}
 }
 
@@ -190,7 +190,7 @@ $db->bind("category","web");
 $results = $db->query("SELECT CONCAT(IF(`title` IS NULL, 'N/A', CONCAT('<b>',`title`,'</b>')), IF(`media` IS NULL, '', CONCAT(' - ',`media`)),' ',`year`) AS `title`, `href`,`thumbnail` FROM `portfolio` WHERE `category` = :category ORDER BY `year` DESC, `id` ASC");
 foreach ($results as $row){
 	echo "<div class=\"col-xs-3\">";
-	echo "<div class=\"thumbnail\"><a href=\"".portfolio_href("img", $row["href"])."\" alt=\"{$row["title"]}\" data-toggle=\"lightbox\" data-gallery=\"multiimages\" data-title=\"{$row["title"]}\"><img src=\"".portfolio_href("thumbnail", $row["thumbnail"])."\" style=\"\"/></a></div>";
+	echo "<div class=\"thumbnail\"><a href=\"".portfolio_href("images", $row["href"])."\" alt=\"{$row["title"]}\" data-toggle=\"lightbox\" data-gallery=\"multiimages\" data-title=\"{$row["title"]}\"><img src=\"".portfolio_href("thumbnails", $row["thumbnail"])."\" style=\"\"/></a></div>";
 	echo "</div>";
 }
 echo "</div>";

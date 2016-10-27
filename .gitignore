@@ -1,4 +1,3 @@
-*.ini.php
-config.ini.php
-resume.pdf
+config/*.*
+assets/resume.pdf
 logs/*.*

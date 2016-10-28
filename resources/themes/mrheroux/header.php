@@ -50,7 +50,7 @@ echo '<ul class="nav navbar-nav navbar-left">';
 foreach($menu as $key => $value){
 	echo '<li'.(($value['link']==$instance->page['current']['link'])?' class="active"':'').'>';
 	if(isset($value['submenu'])&&(is_array($value['submenu']))){
-		echo '<a href="#" class="dropdown-toggle" data-toggle="dropdown">'.$value['title'].' <b class="caret"></b></a>';
+		echo '<a href="'.$instance->href($value['link']).'" class="dropdown-toggle" data-toggle="dropdown">'.$value['title'].' <b class="caret"></b></a>';
 		echo '<ul class="dropdown-menu multi-level">';
 		foreach($value['submenu'] as $key2 => $value2){
 			echo '<li'.(($value2['link']==$instance->page['current']['link'])?' class="active"':'').'><a ';

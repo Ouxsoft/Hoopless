@@ -45,4 +45,4 @@ HXCMS is a light-weight content management system (CMS) designed for a LAMP.
 * sudo service apache2 restart
 * service apache2 restart
 * Run SQL in database (not released).
-* Edit config.ini.php and enter server and database settings.
+* Edit config/sample.conf save as conf/default.conf.

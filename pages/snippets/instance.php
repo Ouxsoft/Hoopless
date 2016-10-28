@@ -87,7 +87,7 @@ class instance {
 	}
 	function __construct(){
 		global $db;
-		$this-&gt;config = parse_ini_file("config.ini.php");
+		$this-&gt;config = parse_ini_file("conf/default.conf");
 		date_default_timezone_set($this-&gt;config["timezone"]);
 		define("SERVER",$this-&gt;config["server"]);
 		$this-&gt;website = array(

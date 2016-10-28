@@ -5,7 +5,7 @@
 /* This is a work in progress. The final version is likely to involve WebSockets */
 
 // setup db
-$config = parse_ini_file("game-config.ini.php");
+$config = parse_ini_file("conf/game.conf");
 $db = new database($config["host"], $config["user"], $config["password"], $config["dbname"]);
 
 class game_instance {

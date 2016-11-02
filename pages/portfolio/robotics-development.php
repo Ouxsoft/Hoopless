@@ -14,7 +14,7 @@ function portfolio_href($type, $string){
 // introduction
 echo "<div class=\"container alert alert-info\" role=\"alert\"><b>Fun fact</b>: Did you know my grandfather, the late <b>Norman Heroux</b>, invented the <em>first</em> successful industrial robot? <a href=\"https://en.wikipedia.org/wiki/Industrial_robot\"><span class=\"glyphicon glyphicon-link\"></span> Read more</a>.</div>";
 
-echo "<div class=\"container background-white\">";
+echo "<div class=\"container background-white load-transition\">";
 echo "<h2 class=\"center\">Experiences</h2>";
 echo "<h3>Careers</h3>";
 
@@ -30,7 +30,7 @@ echo "</div>";
 echo "</div>";
 
 // abilities
-echo "<div class=\"container background-white\">";
+echo "<div class=\"container background-white load-transition\">";
 echo "<h2 class=\"center\">Abilities</h2>";
 
 // skills
@@ -81,7 +81,7 @@ echo "</div>";
 
 
 // projects
-echo "<div class=\"container background-white\">";
+echo "<div class=\"container background-white load-transition\">";
 
 $db->bind("category","robot");
 $results = $db->query("SELECT CONCAT(IF(`title` IS NULL, 'N/A', CONCAT('<b>',`title`,'</b>')), IF(`media` IS NULL, '', CONCAT(' - ',`media`)),' ',`year`) AS `title`, `href`,`thumbnail` FROM `portfolio` WHERE `category` = :category ORDER BY `year` DESC, `id` ASC");

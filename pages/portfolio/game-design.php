@@ -12,7 +12,7 @@ function portfolio_href($type, $string){
 
 
 
-echo "<div class=\"container background-white\">";
+echo "<div class=\"container background-white load-transition\">";
 
 echo "<h2 class=\"center\">Experiences</h2>";
 echo "<h3>Careers</h3>";
@@ -30,7 +30,7 @@ echo "</div>";
 echo "</div>";
 // abilities
 
-echo "<div class=\"container background-white\">";
+echo "<div class=\"container background-white load-transition\">";
 echo "<h2 class=\"center\">Abilities</h2>";
 
 // skills
@@ -79,7 +79,7 @@ if(count($results)>0){
 echo "</div>";
 
 
-echo "<div class=\"container background-white\">";
+echo "<div class=\"container background-white load-transition\">";
 // projects
 $db->bind("category","game");
 $results = $db->query("SELECT CONCAT(IF(`title` IS NULL, 'N/A', CONCAT('<b>',`title`,'</b>')), IF(`media` IS NULL, '', CONCAT(' - ',`media`)),' ',`year`) AS `title`, `href`,`thumbnail` FROM `portfolio` WHERE `category` = :category ORDER BY `year` DESC, `id` ASC");

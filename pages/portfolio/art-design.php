@@ -11,7 +11,7 @@ function portfolio_href($type, $string){
 }
 
 // experiences
-echo '<div class="container background-white">';
+echo '<div class="container background-white load-transition">';
 echo '<h2 class="center">Experiences</h2>';
 echo '<h3>Careers</h3>';
 
@@ -50,7 +50,7 @@ echo '</div>';
 //echo '<p>I have always like drawing and admire the works of Alex Grey (who I've enjoyed watching paint at CoSM) and Kentaro Miura.</p>';
 
 // abilities
-echo '<div class="container background-white">';
+echo '<div class="container background-white load-transition">';
 echo '<h2 class="center">Abilities</h2>';
 
 // skills
@@ -100,7 +100,7 @@ if(count($results)>0){
 }
 echo '</div>';
 
-echo '<div class="container background-white">';
+echo '<div class="container background-white load-transition">';
 echo '<h2 class="center">Awards</h2>';
 
 echo '<div class="row">';
@@ -115,7 +115,7 @@ echo '</div>';
 echo '</div>';
 
 // projects
-echo '<div class="container background-white">';
+echo '<div class="container background-white load-transition">';
 $db->bind('category','art');
 $results = $db->query("SELECT CONCAT(IF(`title` IS NULL, 'N/A', CONCAT('<b>',`title`,'</b>')), IF(`media` IS NULL, '', CONCAT(' - ',`media`)),' ',`year`) AS `title`, `href`,`thumbnail` FROM `portfolio` WHERE `category` = :category ORDER BY `year` DESC, `id` ASC");
 if(count($results)>0){

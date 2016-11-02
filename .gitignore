@@ -1,3 +1,9 @@
-config/*.conf
-assets/resume.pdf
+# do not include local configuration files
+resources/config/*.conf
+!resources/config/sample.conf
+
+# do not include logs
 logs/*.*
+
+# do not include special assets
+assets/resume.pdf

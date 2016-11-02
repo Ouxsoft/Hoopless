@@ -1,5 +1,5 @@
 <?php
-echo "<div class=\"container background-white\">";
+echo "<div class=\"container background-white load-transition\">";
 
 // teaching robot square root
 echo '<h2>Problem</h2>';

@@ -2,7 +2,7 @@
 // instructions
 echo '<div class="container instructions">Select a portfolio category.</div>';
 
-echo '<div class="container background-white">';
+echo '<div class="container background-white load-transition">';
 echo '<div class="list-group">';
 
 echo '<a class="list-group-item" href="'.$instance->href('portfolio/web-design-and-development.html').'"/>Web Design and Development</a>';

@@ -5,7 +5,7 @@
 <title>Pair 10</title>
 <meta name="author" content="Matt Heroux">
 <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
-<style><!-- 
+<style><!--
 .pairs {list-style: none;}
 .pairs li {display: inline;}
 .pairs li:after {content: ", ";}
@@ -21,7 +21,7 @@
 <h2>Introduction</h2>
 <p>I was asked to solve the below problem for a company that used AngularJS. I learned some AngularJS and came up with this solution.
 <h2>Problem</h2>
-<p>Write a program and submit with 24 hours that allows for an integer array to be passed in and will then output all of the pairs that sum up to 10. Please provide a solution that allows for 
+<p>Write a program and submit with 24 hours that allows for an integer array to be passed in and will then output all of the pairs that sum up to 10. Please provide a solution that allows for
 <ol>
 <li>output all pairs (includes duplicates and the reversed ordered pairs), </li>
 <li>output unique pairs only once (removes the duplicates but includes the reversed ordered pairs), and </li>
@@ -33,7 +33,7 @@ For example passing in <a class="w3-btn w3-yellow" href="?parameter=[1,1,2,4,4,5
 <li>output unique pairs only once would output: [1,9], [4,6], [5,5], [6,4], [9,1]</li>
 <li>output the same combo pair only once would output: [1,9], [4,6], [5,5]</li>
 <ol>
-</p> 
+</p>
 </div>
 <div class="w3-container ">
 <form>
@@ -68,10 +68,10 @@ app.directive('charQty', function() {
 			}
 			ngModelCtrl.$parsers.push(fromUser);
 		}
-	}; 
+	};
 });
 // set pairs
-app.controller('MainCtrl', function($scope) { 
+app.controller('MainCtrl', function($scope) {
 	// load parameter
 	if([parseLocation(window.location.search)['parameter']] !== null){
 		$scope.int_array = [parseLocation(window.location.search)['parameter']];

@@ -11,7 +11,7 @@ function portfolio_href($type, $string){
 }
 
 // experience
-echo "<div class=\"container background-white\">";
+echo "<div class=\"container background-white load-transition\">";
 echo "<h2 class=\"center\">Experiences</h2>";
 echo "<h3>Education</h3>";
 echo "<hr/>";
@@ -91,7 +91,7 @@ echo "</div>";
 
 // abilities
 
-echo "<div class=\"container background-white\">";
+echo "<div class=\"container background-white load-transition\">";
 echo "<h2 class=\"center\">Abilities</h2>";
 echo "<h3>Skills</h3>";
 echo "<hr/>";
@@ -155,7 +155,7 @@ echo "</div>";
 
 
 // awards
-echo "<div class=\"container background-white\">";
+echo "<div class=\"container background-white load-transition\">";
 echo "<h2 class=\"center\">Awards</h2>";
 
 echo "<div class=\"row\">";
@@ -181,7 +181,7 @@ echo "</div>";
 echo "</div>";
 
 // projects
-echo "<div class=\"container background-white\">";
+echo "<div class=\"container background-white load-transition\">";
 echo "<h2 class=\"center\">Projects</h2>";
 echo "<p>Presented below are some of the websites and web systems I have designed and developed. Some of the information has been censored due to active contractual agreements.</p>";
 

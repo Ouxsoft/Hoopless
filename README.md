@@ -2,6 +2,13 @@
 Created by: mrheroux.com
 HXCMS is a light-weight content management system (CMS) designed for a LAMP.
 
+##ToDo
+* Finish page management feature to allow pages to be easily added and subtracted
+* Finish authentication
+* Create setup script where you can choose what packages to install
+* make contact form, etc. packages.
+* Add Plugin support - uses tar.gz files placed in /resources/plugins extracts to .tmp runs install.php script, which is contained in contained in plugin, to install features and remove.php to remove features.
+
 ##System Requirements
 * MySQL
 * PHP with pdo extention
@@ -15,12 +22,12 @@ HXCMS is a light-weight content management system (CMS) designed for a LAMP.
 * .git - git version control
 * .tmp - Temporary file storage (where plugins are unzipped)
 * assets - Images, video, other things that aren't code, markup, or configuration. Think very static
-* config - server specfic configurations
 * lib - library files contains reusable core classes and functions
 * logs - contains a running log
 * pages - where individual pages are stored
 * plugins - *.tar.gz files that allow for features to be easily installed
 * resources - Configuration files, something that has code or markup in it
+** config - server specfic configurations
 ** themes - where the files go
 * .gitignore - defines what files stay out of version control
 * .htaccess - allows for proper rewrite and caching
@@ -45,4 +52,4 @@ HXCMS is a light-weight content management system (CMS) designed for a LAMP.
 * sudo service apache2 restart
 * service apache2 restart
 * Run SQL in database (not released).
-* Edit config/sample.conf save as conf/default.conf.
+* Edit resources/config/sample.conf save as resources/conf/default.conf.

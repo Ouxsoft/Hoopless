@@ -1,5 +1,5 @@
 <?php
-echo "<div class=\"container background-white\">";
+echo "<div class=\"container background-white load-transition\">";
 
 echo '<h2>Problem</h2>';
 echo '<p>As a result of manufacturing processes, all the metal parts were casted with a non-metal layer on top that needed to be removed in order for the metal in the part to show. The parts would need to be buffed and polished from one end of the part to the other end evenly to remove this outer layer. Operators would use FANUC&reg; robots to buff and polish parts evenly. The OEM programmed the robots to work by using multiple programs, which each contained static positions that the robot would use to process the parts. Although this good in theory, due to environmental variables, this resulted in poor quality parts, unnecessary downtime, high operator knowledge requirements, potentially harmful situation, and costly scrap.</p>';

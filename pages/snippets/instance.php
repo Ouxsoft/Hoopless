@@ -1,5 +1,5 @@
 <?php
-echo "<div class=\"container background-white\">";
+echo "<div class=\"container background-white load-transition\">";
 echo "<h2>Instance</h2>";
 echo "<p>Essentially a website is a content delivery system and each delivery is an instance of a request. Although different, each page shares similar requirements to fulfill this request. With this in mind I designed the following instance class, which was created to handle each request rapidly.</p>";
 echo "<h3>Code</h3>";

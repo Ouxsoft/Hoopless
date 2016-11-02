@@ -54,7 +54,7 @@ class character {
 
 $player = new character();
 
-echo "<div class=\"container background-white\">";
+echo "<div class=\"container background-white load-transition\">";
 echo "<h2>Luck</h2>";
 echo "<p>The concept of luck is a perplexing problem to approach programmatically because of its intangibility. You are either lucky or you are not and your luck can change depending on the situation. You shouldn't be lucky all the time or unlucky all the time for that matter. Everyone's luck should be in a constant state of change. Luck should only be a contributing factor to help determine whether an action is a success and not necessarily the deciding factor. It should be elusive in value, its ability to change, and applicability.</p>";
 echo "<p>Based on this vision of how luck works, I created the following roll class for use in my latest game engine, which is used to determine a character's chances of succeeding at an action and is influenced by luck. I originally programmed this in C#, but I ported the following portion of the class to PHP.</p>";

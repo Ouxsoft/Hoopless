@@ -80,7 +80,7 @@ class character {
 
 $player = new character();
 
-echo "<div class=\"container background-white\">";
+echo "<div class=\"container background-white load-transition\">";
 echo "<h2>Afflictions</h2>";
 echo "<p>When developing a game engine you are essentially programming an entire world and defining the rules in which it operates. For my latest game engine, I wanted the effectiveness of each character's abilities to be determined based on their base stats. As each character grows more powerful, their base stats should improve in a manner that is related to their selected discipline which should be related to their actions. Different character types should be reliant on completely different base stats.  For example a warrior should be more reliant on strength than a healer. In addition, whenever any of a character's base stats except luck are equal to 0 the character should gain an affliction that prevents them from taking action.</p><p>Based on this concept, I theorized the below listed stats and afflictions and coded the following class.</p>";
 echo "<h3>Code</h3>";

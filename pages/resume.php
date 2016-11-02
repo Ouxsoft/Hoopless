@@ -1,13 +1,13 @@
 <?php
 // objective
-echo '<div class="container background-white">';
+echo '<div class="container background-white load-transition">';
 echo '<a href="'.SERVER.'/assets/resume.pdf" target="_blank" class="right"><img src="'.$instance->href('images/file-icon/pdf.png').'" alt="PDF"/></a>';
 echo '<h2>Objective:</h2>';
 echo '<p>Work on a team to develop and evolve powerful, attractive, and user-friendly web applications that makes life easier for everyone.</p>';
 echo '</div>';
 
 // skills
-echo '<div class="container background-white">';
+echo '<div class="container background-white load-transition">';
 echo '<h2>Skills:</h2>';
 echo '<div class="row">';
 
@@ -39,7 +39,7 @@ echo '</div>';
 echo '</div>';
 
 // professional experience
-echo '<div class="container background-white">';
+echo '<div class="container background-white load-transition">';
 echo '<h2>Professional Experience:</h2>';
 echo '<ul>';
 echo '<li><b>Lead Web Developer</b><span class="right">2012 to Present</span><br/><i>JNH Environmental Services, Inc. (Turnkey EHS Services Provider) &mdash; Rutland, Vermont.</i>';
@@ -128,7 +128,7 @@ echo '</ul>';
 echo '</div>';
 
 // teaching experience
-echo '<div class="container background-white">';
+echo '<div class="container background-white load-transition">';
 echo '<h2>Teaching Experience:</h2>';
 echo '<ul>';
 echo '<li><i>JNH Environmental Services, Inc. (Turnkey EHS Services Provider) &mdash; Rutland, Vermont.</i><span class="right">2012 to Present</span>';
@@ -145,7 +145,7 @@ echo '</ul>';
 echo '</div>';
 
 // education
-echo '<div class="container background-white">';
+echo '<div class="container background-white load-transition">';
 echo '<h2>Education:</h2>';
 echo '<ul>';
 echo '<li><b>Bachelor of Science in Computer Information Systems/Business</b><span class="right">2012</span><br/><i>Castleton University, Castleton, Vermont</i></li>';
@@ -156,7 +156,7 @@ echo '</ul>';
 echo '</div>';
 
 // awards
-echo '<div class="container background-white">';
+echo '<div class="container background-white load-transition">';
 echo '<h2>Awards:</h2>';
 echo '<ul>';
 echo '<li><b>SkillsUSA Computer Programming</b><span class="right">2005</span><br/>Programmed a banking system within the allowed time to win 2nd place in SkillsUSA State of Vermont competition for computer programming.</li>';

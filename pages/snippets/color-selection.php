@@ -1,6 +1,6 @@
 <?php
 
-echo "<div class=\"container background-white\">";
+echo "<div class=\"container background-white load-transition\">";
 
 echo "<h2>Color Selection</h2>";
 

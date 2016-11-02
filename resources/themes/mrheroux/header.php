@@ -89,7 +89,7 @@ echo '</div>';
 
 if($instance->page['current']['link']!='home.html'){
 	echo '<div id="page-title" style="background-image: url(\''.$instance->href('images/body-container/'.$instance->page['current']['id'].'.jpg').'\');">';
-	echo '<h1 class="container text-center">'.$instance->page['current']['name'].'</h1>';
+	echo '<h1 class="container load-transition text-center">'.$instance->page['current']['name'].'</h1>';
 	echo '</div>';
 }
 ?>

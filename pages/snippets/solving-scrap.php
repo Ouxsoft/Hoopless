@@ -1,5 +1,5 @@
 <?php
-echo '<div class="container background-white">';
+echo '<div class="container background-white load-transition">';
 
 // solving scrap
 echo '<h2>Problem</h2>';

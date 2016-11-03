@@ -10,8 +10,11 @@ class instance {
 	public $user = array("id" => null);
 	public $support = array();
 
-	private function href_hash($record_id, $page){
-		$ui = "{$page}{$record_id}";
+	private function href_hash($record_id, $page = NULL){
+		if($page==NULL){
+			$page = $this->page["current"]["link"];
+		}
+		$ui = $page.$record_id;
 		if(array_key_exists($ui, $this->hash_cache)){
 			return $this->hash_cache[$ui];
 		} else {
@@ -27,8 +30,10 @@ class instance {
 			return true;
 		} else {
 			if($silent==false){
-				echo "<h1><b>404 - Error</b>: Invalid Request.</h1>";
+				echo '<div class="container background-white">';
+				echo "<h2><b>404 - Error</b>: Invalid Request.</h2>";
 				echo "<p>The requested record could not be accessed. If you have received this message in error, feel free to <a href=\"{$this->href("contact.html")}\">contact</a> me for assistance.</p>";
+				echo '</div>';
 			}
 			return false;
 		}

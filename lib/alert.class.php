@@ -19,7 +19,7 @@ class user_alert {
 			$string .= "{$value[1]}. ";
 		}
 		if(isset($string)&&(strlen($string)>0)){
-			echo "<div class=\"alert alert-{$types[$current]}\" title=\"Close\" onclick=\"this.style.display='none';\">";
+			echo "<div class=\"container alert alert-{$types[$current]}\" title=\"Close\" onclick=\"this.style.display='none';\">";
 			echo "<strong>{$types[$current]}!</strong> ";
 			echo "<a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a> ";
 			echo $string;

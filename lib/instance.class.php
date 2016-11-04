@@ -89,7 +89,7 @@ class instance {
 		date_default_timezone_set($this->config["timezone"]);
 		define("SERVER",$this->config["server"]);
 		$this->website = array(
-			"name" => $this->config["name"],
+			"title" => $this->config["title"],
 			"abbreviation" => $this->config["abbreviation"],
 			"theme" => $this->config["theme"],
 			"email" => $this->config["email"],

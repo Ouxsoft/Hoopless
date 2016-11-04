@@ -4,7 +4,17 @@ echo '<div class="container">';
 echo '<div class="jumbotron">';
 echo '<div class="row">';
 echo '<div class="col-md-6 ss-transparent">';
-echo '<h1><em>Matt</em> Heroux <span class="normal"> / <abbr title="also known as Mr. Heroux">Mr. Heroux</abbr></span></h1>';
+$title = '';
+$bool = true;
+foreach(explode(' ',$instance->website['title']) as $part){
+  if($bool){
+    $title .= '<em>'.$part.'</em> ';
+    $bool = false;
+  } else {
+    $title .= $part.' ';
+  }
+}
+echo '<h1>'.$title.'<span class="normal"> / <abbr title="also known as Mr. Heroux">Mr. Heroux</abbr></span></h1>';
 echo '<h3>Web Designer & Developer</h3>';
 echo '<p>I am a creative system designer and developer who specializes in building and evolving web-based solutions. I have designed and developed systems used to:</p>';
 echo '<ul>';

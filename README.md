@@ -3,9 +3,10 @@ Created by: mrheroux.com
 HXCMS is a light-weight content management system (CMS) designed for a LAMP.
 
 ##ToDo
-* switch from page/page/page to node/id.php with alias
-* add page_menu with menu id
 * Finish authentication
+* create admin panel
+* Fix node management script
+* Add node_menu setup
 * Create setup script where you can choose what packages to install
 * make contact form, etc. packages.
 * Add Plugin support - uses tar.gz files placed in /resources/plugins extracts to .tmp runs install.php script, which is contained in contained in plugin, to install features and remove.php to remove features.

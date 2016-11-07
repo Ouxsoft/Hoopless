@@ -1,5 +1,4 @@
 <?php
-
 /* breadcrumbs */
 $max = count($instance->page['breadcrumbs'])-1;
 if($max>0){
@@ -8,13 +7,13 @@ if($max>0){
 	$count = 0;
 	foreach($instance->page['breadcrumbs'] as $key => $value){
 		if($count==0){
-			echo '<a class="crumb-last" href="'.$instance->href($value['link']).'">';
-			echo $value['name']; // '<span class="glyphicon glyphicon-home"></span>';
+			echo '<a class="crumb-last" href="'.$instance->href($value['alias']).'">';
+			echo $value['title']; // '<span class="glyphicon glyphicon-home"></span>';
 			echo '</a>';
 		} else if ($count==$max) {
-			echo '<a class="crumb-last" href="'.$instance->href($value['link']).'">'.$value['name'].'</a>';
+			echo '<a class="crumb-last" href="'.$instance->href($value['alias']).'">'.$value['title'].'</a>';
 		} else {
-			echo '<a class="crumb-{$count}" href="'.$instance->href($value['link']).'">'.$value['name'].'</a>';
+			echo '<a class="crumb-{$count}" href="'.$instance->href($value['alias']).'">'.$value['title'].'</a>';
 		}
 		if($count<$max){
 			echo '<span class="glyphicon glyphicon-menu-right"></span>';
@@ -33,7 +32,7 @@ echo '<div class="copyright">';
 echo '<div class="container">';
 echo '<div class="row">';
 echo '<div class="col-xs-4 text-left"><a class="block" href="'.$instance->href('resume.html').'"><span class="glyphicon glyphicon-copyright-mark"></span> '.date('Y').' '.$instance->website["title"].'. All rights reserved.</a></div>';
-echo '<div class="col-xs-4 text-center"><a class="block" href="https://validator.w3.org/nu/?doc='.urlencode($instance->href($instance->page['current']['link'])).'" target="_blank" rel="nofollow"><img src="'.$instance->href('images/common/html5.png').'" alt="HTML5"></a></div>';
+echo '<div class="col-xs-4 text-center"><a class="block" href="https://validator.w3.org/nu/?doc='.urlencode($instance->href($instance->page['current']['alias'])).'" target="_blank" rel="nofollow"><img src="'.$instance->href('images/common/html5.png').'" alt="HTML5"></a></div>';
 echo '<div class="col-xs-4 text-center"><a class="block" href="#pagetop"><span class="glyphicon glyphicon glyphicon-chevron-up"></span></a></div>';
 echo '</div>';
 echo '</div>';

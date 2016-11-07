@@ -1,27 +1,36 @@
 <?php
 global $db;
-// build custom menu
-$menu = array(
-	array('title' => 'Portfolio', 'link' => 'portfolio.html',
-		'submenu' => array(
-			array('title' => 'Web Design & Development', 'link' => 'portfolio/web-design-and-development.html',),
-			array('title' => 'Art Design', 'link' => 'portfolio/art-design.html'),
-			array('title' => 'Robotic Programming', 'link' => 'portfolio/robotics-development.html',),
-			array('title' => 'Game Design', 'link' => 'portfolio/game-design.html',),
-		),
-	),
-	array('title' => 'Snippets', 'link' => 'snippets.html'),
-	array('title' => 'Resume', 'link' => 'resume.html'),
-	array('title' => 'Contact', 'link' => 'contact.html', 'class' => 'outline'),
-);
+include('lib/build_tree.function.php');
+
+function print_menu($array, $level) {
+	global $instance;
+	foreach($array as $value) {
+		echo '<li'.(($value['alias']==$instance->page['current']['alias'])?' class="active"':'').'>';
+		if(is_array($value['children'])){
+			echo '<a href="'.$instance->href($value['alias']).'" class="dropdown-toggle" data-toggle="dropdown">';
+			echo $value['title'].' <b class="caret"></b>';
+			echo '</a>';
+			echo '<ul class="dropdown-menu multi-level">';
+			print_menu($value['children'], $level+1);
+			echo '</ul>';
+		} else {
+			echo '<a '.(!isset($value['class'])?'':' class="'.$value['class'].'"');
+			//echo (!isset($value['target'])?'':' target="'.$value['target'].'"');
+			echo ' href="'.$instance->href($value['alias']).'">';
+			echo $value['title'];
+			echo '</a>';
+		}
+		echo '</li>';
+  }
+}
 
 echo '<!DOCTYPE html>';
 echo '<html lang="en">';
 echo '<head>';
 echo '<title>'.$instance->page['current']['name'].'</title>';
 echo '<meta name="description" content="'.$instance->page['current']['meta_description'].'"/>';
-echo '<meta name="keywords" content="'.$instance->page['current']['name'].'; MrHeroux;"/>';
-echo '<link type="text/plain" rel="author" href="http://mrheroux.com/humans.txt"/>';
+echo '<meta name="keywords" content="'.$instance->page['current']['name'].'"/>';
+echo '<link type="text/plain" rel="author" href="'.SERVER.'humans.txt"/>';
 echo '<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>';
 echo '<meta http-equiv="X-UA-Compatible" content="IE=edge">';
 echo '<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">';
@@ -46,31 +55,13 @@ if($instance->page['current']['link']!='home.html'){
 echo '<div class="navbar-header">';
 echo '<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button></div>';
 echo '<div id="navbar" class="navbar-collapse collapse window">';
+
+$results = $db->query('SELECT `menu_item`.`node_id` AS `id`,`menu_item`.`parent_id`,IF(`menu_item`.`title` IS NULL,`node`.`title`, `menu_item`.`title`) AS `title`, `node_alias`.`alias` FROM `menu` LEFT JOIN `menu_item` ON `menu`.`menu_id` = `menu_item`.`menu_id` LEFT JOIN `node` ON `menu_item`.`node_id` = `node`.`node_id` LEFT JOIN `node_alias` ON `menu_item`.`node_id` = `node_alias`.`node_id` WHERE `menu`.`title` = \'top-menu\' ORDER BY `menu_item`.`item_id` ASC');
+
 echo '<ul class="nav navbar-nav navbar-left">';
-foreach($menu as $key => $value){
-	echo '<li'.(($value['link']==$instance->page['current']['link'])?' class="active"':'').'>';
-	if(isset($value['submenu'])&&(is_array($value['submenu']))){
-		echo '<a href="'.$instance->href($value['link']).'" class="dropdown-toggle" data-toggle="dropdown">'.$value['title'].' <b class="caret"></b></a>';
-		echo '<ul class="dropdown-menu multi-level">';
-		foreach($value['submenu'] as $key2 => $value2){
-			echo '<li'.(($value2['link']==$instance->page['current']['link'])?' class="active"':'').'><a ';
-			if(!isset($value2['class'])){
-				echo ' class="'.$value2['class'].'"';
-			}
-			if(isset($value2['target'])){
-				echo ' target="'.$value2['target'].'"';
-			}
-			echo ' href="'.$instance->href($value2['link']).'">'.$value2['title'].'</a></li>';
-		}
-		echo '</ul>';
-	} else {
-		echo '<a '.(!isset($value['class'])?'':' class="'.$value['class'].'"');
-		echo (!isset($value['target'])?'':' target="'.$value['target'].'"');
-		echo ' href="'.$instance->href($value['link']).'">'.$value['title'].'</a>';
-	}
-	echo '</li>';
-}
+print_menu(buildTree($results),0);
 echo '</ul>';
+
 echo '<div class="nav navbar-nav navbar-right">';
 echo '<div class="input-group">';
 //echo '<input type="hidden" name="search_param" value="all" id="search_param">';
@@ -87,9 +78,9 @@ echo '</nav>';
 echo '</form>';
 echo '</div>';
 
-if($instance->page['current']['link']!='home.html'){
-	echo '<div id="page-title" style="background-image: url(\''.$instance->href('images/body-container/'.$instance->page['current']['id'].'.jpg').'\');">';
-	echo '<h1 class="container load-transition text-center">'.$instance->page['current']['name'].'</h1>';
+if($instance->page['current']['alias']!='home.html'){
+	echo '<div id="page-title" style="background-image: url(\''.$instance->href('images/body-container/'.$instance->page['current']['node_id'].'.jpg').'\');">';
+	echo '<h1 class="container load-transition text-center">'.$instance->page['current']['title'].'</h1>';
 	echo '</div>';
 }
 ?>

@@ -1,57 +1,25 @@
-# HXCMS
-Created by: mrheroux.com
-HXCMS is a light-weight content management system (CMS) designed for a LAMP.
+# HXCMS - Rapidly develop a beautiful website
+HXCMS is a LAMP web development framework. It is designed to allow for rapid
+new developments.
 
-##ToDo
+## HXCMS Features
+* Lightweight/bloatless design.
+* Uses assets to provide content.
+* Uses config files for server information.
+* Uses themes to wrap output.
+* Uses nodes to produce pages.
+* Uses lib files for includes.
+
+## Future Development Plans
+* Change table from plural to singular name, e.g. `users` to `user`
+* Change tables pk from `id` to `user_id`
+* Allow for node links to work when href changes, e.g. $instance->href(1) 
 * Finish authentication
-* create admin panel
-* Fix node management script
-* Add node_menu setup
+* Create admin panel set root user in config
+** Add validation to node management script
+** Add node_menu setup
 * Create setup script where you can choose what packages to install
-* make contact form, etc. packages.
-* Add Plugin support - uses tar.gz files placed in /resources/plugins extracts to .tmp runs install.php script, which is contained in contained in plugin, to install features and remove.php to remove features.
-
-##System Requirements
-* MySQL
-* PHP with pdo extention
-* Configure php.ini
-** memory_limit = 32M
-** upload_max_filesize = 15M
-** post_max_size = 20M
-** Apache with mod_rewrite
-
-##File Structure Explained
-* .git - git version control
-* .tmp - Temporary file storage (where plugins are unzipped)
-* assets - Images, video, other things that aren't code, markup, or configuration. Think very static
-* lib - library files contains reusable core classes and functions
-* logs - contains a running log
-* pages - where individual pages are stored
-* plugins - .tar.gz files that allow for features to be easily installed
-* resources - Configuration files, something that has code or markup in it
-** config - server specfic configurations
-** themes - where the files go
-* .gitignore - defines what files stay out of version control
-* .htaccess - allows for proper rewrite and caching
-* humans.txt - information about author
-* README.md - general information
-* robots.txt - request bots do not cache certain files
-
-##Server Configuration (Ubuntu)
-* sudo apt-get update
-* sudo apt-get install apache2 php7.0 php7.0-mbstring mysql-server mysql-client php7.0-mysql php7.0-mcrypt php-gettext
-* sudo service apache2 restart
-* sudo service mysql start
-* PHPMyAdmin (optional)
-** sudo apt-get install phpmyadmin
-** sudo apt install libmysqlclient-dev
-** GRANT ALL PRIVILEGES ON *.* TO 'phpmyadmin'@'localhost';
-** Edit /etc/apache2/apache2.conf add to bottom "Include /etc/phpmyadmin/apache.conf"
-* create virtualhost
-* sudo vim /etc/apache2/sites-avaliable/sites.conf
-* sudo a2enmod rewrite
-* sudo a2enmod headers
-* sudo service apache2 restart
-* service apache2 restart
-* Run SQL in database (not released).
-* Edit resources/config/sample.conf save as resources/conf/default.conf.
+* Make contact form, etc. packages.
+* Add Plugin support - uses tar.gz files placed in /resources/plugins extracts
+to .tmp runs install.php script, which is contained in contained in plugin,
+to install features and remove.php to remove features.

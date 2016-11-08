@@ -1,11 +1,10 @@
 <?php
 include('lib/alert.class.php');
-include('lib/build_tree.function.php');
 
 /*
 page_menu
 	id
-	page_id
+8	page_id
 
 page_permission (rename)
 	id
@@ -15,53 +14,68 @@ page_permission (rename)
 */
 
 if($instance->verify(true)){
+	// add validation
 	switch($_POST['submit']){
 		case 'save':
-			// add validation
-			$db->bind('id',$record_id);
+			// update node
+			$db->bind('node_id',$record_id);
 			$db->bind('title',$_POST['page']['title']);
-			$db->bind('url',$_POST['page']['url']);
 			$db->bind('parent_id',$_POST['page']['parent_id']);
 			$db->bind('description',$_POST['page']['description']);
 			$db->bind('standalone',$_POST['page']['standalone']);
 			$db->bind('change_freq',$_POST['page']['change_freq']);
 			$db->bind('priority',$_POST['page']['priority']);
-			$db->query('UPDATE `pages` SET `parent_id` = :parent_id, `name` = :title, `meta_description` = :description, `link` = :url, `change_freq` = :change_freq, `priority` = :priority, `standalone` = :standalone WHERE `id` = :id LIMIT 1;');
-
-			$db->bind('page_id',$record_id);
+			$db->query('UPDATE `node` SET `parent_id` = :parent_id, `title` = :title, `meta_description` = :description, `change_freq` = :change_freq, `priority` = :priority, `standalone` = :standalone WHERE `node_id` = :node_id LIMIT 1;');
+			// update alias
+			$db->bind('node_id',$record_id);
+			$db->bind('alias',$_POST['page']['alias']);
+			$db->query('UPDATE `node_alias` SET `alias` = :alias WHERE `node_alias`.`node_id` = :node_id');
+			// update state
+			$db->bind('node_id',$record_id);
 			$db->bind('state',$_POST['page']['state']);
-			$db->query('UPDATE `page_permissions` SET `state` = :state WHERE `page_permissions`.`page_id` = :page_id');
+			$db->query('UPDATE `node_permission` SET `state` = :state WHERE `node_permission`.`node_id` = :node_id');
 
-			$alert->add('success','Page successfully updated');
+			$alert->add('success','Node successfully updated');
 			break;
 		case 'new':
-		echo 'new';
-			$db->bind('id',$record_id);
-			$exists = $db->single('SELECT 1 FROM `pages` WHERE `id` = :id;');
+			$db->bind('node_id',$record_id);
+			$exists = $db->single('SELECT 1 FROM `node` WHERE `node_id` = :node_id;');
 			if($exists!=1){
-				$db->query("INSERT INTO `pages` (`id`, `parent_id`, `name`, `meta_description`, `link`, `change_freq`, `priority`, `standalone`, `signin_required`, `timestamp`) VALUES (NULL, '1', 'Title', 'Description', 'example.html', 'weekly', '0.5', NULL, NULL, CURRENT_TIMESTAMP);");
-				$db->bind('id',$db->lastInsertId());
-				$db->query("INSERT INTO `page_permissions` (`id`, `page_id`, `state`) VALUES (NULL, :id, 'active');");
+				// insert node
+				$db->bind('node_id',$record_id);
+				$db->query("INSERT INTO `node` (`node_id`, `parent_id`, `title`, `meta_description`,  `change_freq`, `priority`, `standalone`, `signin_required`, `timestamp`) VALUES (:node_id, '1', 'Title', 'Description', 'weekly', '0.5', NULL, NULL, CURRENT_TIMESTAMP);");
+				// insert alias
+				$db->bind('node_id',$record_id);
+				$db->bind('alias','new-page.html');
+				$db->query('INSERT INTO `node_alias` (`node_id`,`alias`) VALUES (:node_id, :alias);');
+				// insert state
+				$db->bind('node_id',$record_id);
+				$db->query("INSERT INTO `node_permission` (`node_id`, `state`) VALUES (:node_id, 'active');");
 
-				$alert->add('success','Page successfully added');
+				$alert->add('success','Node successfully added');
 			}
 			break;
 		case 'remove':
-			$db->bind('id',$record_id);
-			$db->query('DELETE FROM `pages` WHERE `id` = :id');
-			$db->bind('id',$record_id);
-			$db->query('DELETE FROM `page_permissions` WHERE `page_id` = :id;');
+			// delete node
+			$db->bind('node_id',$record_id);
+			$db->query('DELETE FROM `node` WHERE `node_id` = :node_id;');
+			// delete alias
+			$db->bind('node_id',$record_id);
+			$db->query('DELETE FROM `node_alias` WHERE `node_id` = :node_id;');
+			// delete state
+			$db->bind('node_id',$record_id);
+			$db->query('DELETE FROM `node_permission` WHERE `node_id` = :node_id;');
 
-			$alert->add('success','Page successfully removed');
+			$alert->add('success','Node successfully removed');
 			break;
 	}
 }
 
-$pages = $db->query('SELECT `pages`.`id`, `pages`.`parent_id`, `pages`.`name`, `pages`.`meta_description`, `pages`.`link`, `pages`.`priority`, `pages`.`change_freq`, `pages`.`standalone`, `pages`.`signin_required`, `page_permissions`.`state` FROM `pages` LEFT JOIN `page_permissions` ON `pages`.`id` = `page_permissions`.`page_id` ORDER BY `pages`.`name`;');
+$nodes = $db->query('SELECT `node`.`node_id` AS `id`, `node`.`parent_id`, `node`.`title`, `node`.`meta_description`, `node_alias`.`alias`, `node`.`priority`, `node`.`change_freq`, `node`.`standalone`, `node`.`signin_required`, `node_permission`.`state` FROM `node` LEFT JOIN `node_permission` ON `node`.`node_id` = `node_permission`.`node_id` LEFT JOIN `node_alias` ON `node`.`node_id` = `node_alias`.`node_id` ORDER BY `node`.`title`');
 
-function print_menu($array, $level) {
+function print_node_menu($array, $level) {
 	global $instance;
-	global $pages;
+	global $nodes;
 	global $record_id;
 	foreach($array as $key => $value) {
 		if($record_id==$value['id']){
@@ -70,20 +84,20 @@ function print_menu($array, $level) {
 			echo '<form id="edit" name="edit" method="post" action="'.$instance->href(NULL, $value['id']).'#page'.$value['id'].'" enctype="multipart/form-data">';
 
 			echo '<div style="float:right">';
-			echo '<a href="'.$instance->href($value['link']).'" style="margin-right: 1em"><span class="glyphicon glyphicon-link"></span></a>';
+			echo '<a href="'.$instance->href($value['alias']).'" style="margin-right: 1em"><span class="glyphicon glyphicon-link"></span></a>';
 			echo '<a href="?q=#page'.$value['id'].'"><span class="glyphicon glyphicon glyphicon-minus"></span></a>';
 			echo '</div>';
 
 
-			echo '<h3>'.$value['name'].'</h3>';
+			echo '<h3>'.$value['title'].'</h3>';
 
 			// title
 			echo '<label for="title">Title</label>';
-			echo '<input id="title" name="page[title]" class="form-control" type="text" value="'.$value['name'].'"/>';
+			echo '<input id="title" name="page[title]" class="form-control" type="text" value="'.$value['title'].'"/>';
 
-			// url
-			echo '<label for="url">URL</label>';
-			echo '<input id="url" name="page[url]" class="form-control" type="text" value="'.$value['link'].'"/>';
+			// alias
+			echo '<label for="alias">Alias</label>';
+			echo '<input id="alias" name="page[alias]" class="form-control" type="text" value="'.$value['alias'].'"/>';
 
 			// parent page
 			if($value['parent_id']==0){
@@ -92,8 +106,8 @@ function print_menu($array, $level) {
 			} else {
 				echo '<label for="parent_id">Parent Page</label>';
 				echo '<select id="parent_id" name="page[parent_id]" class="form-control">';
-				foreach($pages as $key2 => $value2){
-					echo '<option value="'.$value2['id'].'"'.(($value2['id']==$value['parent_id'])?' selected':'').'>'.$value2['name'].'</option>';
+				foreach($nodes as $key2 => $value2){
+					echo '<option value="'.$value2['id'].'"'.(($value2['id']==$value['parent_id'])?' selected':'').'>'.$value2['title'].'</option>';
 				}
 				echo '</select>';
 			}
@@ -144,31 +158,32 @@ function print_menu($array, $level) {
 			echo '</div>';
 		} else {
 			echo '<div class="well well-sm" id="page'.$value['id'].'" style="background: #FFF; margin: 0.2em 0 0.2em '.($level*2+1).'em;">';
-			echo $value['name'];
+			echo $value['title'];
 			echo '<div style="float:right">';
-			echo '<a href="'.$instance->href($value['link']).'" style="margin-right: 1em"><span class="glyphicon glyphicon-link"></span></a>';
+			echo '<a href="'.$instance->href($value['alias']).'" style="margin-right: 1em"><span class="glyphicon glyphicon-link"></span></a>';
 			echo '<a href="'.$instance->href(NULL, $value['id']).'#page'.$value['id'].'"><span class="glyphicon glyphicon-plus"></span></a>';
 			echo '</div>';
 			echo '</div>';
 		}
 		if(is_array($value)){
-		    print_menu($value['children'], $level+1);
+				print_node_menu($value['children'], $level+1);
 		}
-  }
+	}
 }
+
 
 $alert->get();
 
 echo '<div class="container background-white"/>';
 
-$new_id = $db->single('SELECT MAX(`id`) FROM `pages`')+1;
+$new_id = $db->single('SELECT MAX(`node_id`)+1 FROM `node`');
 echo '<form id="new" name="new" method="post" action="'.$instance->href(NULL, $new_id).'#page'.$new_id.'" enctype="multipart/form-data">';
 echo '<p class="text-right">';
 echo '<button type="submit" name="submit" class="btn btn-default" form="new" value="new" aria-label="Left Align"><span class="glyphicon glyphicon-file" aria-hidden="true"></span>New Page</button>';
 echo '</p>';
 echo '</form>';
 
-print_menu(buildTree($pages),0);
+print_node_menu(build_tree($nodes),0);
 
 echo '</div>';
 ?>

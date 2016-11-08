@@ -3,8 +3,8 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 01, 2016 at 11:20 PM
--- Server version: 5.7.15-0ubuntu0.16.04.1
+-- Generation Time: Nov 07, 2016 at 10:01 PM
+-- Server version: 5.7.16-0ubuntu0.16.04.1
 -- PHP Version: 7.0.8-0ubuntu0.16.04.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -232,15 +232,60 @@ INSERT INTO `languages` (`id`, `name`, `abbreviation`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pages`
+-- Table structure for table `menu`
 --
 
-CREATE TABLE `pages` (
-  `id` int(11) NOT NULL,
+CREATE TABLE `menu` (
+  `menu_id` int(25) NOT NULL,
+  `title` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `menu`
+--
+
+INSERT INTO `menu` (`menu_id`, `title`) VALUES
+(1, 'top-menu');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `menu_item`
+--
+
+CREATE TABLE `menu_item` (
+  `item_id` int(25) NOT NULL,
+  `menu_id` int(25) NOT NULL,
+  `node_id` int(25) NOT NULL,
+  `parent_id` int(25) DEFAULT NULL,
+  `title` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `menu_item`
+--
+
+INSERT INTO `menu_item` (`item_id`, `menu_id`, `node_id`, `parent_id`, `title`) VALUES
+(1, 1, 2, NULL, NULL),
+(2, 1, 12, 2, NULL),
+(3, 1, 13, 2, NULL),
+(4, 1, 14, 2, NULL),
+(5, 1, 15, 2, NULL),
+(6, 1, 17, NULL, NULL),
+(7, 1, 3, NULL, NULL),
+(8, 1, 4, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `node`
+--
+
+CREATE TABLE `node` (
+  `node_id` int(11) NOT NULL,
   `parent_id` int(11) DEFAULT NULL,
-  `name` varchar(50) DEFAULT NULL,
+  `title` varchar(50) DEFAULT NULL,
   `meta_description` varchar(1000) DEFAULT NULL,
-  `link` longtext CHARACTER SET utf8,
   `change_freq` enum('always','hourly','daily','weekly','monthly','yearly','never') NOT NULL DEFAULT 'weekly',
   `priority` decimal(2,1) DEFAULT '0.5',
   `standalone` tinyint(4) DEFAULT NULL COMMENT 'header/footer disabled (1) enabled (null)',
@@ -249,69 +294,110 @@ CREATE TABLE `pages` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `pages`
+-- Dumping data for table `node`
 --
 
-INSERT INTO `pages` (`id`, `parent_id`, `name`, `meta_description`, `link`, `change_freq`, `priority`, `standalone`, `signin_required`, `timestamp`) VALUES
-(1, 0, 'Home', 'Home', 'home.html', 'weekly', '1.0', 0, 0, '2016-10-25 22:34:56'),
-(2, 1, 'Portfolio', 'My portfolio', 'portfolio.html', 'weekly', '0.5', 0, 0, '2016-07-11 23:55:58'),
-(3, 1, 'Resume', 'My resume', 'resume.html', 'weekly', '0.5', 0, 0, '2016-07-11 23:55:49'),
-(4, 1, 'Contact', 'Contact me', 'contact.html', 'weekly', '0.5', NULL, NULL, '2016-07-11 23:55:38'),
-(5, 1, 'Page Settings', 'Page Settings', 'admin/pages/settings.html', 'weekly', '0.1', 0, NULL, '2016-11-01 00:24:48'),
-(6, 1, 'Users', 'Change group permissions, account settings, create an account, manage user groups, send a message to another user, etc', 'users.html', 'weekly', '0.5', 0, 0, '2016-07-11 23:54:51'),
-(7, 1, 'Sign-in', 'Sign-in to your account.', 'users/sign-in.html', 'weekly', '0.5', 0, 1, '2016-07-11 23:54:51'),
-(8, 7, 'User Settings', 'Update your settings', 'users/settings.html', 'weekly', '0.5', 0, 1, '2016-07-11 23:54:51'),
-(9, 7, 'Sign Up', 'Sign up for an account', 'users/sign-up.html', 'weekly', '0.5', 0, 0, '2016-07-11 23:54:51'),
-(10, 1, 'Site Map', NULL, 'site-map.html', 'weekly', '0.5', 0, 0, '2016-07-11 23:54:51'),
-(11, 10, 'Sitemap XML', NULL, 'sitemap.xml', 'weekly', '0.5', 1, 0, '2016-07-11 23:54:51'),
-(12, 2, 'Web Design and Development', 'Web design and development', 'portfolio/web-design-and-development.html', 'weekly', '0.5', 0, 0, '2016-07-11 23:55:58'),
-(13, 2, 'Art Design', 'Art design', 'portfolio/art-design.html', 'weekly', '0.5', 0, 0, '2016-07-11 23:55:58'),
-(14, 2, 'Robotics Development', 'Robotics development', 'portfolio/robotics-development.html', 'weekly', '0.5', 0, 0, '2016-07-11 23:55:58'),
-(15, 2, 'Game Design', 'Game design', 'portfolio/game-design.html', 'weekly', '0.5', 0, 0, '2016-07-11 23:55:58'),
-(16, 1, 'Dev', 'dev', 'dev.html', 'weekly', '0.5', 0, 0, '2016-08-06 22:25:05'),
-(17, 1, 'Snippets', 'snippets', 'snippets.html', 'weekly', '0.5', 0, 0, '2016-08-06 22:09:35'),
-(18, 17, 'PHP - Luck', 'luck', 'snippets/luck.html', 'weekly', '0.5', 0, 0, '2016-08-06 22:09:42'),
-(19, 17, 'PHP - Afflictions', 'afflictions', 'snippets/afflictions.html', 'weekly', '0.5', 0, 0, '2016-08-06 22:09:47'),
-(20, 17, 'Misc - Color Selection', 'color selection', 'snippets/color-selection.html', 'weekly', '0.5', 0, 0, '2016-08-06 22:09:44'),
-(21, 17, 'AngularJS - Pair 10 Example', NULL, 'snippets/pair-10-example.html', 'weekly', '0.5', 1, NULL, '2016-08-06 22:09:52'),
-(22, 17, '3D Modeling - Broadsword', 'Broadsword', 'snippets/broadsword.html', 'weekly', '0.5', NULL, NULL, '2016-08-06 22:09:50'),
-(23, 17, 'PHP - Instance', 'instance', 'snippets/instance.html', 'weekly', '0.5', NULL, NULL, '2016-08-07 04:02:46'),
-(24, 17, 'PHP - WAR Game Engine', 'war game engine', 'snippets/war-game-engine.html', 'weekly', '0.5', NULL, NULL, '2016-08-21 13:35:16'),
-(25, 1, 'Search', 'Search', 'search.html', 'weekly', '0.5', 0, 0, '2016-10-21 00:38:23'),
-(26, 17, 'Robotics - Determining Square Root', 'Robot determining square root', 'snippets/robot-squareroot.html', 'weekly', '0.5', NULL, NULL, '2016-10-27 00:52:23'),
-(27, 17, 'Robotics Solving Scrap', 'Robotics Solving Scrap', 'snippets/solving-scrap.html', 'weekly', '0.5', NULL, NULL, '2016-10-27 00:53:31'),
-(28, 17, 'Robotics - CUT ALL', 'Robotics CUT ALL', 'snippets/cut-all.html', 'weekly', '0.5', NULL, NULL, '2016-08-06 22:09:50');
+INSERT INTO `node` (`node_id`, `parent_id`, `title`, `meta_description`, `change_freq`, `priority`, `standalone`, `signin_required`, `timestamp`) VALUES
+(1, 0, 'Home', 'A developer\'s home', 'weekly', '1.0', 0, 0, '2016-11-04 00:46:27'),
+(2, 1, 'Portfolio', 'Works completed', 'weekly', '1.0', 0, 0, '2016-11-03 23:46:07'),
+(3, 1, 'Resume', 'Resume', 'weekly', '0.5', 0, 0, '2016-11-03 03:27:57'),
+(4, 1, 'Contact', 'Contact and connect', 'monthly', '0.5', 0, NULL, '2016-11-03 03:16:36'),
+(5, 33, 'Node Settings', 'Node Settings', 'weekly', '0.0', 0, NULL, '2016-11-08 01:56:13'),
+(6, 1, 'Users', 'Change group permissions, account settings, create an account, manage user groups, send a message to another user, etc', 'weekly', '0.5', 0, 0, '2016-07-11 23:54:51'),
+(7, 6, 'Sign-in', 'Sign-in to your account.', 'weekly', '0.5', 0, 1, '2016-11-03 03:59:04'),
+(8, 6, 'Settings', 'Update your settings', 'weekly', '0.5', 0, 1, '2016-11-03 04:00:20'),
+(9, 6, 'Sign Up', 'Sign up for an account', 'weekly', '0.5', 0, 0, '2016-11-03 03:59:48'),
+(10, 1, 'Site Map', NULL, 'weekly', '0.5', 0, 0, '2016-07-11 23:54:51'),
+(11, 10, 'Sitemap XML', NULL, 'weekly', '0.5', 1, 0, '2016-07-11 23:54:51'),
+(12, 2, 'Web Design and Development', 'Web design and development', 'weekly', '0.7', 0, 0, '2016-11-03 23:40:12'),
+(13, 2, 'Art Design', 'Art design', 'weekly', '0.5', 0, 0, '2016-07-11 23:55:58'),
+(14, 2, 'Robotics Development', 'Robotics development', 'weekly', '0.5', 0, 0, '2016-07-11 23:55:58'),
+(15, 2, 'Game Design', 'Game design', 'weekly', '0.5', 0, 0, '2016-07-11 23:55:58'),
+(16, 33, 'Development', 'dev', 'weekly', '0.5', 0, 0, '2016-11-04 01:08:51'),
+(17, 1, 'Case Studies', 'Studies about a situation that have been studied over time.', 'weekly', '0.5', 0, 0, '2016-11-03 03:31:06'),
+(18, 31, 'Luck', 'luck', 'weekly', '0.5', 0, 0, '2016-11-04 01:38:24'),
+(19, 31, 'Afflictions', 'afflictions', 'weekly', '0.5', 0, 0, '2016-11-04 01:38:07'),
+(20, 30, 'Color Selection', 'color selection', 'weekly', '0.5', 0, 0, '2016-11-04 01:51:36'),
+(21, 30, 'Pair 10', NULL, 'monthly', '0.5', 1, NULL, '2016-11-08 01:53:02'),
+(22, 34, 'Broadsword', 'Broadsword', 'weekly', '0.5', 0, NULL, '2016-11-04 01:53:58'),
+(23, 31, 'Instance', 'instance', 'weekly', '0.5', 0, NULL, '2016-11-04 01:38:15'),
+(25, 1, 'Search', 'Search', 'weekly', '0.5', 0, 0, '2016-10-21 00:38:23'),
+(26, 32, 'Determining Square Root', 'Robot determining square root', 'weekly', '0.5', 0, NULL, '2016-11-04 01:53:29'),
+(27, 32, 'Solving Scrap', 'Robotics Solving Scrap', 'weekly', '0.5', 0, NULL, '2016-11-04 01:53:35'),
+(28, 32, 'Single Program', 'Robotics single program', 'weekly', '0.5', 0, NULL, '2016-11-08 01:31:11'),
+(30, 17, 'AngularJS', 'Description', 'weekly', '0.5', 0, NULL, '2016-11-06 23:48:35'),
+(31, 17, 'PHP', 'Description', 'weekly', '0.5', 0, NULL, '2016-11-04 00:47:10'),
+(32, 17, 'Robotics', 'Description', 'weekly', '0.5', 0, NULL, '2016-11-04 00:48:38'),
+(33, 1, 'Administration', 'Description', 'weekly', '0.5', 0, NULL, '2016-11-04 00:56:22'),
+(34, 17, '3D', 'Description', 'weekly', '0.5', 0, NULL, '2016-11-06 23:44:43');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `page_menu`
+-- Table structure for table `node_alias`
 --
 
-CREATE TABLE `page_menu` (
-  `id` int(25) NOT NULL,
-  `menu_id` int(25) NOT NULL,
-  `page_id` int(25) NOT NULL,
-  `parent_id` int(25) NOT NULL
+CREATE TABLE `node_alias` (
+  `alias_id` int(11) NOT NULL,
+  `node_id` int(11) NOT NULL,
+  `alias` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `node_alias`
+--
+
+INSERT INTO `node_alias` (`alias_id`, `node_id`, `alias`) VALUES
+(1, 1, 'home.html'),
+(2, 2, 'portfolio.html'),
+(3, 3, 'resume.html'),
+(4, 4, 'contact.html'),
+(5, 5, 'admin/node/settings.html'),
+(6, 6, 'users.html'),
+(7, 7, 'users/sign-in.html'),
+(8, 8, 'users/settings.html'),
+(9, 9, 'users/sign-up.html'),
+(10, 10, 'site-map.html'),
+(11, 11, 'sitemap.xml'),
+(12, 12, 'portfolio/web-design-and-development.html'),
+(13, 13, 'portfolio/art-design.html'),
+(14, 14, 'portfolio/robotics-development.html'),
+(15, 15, 'portfolio/game-design.html'),
+(16, 16, 'dev.html'),
+(17, 17, 'case-studies.html'),
+(18, 18, 'case-studies/php/luck.html'),
+(19, 19, 'case-studies/php/afflictions.html'),
+(20, 20, 'snippets/color-selection.html'),
+(21, 21, 'case-studies/angularjs/pair-10.html'),
+(22, 22, 'case-studies/3d/broadsword.html'),
+(23, 23, 'case-studies/php/instance.html'),
+(24, 25, 'search.html'),
+(25, 26, 'case-studies/robotics/squareroot.html'),
+(26, 27, 'case-studies/robotics/solving-scrap.html'),
+(27, 28, 'case-studies/robotics/single-program.html'),
+(28, 30, 'case-studies/angularjs.html'),
+(29, 31, 'case-studies/php.html'),
+(30, 32, 'case-studies/robotics.html'),
+(31, 33, 'admin.html'),
+(32, 34, 'case-studies/3d.html');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `page_permissions`
+-- Table structure for table `node_permission`
 --
 
-CREATE TABLE `page_permissions` (
-  `id` int(11) NOT NULL,
-  `page_id` int(11) NOT NULL,
+CREATE TABLE `node_permission` (
+  `permission_id` int(11) NOT NULL,
+  `node_id` int(11) NOT NULL,
   `state` enum('disabled','active','protected') CHARACTER SET utf8 NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `page_permissions`
+-- Dumping data for table `node_permission`
 --
 
-INSERT INTO `page_permissions` (`id`, `page_id`, `state`) VALUES
+INSERT INTO `node_permission` (`permission_id`, `node_id`, `state`) VALUES
 (1, 1, 'active'),
 (2, 2, 'active'),
 (3, 3, 'active'),
@@ -320,7 +406,7 @@ INSERT INTO `page_permissions` (`id`, `page_id`, `state`) VALUES
 (6, 13, 'active'),
 (7, 14, 'active'),
 (8, 15, 'active'),
-(9, 16, 'active'),
+(9, 16, 'disabled'),
 (10, 17, 'active'),
 (11, 18, 'active'),
 (12, 19, 'active'),
@@ -328,13 +414,17 @@ INSERT INTO `page_permissions` (`id`, `page_id`, `state`) VALUES
 (14, 21, 'active'),
 (15, 22, 'active'),
 (16, 23, 'active'),
-(17, 24, 'active'),
 (18, 25, 'active'),
 (19, 11, 'active'),
 (20, 26, 'active'),
 (21, 27, 'active'),
 (22, 28, 'active'),
-(23, 5, 'active');
+(23, 5, 'active'),
+(25, 30, 'active'),
+(26, 31, 'active'),
+(27, 32, 'active'),
+(28, 33, 'active'),
+(29, 34, 'active');
 
 -- --------------------------------------------------------
 
@@ -602,22 +692,34 @@ ALTER TABLE `languages`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `pages`
+-- Indexes for table `menu`
 --
-ALTER TABLE `pages`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `menu`
+  ADD PRIMARY KEY (`menu_id`);
 
 --
--- Indexes for table `page_menu`
+-- Indexes for table `menu_item`
 --
-ALTER TABLE `page_menu`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `menu_item`
+  ADD PRIMARY KEY (`item_id`);
 
 --
--- Indexes for table `page_permissions`
+-- Indexes for table `node`
 --
-ALTER TABLE `page_permissions`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `node`
+  ADD PRIMARY KEY (`node_id`);
+
+--
+-- Indexes for table `node_alias`
+--
+ALTER TABLE `node_alias`
+  ADD PRIMARY KEY (`alias_id`);
+
+--
+-- Indexes for table `node_permission`
+--
+ALTER TABLE `node_permission`
+  ADD PRIMARY KEY (`permission_id`);
 
 --
 -- Indexes for table `portfolio`
@@ -693,20 +795,30 @@ ALTER TABLE `address_book`
 ALTER TABLE `languages`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 --
--- AUTO_INCREMENT for table `pages`
+-- AUTO_INCREMENT for table `menu`
 --
-ALTER TABLE `pages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+ALTER TABLE `menu`
+  MODIFY `menu_id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT for table `page_menu`
+-- AUTO_INCREMENT for table `menu_item`
 --
-ALTER TABLE `page_menu`
-  MODIFY `id` int(25) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `menu_item`
+  MODIFY `item_id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
--- AUTO_INCREMENT for table `page_permissions`
+-- AUTO_INCREMENT for table `node`
 --
-ALTER TABLE `page_permissions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+ALTER TABLE `node`
+  MODIFY `node_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+--
+-- AUTO_INCREMENT for table `node_alias`
+--
+ALTER TABLE `node_alias`
+  MODIFY `alias_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+--
+-- AUTO_INCREMENT for table `node_permission`
+--
+ALTER TABLE `node_permission`
+  MODIFY `permission_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 --
 -- AUTO_INCREMENT for table `portfolio`
 --

@@ -59,7 +59,7 @@ echo '<div id="navbar" class="navbar-collapse collapse window">';
 $results = $db->query('SELECT `menu_item`.`node_id` AS `id`,`menu_item`.`parent_id`,IF(`menu_item`.`title` IS NULL,`node`.`title`, `menu_item`.`title`) AS `title`, `node_alias`.`alias` FROM `menu` LEFT JOIN `menu_item` ON `menu`.`menu_id` = `menu_item`.`menu_id` LEFT JOIN `node` ON `menu_item`.`node_id` = `node`.`node_id` LEFT JOIN `node_alias` ON `menu_item`.`node_id` = `node_alias`.`node_id` WHERE `menu`.`title` = \'top-menu\' ORDER BY `menu_item`.`item_id` ASC');
 
 echo '<ul class="nav navbar-nav navbar-left">';
-print_menu(buildTree($results),0);
+print_menu(build_tree($results),0);
 echo '</ul>';
 
 echo '<div class="nav navbar-nav navbar-right">';

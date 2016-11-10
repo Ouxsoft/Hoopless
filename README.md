@@ -6,9 +6,11 @@ new developments.
 * Lightweight/bloatless design.
 * Uses assets to provide content.
 * Uses config files for server information.
-* Uses themes to wrap output.
-* Uses nodes to produce pages.
+* Uses `node` to produce pages.
+* Uses themes to wrap node with header and footer.
+** Minified CSS from SCSS (i.e. `top.min.css` AND `bottom.min.css`).
 * Uses lib files for includes.
+* Minified (single line output) HTML5.
 
 ## Future Development Plans
 * Change table from plural to singular name, e.g. `users` to `user`

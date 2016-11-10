@@ -85,6 +85,7 @@ function print_node_menu($array, $level) {
 
 			echo '<div style="float:right">';
 			echo '<a href="'.$instance->href($value['alias']).'" style="margin-right: 1em"><span class="glyphicon glyphicon-link"></span></a>';
+			echo '<a href="'.$instance->href('admin/node/edit.html',$value['id']).'" style="margin-right: 1em"><span class="glyphicon glyphicon-edit"></span></a>';
 			echo '<a href="?q=#page'.$value['id'].'"><span class="glyphicon glyphicon glyphicon-minus"></span></a>';
 			echo '</div>';
 
@@ -161,6 +162,7 @@ function print_node_menu($array, $level) {
 			echo $value['title'];
 			echo '<div style="float:right">';
 			echo '<a href="'.$instance->href($value['alias']).'" style="margin-right: 1em"><span class="glyphicon glyphicon-link"></span></a>';
+			echo '<a href="'.$instance->href('admin/node/edit.html',$value['id']).'" style="margin-right: 1em"><span class="glyphicon glyphicon-edit"></span></a>';
 			echo '<a href="'.$instance->href(NULL, $value['id']).'#page'.$value['id'].'"><span class="glyphicon glyphicon-plus"></span></a>';
 			echo '</div>';
 			echo '</div>';

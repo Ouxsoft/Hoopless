@@ -47,7 +47,7 @@ echo '<div class="window" id="pagetop">';
 echo '<form method="get" name="top" action="'.$instance->href('search.html').'" enctype="multipart/form-data">';
 echo '<nav class="navbar navbar-default navbar-static-top">';
 echo '<div class="container">';
-if($instance->page['current']['link']!='home.html'){
+if($instance->page['current']['alias']!='home.html'){
 	echo '<div class="brand">';
 	echo '<a href="'.$instance->href('home.html').'" title="Home"><em>Matt</em> Heroux</a>';
 	echo '</div>';
@@ -77,7 +77,6 @@ echo '</div>';
 echo '</nav>';
 echo '</form>';
 echo '</div>';
-
 if($instance->page['current']['alias']!='home.html'){
 	echo '<div id="page-title" style="background-image: url(\''.$instance->href('images/body-container/'.$instance->page['current']['node_id'].'.jpg').'\');">';
 	echo '<h1 class="container load-transition text-center">'.$instance->page['current']['title'].'</h1>';

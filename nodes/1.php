@@ -14,7 +14,7 @@ foreach(explode(' ',$instance->website['title']) as $part){
     $title .= $part.' ';
   }
 }
-echo '<h1>'.$title.'<span class="normal"> / <abbr title="also known as Mr. Heroux">Mr. Heroux</abbr></span></h1>';
+echo '<h1>'.$title.'</h1>';
 echo '<h3>Web Designer & Developer</h3>';
 echo '<p>I am a creative system designer and developer who specializes in building and evolving web-based solutions. I have designed and developed systems used to:</p>';
 echo '<ul>';

@@ -12,7 +12,62 @@ function portfolio_href($type, $string){
 
 // experience
 echo "<div class=\"container background-white load-transition\">";
+
 echo "<h2 class=\"center\">Experiences</h2>";
+
+echo "<h3>Careers</h3>";
+echo "<hr/>";
+
+echo '<div class="row">';
+echo '<div class="col-md-4"><h4>Marlboro College and Graduate School</h4>2016 to Present</div>';
+echo '<div class="col-md-8"><h4>(Lead) Web Developer</h4>';
+echo '<p>Working on a team to develop and evolve internal and external college and graduate school web-services for students, faculty, staff, parents, et al.</p>';
+echo "<div class=\"experience-details\">";
+echo "<span class=\"glyphicon glyphicon-map-marker\"></span>Marlboro and Brattleboro, Vermont USA | <span class=\"glyphicon glyphicon-link\"></span> <a href=\"https://www.marlboro.edu\" target=\"_blank\">https://www.marlboro.edu</a>";
+echo "</div>";
+echo "</div>";
+echo "</div>";
+
+echo "<div class=\"row\">";
+echo "<div class=\"col-md-4\"><h4>JNH Environmental Services, Inc.</h4>2012 to 2016</div>";
+echo "<div class=\"col-md-8\"><h4>Lead Web Developer</h4>";
+echo "<p>Lead a team in the development of systems that protect the health and safety of employees and the environment, such as the <a href=\"https://jnhes.com/demo/home.html\" target=\"_blank\">EHS Compliance Center&trade;</a>.</p>";
+echo "<div class=\"experience-details\">";
+echo "<span class=\"glyphicon glyphicon-map-marker\"></span>Rutland and Brandon, Vermont USA | <span class=\"glyphicon glyphicon-link\"></span> <a href=\"https://jnhes.com\" target=\"_blank\">https://jnhes.com</a>";
+echo "</div>";
+echo "</div>";
+echo "</div>";
+
+echo "<div class=\"row\">";
+echo "<div class=\"col-md-4\"><h4>JNH Environmental Services, Inc.</h4>2011 to 2012</div>";
+echo "<div class=\"col-md-8\"><h4>Intern - Web Developer</h4>";
+echo "<p>As an intern at JNH I worked on the company's web site and learning the company's numerous services.</a></p>";
+echo "<div class=\"experience-details\">";
+echo "<span class=\"glyphicon glyphicon-map-marker\"></span>Pittsford, Vermont USA | <span class=\"glyphicon glyphicon-link\"></span> <a href=\"https://jnhes.com\" target=\"_blank\">https://jnhes.com</a>";
+echo "</div>";
+echo "</div>";
+echo "</div>";
+
+echo "<div class=\"row\">";
+echo "<div class=\"col-md-4\"><h4>Questech&reg; Corporation</h4>2006 to 2011</div>";
+echo "<div class=\"col-md-8\"><h4>Programmer Operator</h4>";
+echo "<p>Designed and developed web based documentation system for robots.<p>";
+echo "<div class=\"experience-details\">";
+echo "<span class=\"glyphicon glyphicon-map-marker\"></span>Rutland, Vermont | <span class=\"glyphicon glyphicon-link\"></span> <a href=\"http://questech.com\" target=\"_blank\">http://questech.com</a>";
+echo "</div>";
+echo "</div>";
+echo "</div>";
+
+echo "<div class=\"row\">";
+echo "<div class=\"col-md-4\"><h4>Small Startup Studio</h4>2004 to 2006</div>";
+echo "<div class=\"col-md-8\"><h4>Web Developer</h4>";
+echo "<p>Designed and developed online development platform to enable game developers to collaborate.</p>";
+echo "<div class=\"experience-details\">";
+echo "<span class=\"glyphicon glyphicon-map-marker\"></span>Online";
+echo "</div>";
+echo "</div>";
+echo "</div>";
+
 echo "<h3>Education</h3>";
 echo "<hr/>";
 
@@ -43,50 +98,6 @@ echo "</div>";
 echo "</div>";
 echo "</div>";
 
-echo "<h3>Careers</h3>";
-echo "<hr/>";
-
-echo "<div class=\"row\">";
-echo "<div class=\"col-md-4\"><h4>JNH Environmental Service, Inc.</h4>2012 to Present</div>";
-echo "<div class=\"col-md-8\"><h4>Lead Developer</h4>";
-echo "<p>As a senior at JNH I lead a team in the development of systems that protect the health and safety of employees and the environment, such as the <a href=\"https://jnhes.com/demo/home.html\" target=\"_blank\">EHS Compliance Center&trade;</a></p>";
-echo "<div class=\"experience-details\">";
-echo "<span class=\"glyphicon glyphicon-map-marker\"></span>Rutland and Brandon, Vermont USA | <span class=\"glyphicon glyphicon-link\"></span> <a href=\"https://jnhes.com\" target=\"_blank\">https://jnhes.com</a>";
-echo "</div>";
-echo "</div>";
-echo "</div>";
-
-
-echo "<div class=\"row\">";
-echo "<div class=\"col-md-4\"><h4>JNH Environmental Service, Inc.</h4>2011 to 2012</div>";
-echo "<div class=\"col-md-8\"><h4>Intern - Web Developer</h4>";
-echo "<p>As an intern at JNH I worked on the company's web site and learning the company's numerous services.</a></p>";
-echo "<div class=\"experience-details\">";
-echo "<span class=\"glyphicon glyphicon-map-marker\"></span>Pittsford, Vermont USA | <span class=\"glyphicon glyphicon-link\"></span> <a href=\"https://jnhes.com\" target=\"_blank\">https://jnhes.com</a>";
-echo "</div>";
-echo "</div>";
-echo "</div>";
-
-
-echo "<div class=\"row\">";
-echo "<div class=\"col-md-4\"><h4>Questech&reg; Corporation</h4>2006 to 2011</div>";
-echo "<div class=\"col-md-8\"><h4>Programmer Operator</h4>";
-echo "<p>Designed and developed web based documentation system for robots.<p>";
-echo "<div class=\"experience-details\">";
-echo "<span class=\"glyphicon glyphicon-map-marker\"></span>Rutland, Vermont | <span class=\"glyphicon glyphicon-link\"></span> <a href=\"http://questech.com\" target=\"_blank\">http://questech.com</a>";
-echo "</div>";
-echo "</div>";
-echo "</div>";
-
-echo "<div class=\"row\">";
-echo "<div class=\"col-md-4\"><h4>Small Startup Studio</h4>2004 to 2006</div>";
-echo "<div class=\"col-md-8\"><h4>Web Developer</h4>";
-echo "<p>Designed and developed online development platform to enable game developers to collaborate.</p>";
-echo "<div class=\"experience-details\">";
-echo "<span class=\"glyphicon glyphicon-map-marker\"></span>Online";
-echo "</div>";
-echo "</div>";
-echo "</div>";
 echo "</div>";
 
 // abilities

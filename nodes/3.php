@@ -11,7 +11,7 @@ echo '<div class="container background-white load-transition">';
 echo '<h2>Skills:</h2>';
 echo '<div class="row">';
 
-echo '<div class="col-md-3">';
+echo '<div class="col-md-4">';
 echo '<ul>';
 echo '<li>Full Stack Development</li>';
 echo '<li>Coding and Scripting</li>';
@@ -19,7 +19,7 @@ echo '<li>Database Development</li>';
 echo '</ul>';
 echo '</div>';
 
-echo '<div class="col-md-3">';
+echo '<div class="col-md-4">';
 echo '<ul>';
 echo '<li>Project Management</li>';
 echo '<li>Graphic Design</li>';
@@ -27,7 +27,7 @@ echo '<li>Troubleshooting and Debugging</li>';
 echo '</ul>';
 echo '</div>';
 
-echo '<div class="col-md-3">';
+echo '<div class="col-md-4">';
 echo '<ul>';
 echo '<li>Responsive Web Design</li>';
 echo '<li>Documentation</li>';
@@ -42,7 +42,13 @@ echo '</div>';
 echo '<div class="container background-white load-transition">';
 echo '<h2>Professional Experience:</h2>';
 echo '<ul>';
-echo '<li><b>Lead Web Developer</b><span class="right">2012 to Present</span><br/><i>JNH Environmental Services, Inc. (Turnkey EHS Services Provider) &mdash; Rutland, Vermont.</i>';
+echo '<li><b>(Lead) Web Developer</b><span class="right">2016 to Present</span><br/><i>Marlboro College (Liberal-Arts College) and Marlboro Graduate School
+&mdash; Marlboro, Vermont and Brattleboro, Vermont.</i>';
+echo '<ul>';
+echo '<li>Working on a team to develop and evolve internal and external college and graduate school web-services for students, faculty, staff, parents, et al.</li>';
+echo '</ul>';
+echo '</li>';
+echo '<li><b>Lead Web Developer</b><span class="right">2012 to 2016</span><br/><i>JNH Environmental Services, Inc. (Turnkey EHS Services Provider) &mdash; Rutland, Vermont.</i>';
 echo '<ul>';
 echo '<li><b>FULL STACK DEVELOPMENT. Spearheaded both the front-end and back-end development of proprietary web services.</b>';
 echo '<ul>';
@@ -165,3 +171,4 @@ echo '<li><b>American Computer Science League</b><span class="right">2003 to 200
 echo '</ul>';
 echo '</div>';
 ?>
+<p>&nbsp;</p>

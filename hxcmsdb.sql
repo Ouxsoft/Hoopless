@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 07, 2016 at 10:01 PM
+-- Generation Time: Nov 13, 2016 at 06:49 PM
 -- Server version: 5.7.16-0ubuntu0.16.04.1
 -- PHP Version: 7.0.8-0ubuntu0.16.04.3
 
@@ -110,7 +110,8 @@ INSERT INTO `abilities` (`id`, `category`, `name`, `score`, `started`, `timestam
 (72, 'Robotic skills', 'Documentation (Web Based)', 4, NULL, '2016-08-02 13:39:54'),
 (73, 'Robotic skills', 'TP Programming', 5, NULL, '2016-08-02 13:44:12'),
 (74, 'Robotic skills', 'Rj32 Framework', 4, NULL, '2016-08-02 14:12:23'),
-(75, 'Web skills', 'Drupal', 3, NULL, '2016-07-25 05:08:40');
+(75, 'Web skills', 'Drupal', 3, NULL, '2016-07-25 05:08:40'),
+(76, 'Web skills', 'SASS (SCSS)', 5, NULL, '2016-07-25 05:08:40');
 
 -- --------------------------------------------------------
 
@@ -273,7 +274,11 @@ INSERT INTO `menu_item` (`item_id`, `menu_id`, `node_id`, `parent_id`, `title`) 
 (5, 1, 15, 2, NULL),
 (6, 1, 17, NULL, NULL),
 (7, 1, 3, NULL, NULL),
-(8, 1, 4, NULL, NULL);
+(8, 1, 4, NULL, NULL),
+(9, 1, 34, 17, NULL),
+(10, 1, 30, 17, NULL),
+(11, 1, 31, 17, NULL),
+(12, 1, 32, 17, NULL);
 
 -- --------------------------------------------------------
 
@@ -302,7 +307,7 @@ INSERT INTO `node` (`node_id`, `parent_id`, `title`, `meta_description`, `change
 (2, 1, 'Portfolio', 'Works completed', 'weekly', '1.0', 0, 0, '2016-11-03 23:46:07'),
 (3, 1, 'Resume', 'Resume', 'weekly', '0.5', 0, 0, '2016-11-03 03:27:57'),
 (4, 1, 'Contact', 'Contact and connect', 'monthly', '0.5', 0, NULL, '2016-11-03 03:16:36'),
-(5, 33, 'Node Settings', 'Node Settings', 'weekly', '0.0', 0, NULL, '2016-11-08 01:56:13'),
+(5, 33, 'Nodes', 'Node Settings', 'weekly', '0.0', 0, NULL, '2016-11-13 20:39:35'),
 (6, 1, 'Users', 'Change group permissions, account settings, create an account, manage user groups, send a message to another user, etc', 'weekly', '0.5', 0, 0, '2016-07-11 23:54:51'),
 (7, 6, 'Sign-in', 'Sign-in to your account.', 'weekly', '0.5', 0, 1, '2016-11-03 03:59:04'),
 (8, 6, 'Settings', 'Update your settings', 'weekly', '0.5', 0, 1, '2016-11-03 04:00:20'),
@@ -329,7 +334,8 @@ INSERT INTO `node` (`node_id`, `parent_id`, `title`, `meta_description`, `change
 (31, 17, 'PHP', 'Description', 'weekly', '0.5', 0, NULL, '2016-11-04 00:47:10'),
 (32, 17, 'Robotics', 'Description', 'weekly', '0.5', 0, NULL, '2016-11-04 00:48:38'),
 (33, 1, 'Administration', 'Description', 'weekly', '0.5', 0, NULL, '2016-11-04 00:56:22'),
-(34, 17, '3D', 'Description', 'weekly', '0.5', 0, NULL, '2016-11-06 23:44:43');
+(34, 17, '3D', 'Description', 'weekly', '0.5', 0, NULL, '2016-11-06 23:44:43'),
+(35, 5, 'Edit', 'Edit nodes', 'weekly', '0.5', 0, NULL, '2016-11-13 20:39:46');
 
 -- --------------------------------------------------------
 
@@ -379,7 +385,8 @@ INSERT INTO `node_alias` (`alias_id`, `node_id`, `alias`) VALUES
 (29, 31, 'case-studies/php.html'),
 (30, 32, 'case-studies/robotics.html'),
 (31, 33, 'admin.html'),
-(32, 34, 'case-studies/3d.html');
+(32, 34, 'case-studies/3d.html'),
+(33, 35, 'admin/node/edit.html');
 
 -- --------------------------------------------------------
 
@@ -406,7 +413,7 @@ INSERT INTO `node_permission` (`permission_id`, `node_id`, `state`) VALUES
 (6, 13, 'active'),
 (7, 14, 'active'),
 (8, 15, 'active'),
-(9, 16, 'disabled'),
+(9, 16, 'active'),
 (10, 17, 'active'),
 (11, 18, 'active'),
 (12, 19, 'active'),
@@ -414,6 +421,7 @@ INSERT INTO `node_permission` (`permission_id`, `node_id`, `state`) VALUES
 (14, 21, 'active'),
 (15, 22, 'active'),
 (16, 23, 'active'),
+(36, 35, 'active'),
 (18, 25, 'active'),
 (19, 11, 'active'),
 (20, 26, 'active'),
@@ -447,7 +455,7 @@ CREATE TABLE `portfolio` (
 --
 
 INSERT INTO `portfolio` (`id`, `category`, `title`, `media`, `href`, `thumbnail`, `year`) VALUES
-(60, 'robot', 'Eliminating Scrap', 'Designed and Programmed (ASP.Net, VB.Net, KARNEL, FANUC, HTML, CSS, etc.)', 'http://mrheroux.com/pages/lightbox/solving-scrap.php', 'solving-scrap.jpg', 2009),
+(60, 'robot', 'Eliminating Scrap', 'Designed and Programmed (ASP.Net, VB.Net, KARNEL, FANUC, HTML, CSS, etc.)', 'solving-scrap.jpg', 'solving-scrap.jpg', 2009),
 (1, 'web', 'Hazardous Materials Table Lookup', 'Designed, developed, and maintained (LAMP)', 'jnh-hmt.jpg', 'jnh-hmt.jpg', 2015),
 (2, 'web', 'GHS Labeling System', 'Designed, developed, and maintained (LAMP)', 'jnh-ghs-label.jpg', 'jnh-ghs-label.jpg', 2015),
 (3, 'web', 'Gameframe Website', 'Designed and developed (HTML, CSS, Javascript)', 'gameframe.jpg', 'gameframe.jpg', 2005),
@@ -501,8 +509,8 @@ INSERT INTO `portfolio` (`id`, `category`, `title`, `media`, `href`, `thumbnail`
 (53, 'game', 'PSP Font (Built Font Lib in SDK)', 'Digital Design', 'font.png', 'font.jpg', 2005),
 (54, 'game', 'Chest Sprite', 'Digital Design', 'chest.png', 'chest.jpg', 2005),
 (55, 'game', 'Bed Sprite', 'Digital Design', 'bed.png', 'bed.jpg', 2005),
-(56, 'robot', 'Teaching Robot to Find a Square Root', 'Designed and Programmed (KARNEL)', 'http://mrheroux.com/pages/lightbox/robot-squareroot.php', 'squareroot.jpg', 2009),
-(57, 'robot', 'Cut All Suite', 'Designed and Programmed (ASP.Net, VB.Net, KARNEL, FANUC, HTML, CSS, etc.)', 'http://mrheroux.com/pages/lightbox/cut-all.php', 'cut-all.jpg', 2009),
+(56, 'robot', 'Teaching Robot to Find a Square Root', 'Designed and Programmed (KARNEL)', 'squareroot.jpg', 'squareroot.jpg', 2009),
+(57, 'robot', 'Cut All Suite', 'Designed and Programmed (ASP.Net, VB.Net, KARNEL, FANUC, HTML, CSS, etc.)', 'cut-all.jpg', 'cut-all.jpg', 2009),
 (58, 'robot', 'Robot Controller Setup', NULL, 'computer-controller.jpg', 'computer-controller.jpg', 2009),
 (59, 'web', 'Hazardous Waste Shipping System', 'Designed, developed, and maintained (LAMP)', 'manifest.jpg', 'manifest.jpg', 2015),
 (61, 'web', 'Demonstration of SSH Access Using SSH Keys ', 'SSH, Putty, BASH, Pageant', 'ssh.jpg', 'ssh.jpg', 2016),
@@ -783,7 +791,7 @@ ALTER TABLE `user_group_permissions`
 -- AUTO_INCREMENT for table `abilities`
 --
 ALTER TABLE `abilities`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 --
 -- AUTO_INCREMENT for table `address_book`
 --
@@ -803,7 +811,7 @@ ALTER TABLE `menu`
 -- AUTO_INCREMENT for table `menu_item`
 --
 ALTER TABLE `menu_item`
-  MODIFY `item_id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `item_id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `node`
 --
@@ -818,7 +826,7 @@ ALTER TABLE `node_alias`
 -- AUTO_INCREMENT for table `node_permission`
 --
 ALTER TABLE `node_permission`
-  MODIFY `permission_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `permission_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 --
 -- AUTO_INCREMENT for table `portfolio`
 --

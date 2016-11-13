@@ -86,10 +86,10 @@ class instance {
 				}
 			} else {
 				// check if file exists in current theme, else use default theme
-				if(!file_exists("resources/themes/{$this->website['theme']}/{$string}")){
-					$href = SERVER."/resources/themes/default/{$string}";
+				if(!file_exists('resources/themes/'.$this->website['theme'].'/'.$string)){
+					$href = SERVER.'/resources/themes/'.$this->website['theme'].'/'.$string;
 				} else {
-					$href = SERVER."/resources/themes/{$this->website['theme']}/{$string}";
+					$href = SERVER.'/resources/themes/'.$this->website['theme'].'/'.$string;
 				}
 			}
 			$this->href_cache[$string.$record_id] = $href;

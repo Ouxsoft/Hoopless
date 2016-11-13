@@ -1,3 +1,4 @@
+<p>&nbsp;</p>
 <?php
 include('lib/alert.class.php');
 
@@ -175,7 +176,7 @@ function print_node_menu($array, $level) {
 
 $alert->get();
 
-echo '<div class="container background-white"/>';
+echo '<div class="container background-white">';
 
 $new_id = $db->single('SELECT MAX(`node_id`)+1 FROM `node`');
 echo '<form id="new" name="new" method="post" action="'.$instance->href(NULL, $new_id).'#page'.$new_id.'" enctype="multipart/form-data">';

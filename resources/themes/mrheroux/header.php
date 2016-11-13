@@ -30,7 +30,7 @@ echo '<head>';
 echo '<title>'.$instance->page['current']['name'].'</title>';
 echo '<meta name="description" content="'.$instance->page['current']['meta_description'].'"/>';
 echo '<meta name="keywords" content="'.$instance->page['current']['name'].'"/>';
-echo '<link type="text/plain" rel="author" href="'.SERVER.'humans.txt"/>';
+echo '<link type="text/plain" rel="author" href="'.SERVER.'/humans.txt"/>';
 echo '<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>';
 echo '<meta http-equiv="X-UA-Compatible" content="IE=edge">';
 echo '<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">';

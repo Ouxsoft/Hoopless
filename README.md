@@ -3,6 +3,7 @@ HXCMS is a LAMP web development framework. It is designed to allow for rapid
 new developments.
 
 ## HXCMS Features
+* history 
 * Lightweight/bloatless design.
 * Uses assets to provide content.
 * Uses config files for server information.
@@ -13,6 +14,8 @@ new developments.
 * Minified (single line output) HTML5.
 
 ## Future Development Plans
+** nodes/{node_id}/file_id
+** in node_revision database file_id | status (draft,published), user_id
 * Change table from plural to singular name, e.g. `users` to `user`
 * Change tables pk from `id` to `user_id`
 * Allow for node links to work when href changes, e.g. $instance->href(1) 

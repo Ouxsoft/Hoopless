@@ -28,38 +28,33 @@ if($instance->verify()){
 	echo '<div class="text-right">';
 	echo '<button type="submit" name="submit" class="btn btn-default" form="edit" value="save"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Save</button>';
 	echo '</div>';
-	echo '<textarea style="min-height: 500px" name="content" wrap="soft">';
-/*
-	if ($f = fopen($file, 'r')) {
-		do {
-    	echo fgets($f);
-		} while (!feof($f));
-	}
-	fclose($f);*/
-	echo htmlspecialchars(file_get_contents($file));
-
-	echo '</textarea>';
+	echo '<textarea name="content" wrap="soft">'.htmlspecialchars(file_get_contents($file)).'</textarea>';
 	echo '<input type="hidden" name="submit_check" value="1">';
 	echo '</form>';
 	echo '</div>';
-
-
-	echo '<script language="javascript" type="text/javascript">
-	tinyMCE.init({
-	theme : "advanced",
-	mode: "exact",
-	elements : "elm1",
-	theme_advanced_toolbar_location : "top",
-	theme_advanced_buttons1 : "bold,italic,underline,strikethrough,separator,"
-	+ "justifyleft,justifycenter,justifyright,justifyfull,formatselect,"
-	+ "bullist,numlist,outdent,indent",
-	theme_advanced_buttons2 : "link,unlink,anchor,image,separator,"
-	+"undo,redo,cleanup,code,separator,sub,sup,charmap",
-	theme_advanced_buttons3 : "",
-	height:"350px",
-	width:"600px"
-	}); ';
-	echo '</script>';
 	echo '<script src="'.SERVER.'/assets/tinymce/tinymce.min.js"></script>';
-	echo '<script>tinymce.init({ selector:\'textarea\' });</script>';
+	echo '<script>';
+	echo 'tinymce.init({ ';
+	echo 'protect: [ ';
+	echo '/<\?php[\s\S]*?\?>/g ';
+	echo '], ';
+	echo 'selector: \'textarea\', ';
+	echo 'height: 500, ';
+	echo 'theme: \'modern\', ';
+	echo 'plugins: [ ';
+	echo '\'advlist autolink lists link image charmap print preview hr anchor pagebreak\', \'searchreplace wordcount visualblocks visualchars code fullscreen\', \'insertdatetime media nonbreaking save table contextmenu directionality\', \'template paste textcolor colorpicker textpattern imagetools codesample\' ';
+	echo '], ';
+	echo 'toolbar1: \'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image\', ';
+	echo 'toolbar2: \'print preview media | forecolor backcolor emoticons | codesample\', ';
+	echo 'image_advtab: true, ';
+	echo 'templates: [ ';
+	echo '{ title: \'Test template 1\', content: \'Test 1\' }, ';
+	echo '{ title: \'Test template 2\', content: \'Test 2\' } ';
+	echo '], ';
+//	echo 'content_css: [ ';
+//	echo '\'//fonts.googleapis.com/css?family=Lato:300,300i,400,400i\', ';
+//	echo '\'//www.tinymce.com/css/codepen.min.css\' ';
+//	echo '] ';
+	echo '}); ';
+	echo '</script>';
 }

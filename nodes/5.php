@@ -173,7 +173,6 @@ function print_node_menu($array, $level) {
 	}
 }
 
-
 $alert->get();
 
 echo '<div class="container background-white"/>';

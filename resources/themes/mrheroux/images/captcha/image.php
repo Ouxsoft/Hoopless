@@ -1,36 +1,27 @@
 <?php
-// generate random string function
-function select_color(){
-	global $im;
-	global $color_selected;
-	if($color_selected==NULL) {$color_selected = rand(0,2);}
-	$colors = array(
-		imagecolorallocate($im, 1, 47, 56),
-		imagecolorallocate($im, 4, 121, 145),
-		imagecolorallocate($im, 5, 141, 168),
-	);
-	$color_selected++;
-	if($color_selected >= count($colors)){$color_selected = 0;}
-	return $colors[$color_selected];
-}
-
 session_start();
+// enter colors here
+$im = imagecreatefrompng('background.png'); // image
+$colors = array(
+	0 => imagecolorallocate($im, 1, 47, 56),
+	1 => imagecolorallocate($im, 4, 121, 145),
+	2 => imagecolorallocate($im, 5, 141, 168),
+);
+
 // generate and set code
 $characters = 'abcdefghjkmnopqrstuvwxyz';
 $code = '';
-for ($i = 0; $i < $length; $i++) {
+for ($i = 0; $i < 5; $i++) {
 	$code .= $characters[rand(0, strlen($characters) - 1)];
 }
 $_SESSION['code'] = md5($code);
-
-$im = imagecreatefrompng('background.png'); // image
-//list($width, $height, $type, $attr) = getimagesize('background.png');
-
 $rotate = rand(-10,10);
+putenv('GDFONTPATH=' . realpath('.'));
 $font =  'font.ttf';
 for ($i = 0; $i <= strlen($code); $i++) {
 	$rotate = -$rotate;
-	imagettftext($im, 38, $rotate, ((40*$i)+5), 45, select_color(), $font, $code[$i]);
+	$select = rand(0,count($colors));
+	imagettftext($im, 38, $rotate, ((40*$i)+5), 40, $colors[$select], $font, $code[$i]);
 }
 
 header("Expires: Wed, 1 Jan 1997 00:00:00 GMT");

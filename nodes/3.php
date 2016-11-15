@@ -42,10 +42,9 @@ echo '</div>';
 echo '<div class="container background-white load-transition">';
 echo '<h2>Professional Experience:</h2>';
 echo '<ul>';
-echo '<li><b>(Lead) Web Developer</b><span class="right">2016 to Present</span><br/><i>Marlboro College (Liberal-Arts College) and Marlboro Graduate School
-&mdash; Marlboro, Vermont and Brattleboro, Vermont.</i>';
+echo '<li><b>(Lead) Web Developer</b><span class="right">2016 to Present</span><br/><i>Marlboro College (Liberal-Arts College) and Marlboro Graduate School &mdash; Marlboro, Vermont and Brattleboro, Vermont.</i>';
 echo '<ul>';
-echo '<li>Working on a team to develop and evolve internal and external college and graduate school web-services for students, faculty, staff, parents, et al.</li>';
+echo '<li>Working on a team to develop and evolve internal and external college and graduate school web-services for students, faculty, staff, alumni, parents, et al.</li>';
 echo '</ul>';
 echo '</li>';
 echo '<li><b>Lead Web Developer</b><span class="right">2012 to 2016</span><br/><i>JNH Environmental Services, Inc. (Turnkey EHS Services Provider) &mdash; Rutland, Vermont.</i>';

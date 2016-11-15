@@ -21,7 +21,7 @@ echo "<hr/>";
 echo '<div class="row">';
 echo '<div class="col-md-4"><h4>Marlboro College and Graduate School</h4>2016 to Present</div>';
 echo '<div class="col-md-8"><h4>(Lead) Web Developer</h4>';
-echo '<p>Working on a team to develop and evolve internal and external college and graduate school web-services for students, faculty, staff, parents, et al.</p>';
+echo '<p>Working on a team to develop and evolve internal and external college and graduate school web-services for students, faculty, staff,  alumni, parents, et al.</p>';
 echo "<div class=\"experience-details\">";
 echo "<span class=\"glyphicon glyphicon-map-marker\"></span>Marlboro and Brattleboro, Vermont USA | <span class=\"glyphicon glyphicon-link\"></span> <a href=\"https://www.marlboro.edu\" target=\"_blank\">https://www.marlboro.edu</a>";
 echo "</div>";

@@ -1,20 +1,23 @@
-# HXCMS - Rapidly develop a beautiful website
-HXCMS is a LAMP web development framework. It is designed to allow for rapid
-new developments.
+# HXCMS - Rapidly develop beautiful websites
+HXCMS is a LAMP web development framework.
 
 ## HXCMS Features
-* history 
-* Lightweight/bloatless design.
+* Responsive mobile first design
+* Lightweight/bloatless code.
+* Easy local server configuration using config files.
 * Uses assets to provide content.
-* Uses config files for server information.
 * Uses `node` to produce pages.
 * Uses themes to wrap node with header and footer.
 ** Minified CSS from SCSS (i.e. `top.min.css` AND `bottom.min.css`).
 * Uses lib files for includes.
-* Minified (single line output) HTML5.
+* Minified (single line output) valid HTML5 output.
+* Supports GIT workflow.
 
 ## Future Development Plans
-** nodes/{node_id}/file_id
+* change projects to two columns and render all images
+* Add ehs cc as case study multiple...
+* move color outside of angularjs
+* add node history, e.g. nodes/{node_id}/file_id
 ** in node_revision database file_id | status (draft,published), user_id
 * Change table from plural to singular name, e.g. `users` to `user`
 * Change tables pk from `id` to `user_id`

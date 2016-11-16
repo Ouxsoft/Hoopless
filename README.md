@@ -14,6 +14,7 @@ HXCMS is a LAMP web development framework.
 * Supports GIT workflow.
 
 ## Future Development Plans
+* make resume.pdf able to be included without being on github?
 * change projects to two columns and render all images
 * Add ehs cc as case study multiple...
 * move color outside of angularjs

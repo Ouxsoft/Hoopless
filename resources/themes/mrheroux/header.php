@@ -27,9 +27,9 @@ function print_menu($array, $level) {
 echo '<!DOCTYPE html>';
 echo '<html lang="en">';
 echo '<head>';
-echo '<title>'.$instance->page['current']['name'].'</title>';
+echo '<title>'.$instance->page['current']['title'].'</title>';
 echo '<meta name="description" content="'.$instance->page['current']['meta_description'].'"/>';
-echo '<meta name="keywords" content="'.$instance->page['current']['name'].'"/>';
+echo '<meta name="keywords" content="'.$instance->page['current']['title'].'"/>';
 echo '<link type="text/plain" rel="author" href="'.SERVER.'/humans.txt"/>';
 echo '<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>';
 echo '<meta http-equiv="X-UA-Compatible" content="IE=edge">';

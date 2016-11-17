@@ -40,22 +40,22 @@ echo '</div>';
 echo '</footer>';
 
 // jquery
-echo '<script src="'.$instance->href('js/jquery.min.js').'"></script>';
+echo '<script src="'.$instance->href('scripts/jquery.min.js').'"></script>';
 
 // Bootstrap core JavaScript placed at the end of the document so the pages load faster
-//echo '<script src="{$instance->href('js/bootstrap.min.js')}"></script>';
-//echo '<script src="{$instance->href('js/ie10-viewport-bug-workaround.js')}"></script>';
-//echo '<script src="https://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>';
+//echo '<script src="{$instance->href('scripts/bootstrap.min.js')}"></script>';
+//echo '<script src="{$instance->href('scripts/ie10-viewport-bug-workaround.js')}"></script>';
+//echo '<script src="https://getbootstrap.com/assets/scripts/ie10-viewport-bug-workaround.js"></script>';
 
-echo '<script src="https://getbootstrap.com/dist/js/bootstrap.min.js"></script>';
-echo '<script src="https://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>';
+echo '<script src="https://getbootstrap.com/dist/scripts/bootstrap.min.js"></script>';
+echo '<script src="https://getbootstrap.com/assets/scripts/ie10-viewport-bug-workaround.js"></script>';
 
 // lightbox
-echo '<script src="'.$instance->href('js/lightbox.js').'"></script>';
+echo '<script src="'.$instance->href('scripts/lightbox.js').'"></script>';
 echo '<script>$(document).delegate(\'*[data-toggle="lightbox"]\', \'click\', function(event) { event.preventDefault(); $(this).ekkoLightbox();}); </script>';
 
 // prism
-echo '<script src="'.$instance->href('js/prism.js').'"></script>';
+echo '<script src="'.$instance->href('scripts/prism.js').'"></script>';
 
 // css
 echo '<link rel="stylesheet" href="'.$instance->href('stylesheets/bottom.min.css').'" type="text/css"/>';

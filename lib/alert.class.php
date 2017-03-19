@@ -1,7 +1,9 @@
 <?php
 class user_alert {
 	public $_array = array();
-	
+	function amount(){
+		return count($this->_array);
+	}
 	function add($type = "info", $input){
 		$this->_array[] = array($type,$input);
 	}
@@ -19,7 +21,7 @@ class user_alert {
 			$string .= "{$value[1]}. ";
 		}
 		if(isset($string)&&(strlen($string)>0)){
-			echo "<div class=\"container alert alert-{$types[$current]}\" title=\"Close\" onclick=\"this.style.display='none';\">";
+			echo "<div class=\"col-md-12 alert alert-{$types[$current]}\" title=\"Close\" onclick=\"this.style.display='none';\">";
 			echo "<strong>{$types[$current]}!</strong> ";
 			echo "<a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a> ";
 			echo $string;

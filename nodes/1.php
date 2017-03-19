@@ -1,36 +1,15 @@
-<?php
-echo '<div class="cover">';
-echo '<div class="container">';
-echo '<div class="jumbotron">';
-echo '<div class="row">';
-echo '<div class="col-md-6 ss-transparent">';
-$title = '';
-$bool = true;
-foreach(explode(' ',$instance->website['title']) as $part){
-  if($bool){
-    $title .= '<em>'.$part.'</em> ';
-    $bool = false;
-  } else {
-    $title .= $part.' ';
-  }
-}
-echo '<h1>'.$title.'</h1>';
-echo '<h3>Web Designer & Developer</h3>';
-echo '<p>I am a creative system designer and developer who specializes in building and evolving web-based solutions. I have designed and developed systems used to:</p>';
-echo '<ul>';
-echo '<li>manage and ship hazardous materials;</li>';
-echo '<li>generate emission facility reports;</li>';
-echo '<li>protect the human health and the environment;</li>';
-echo '<li>train and certify employees;</li>';
-echo '<li>entertain children;</li>';
-echo '<li>manufacturer home decor;</li>';
-echo '<li>maintain college web services; et al.</li>';
-echo '</ul>';
-echo '<p>If you are a business seeking a web-based solution or an employer looking to hire, send me a message.</p>';
-echo '<br/><p><button type="button" class="btn btn-primary btn-lg" onclick="window.location.href=\''.$instance->href("contact.html").'\'">I\'m looking to hire<span class="glyphicon glyphicon-menu-right"></span></button> <button type="button" class="btn btn-default btn-lg" onclick="window.location.href=\''.$instance->href("contact.html").'\'">I need a web-solution <span class="glyphicon glyphicon-menu-right"></span></button></p>';
-echo '</div>';
-echo '</div>';
-echo '</div>';
-echo '</div>';
-echo '</div>';
-?>
+<div class="col-md-12 col-margin bg-1">
+  <h1>Web Designer & Developer</h1>
+    <p>Hi! I'm <b>Matt</b>. I love system design and development. I'm almost always smiling :).</p>
+    <p>Currently, I'm developing primarily for Marlboro College but I got my start <?php echo (date('Y')-2002);?> years ago. Here's some of the projects I've worked on since then:</p>
+    <ul>
+      <li>Helped to protect human health and the environment through designing and developing a complete chemical management, which is used in numerous manufacturing facilities across the Continental United States.</li>
+      <li>Developed systems used to categorize, manage, and ship thousands of hazardous materials in accordance with state and federal regulations.</li>
+      <li>Developed systems that accurately generate facility emission reports in accordance with site permits.</li>
+      <li>Developed a system used to train and certifies employees in numerous regulatory requirements.</li>
+      <li>Design a video game to help entertain children on the go.</li>
+      <li>Evolved robotic systems that manufacturer metal decorative home decor.</li>
+      </ul>
+    <p>In my spare time I'm developing "<b>Hoopless</b>", a content management system used to run this any other websites. Oh, and I'm developing another game.</p>
+    <p>If your a business seeking a web-based solution or an employer looking to discuss an oppurtunity, feel free to <a href="<?php echo $instance->href("contact.html");?>">send me message</a>.</p>
+</div>

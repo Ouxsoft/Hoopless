@@ -1,4 +1,17 @@
+// Give 110%
+$color_background: #F2F2F3; // backdrop / dominant / color 60% / primary or secondary color
+$color_foreground: #2B2B2B; //color 30% of a
+$color_logo: #24DE7E;
+$color_accent: #FF0000; //color 10% of an
+$color_cta: #1B6CDE; // color 10% secondary accent
+$color_heading: #002261;
+$color_heading_1: #000;
+
 @import "scss/base"; // things in need of further sorting
+@import "scss/window"; // breadcrumbs class
+@import "scss/social-networking"; // things in need of further sorting
+@import "scss/capsule"; // things in need of further sorting
+@import "scss/backgrounds"; // container backgrounds
 @import "scss/glyphicon"; // glyphicon classes
 @import "scss/blockquote"; // blockquote class
 @import "scss/columns"; // column and row classes
@@ -12,7 +25,7 @@
 @import "scss/popover"; // popover class
 @import "scss/carousel"; // carousel class
 @import "scss/headings"; // h1, h2, h3, etc.
-@import "scss/trail"; // breadcrumbs class
+@import "scss/breadcrumb"; // breadcrumbs class
 @import "scss/jumbotron"; // jumbotron class
 @import "scss/text"; // text class
 @import "scss/tables"; // tables, th, tr, td, etc.

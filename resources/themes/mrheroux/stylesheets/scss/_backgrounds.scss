@@ -1,0 +1,30 @@
+/* background 60% 30% 10% */
+.bg-body {
+  background-color: $color_background;
+  background-image: url('../images/body/background.png');
+  background-position: right bottom;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.bg-1 {
+  // main right column
+  background-color: #ECEDEE;
+  border: 1px solid #D9DADC;
+}
+
+.bg-2 {
+  // right column content
+  background-color: #ECEDEE;
+  color: #000000;
+  border: 1px solid #D9DADC;
+}
+
+.bg-3 {
+  background-color: #ECE7E2;
+  color: #000000;
+}
+
+.bg-4 {
+  color: lighten($color_foreground,28.6%);
+  border-right: 1px solid darken($color_background, 17%);
+}

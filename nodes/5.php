@@ -1,11 +1,24 @@
-<p>&nbsp;</p>
 <?php
 include('lib/alert.class.php');
 
 /*
+Hoopless
+
+use git for page version control
+draft page not commit
+published are commited
+save commit changes
+	set git config based on user based on $_SESSION
+		exec('git config --global etc.');
+	GIT ADD - page
+		exec('git add \'node/'.$instance->page[current][id].'.php\'');
+	GIT COMMIT - have field to describe changes
+		exec('git commit -m \''.$commit_msg.'\');
+	do not push changes - although a admin option to push changes would be cool.
+
 page_menu
 	id
-8	page_id
+	page_id
 
 page_permission (rename)
 	id

@@ -1,11 +1,11 @@
-<?php
-echo "<div class=\"container background-white load-transition\">";
-echo "<h2>Instance</h2>";
-echo "<p>Essentially a website is a content delivery system and each delivery is an instance of a request. Although different, each page shares similar requirements to fulfill this request. With this in mind I designed the following instance class, which was created to handle each request rapidly.</p>";
-echo "<h3>Code</h3>";
-?>
-<pre>
-<code class="language-php">
+<div class="col-md-12 col-margin bg-1">
+	<h2>Overview</h2>
+	<p>Essentially a website is a content delivery system and each delivery is an instance of a request. Although different, each page shares similar requirements to fulfill this request. With this in mind I designed the following instance class, which was created to handle each request rapidly.</p>
+</div>
+
+<div class="col-md-12 col-margin bg-1">
+	<h2>The Code</h2>
+	<pre><code class="language-php">
 class instance {
 	private $config;
 	private $raw_request;
@@ -293,4 +293,6 @@ class instance {
 		}
 	}
 }
-</code></pre></div>
+		</code>
+	</pre>
+</div>

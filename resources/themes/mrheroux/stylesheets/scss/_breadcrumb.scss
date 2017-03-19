@@ -18,6 +18,14 @@
   a, span {
     padding: 0px 5px 0px 0px;
     margin: 0px;
-    color: #1E1E1E;
+  }
+  a {
+    color:$color_accent;
+  }
+  span {
+    color: darken($color_background, 28%);
+  }
+  @media print {
+    display: none !important;
   }
 }

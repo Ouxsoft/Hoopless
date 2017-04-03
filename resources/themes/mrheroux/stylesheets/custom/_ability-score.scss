@@ -1,0 +1,48 @@
+
+/* abilities */
+
+.no-bullets {
+  list-style-type: none;
+  margin: 0px;
+  padding: 5px;
+  li:hover {
+    background-color: #eee;
+    cursor: pointer;
+    > .ability-score {
+      animation: expand 0.5s forwards;
+      .filled {
+        animation: highlight 0.5s forwards;
+      }
+    }
+  }
+}
+
+.ability-score {
+  float: right;
+  color: lighten(grayscale($color_accent),20%);
+}
+
+.ability-score .filled, .experience-details {
+  color: $color_accent;
+}
+
+@keyframes expand {
+  from {
+    letter-spacing: auto;
+  }
+
+  to {
+    letter-spacing: 5px;
+    font-size: 110%;
+  }
+}
+
+@keyframes highlight {
+  from {
+    color: $color_accent;
+  }
+  to {
+    color: lighten($color_accent,10%);
+    -webkit-transform: rotate(72deg);
+  }
+}

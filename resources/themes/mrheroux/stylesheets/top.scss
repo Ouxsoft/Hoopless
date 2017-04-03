@@ -1,37 +1,90 @@
-// Give 110%
-$color_background: #F2F2F3; // backdrop / dominant / color 60% / primary or secondary color
-$color_foreground: #2B2B2B; //color 30% of a
-$color_logo: #24DE7E;
-$color_accent: #FF0000; //color 10% of an
-$color_cta: #1B6CDE; // color 10% secondary accent
-$color_heading: #002261;
-$color_heading_1: #000;
+/*!
+ * Bootstrap v4.0.0-alpha.6 (https://getbootstrap.com)
+ * Copyright 2011-2017 The Bootstrap Authors
+ * Copyright 2011-2017 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
 
-@import "scss/base"; // things in need of further sorting
-@import "scss/window"; // breadcrumbs class
-@import "scss/social-networking"; // things in need of further sorting
-@import "scss/capsule"; // things in need of further sorting
-@import "scss/backgrounds"; // container backgrounds
-@import "scss/glyphicon"; // glyphicon classes
-@import "scss/blockquote"; // blockquote class
-@import "scss/columns"; // column and row classes
-@import "scss/btn"; // btn related classes
-@import "scss/nav"; // nav class (navigation related)
-@import "scss/alerts"; // alerts class
-@import "scss/progress-bar"; // progress-bar class
-@import "scss/panel"; // panel class
-@import "scss/modal"; // modal class
-@import "scss/tiptool"; // tiptool class
-@import "scss/popover"; // popover class
-@import "scss/carousel"; // carousel class
-@import "scss/headings"; // h1, h2, h3, etc.
-@import "scss/breadcrumb"; // breadcrumbs class
-@import "scss/jumbotron"; // jumbotron class
-@import "scss/text"; // text class
-@import "scss/tables"; // tables, th, tr, td, etc.
-@import "scss/pagination"; // pagination class
-@import "scss/badges"; // badges class
-@import "scss/cover"; // font page cover
-@import "scss/media"; // media class
-@import "scss/prism"; // style code blocks
-@import "scss/lightbox"; // used for popup boxes
+ // Give 110%
+ $color_background: #F2F2F3; // backdrop / dominant / color 60% / primary or secondary color
+ $color_foreground: #2B2B2B; //color 30% of a
+ $color_logo: #24DE7E;
+ $color_accent: #E97E74; //color 10% of an
+ $color_cta: #1B6CDE; // color 10% secondary accent
+ $color_heading: #002261;
+ $color_heading_1: #000;
+
+// Core variables and mixins
+@import "bootstrap-4.0.0/variables";
+@import "bootstrap-4.0.0/mixins";
+@import "bootstrap-4.0.0/custom";
+
+// Reset and dependencies
+@import "bootstrap-4.0.0/normalize";
+@import "bootstrap-4.0.0/print";
+
+// Core CSS
+@import "bootstrap-4.0.0/reboot";
+@import "bootstrap-4.0.0/type";
+@import "bootstrap-4.0.0/images";
+@import "bootstrap-4.0.0/code";
+@import "bootstrap-4.0.0/grid";
+@import "bootstrap-4.0.0/tables";
+@import "bootstrap-4.0.0/forms";
+@import "bootstrap-4.0.0/buttons";
+
+// Components
+@import "bootstrap-4.0.0/transitions";
+@import "bootstrap-4.0.0/dropdown";
+@import "bootstrap-4.0.0/button-group";
+@import "bootstrap-4.0.0/input-group";
+@import "bootstrap-4.0.0/custom-forms";
+@import "bootstrap-4.0.0/nav";
+@import "bootstrap-4.0.0/navbar";
+@import "bootstrap-4.0.0/card";
+@import "bootstrap-4.0.0/breadcrumb";
+@import "bootstrap-4.0.0/pagination";
+@import "bootstrap-4.0.0/badge";
+@import "bootstrap-4.0.0/jumbotron";
+@import "bootstrap-4.0.0/alert";
+@import "bootstrap-4.0.0/progress";
+@import "bootstrap-4.0.0/media";
+@import "bootstrap-4.0.0/list-group";
+@import "bootstrap-4.0.0/responsive-embed";
+@import "bootstrap-4.0.0/close";
+
+// Components w/ JavaScript
+@import "bootstrap-4.0.0/modal";
+@import "bootstrap-4.0.0/tooltip";
+@import "bootstrap-4.0.0/popover";
+@import "bootstrap-4.0.0/carousel";
+
+// Utility classes
+@import "bootstrap-4.0.0/utilities";
+
+// glyphicons
+@import "glyphicons/glyphicon";
+
+@import "custom/social-networking";
+@import "custom/window-top";
+@import "custom/backgrounds";
+@import "custom/logo";
+@import "custom/fonts";
+@import "custom/prism";
+@import "custom/capsule";
+@import "custom/footer";
+@import "custom/top-link";
+@import "custom/ability-score";
+@import "custom/accordion";
+body {
+	padding-top: 3rem;
+	@media (min-width: 768px) {
+		padding-top: 3rem;
+	}
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+html {
+  position: relative;
+  min-height: 100%;
+}

@@ -1,0 +1,14 @@
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  background-color: rgba(0,0,0,0.2);
+  border-top: 3px solid #283E4A;
+  background: linear-gradient(to bottom, #19272E 0%, #243842 62%);
+  z-index: -1;
+  a {
+    color: #6C7E8B;
+  }
+  color: #6C7E8B;
+}

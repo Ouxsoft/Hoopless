@@ -1,0 +1,28 @@
+.capsule {
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  border-left: 5px solid #243842;
+  margin: 1em 0;
+  text-transform: uppercase;
+  h3 {
+    margin: 0.5em 1em 0.5em 0.5em;
+    color: $color_foreground;
+    font-family: 'Alegreya Sans', sans-serif;
+    font-weight: bold;
+    font-size: 1.3em !important;
+    line-height: 1em;
+  }
+  .capsule-title{
+  }
+  .capsule-div{
+    flex: 100 1 auto;
+    background-image: url('../images/body/bg-border-light.png');
+    background-repeat: repeat-x;
+    background-position: center left;
+    outline: 0;
+    box-sizing: border-box;
+    font-size: 1.125rem;
+    line-height: 1em;
+  }
+}

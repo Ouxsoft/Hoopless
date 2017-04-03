@@ -18,44 +18,56 @@ global $db;
 		<link rel="stylesheet" href="<?php echo $instance->href('stylesheets/top.min.css');?>" type="text/css"/>
 	</head>
 	<body class="bg-body">
-		<form id="window-top" method="get" name="top" action="<?php echo $instance->href('search.html');?>" enctype="multipart/form-data">
+		<header>
+			<nav class="navbar fixed-top navbar navbar-inverse bg-inverse bg-faded">
+		<form method="get" name="top" action="<?php echo $instance->href('search.html');?>" enctype="multipart/form-data">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-9" id="logo">
-						<div class="col-md-12">
-							<a href="<?php echo $instance->href('home.html');?>" title="Home">Matt<em>Heroux</em></a>
-						</div>
+				 <div class="col-9 col-md-6 col-lg-9">
+						<a id="logo" href="<?php echo $instance->href('home.html');?>" title="Home"><span class="hidden-sm-down">Matt</span><em>Heroux</em></a>
 					</div>
-					<div class="col-md-3 col-lg-3">
-						<div class="col-sm-12">
-							<div class="input-group" id="search">
-								<input type="text" class="form-control" name="q" placeholder="Search">
-								<span class="input-group-btn">
-									<button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
-								</span>
-							</div>
+					<div class="col-3 hidden-md-up text-right">
+						<button class="btn btn-primary hidden-md-up" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+						 <span class="navbar-toggler-icon"></span>
+						 </button>
+				 </div>
+					<div class="col-sm-12 col-md-6 col-lg-3">
+						<div class="input-group" id="search">
+							<input type="text" class="form-control" name="q" placeholder="Search">
+							<span class="input-group-btn">
+								<button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+							</span>
 						</div>
 					</div>
 				</div>
 			</div>
 		</form>
-		<div class="container">
+	</header>
+	<div id="window-top">
+		<div class="container pt-5 pb-2 mb-2">
+			<h1><?php echo $instance->page['current']['page_heading'];?></h1>
+			<?php if($instance->page['depth']>1): ?>
+				<!-- breadcrumb -->
+				<ol class="breadcrumb">
+					<?php
+					$count = 1;
+					foreach($instance->page['breadcrumbs'] as $key => $value){
+						if ($count==$instance->page['depth']) {
+							echo '<li><a class="breadcrumb-item active" href="'.$instance->href($value['alias']).'">'.$value['title'].'</a></li>';
+						} else {
+							echo '<li><a class="breadcrumb-item" href="'.$instance->href($value['alias']).'">'.$value['title'].'</a></li>';
+						}
+						$count++;
+					}
+					?>
+				</ol>
+			<?php endif; ?>
+		</div>
+	</div>
+</div>
+
+	<div class="container">
+
 			<div class="row">
 				<!-- page column -->
-				<div class="col-sm-12 col-md-9 bg-4">
-						<?php if($instance->page['current']['alias']!='home.html'): ?>
-						<div class="col-sm-12">
-							<h1><?php echo $instance->page['current']['title'];?></h1>
-						</div>
-						<?php endif;?>
-						<div class="col-sm-6">
-							<a href="https://plus.google.com/share?url=<?php echo $instance->href($instance->page['current']['alias']);?>&amp;related=mrheroux.com" class="google-share-button"></a>
-							<a href="https://twitter.com/intent/tweet?text=<?php echo $instance->href($instance->page['current']['alias']);?>&amp;related=mrheroux.com" class="twitter-share-button"></a>
-							<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $instance->href($instance->page['current']['alias']);?>" class="facebook-share-button"></a>
-						</div>
-						<div class="col-sm-6 text-right">
-							<small>
-								<a href="mailto:?"><span class="glyphicon glyphicon-envelope"></span> Email</a> |
-								<a href="javascript:window.print()"><span class="glyphicon glyphicon-print"></span> Print</a>
-							</small>
-						</div>
+				<div class="col-sm-12 col-md-8 col-lg-9 bg-4">

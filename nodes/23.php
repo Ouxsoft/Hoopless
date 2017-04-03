@@ -1,9 +1,9 @@
-<div class="col-md-12 col-margin bg-1">
+<div class="col-md-12 mb-2 bg-1">
 	<h2>Overview</h2>
 	<p>Essentially a website is a content delivery system and each delivery is an instance of a request. Although different, each page shares similar requirements to fulfill this request. With this in mind I designed the following instance class, which was created to handle each request rapidly.</p>
 </div>
 
-<div class="col-md-12 col-margin bg-1">
+<div class="col-md-12 mb-2 bg-1">
 	<h2>The Code</h2>
 	<pre><code class="language-php">
 class instance {

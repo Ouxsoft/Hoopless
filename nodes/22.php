@@ -1,4 +1,4 @@
-<div class="col-md-12 col-margin bg-1">
+<div class="col-md-12 mb-2 bg-1">
   <p>The following is a low polygon rendering of broad sword I designed and 3d modeled using zbrush without a UV map.</p>
   <div class="sketchfab-embed-wrapper">
     <iframe width="640" height="480" src="https://sketchfab.com/models/f55b4f7aca2148b681ede9d8e69482ee/embed" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" onmousewheel=""></iframe>

@@ -131,10 +131,11 @@ class instance {
 		} else {
 			$db->bind('alias',$this->page['current']['alias']);
 		}
-		$this->page['current'] += $db->row('SELECT `node`.`node_id`, CONCAT(`node`.`node_id`,\'.php\') AS `file`, `node`.`title`, `node`.`standalone`, `node`.`signin_required`, `node`.`meta_description`, `node_permission`.`state` FROM `node_alias` LEFT JOIN `node` ON `node_alias`.`node_id` = `node`.`node_id` LEFT JOIN `node_permission` ON `node`.`node_id` = `node_permission`.`node_id` WHERE `node_alias`.`alias` = :alias LIMIT 1');
+		$this->page['current'] += $db->row('SELECT `node`.`node_id`, CONCAT(`node`.`node_id`,\'.php\') AS `file`, `node`.`title`,`node`.`page_heading`, `node`.`standalone`, `node`.`signin_required`, `node`.`meta_description`, `node_permission`.`state` FROM `node_alias` LEFT JOIN `node` ON `node_alias`.`node_id` = `node`.`node_id` LEFT JOIN `node_permission` ON `node`.`node_id` = `node_permission`.`node_id` WHERE `node_alias`.`alias` = :alias LIMIT 1');
 		if($this->page['current']['node_id']==NULL){
 			$this->page['current']['node_id'] = 0;
 			$this->page['current']['file'] = '0.php';
+			$this->page['current']['page_heading'] = 'Page Not Found';
 			$this->page['current']['title'] = 'Page Not Found';
 			$this->page['current']['standalone'] = false;
 			$this->page['current']['alias'] = 'page-not-found.html';
@@ -144,6 +145,7 @@ class instance {
 		// load breadcrumb
 		$db->bind('node_id',$this->page['current']['node_id']);
 		$this->page['breadcrumbs'] = $db->query('SELECT `T2`.`title`, `node_alias`.`alias` FROM (SELECT @r AS _id, (SELECT @r := `parent_id` FROM `node` WHERE `node_id` = _id) AS `parent_id` , @l := @l +1 AS `lvl` FROM (SELECT @r := :node_id, @l :=0) vars, `node` WHERE @r <>0) `T1` JOIN `node` `T2` ON T1._id = `T2`.`node_id` LEFT JOIN `node_alias` ON `T2`.`node_id` = `node_alias`.`node_id` ORDER BY `T1`.`lvl` DESC LIMIT 10;');
+		$this->page['depth']  = count($this->page['breadcrumbs']);
 
 		// find out who user is
 		$this->user_get();

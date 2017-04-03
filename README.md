@@ -1,11 +1,11 @@
-# Hoopless 8
-# Rapidly develop beautiful websites without jump through hoops.
+# Hoopless
+Version: 0.2.3 Alpha
+## Rapidly develop beautiful websites without jump through hoops.
 Hoopless is a content management system designed for Linux, Apache, MySQL, and PHP.
-It uses SASS (SCSS) for minified css.
 It uses GIT for version control included page changes.
 
 ## Features
-* Responsive mobile first design
+* Responsive mobile first design including Bootstrap 4 Base Theme
 * Lightweight/bloatless code.
 * Easy local server configuration using config files.
 * Uses assets to provide content.
@@ -17,6 +17,7 @@ It uses GIT for version control included page changes.
 * Supports GIT workflow.
 
 ## Future Development Plans
+* Fix up pages to boostrap 4
 * Allow users to upload files and use them in nodes
 * Make resume.pdf able to be included without being on github?
 * change projects to two columns and render all images

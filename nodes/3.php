@@ -1,10 +1,10 @@
-<div class="col-md-12 col-margin bg-1">
+<div class="col-md-12 mb-2 bg-1">
   <h2>Objective:</h2>
-  <a href="<?php echo SERVER;?>'/assets/resume.pdf" target="_blank" class="right"><img src="<?php echo $instance->href('images/file-icon/pdf.png');?>" alt="PDF"/></a>
+  <a href="<?php echo SERVER;?>'/assets/resume.pdf" target="_blank" style="float:right"><img src="<?php echo $instance->href('images/file-icon/pdf.png');?>" alt="PDF"/></a>
   <p>Work on a team to develop and evolve powerful, attractive, and user-friendly web applications that makes life easier for everyone.</p>
 </div>
 
-<div class="col-md-12 col-margin bg-1">
+<div class="col-md-12 mb-2 bg-1">
   <h2>Skills:</h2>
   <div class="row">
 
@@ -35,7 +35,7 @@
   </div>
 </div>
 
-<div class="col-md-12 col-margin bg-1">
+<div class="col-md-12 mb-2 bg-1">
   <h2>Professional Experience:</h2>
   <ul>
     <li><b>(Lead) Web Developer</b><span class="right">2016 to Present</span><br/><i>Marlboro College (Liberal-Arts College) and Marlboro Graduate School &mdash; Marlboro, Vermont and Brattleboro, Vermont.</i>
@@ -126,7 +126,7 @@
     </ul>
   </div>
 
-  <div class="col-md-12 col-margin bg-1">
+  <div class="col-md-12 mb-2 bg-1">
     <h2>Teaching Experience:</h2>
     <ul>
       <li><i>JNH Environmental Services, Inc. (Turnkey EHS Services Provider) &mdash; Rutland, Vermont.</i><span class="right">2012 to Present</span>
@@ -142,7 +142,7 @@
     </ul>
   </div>
 
-  <div class="col-md-12 col-margin bg-1">
+  <div class="col-md-12 mb-2 bg-1">
     <h2>Education:</h2>
     <ul>
       <li><b>Bachelor of Science in Computer Information Systems/Business</b><span class="right">2012</span><br/><i>Castleton University, Castleton, Vermont</i></li>
@@ -152,7 +152,7 @@
     </ul>
   </div>
 
-  <div class="col-md-12 col-margin bg-1">
+  <div class="col-md-12 mb-2 bg-1">
     <h2>Awards:</h2>
     <ul>
       <li><b>SkillsUSA Computer Programming</b><span class="right">2005</span><br/>Programmed a banking system within the allowed time to win 2nd place in SkillsUSA State of Vermont competition for computer programming.</li>

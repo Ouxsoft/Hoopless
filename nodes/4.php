@@ -61,7 +61,6 @@ if($alert->amount()>0){
 ?>
 
 <div class="col-md-12 bg-1">
-	<div class="col-md-8">
 		<h2>Message</h2>
 		<p>Complete the form below to send a message.</p>
 
@@ -96,29 +95,4 @@ if($alert->amount()>0){
 			</fieldset>
 			<input type="submit" class="btn btn-lg" name="command" title="Send"/>
 		</form>
-		<br/>
-
-	</div>
-
-	<div class="col-sm-12 col-md-4">
-		<h2>Stay Connected</h2>
-		<p>Linkedin <span class="glyphicon glyphicon-thumbs-up"></span></p>
-		<p><a href="https://www.linkedin.com/in/mrheroux" target="_blank"><img src="https://static.licdn.com/scds/common/u/img/webpromo/btn_myprofile_160x33.png" width="160" height="33" alt="View Matt Heroux\'s profile on LinkedIn"></a></p>
-		<hr/>
-
-	</div>
-
-	<div class="col-sm-12 col-md-4 col-lg-4">
-		<h2>Contributions</h2>
-		<p>Stack Overflow <span class="glyphicon glyphicon-sunglasses"></span></p>
-		<p><a href="http://stackoverflow.com/users/6701768/mrheroux" target="_blank"><img src="http://stackoverflow.com/users/flair/6701768.png?theme=clean" width="208" height="58" alt="profile for mrheroux at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for mrheroux at Stack Overflow, Q&amp;A for professional and enthusiast programmers"></a></p>
-		<hr/>
-	</div>
-
-	<div class="col-sm-12 col-md-4 col-lg-4">
-		<h2>Repositories</h2>
-		<p>GitHub <span class="glyphicon glyphicon-retweet"></span></p>
-		<p><a href="https://github.com/mrheroux" target="_blank">Check me out on GitHub <img src="https://a248.e.akamai.net/assets.github.com/images/icons/emoji/octocat.png" alt="GitHub" height="20" width="20"/></a></p>
-	</div>
-
 </div>

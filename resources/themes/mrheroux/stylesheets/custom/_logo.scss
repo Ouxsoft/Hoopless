@@ -1,0 +1,15 @@
+#logo {
+  font-size: 2rem;
+  font-family:  'big-n-bold';
+  color: #6C7E8B;
+  &:hover {
+    text-decoration: none;
+  }
+  em {
+    color: #FFF;
+    font-style: normal;
+  }
+  &.shrink {
+    font-size: 1.5rem;
+  }
+}

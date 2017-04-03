@@ -1,6 +1,5 @@
 <?php // unknown page ? ?>
-<div class="col-md-12 col-margin bg-1">
-	<br/>
+<div class="col-md-12 mb-2 bg-1">
 	<p>Select a subcategory.</p>
 	<div class="list-group">
 		<?php

@@ -11,59 +11,59 @@
   </ol>
   <div class="carousel-inner" role="listbox">
     <div class="carousel-item active">
-      <img class="d-block img-fluid" src="/assets/images/slides/marlboro.png" alt="First slide">
-      <div class="carousel-caption d-none d-md-block">
-      <h3>Specific Design</h3>
-      <p>Developed systems that accurately generate facility emission reports in accordance with site permits.</p>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img class="d-block img-fluid" src="/assets/images/slides/regulatory-design.png" alt="First slide">
+      <img class="d-block img-fluid" src="/assets/images/slides/regulatory-design.png" alt="Regulatory Design">
       <div class="carousel-caption d-none d-md-block">
       <h3>Regulatory Compliant System Design</h3>
       <p>Developed systems used to categorize, manage, and ship thousands of hazardous materials in accordance with state and federal regulations.</p>
       </div>
     </div>
     <div class="carousel-item">
-      <img class="d-block img-fluid" src="/assets/images/slides/hoopless.png" alt="Second slide">
+      <img class="d-block img-fluid" src="/assets/images/slides/specific-design.png" alt="Specific Design">
       <div class="carousel-caption d-none d-md-block">
-      <h3>Pioneer behind Hoopless</h3>
+      <h3>Specific Design</h3>
+      <p>Developed systems that accurately generate facility emission reports in accordance with site permits.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img class="d-block img-fluid" src="/assets/images/slides/hoopless.png" alt="Hoopless">
+      <div class="carousel-caption d-none d-md-block">
+      <h3>Pioneer Behind Hoopless</h3>
       <p>The content management system behind this and other site.</p>
       </div>
     </div>
     <div class="carousel-item">
-      <img class="d-block img-fluid" src="/assets/images/slides/marlboro.png" alt="Third slide">
+      <img class="d-block img-fluid" src="/assets/images/slides/lead-designer.png" alt="Lead Designer">
       <div class="carousel-caption d-none d-md-block">
-      <h3>Evolving college web services</h3>
-      <p></p>
+      <h3>Lead Designer</h3>
+      <p class="mb-5">Developed the first isometic game engine in LUA for the Sony PSP.</p>
       </div>
     </div>
     <div class="carousel-item">
-      <img class="d-block img-fluid" src="/assets/images/slides/marlboro.png" alt="Third slide">
+      <img class="d-block img-fluid" src="/assets/images/slides/protecting-ehs.png" alt="Protecting EHS">
       <div class="carousel-caption d-none d-md-block">
-      <h3>Protecting human health and the environment</h3>
+      <h3>Protecting Human Health and the Environment</h3>
       <p>Designed a complete chemical management, which is used in numerous manufacturing facilities across the Continental United States.</p>
       </div>
     </div>
     <div class="carousel-item">
-      <img class="d-block img-fluid" src="/assets/images/slides/marlboro.png" alt="Third slide">
+      <img class="d-block img-fluid" src="/assets/images/slides/training-system.png" alt="Training System">
       <div class="carousel-caption d-none d-md-block">
       <h3>Training System</h3>
       <p>Developed a system used to train and certifies employees in numerous regulatory requirements.</p>
       </div>
     </div>
     <div class="carousel-item">
-      <img class="d-block img-fluid" src="/assets/images/slides/game-design.png" alt="Third slide">
-      <div class="carousel-caption d-none d-md-block">
-      <h3>Lead designer</h3>
-      <p class="mb-5">Developed the first isometic game engine in LUA for the Sony PSP.</p>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img class="d-block img-fluid" src="/assets/images/slides/marlboro.png" alt="Third slide">
+      <img class="d-block img-fluid" src="/assets/images/slides/robotic-overachiever.png" alt="Robotic overachiever">
       <div class="carousel-caption d-none d-md-block">
       <h3>Robotic Overachiever</h3>
       <p>Evolved robotic systems that manufacturer metal decorative home decor</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img class="d-block img-fluid" src="/assets/images/slides/evolving-college.png" alt="Evolving">
+      <div class="carousel-caption d-none d-md-block">
+      <h3>Evolving College Web Services</h3>
+      <p class="mb-5">Currently evolving college web services.</p>
       </div>
     </div>
   </div>

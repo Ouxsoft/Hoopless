@@ -77,8 +77,6 @@ function print_menu($array, $level) {
 		</div>
 	</footer>
 
-	<link rel="stylesheet" href="<?php echo $instance->href('stylesheets/bottom.min.css');?>" type="text/css"/>
-
 	<!-- js includes placed here for faster load page times -->
 	<script src="<?php echo $instance->href('scripts/script.min.js');?>"></script>
 	<!-- individual includes consider uglifing -->

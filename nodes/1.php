@@ -79,12 +79,45 @@
 <div class="col bg-1 mt-2">
   <h2>About</h2>
   <p>Hi! I'm <b>Matt</b> and I love system design and development, which is one of the reasons I've been smiling for the last <?php echo (date('Y')-2002);?> years :). I hope you find this site informative and it helps others learn what it takes to become a full-stack developer.</p>
-  <p>You might be asking "what's a full-stack developer?" Well to me, it's someone with mastery of web development, which includes more than just knowledge of servers, databases, server-side scripting, client-side scripting, markup, and cascade stylesheets. It's someone who <em>knows</em> how and can effectively and efficiently approach and solve a web problem using the systems development life cycle (SDLC). I've heard some say full-stack developers are modern myths, unicorns. Let's find out ;).</p>
+  <p>You might be asking "what's a full-stack developer?" Well to me, it's someone with mastery of web development who can systematically effectively and efficiently design and produce a complete successful web solution for <em>any</em> problem. I've heard some say full-stack developers are modern myths, unicorns. Let's find out!</p>
+
 <?php
 /*
 
+What exactly does that involve?
+
+Systems development life cycle (SDLC) - Understanding the process for planning, creating, testing, and deploying an information system.
+
+Visualization of System Design - Unified Modeling Language (UML) is a general-purpose, developmental, modeling language
+
+A++
+
+Networking
+  TCIP
+  UDP
+  Twisted Pair
+
+Servers
+  Virtual Machines
+  Cluster Management
+
+Authentication
+  LDAP
+  Cryptology
+  Brute Force Protection
+
+Version Control
+  GIT
+  SVN
+
+in the field of software engineering, that is intended to provide a standard way to visualize the design of a system.[1]
+hich includes more than just knowledge of servers, databases, server-side scripting, client-side scripting, markup, cascading style sheets, fonts, image generation
+    using the
+
 Writing / Language skills
 communication skills
+Marketing
+  Understanding CTA
 Analysis
 Project Management:
 UML:

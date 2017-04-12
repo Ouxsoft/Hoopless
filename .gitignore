@@ -1,9 +1,14 @@
-# do not include local configuration files
+# ignore local server configuration files
 resources/config/*.conf
 !resources/config/sample.conf
 
-# do not include logs
+# ignore logs
 logs/*.*
 
-# do not include special assets
+# ignore special assets
 assets/resume.pdf
+
+# ignore NPM and Grunt dev files
+node_modules/
+sourceMap.map
+.sass-cache

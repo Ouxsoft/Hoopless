@@ -20,28 +20,31 @@ global $db;
 	<body class="bg-body">
 		<header>
 			<nav class="navbar fixed-top navbar navbar-inverse bg-inverse bg-faded">
-		<form method="get" name="top" action="<?php echo $instance->href('search.html');?>" enctype="multipart/form-data">
-			<div class="container">
-				<div class="row">
-				 <div class="col-9 col-md-6 col-lg-9">
-						<a id="logo" href="<?php echo $instance->href('home.html');?>" title="Home"><span class="hidden-sm-down">Matt</span><em>Heroux</em></a>
-					</div>
-					<div class="col-3 hidden-md-up text-right">
-						<button class="btn btn-primary hidden-md-up" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-						 <span class="navbar-toggler-icon"></span>
-						 </button>
-				 </div>
-					<div class="col-sm-12 col-md-6 col-lg-3">
-						<div class="input-group" id="search">
-							<input type="text" class="form-control" name="q" placeholder="Search">
-							<span class="input-group-btn">
-								<button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
-							</span>
+				<form method="get" name="top" action="<?php echo $instance->href('search.html');?>" enctype="multipart/form-data">
+					<div class="container">
+						<div class="row">
+				 			<div class="col-9 col-md-6 col-lg-9">
+								<a id="logo" href="<?php echo $instance->href('home.html');?>" title="Home"><span class="hidden-sm-down">Matt</span><em>Heroux</em></a>
+							</div>
+							<div class="col-3 hidden-md-up text-right">
+								<button class="btn btn-primary hidden-md-up" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+						 			<span class="navbar-toggler-icon"></span>
+						 		</button>
+				 			</div>
+							<div class="col-sm-12 col-md-6 col-lg-3">
+								<div class="input-group" id="search">
+									<input type="text" class="form-control" name="q" placeholder="Search">
+									<span class="input-group-btn">
+										<button class="btn btn-default" type="submit">
+											<span class="glyphicon glyphicon-search"></span>
+										</button>
+									</span>
+								</div>
+							</div>
 						</div>
 					</div>
-				</div>
-			</div>
-		</form>
+				</form>
+			</nav>
 	</header>
 	<div id="window-top">
 		<div class="container pt-5 pb-2 mb-2">
@@ -64,7 +67,6 @@ global $db;
 			<?php endif; ?>
 		</div>
 	</div>
-</div>
 
 	<div class="container">
 

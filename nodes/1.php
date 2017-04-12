@@ -78,9 +78,8 @@
 </div>
 <div class="col bg-1 mt-2">
   <h2>About</h2>
-  <p>Hi! I'm <b>Matt</b> and I love system design and development, which is why I'm almost always smiling :). This site is where I showcase my talents in order to help other developer become full-stack.</p>
-  <p>You might be asking "what's a full-stack developer?" Well to me, it's someone with mastery of web development, which includes more than just the front end and back end. It's someone who <em>knows</em> how and can effectively and efficiently approach and solve a web problem. I've heard some say full-stack developers are modern myths, unicorns, mainly because others haven't been developing web based solutions professional for the last <?php echo (date('Y')-2002);?> years.</p>
-  <p>Feel free to check back in. I "commit" to evolve things around here ;).</p>
+  <p>Hi! I'm <b>Matt</b> and I love system design and development, which is one of the reasons I've been smiling for the last <?php echo (date('Y')-2002);?> years :). I hope you find this site informative and it helps others learn what it takes to become a full-stack developer.</p>
+  <p>You might be asking "what's a full-stack developer?" Well to me, it's someone with mastery of web development, which includes more than just knowledge of servers, databases, server-side scripting, client-side scripting, markup, and cascade stylesheets. It's someone who <em>knows</em> how and can effectively and efficiently approach and solve a web problem using the systems development life cycle (SDLC). I've heard some say full-stack developers are modern myths, unicorns. Let's find out ;).</p>
 <?php
 /*
 

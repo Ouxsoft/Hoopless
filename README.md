@@ -1,7 +1,7 @@
 # Hoopless
----
-Rapidly develop beautiful websites without jump through hoops using Hoopless, a
-lightweight content management system designed for Linux, Apache, MySQL, and PHP.
+Rapidly develop beautiful websites without jumping through hoops using Hoopless,
+a lightweight content management system designed for Linux, Apache, MySQL, and
+PHP.
 
 ## Features
 * Easy local server configuration via config files.

@@ -1,10 +1,3 @@
-<!DOCTYPE html>
-<html ng-app="angularjs-problem">
-<head lang="en">
-<meta charset="utf-8">
-<title>Pair 10</title>
-<meta name="author" content="Matt Heroux">
-<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
 <style><!--
 .pairs {list-style: none;}
 .pairs li {display: inline;}
@@ -12,45 +5,35 @@
 .pairs li:last-child:after {content: "";}
 --></style>
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-</head>
-<body ng-controller="MainCtrl">
-<header class="w3-container w3-blue">
-<h1>"Pair 10" Example</h1>
-</header>
-<div class="w3-container">
-<h2>Introduction</h2>
-<p>I was asked to solve the below problem for a company that used AngularJS. I learned some AngularJS and came up with this solution.
-<h2>Problem</h2>
-<p>Write a program and submit with 24 hours that allows for an integer array to be passed in and will then output all of the pairs that sum up to 10. Please provide a solution that allows for
-<ol>
-<li>output all pairs (includes duplicates and the reversed ordered pairs), </li>
-<li>output unique pairs only once (removes the duplicates but includes the reversed ordered pairs), and </li>
-<li>output the same combo pair only once (removes the reversed ordered pairs).</li>
-</ol>
-For example passing in <a class="w3-btn w3-yellow" href="?parameter=[1,1,2,4,4,5,5,5,6,7,9]" alt="Click to Run">[1, 1, 2, 4, 4, 5, 5, 5, 6, 7, 9]</a> the following results should occur:
-<ol>
-<li>output all pairs would output: [1,9], [1,9], [4,6], [4,6], [5,5], [5,5], [5,5], [5,5], [5,5], [5,5], [6,4], [6,4]<abbr title="Comma missing in example provided">,</abbr> [9,1], [9,1] </li>
-<li>output unique pairs only once would output: [1,9], [4,6], [5,5], [6,4], [9,1]</li>
-<li>output the same combo pair only once would output: [1,9], [4,6], [5,5]</li>
-<ol>
-</p>
-</div>
-<div class="w3-container ">
-<form>
-<h1>Data</h1>
-<textarea class="w3-input" char-qty name="interger_array" ng-model="int_array" ng-init="parse_int()" ng-change="parse_int()" ng-list required placeholder="Enter array here (numbers, commas, brackets, and spaces only)"></textarea>
-<br/>
-<h1>Output</h1>
-<div ng-model="sorted_array">
-All Pairs:<ul class="w3-input pairs"><li ng-repeat="x in pairs">{{x}}</li></ul>
-Unique Pairs:<ul class="w3-input pairs"><li ng-repeat="x in pairs | unique">{{x}}</li></ul>
-Same Combo Pairs:<ul class="w3-input pairs"><li ng-repeat="x in pairs | combo">{{x}}</li></ul>
-</div>
-</form>
-<br/>
-<footer>
-<p>Designed by Matt Heroux</p>
-</footer>
+<section ng-app="angularjs-problem" ng-controller="MainCtrl">
+	<h2>Introduction</h2>
+	<p>I was asked to solve the below problem for a company that used AngularJS. I learned some AngularJS and came up with this solution.</p>
+	<h2>Problem</h2>
+	<p>Write a program and submit with 24 hours that allows for an integer array to be passed in and will then output all of the pairs that sum up to 10. Please provide a solution that allows for</p>
+	<ol>
+		<li>output all pairs (includes duplicates and the reversed ordered pairs), </li>
+		<li>output unique pairs only once (removes the duplicates but includes the reversed ordered pairs), and </li>
+		<li>output the same combo pair only once (removes the reversed ordered pairs).</li>
+	</ol>
+	<p>For example passing in <a class="w3-btn w3-yellow" href="?parameter=[1,1,2,4,4,5,5,5,6,7,9]" alt="Click to Run">[1, 1, 2, 4, 4, 5, 5, 5, 6, 7, 9]</a> the following results should occur:</p>
+	<ol>
+		<li>output all pairs would output: [1,9], [1,9], [4,6], [4,6], [5,5], [5,5], [5,5], [5,5], [5,5], [5,5], [6,4], [6,4]<abbr title="Comma missing in example provided">,</abbr> [9,1], [9,1] </li>
+		<li>output unique pairs only once would output: [1,9], [4,6], [5,5], [6,4], [9,1]</li>
+		<li>output the same combo pair only once would output: [1,9], [4,6], [5,5]</li>
+	</ol>
+	<form>
+		<h2>Data</h2>
+		<textarea class="w3-input" char-qty name="interger_array" ng-model="int_array" ng-init="parse_int()" ng-change="parse_int()" ng-list required placeholder="Enter array here (numbers, commas, brackets, and spaces only)"></textarea>
+		<br/>
+		<h2>Output</h2>
+		<div ng-model="sorted_array">
+			All Pairs:<ul class="w3-input pairs"><li ng-repeat="x in pairs">{{x}}</li></ul>
+			Unique Pairs:<ul class="w3-input pairs"><li ng-repeat="x in pairs | unique">{{x}}</li></ul>
+			Same Combo Pairs:<ul class="w3-input pairs"><li ng-repeat="x in pairs | combo">{{x}}</li></ul>
+		</div>
+	</form>
+</section>
+
 <script type="text/javascript">//<![CDATA[
 var app = angular.module('angularjs-problem', []);
 // limit char
@@ -143,4 +126,3 @@ var parseLocation = function(location) {
 };
 //]]>
 </script>
-</body></html>

@@ -77,10 +77,9 @@
   </a>
 </div>
 <div class="col bg-1 mt-2">
-  <h2>About</h2>
-  <p>Hi! I'm <b>Matt</b> and I love system design and development, which is one of the reasons I've been smiling for the last <?php echo (date('Y')-2002);?> years :). I hope you find this site informative and it helps others learn what it takes to become a full-stack developer.</p>
-  <p>You might be asking "what's a full-stack developer?" Well to me, it's someone with mastery of web development who can systematically effectively and efficiently design and produce a complete successful web solution for <em>any</em> problem. I've heard some say full-stack developers are modern myths, unicorns. Let's find out!</p>
-
+  <h2>Welcome</h2>
+  <p>Hi! I'm <b>Matt</b> and what you call a full-stack developer, which is one of the reasons I've been smiling for the last <?php echo (date('Y')-2002);?> years :). You might be wondering "what exactly is a full-stack developer?" In short, commonly it's what you call someone who specializes in both front-end and back-end development. But to me it's something much more. It's about specializing in the full development process, such as knowledge of the systems development life cycle (SDLC), Unified Modeling Language (UML), etc. To be a full-stack developer, you should be able to systematically create web solution for <em>any</em> problem. I've heard some say full-stack developers are modern myths, unicorns. Let's find out!</p>
+	<p>Currently, this site is used to test changes to Hoopless, which is still in alpha. However, I'm planning on using it to help educate others on the full-stack development process.</p>
 <?php
 /*
 

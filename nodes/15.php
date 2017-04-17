@@ -10,8 +10,6 @@ function portfolio_href($type, $string){
 	}
 }
 
-
-
 echo '<div class="col-md-12 mb-2 bg-1">';
 
 echo "<h2 class=\"center\">Experiences</h2>";

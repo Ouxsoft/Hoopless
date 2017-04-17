@@ -5,16 +5,19 @@ class instance {
 	private $href_cache = array();
 	private $hash_cache = array();
 	public $uri;
-	public $website = array("theme" => "default");
+	public $user = array('id' => null);
+	public $website = array('theme' => 'default');
 	public $page = array();
-	public $user = array("id" => null);
+	public $breadcrumbs = array();
+	public $menu = array();
 	public $support = array();
+	public $year;
 
-	public function build_tree($elements, $parent_id = 0) {
+	function build_tree($elements, $parent_id = 0) {
 		$branch = array();
 		foreach ($elements as $element) {
 			if ($element['parent_id'] == $parent_id) {
-				$children = build_tree($elements, $element['id']);
+				$children = $this->build_tree($elements, $element['id']);
 				if ($children) {
 					$element['children'] = $children;
 				}
@@ -23,6 +26,32 @@ class instance {
 		}
 		return $branch;
 	}
+		
+	public function build_menu($array, $level) {
+		$menu = array();
+		foreach($array as $value) {
+			$item = array();
+			if($value['alias']==$this->page['current']['alias']){
+				$item['active'] = true;
+			}
+			if($value['class']!=NULL){
+				$item['class'] = $value['class']; 
+			}
+			$item['title'] = $value['title'];
+			$item['id'] = $value['id'];
+			if(is_array($value['children'])){
+				$item['children'] = $this->build_menu($value['children'], $level+1);
+			} else {
+				$item['alias'] = $this->href($value['alias']);
+			}
+			$menu[] = $item;
+		}
+		
+		return $menu;
+	}	
+	
+
+	
 	private function href_hash($record_id, $page = NULL){
 		if($page==NULL){
 			$page = $this->page['current']['alias'];
@@ -31,58 +60,60 @@ class instance {
 		if(array_key_exists($ui, $this->hash_cache)){
 			return $this->hash_cache[$ui];
 		} else {
-			$string = urlencode(str_replace(".","",crypt($ui, '$1$r'.md5($record_id.$this->config['href_salt']))));
+			$string = urlencode(str_replace('.','',crypt($ui, '$1$r'.md5($record_id.$this->config['href_salt']))));
 			$this->hash_cache[$ui] = $string;
 			return $string;
 		}
 	}
+	
 	public function verify($silent = false){
-		if($this->href($this->page['current']['alias'],$_GET['q']) == SERVER."/{$this->page['current']['alias']}?q=".urlencode($_GET['q'])."&amp;a=".urlencode($_GET['a'])){
+		if($this->href($this->page['current']['alias'],$_GET['q']) == SERVER.'/'.$this->page['current']['alias'].'?q='.urlencode($_GET['q']).'&amp;a='.urlencode($_GET['a'])){
 			global $record_id;
 			$record_id = $_GET['q'];
 			return true;
 		} else {
 			if($silent==false){
 				echo '<div class="container background-white">';
-				echo "<h2><b>404 - Error</b>: Invalid Request.</h2>";
-				echo "<p>The requested record could not be accessed. If you have received this message in error, feel free to <a href=\"{$this->href("contact.html")}\">contact</a> me for assistance.</p>";
+				echo '<h2><b>404 - Error</b>: Invalid Request.</h2>';
+				echo '<p>The requested record could not be accessed. If you have received this message in error, feel free to <a href="'.$this->href("contact.html").'">contact</a> me for assistance.</p>';
 				echo '</div>';
 			}
 			return false;
 		}
 	}
-	public function href($string = "", $record_id = null){
+	
+	public function href($string = '', $record_id = null){
 		$extension = null;
-		if(substr($string, 0, 4) === "http") {return $string;}
-		if(($record_id!=null)&&($string=="")){$string = $this->page['current']['alias'];}
+		if(substr($string, 0, 4) === 'http') {return $string;}
+		if(($record_id!=null)&&($string=='')){$string = $this->page['current']['alias'];}
 		if(array_key_exists($string,$this->href_cache)&&($record_id==null)){
 			// return cached href
 			return $this->href_cache[$string.$record_id];
 		} else {
 			// determine absolute href
-			$href = "";
+			$href = '';
 			$path_parts = pathinfo($string);
 			if (strpos($path_parts['extension'], '?') !== FALSE){
-				$extension = substr($path_parts['extension'], 0, strpos($path_parts['extension'], "?"));
+				$extension = substr($path_parts['extension'], 0, strpos($path_parts['extension'], '?'));
 			}
 			if (strpos($path_parts['extension'], '#') !== FALSE){
-				$extension = substr($path_parts['extension'], 0, strpos($path_parts['extension'], "#"));
+				$extension = substr($path_parts['extension'], 0, strpos($path_parts['extension'], '#'));
 			}
 			if($extension==null){
 				$extension = $path_parts['extension'];
 			}
 
-			if(in_array($extension, array("html","xml","cvs","pdf"))){
+			if(in_array($extension, array('html','xml','cvs','pdf'))){
 				// page href
-				$parts = explode("/",$string);
+				$parts = explode('/',$string);
 				if (strpos($string,SERVER) !== false) {
 					$href = $string;
 				} else {
-					$href = SERVER."/{$string}";
+					$href = SERVER.'/'.$string;
 				}
 				if($record_id!=NULL){
 					// add $_GET url security encode for record_id
-					$href .= "?q={$record_id}&amp;a={$this->href_hash($record_id,$path_parts['filename'].".".$extension)}";
+					$href .= '?q='.$record_id.'&amp;a='.$this->href_hash($record_id,$path_parts['filename'].'.'.$extension);
 				}
 			} else {
 				// check if file exists in current theme, else use default theme
@@ -96,16 +127,23 @@ class instance {
 			return $href;
 		}
 	}
+	
 	function __construct(){
 		global $db;
-		$this->config = parse_ini_file("resources/config/default.conf");
+		// set request time
+		$this->date = array(
+			'year' => date('Y'),
+		);
+		
+		$this->config = parse_ini_file('resources/config/default.conf');
 		date_default_timezone_set($this->config['timezone']);
-		define("SERVER",$this->config['server']);
+		define('SERVER',$this->config['server']);
 		$this->website = array(
-			"title" => $this->config['title'],
-			"abbreviation" => $this->config['abbreviation'],
-			"theme" => $this->config['theme'],
-			"email" => $this->config['email'],
+			'title' => $this->config['title'],
+			'abbreviation' => $this->config['abbreviation'],
+			'theme' => $this->config['theme'],
+			'email' => $this->config['email'],
+			'server' => $this->config['server'],
 		);
 
 		if ($_SERVER['REMOTE_ADDR']!=$this->config['debug_ip']){
@@ -117,7 +155,7 @@ class instance {
 		$db = new database($this->config['host'], $this->config['user'], $this->config['password'], $this->config['dbname']);
 		// parse raw request to determine page requested
 		if(isset($_GET['request'])){
-			$this->raw_request = preg_split("/\//", substr($_GET['request'],1));
+			$this->raw_request = preg_split('/\//', substr($_GET['request'],1));
 		} else {
 			$this->raw_request[0] = 'home.html';
 		}
@@ -142,18 +180,23 @@ class instance {
 			$this->page['current']['meta_description'] = 'Page not found';
 			$this->page['current']['state'] = null;
 		}
+		
 		// load breadcrumb
 		$db->bind('node_id',$this->page['current']['node_id']);
-		$this->page['breadcrumbs'] = $db->query('SELECT `T2`.`title`, `node_alias`.`alias` FROM (SELECT @r AS _id, (SELECT @r := `parent_id` FROM `node` WHERE `node_id` = _id) AS `parent_id` , @l := @l +1 AS `lvl` FROM (SELECT @r := :node_id, @l :=0) vars, `node` WHERE @r <>0) `T1` JOIN `node` `T2` ON T1._id = `T2`.`node_id` LEFT JOIN `node_alias` ON `T2`.`node_id` = `node_alias`.`node_id` ORDER BY `T1`.`lvl` DESC LIMIT 10;');
+		$db->bind('node_id2',$this->page['current']['node_id']);
+		$this->page['breadcrumbs'] = $db->query('SELECT `T2`.`title`, `node_alias`.`alias`, IF(`T2`.`node_id` = :node_id2, \'true\', NULL) AS `active` FROM (SELECT @r AS _id, (SELECT @r := `parent_id` FROM `node` WHERE `node_id` = _id) AS `parent_id` , @l := @l +1 AS `lvl` FROM (SELECT @r := :node_id, @l :=0) vars, `node` WHERE @r <>0) `T1` JOIN `node` `T2` ON T1._id = `T2`.`node_id` LEFT JOIN `node_alias` ON `T2`.`node_id` = `node_alias`.`node_id` ORDER BY `T1`.`lvl` DESC LIMIT 10;');
 		$this->page['depth']  = count($this->page['breadcrumbs']);
+		if($this->page['depth'] <=1){
+			$this->page['breadcrumbs'] = NULL;
+		}
 
 		// find out who user is
 		$this->user_get();
 
 		// determine if user has permission to access the current page
-		$db->bind("user_id",$this->user['id']);
-		$db->bind("page_id",$this->page['current']['node_id']);
-		$active = $db->single("SELECT `active` FROM `user_group_members` LEFT JOIN `user_group_permissions` ON `user_group_members`.`group_id` = `user_group_permissions`.`group_id` WHERE `user_id` = :user_id AND `page_id` = :page_id AND `user_group_permissions`.`permission` = 1 LIMIT 1;");
+		$db->bind('user_id',$this->user['id']);
+		$db->bind('page_id',$this->page['current']['node_id']);
+		$active = $db->single('SELECT `active` FROM `user_group_members` LEFT JOIN `user_group_permissions` ON `user_group_members`.`group_id` = `user_group_permissions`.`group_id` WHERE `user_id` = :user_id AND `page_id` = :page_id AND `user_group_permissions`.`permission` = 1 LIMIT 1;');
 		if($active==1){
 			$this->user['permission'] = true;
 		} else {
@@ -165,35 +208,49 @@ class instance {
 		if(count($_GET)>1){
 			$bool = false;
 			foreach ($_GET as $key => $value) {
-				if($key=="request"){continue;}
+				if($key=='request'){continue;}
 				if($bool){
-					$this->uri .= "&";
+					$this->uri .= '&';
 				} else {
-					$this->uri .= "?";
+					$this->uri .= '?';
 					$bool = true;
 				}
 				if(is_array($value)) {
 					foreach($value as $key2 => $value2){
 						if(is_array($value2)){continue;}
-						$this->uri .= "{$key}[{$key2}]=".urldecode($value2);
+						$this->uri .= $key.'['.$key2.']='.urldecode($value2);
 					}
 				} else {
-					$this->uri .= $key."=".urldecode($value);
+					$this->uri .= $key.'='.urldecode($value);
 				}
 			}
 		}
+		
+		// load navigation menu
+		$results = $db->query('
+			SELECT `menu_item`.`node_id` AS `id`,`menu_item`.`parent_id`,IF(`menu_item`.`title` IS NULL,`node`.`title`, `menu_item`.`title`) AS `title`, `node_alias`.`alias`
+			FROM `menu`
+			LEFT JOIN `menu_item` ON `menu`.`menu_id` = `menu_item`.`menu_id`
+			LEFT JOIN `node` ON `menu_item`.`node_id` = `node`.`node_id`
+			LEFT JOIN `node_alias` ON `menu_item`.`node_id` = `node_alias`.`node_id`
+			WHERE `menu`.`title` = \'top-menu\'
+			ORDER BY `menu_item`.`item_id` ASC
+		');
+		$this->menu['navigation'] = $this->build_menu($this->build_tree($results),0);
 	}
+	
 	public function window($type, $override = false){
 		global $instance;
 		if(($instance->page['current']['standalone']==1)&&($override==false)){
 			return false;
 		} else {
 			switch ($type) {
-				case "header": include("resources/themes/{$instance->website['theme']}/header.php"); break;
+				case 'header': include('resources/themes/'.$instance->website['theme'].'/header.php'); break;
 				case "footer": include("resources/themes/{$instance->website['theme']}/footer.php"); break;
 			}
 		}
 	}
+	
 	private function user_get(){
 		global $db;
 		if(isset($_POST['user-sign-out'])&&($_POST['user-sign-out']==1)){
@@ -282,6 +339,7 @@ class instance {
 		}
 		return false;
 	}
+	
 	public function user_page_access($page_id){
 		// allows external checks whether users can access a page
 		global $db;

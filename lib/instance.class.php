@@ -1,17 +1,35 @@
 <?php
+
+// namespace main\controller;
+
 class instance {
 	private $config;
 	private $raw_request;
 	private $href_cache = array();
 	private $hash_cache = array();
 	public $uri;
-	public $user = array('id' => null);
-	public $website = array('theme' => 'default');
+	public $user = array(
+		'id' => null,
+		'sign-in' => array(
+			'failure' => NULL, // was a sign-in failure detected
+			'banned' => NULL, // is remote address banned from sign-in form
+			'tries' => array(
+				'email' => '',
+				'max' => 5, // max amount of failed tries in 30 minutes
+				'current' => 0, // the current amount of failed tries
+				'remainder' => 0, // the remainder of tries before banned equals true
+			),
+		),
+	);
+	public $website = array(
+		'theme' => 'default'
+	);
 	public $page = array();
 	public $breadcrumbs = array();
 	public $menu = array();
 	public $support = array();
 	public $year;
+
 
 	function build_tree($elements, $parent_id = 0) {
 		$branch = array();
@@ -26,7 +44,7 @@ class instance {
 		}
 		return $branch;
 	}
-		
+
 	public function build_menu($array, $level) {
 		$menu = array();
 		foreach($array as $value) {
@@ -35,7 +53,7 @@ class instance {
 				$item['active'] = true;
 			}
 			if($value['class']!=NULL){
-				$item['class'] = $value['class']; 
+				$item['class'] = $value['class'];
 			}
 			$item['title'] = $value['title'];
 			$item['id'] = $value['id'];
@@ -46,12 +64,10 @@ class instance {
 			}
 			$menu[] = $item;
 		}
-		
-		return $menu;
-	}	
-	
 
-	
+		return $menu;
+	}
+
 	private function href_hash($record_id, $page = NULL){
 		if($page==NULL){
 			$page = $this->page['current']['alias'];
@@ -65,7 +81,7 @@ class instance {
 			return $string;
 		}
 	}
-	
+
 	public function verify($silent = false){
 		if($this->href($this->page['current']['alias'],$_GET['q']) == SERVER.'/'.$this->page['current']['alias'].'?q='.urlencode($_GET['q']).'&amp;a='.urlencode($_GET['a'])){
 			global $record_id;
@@ -81,7 +97,7 @@ class instance {
 			return false;
 		}
 	}
-	
+
 	public function href($string = '', $record_id = null){
 		$extension = null;
 		if(substr($string, 0, 4) === 'http') {return $string;}
@@ -127,14 +143,14 @@ class instance {
 			return $href;
 		}
 	}
-	
+
 	function __construct(){
 		global $db;
 		// set request time
 		$this->date = array(
 			'year' => date('Y'),
 		);
-		
+
 		$this->config = parse_ini_file('resources/config/default.conf');
 		date_default_timezone_set($this->config['timezone']);
 		define('SERVER',$this->config['server']);
@@ -180,7 +196,7 @@ class instance {
 			$this->page['current']['meta_description'] = 'Page not found';
 			$this->page['current']['state'] = null;
 		}
-		
+
 		// load breadcrumb
 		$db->bind('node_id',$this->page['current']['node_id']);
 		$db->bind('node_id2',$this->page['current']['node_id']);
@@ -225,7 +241,7 @@ class instance {
 				}
 			}
 		}
-		
+
 		// load navigation menu
 		$results = $db->query('
 			SELECT `menu_item`.`node_id` AS `id`,`menu_item`.`parent_id`,IF(`menu_item`.`title` IS NULL,`node`.`title`, `menu_item`.`title`) AS `title`, `node_alias`.`alias`
@@ -238,7 +254,7 @@ class instance {
 		');
 		$this->menu['navigation'] = $this->build_menu($this->build_tree($results),0);
 	}
-	
+
 	public function window($type, $override = false){
 		global $instance;
 		if(($instance->page['current']['standalone']==1)&&($override==false)){
@@ -246,100 +262,103 @@ class instance {
 		} else {
 			switch ($type) {
 				case 'header': include('resources/themes/'.$instance->website['theme'].'/header.php'); break;
-				case "footer": include("resources/themes/{$instance->website['theme']}/footer.php"); break;
+				case 'footer': include("resources/themes/{$instance->website['theme']}/footer.php"); break;
 			}
 		}
 	}
-	
+
 	private function user_get(){
 		global $db;
 		if(isset($_POST['user-sign-out'])&&($_POST['user-sign-out']==1)){
 			// sign out user if requested
-			if(isset($_SESSION['account']['id'])){
+			if(isset($_SESSION['account']['user_id'])){
 				// add sign off record, which invalidates token
-				$db->bind("remote_address",$_SERVER['REMOTE_ADDR']);
-				$db->bind("user_id",$_SESSION['account']['id']);
-				$db->query("UPDATE `user_authentication` SET `sign_out_time` = NOW() WHERE `remote_address` = :remote_address AND `user_id` = :user_id AND `sign_out_time` IS NULL LIMIT 1;");
+				$db->bind('remote_address',$_SERVER['REMOTE_ADDR']);
+				$db->bind('user_id',$_SESS8ION['account']['user_id']);
+				$db->query('UPDATE `user_authentication` SET `sign_out_time` = NOW() WHERE `remote_address` = :remote_address AND `user_id` = :user_id AND `sign_out_time` IS NULL LIMIT 1;');
 				unset($_SESSION['account']);
 			}
 			// destroy cookie
 			unset($_COOKIE['site_nosense']);
-			@setcookie("site_nosense", null, -1, '/');
+			@setcookie('site_nosense', null, -1, '/');
 		}
-		if (isset($_SESSION['account']['id'])) {
+		if (isset($_SESSION['account']['user_id'])) {
 			// check for session
 			$this->user = $_SESSION['account'];
 			return true;
 		} elseif (isset($_COOKIE['site_nosense'])) {
 			// check for sign-in token
-			$db->bind("token",$_COOKIE['site_nosense']);
-			$db->bind("remote_address",$_SERVER['REMOTE_ADDR']);
-			$row = $db->row("SELECT  `users`.`id`, `users`.`username`, `users`.`dateformat`, `timeformat`, `users`.`timezone` FROM `user_authentication` LEFT JOIN `users` ON `user_authentication`.`user_id` = `users`.`id` WHERE `user_authentication`.`remote_address` = :remote_address AND `user_authentication`.`token` = :token AND `user_authentication`.`sign_out_time` IS NULL LIMIT 1;");
+			$db->bind('token',$_COOKIE['site_nosense']);
+			$db->bind('remote_address',$_SERVER['REMOTE_ADDR']);
+			$row = $db->row('SELECT  `users`.`user_id`, `users`.`full_name`, `users`.`dateformat`, `timeformat`, `users`.`timezone` FROM `user_authentication` LEFT JOIN `users` ON `user_authentication`.`user_id` = `users`.`user_id` WHERE `user_authentication`.`remote_address` = :remote_address AND `user_authentication`.`token` = :token AND `user_authentication`.`sign_out_time` IS NULL LIMIT 1;');
 			if (count($row) > 0){
-				$_SESSION['account']['id'] = $row['id'];
-				$_SESSION['account']['username'] = $row['username'];
+				$_SESSION['account']['user_id'] = $row['user_id'];
+				$_SESSION['account']['full_name'] = $row['full_name'];
 				$_SESSION['account']['dateformat'] = $row['dateformat'];
 				$_SESSION['account']['timeformat'] = $row['timeformat'];
 				$_SESSION['account']['timezone'] = $row['timezone'];
 				$this->user = $_SESSION['account'];
 				return true;
 			}
-		} elseif (isset($_POST['authorization'])) {
+		} elseif (isset($_POST['sign_in'])) {
+			$this->user['sign-in']['tries']['email'] = $_POST['sign_in']['email'];
 			// check for sign-in
-			// check in banned due to brute force attempts
-			$db->bind("remote_address",$_SERVER['REMOTE_ADDR']);
-			$failed_attempts = $db->single("SELECT COUNT(`id`) AS `failed_attempts` from `user_authentication` where `timestamp` > date_sub(now(), interval 3 minute) AND `authenticated` = 0 AND `remote_address` = :remote_address LIMIT 5;");
-			if($failed_attempts>=5){
-				global $brute_force_detected;
-				$brute_force_detected = true;
+			// check in banned due to brute force tries
+			$db->bind('remote_address',$_SERVER['REMOTE_ADDR']);
+			$this->user['sign-in']['tries']['current'] = $db->single('SELECT COUNT(`id`) FROM `user_authentication` WHERE `timestamp` > date_sub(now(), INTERVAL 30 MINUTE) AND `authenticated` = 0 AND `remote_address` = :remote_address LIMIT 5;');
+			if(is_numeric($this->user['sign-in']['tries']['current'])){
+				$this->user['sign-in']['tries']['remainder'] = $this->user['sign-in']['tries']['max'] - $this->user['sign-in']['tries']['current'];
+			} else {
+				$this->user['sign-in']['tries']['remainder'] = 0;
+			}
+			if($this->user['sign-in']['tries']['remainder']<=0){
+				$this->user['sign-in']['banned'] = true;
 			} else {
 				// trying to sign-in salt and password for check
 				// check if user exist
-				$db->bind("email", $_POST['authorization']['email']);
-				$row = $db->row("SELECT `id`, `username`, `dateformat`, `timeformat`, `timezone`, `salt`, `password` FROM `users` WHERE `email` = :email LIMIT 1;");
+				$db->bind('email', $this->user['sign-in']['tries']['email']);
+				$row = $db->row('SELECT `user_id`, `full_name`, `dateformat`, `timeformat`, `timezone`, `salt`, `password` FROM `users` WHERE `email` = :email LIMIT 1;');
 				if ($row==null){
-					global $authorization_failure;
-					$authorization_failure = true;
+					$this->user['sign-in']['failure'] = true;
 					// brute force protection
-					$db->bind("remote_address",$_SERVER['REMOTE_ADDR']);
-					$db->bind("user_id",null);
-					$db->bind("authenticated",0);
-					$db->query("INSERT INTO `user_authentication` (`id`, `remote_address`, `user_id`, `authenticated`, `timestamp`) VALUES (NULL, :remote_address, :user_id, :authenticated, CURRENT_TIMESTAMP)");
+					$db->bind('remote_address',$_SERVER['REMOTE_ADDR']);
+					$db->bind('user_id',null);
+					$db->bind('authenticated',0);
+					$db->query('INSERT INTO `user_authentication` (`id`, `remote_address`, `user_id`, `authenticated`, `timestamp`) VALUES (NULL, :remote_address, :user_id, :authenticated, CURRENT_TIMESTAMP)');
 				} else {
-					if($row['password'] == crypt($_POST['authorization']['password'], "\$6\$50\${$row['salt']}")){
+					if($row['password'] == crypt($_POST['sign_in']['password'], '$6$50$'.$row['salt'])){
 						unset($row['salt']);
 						unset($row['password']);
 						$this->user = $row;
 						$_SESSION['account'] = $row;
-						$db->bind("remote_address", $_SERVER['REMOTE_ADDR']);
-						$db->bind("user_id",$row['id']);
-						$db->bind("authenticated",1);
-						if(isset($_POST['authorization']['remember'])&&($_POST['authorization']['remember']=="true")){
+						$db->bind('remote_address', $_SERVER['REMOTE_ADDR']);
+						$db->bind('user_id',$row['user_id']);
+						$db->bind('authenticated',1);
+						if(isset($_POST['sign_in']['remember'])&&($_POST['sign_in']['remember']=="true")){
 							$db->bind("stay_signed_in",1);
 							$token = crypt($_SERVER['HTTP_X_FORWARDED_FOR'].$_SERVER['REMOTE_ADDR'], '$1$r'.$this->salt(date("U")));
-							setcookie("site_nosense", $token, time() + (86400 * 30), '/');
-							$db->bind("token",$token);
+							setcookie('site_nosense', $token, time() + (86400 * 30), '/');
+							$db->bind('token',$token);
 						} else {
-							$db->bind("token",null);
-							$db->bind("stay_signed_in",0);
+							$db->bind('token',null);
+							$db->bind('stay_signed_in',0);
 						}
-						$db->query("INSERT INTO `user_authentication` (`id`, `remote_address`, `user_id`, `authenticated`, `sign_in_time`, `sign_out_time`, `stay_signed_in`, `token`, `timestamp`) VALUES (NULL, :remote_address, :user_id, :authenticated, NOW(), NULL, :stay_signed_in, :token, CURRENT_TIMESTAMP);");
+						$db->query('INSERT INTO `user_authentication` (`id`, `remote_address`, `user_id`, `authenticated`, `sign_in_time`, `sign_out_time`, `stay_signed_in`, `token`, `timestamp`) VALUES (NULL, :remote_address, :user_id, :authenticated, NOW(), NULL, :stay_signed_in, :token, CURRENT_TIMESTAMP);');
 						return true;
 					} else {
 						// show authorication failed and add brute force protection record
-						global $authorization_failure;
-						$authorization_failure = true;
-						$db->bind("remote_address",$_SERVER['REMOTE_ADDR']);
-						$db->bind("user_id",$row['id']);
-						$db->bind("authenticated",0);
-						$db->query("INSERT INTO `user_authentication` (`id`, `remote_address`, `user_id`, `authenticated`, `timestamp`) VALUES (NULL, :remote_address, :user_id, :authenticated, CURRENT_TIMESTAMP)");
+						$this->user['sign-in']['failure'] = true;
+						$db->bind('remote_address',$_SERVER['REMOTE_ADDR']);
+						$db->bind('user_id',$row['user_id']);
+						$db->bind('authenticated',0);
+						$db->query('INSERT INTO `user_authentication` (`id`, `remote_address`, `user_id`, `authenticated`, `timestamp`) VALUES (NULL, :remote_address, :user_id, :authenticated, CURRENT_TIMESTAMP)');
 					}
 				}
 			}
 		}
 		return false;
 	}
-	
+
 	public function user_page_access($page_id){
 		// allows external checks whether users can access a page
 		global $db;

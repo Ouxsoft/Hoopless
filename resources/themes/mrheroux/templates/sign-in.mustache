@@ -1,0 +1,32 @@
+<h2>Your Account</h2>
+{{#user.sign-in.banned}}
+<div class="alert alert-danger" role="alert">
+	<p>For security reasons, you were banned from the sign-in form. Please wait 30 minutes before trying to sign-in again.</p>
+</div>
+{{/user.sign-in.banned}}
+{{^user.sign-in.banned}}
+{{#user.sign-in.failure}}
+<div class="alert alert-danger" role="alert">
+	<p>Sorry, incorrect email or password.</p>
+	<p>For security reasons, after {{user.sign-in.tries.remainder}} more failed login attempts you'll have to wait 30 minutes before trying again.</p>
+</div>
+{{/user.sign-in.failure}}
+<p>Please sign in to access your account.</p>
+<div class="col-md-12 bg-1">
+	<form method="post" enctype="multipart/form-data" style="max-width: 300px;" name="sign_in">
+		<label for="inputEmail">Email</label>
+		<input name="sign_in[email]" type="email" id="inputEmail" class="form-control mb-1" placeholder="you@example.org" value="{{user.sign-in.tries.email}}" required autofocus/>
+		<label for="inputPassword">Password</label>
+		<input name="sign_in[password]" type="password" id="inputPassword" class="form-control mb-1" placeholder="************" required/>
+		<div class="text-right">
+			<a href="/forgot.html">forgot?</a>
+		</div>
+		<div class="checkbox">
+			<label>
+				<input name="sign_in[remember]" type="checkbox" value="remember-me"/> Remember me
+			</label>
+		</div>
+		<button class="btn btn-lg btn-primary" type="submit">Sign in</button>
+	</form>
+</div>
+{{/user.sign-in.banned}}

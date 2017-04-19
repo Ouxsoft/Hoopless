@@ -11,13 +11,9 @@ Mustache_Autoloader::register();
 // view - presentation layer / layout / colors
 // controller - handles communication through user and control / rename instance controller
 
-$view = new Mustache_Engine(
-	array(
-		'loader' => new Mustache_Loader_FilesystemLoader('resources/themes/'.$instance->website['theme'].'/templates'),
-	)
-);
-
-
+$view = new Mustache_Engine(array(
+    'loader' => new Mustache_Loader_FilesystemLoader('resources/themes/'.$instance->website['theme'].'/templates'),
+));
 // if page is active, protected, or disabled and provide results
 switch ($instance->page['current']['state']) {
 	case 'active':
@@ -29,15 +25,12 @@ switch ($instance->page['current']['state']) {
 			$alert->add('alert','<a href="'.$instance->href('users/sign-up.html').'">Sign up</a> to access this page');
 			$alert->get();
 			echo '</div>';
-			echo "Sign-in node not created";
-			//include('nodes/users/sign-in.php');
+      echo $view->render('sign-in',$instance);
 			echo $view->render('footer',$instance);
-
 		} else {
 			echo $view->render('header',$instance);
-			include('nodes/'.$instance->page['current']['file']);
+  		include('nodes/'.$instance->page['current']['node_id'].'.php');
 			echo $view->render('footer',$instance);
-
 		}
 		break;
 	case 'protected':
@@ -45,9 +38,8 @@ switch ($instance->page['current']['state']) {
 		if (isset($instance->user['id'])) {
 			if($instance->user['permission']==1){
 				echo $view->render('header',$instance);
-				include('nodes/'.$instance->page['current']['file']);
+    		include('nodes/'.$instance->page['current']['node_id'].'.php');
 				echo $view->render('footer',$instance);
-
 			} else {
 				// deny access
 				include('lib/alert.class.php');
@@ -57,9 +49,8 @@ switch ($instance->page['current']['state']) {
 				$alert->get();
 				echo '<div class="pagepad" style="display: block; text-align: center; font-weight: bold; text-transform: uppercase; font-size: 18px; font-family: Arial, Helvetica, sans-serif; margin-top: 25px;">Authorized Users Only</div>';
 				echo '</div>';
-				include('nodes/users/sign-in.php');
+				echo $view->render('sign-in',$instance);
 				echo $view->render('footer',$instance);
-
 			}
 		} else {
 			// sign required
@@ -70,9 +61,8 @@ switch ($instance->page['current']['state']) {
 			$alert->get();
 			echo '<div class="pagepad" style="display: block; text-align: center; font-weight: bold; text-transform: uppercase; font-size: 18px; font-family: Arial, Helvetica, sans-serif; margin-top: 25px;">Authorized Users Only</div>';
 			echo '</div>';
-			include('nodes/users/sign-in.php');
+			echo $view->render('sign-in',$instance);
 			echo $view->render('footer',$instance);
-
 		}
 		break;
 	default:
@@ -84,8 +74,8 @@ switch ($instance->page['current']['state']) {
 		$instance->page['current']['state'] = 'active';
 		$instance->page['breadcrumbs'] = array(array('node_id' => 1, 'alias' => 'home.html', 'title'=>'Home'), array('node_id'=>0, 'alias' => 'page-not-found.html', 'title'=>'Page Not Found'));
 		echo $view->render('header',$instance);
-		include('nodes/'.$instance->page['current']['file']);
-		echo $view->render('footer',$instance);
+		include('nodes/'.$instance->page['current']['node_id'].'.php');
+    echo $view->render('footer',$instance);
 		break;
 }
 ?>

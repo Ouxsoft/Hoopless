@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 02, 2017 at 10:59 PM
+-- Generation Time: Apr 18, 2017 at 11:35 PM
 -- Server version: 5.7.17-0ubuntu0.16.04.1
--- PHP Version: 7.0.13-0ubuntu0.16.04.1
+-- PHP Version: 7.0.15-0ubuntu0.16.04.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `hxcmsdb`
+-- Database: `hoopless`
 --
 
 -- --------------------------------------------------------
@@ -112,33 +112,6 @@ INSERT INTO `abilities` (`id`, `category`, `name`, `score`, `started`, `timestam
 (74, 'Robotic skills', 'Rj32 Framework', 4, NULL, '2016-08-02 14:12:23'),
 (75, 'Web skills', 'Drupal', 3, NULL, '2016-07-25 05:08:40'),
 (76, 'Web skills', 'SASS (SCSS)', 5, NULL, '2016-07-25 05:08:40');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `address_book`
---
-
-CREATE TABLE `address_book` (
-  `id` int(11) NOT NULL,
-  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `company` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `lat` float(10,6) DEFAULT NULL,
-  `lng` float(10,6) DEFAULT NULL,
-  `street_address` text CHARACTER SET utf8 COLLATE utf8_unicode_ci,
-  `locality` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `region` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `postal_code` varchar(25) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `country` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `email` varchar(254) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `office` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `fax` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `mobile` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `home` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `mailing_list` tinyint(1) DEFAULT NULL,
-  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -310,7 +283,7 @@ INSERT INTO `node` (`node_id`, `parent_id`, `title`, `page_heading`, `meta_descr
 (4, 1, 'Contact', 'Contact', 'Contact and connect', 'monthly', '0.5', 0, NULL, '2017-03-20 01:50:17'),
 (5, 33, 'Nodes', 'Nodes', 'Node Settings', 'weekly', '0.0', 0, NULL, '2017-03-20 01:50:17'),
 (6, 1, 'Users', 'Users', 'Change group permissions, account settings, create an account, manage user groups, send a message to another user, etc', 'weekly', '0.5', 0, 0, '2017-03-20 01:50:17'),
-(7, 6, 'Sign-in', 'Sign-in', 'Sign-in to your account.', 'weekly', '0.5', 0, 1, '2017-03-20 01:50:17'),
+(7, 6, 'Sign-in', 'Sign-in', 'Sign-in to your account.', 'weekly', '0.5', 0, NULL, '2017-04-17 03:29:56'),
 (8, 6, 'Settings', 'Settings', 'Update your settings', 'weekly', '0.5', 0, 1, '2017-03-20 01:50:17'),
 (9, 6, 'Sign Up', 'Sign Up', 'Sign up for an account', 'weekly', '0.5', 0, 0, '2017-03-20 01:50:17'),
 (10, 1, 'Site Map', 'Site Map', NULL, 'weekly', '0.5', 0, 0, '2017-03-20 01:50:17'),
@@ -336,7 +309,8 @@ INSERT INTO `node` (`node_id`, `parent_id`, `title`, `page_heading`, `meta_descr
 (32, 17, 'Robotics', 'Robotics', 'Description', 'weekly', '0.5', 0, NULL, '2017-03-20 01:50:17'),
 (33, 1, 'Administration', 'Administration', 'Description', 'weekly', '0.5', 0, NULL, '2017-03-20 01:50:17'),
 (34, 17, '3D', '3D', 'Description', 'weekly', '0.5', 0, NULL, '2017-03-20 01:50:17'),
-(35, 5, 'Edit', 'Edit', 'Edit nodes', 'weekly', '0.5', 0, NULL, '2017-03-20 01:50:17');
+(35, 5, 'Edit', 'Edit', 'Edit nodes', 'weekly', '0.5', 0, NULL, '2017-03-20 01:50:17'),
+(36, 1, 'Title', NULL, 'Description', 'weekly', '0.5', NULL, NULL, '2017-04-17 03:22:58');
 
 -- --------------------------------------------------------
 
@@ -387,7 +361,8 @@ INSERT INTO `node_alias` (`alias_id`, `node_id`, `alias`) VALUES
 (30, 32, 'case-studies/robotics.html'),
 (31, 33, 'admin.html'),
 (32, 34, 'case-studies/3d.html'),
-(33, 35, 'admin/node/edit.html');
+(33, 35, 'admin/node/edit.html'),
+(34, 36, 'new-page.html');
 
 -- --------------------------------------------------------
 
@@ -429,11 +404,13 @@ INSERT INTO `node_permission` (`permission_id`, `node_id`, `state`) VALUES
 (21, 27, 'active'),
 (22, 28, 'active'),
 (23, 5, 'active'),
+(37, 36, 'active'),
 (25, 30, 'active'),
 (26, 31, 'active'),
 (27, 32, 'active'),
 (28, 33, 'active'),
-(29, 34, 'active');
+(29, 34, 'active'),
+(38, 7, 'active');
 
 -- --------------------------------------------------------
 
@@ -596,9 +573,22 @@ INSERT INTO `tags` (`tag_id`, `title`, `last_modified`) VALUES
 --
 
 CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
-  `username` varchar(50) CHARACTER SET utf8 DEFAULT NULL,
-  `address_book_id` int(255) DEFAULT NULL,
+  `user_id` int(11) NOT NULL,
+  `full_name` varchar(50) CHARACTER SET utf8 DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `company` varchar(255) DEFAULT NULL,
+  `job_title` varchar(255) DEFAULT NULL,
+  `lat` float(10,6) DEFAULT NULL,
+  `lng` float(10,6) DEFAULT NULL,
+  `street_address` varchar(255) DEFAULT NULL,
+  `locality` varchar(255) DEFAULT NULL,
+  `region` varchar(255) DEFAULT NULL,
+  `postal_code` varchar(25) DEFAULT NULL,
+  `country` varchar(50) DEFAULT NULL,
+  `office_number` varchar(50) DEFAULT NULL,
+  `fax_number` varchar(50) DEFAULT NULL,
+  `mobile_number` varchar(50) NOT NULL,
+  `home_number` varchar(50) DEFAULT NULL,
   `salt` varchar(32) CHARACTER SET utf8 NOT NULL,
   `password` varchar(92) CHARACTER SET utf8 NOT NULL,
   `timezone` varchar(50) CHARACTER SET utf8 DEFAULT 'US/Eastern',
@@ -611,8 +601,8 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `address_book_id`, `salt`, `password`, `timezone`, `dateformat`, `timeformat`, `timestamp`) VALUES
-(3, 'Matthew Heroux', NULL, '686a6345c775992ef897e5e75b017bcd', '$6$50$69Tw4r4WbudgbWYZhiYqCCdZn85lLqULN0ntjYh7Cv1to32.6eWtUh5g/8swx/dbK4Au7/KfubOV7sN3W5CDP0', 'US/Eastern', 'F j, Y', 'g:i a', '2014-03-21 09:32:59');
+INSERT INTO `users` (`user_id`, `full_name`, `email`, `company`, `job_title`, `lat`, `lng`, `street_address`, `locality`, `region`, `postal_code`, `country`, `office_number`, `fax_number`, `mobile_number`, `home_number`, `salt`, `password`, `timezone`, `dateformat`, `timeformat`, `timestamp`) VALUES
+(3, 'admin', 'admin@example.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, '686a6345c775992ef897e5e75b017bcd', '$6$50$MWonXqsDeUy7gjEz3FUlqWcrjAr2rB166sdK0/Ktc2lVykokmsvxbFKHwwYBwu4u3EMVJG6tb7LBR6gAFzcCn/', 'US/Eastern', 'F j, Y', 'g:i a', '2014-03-21 09:32:59');
 
 -- --------------------------------------------------------
 
@@ -631,6 +621,34 @@ CREATE TABLE `user_authentication` (
   `token` varchar(255) DEFAULT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user_authentication`
+--
+
+INSERT INTO `user_authentication` (`id`, `user_id`, `remote_address`, `authenticated`, `sign_in_time`, `sign_out_time`, `stay_signed_in`, `token`, `timestamp`) VALUES
+(12, NULL, '127.0.0.1', 0, NULL, NULL, NULL, NULL, '2017-04-19 00:56:29'),
+(11, NULL, '127.0.0.1', 0, NULL, NULL, NULL, NULL, '2017-04-18 03:54:21'),
+(10, NULL, '127.0.0.1', 0, NULL, NULL, NULL, NULL, '2017-04-18 03:54:16'),
+(9, NULL, '127.0.0.1', 0, NULL, NULL, NULL, NULL, '2017-04-18 03:51:36'),
+(8, NULL, '127.0.0.1', 0, NULL, NULL, NULL, NULL, '2017-04-18 03:49:57'),
+(7, NULL, '127.0.0.1', 0, NULL, NULL, NULL, NULL, '2017-04-18 03:48:31'),
+(13, NULL, '127.0.0.1', 0, NULL, NULL, NULL, NULL, '2017-04-19 00:56:59'),
+(14, NULL, '127.0.0.1', 0, NULL, NULL, NULL, NULL, '2017-04-19 00:57:08'),
+(15, 3, '127.0.0.1', 0, NULL, NULL, NULL, NULL, '2017-04-19 01:23:21'),
+(16, 3, '127.0.0.1', 1, '2017-04-18 21:24:04', NULL, 0, NULL, '2017-04-19 01:24:04'),
+(17, NULL, '127.0.0.1', 0, NULL, NULL, NULL, NULL, '2017-04-19 02:39:52'),
+(18, NULL, '127.0.0.1', 0, NULL, NULL, NULL, NULL, '2017-04-19 02:40:01'),
+(19, 3, '127.0.0.1', 1, '2017-04-18 22:40:19', NULL, 0, NULL, '2017-04-19 02:40:19'),
+(20, 3, '127.0.0.1', 1, '2017-04-18 22:50:07', NULL, 0, NULL, '2017-04-19 02:50:07'),
+(21, 3, '127.0.0.1', 1, '2017-04-18 22:52:15', NULL, 0, NULL, '2017-04-19 02:52:15'),
+(22, 3, '127.0.0.1', 1, '2017-04-18 22:56:10', NULL, 0, NULL, '2017-04-19 02:56:10'),
+(23, 3, '127.0.0.1', 1, '2017-04-18 22:57:58', NULL, 0, NULL, '2017-04-19 02:57:58'),
+(24, 3, '127.0.0.1', 1, '2017-04-18 23:06:41', NULL, 0, NULL, '2017-04-19 03:06:41'),
+(25, 3, '127.0.0.1', 1, '2017-04-18 23:09:52', NULL, 0, NULL, '2017-04-19 03:09:52'),
+(26, NULL, '127.0.0.1', 0, NULL, NULL, NULL, NULL, '2017-04-19 03:23:57'),
+(27, NULL, '127.0.0.1', 0, NULL, NULL, NULL, NULL, '2017-04-19 03:24:02'),
+(28, 3, '127.0.0.1', 1, '2017-04-18 23:24:11', NULL, 0, NULL, '2017-04-19 03:24:11');
 
 -- --------------------------------------------------------
 
@@ -686,12 +704,6 @@ CREATE TABLE `user_group_permissions` (
 -- Indexes for table `abilities`
 --
 ALTER TABLE `abilities`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `address_book`
---
-ALTER TABLE `address_book`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -758,7 +770,7 @@ ALTER TABLE `tags`
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`user_id`);
 
 --
 -- Indexes for table `user_authentication`
@@ -794,11 +806,6 @@ ALTER TABLE `user_group_permissions`
 ALTER TABLE `abilities`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 --
--- AUTO_INCREMENT for table `address_book`
---
-ALTER TABLE `address_book`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
 -- AUTO_INCREMENT for table `languages`
 --
 ALTER TABLE `languages`
@@ -817,17 +824,17 @@ ALTER TABLE `menu_item`
 -- AUTO_INCREMENT for table `node`
 --
 ALTER TABLE `node`
-  MODIFY `node_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `node_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 --
 -- AUTO_INCREMENT for table `node_alias`
 --
 ALTER TABLE `node_alias`
-  MODIFY `alias_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `alias_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 --
 -- AUTO_INCREMENT for table `node_permission`
 --
 ALTER TABLE `node_permission`
-  MODIFY `permission_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `permission_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 --
 -- AUTO_INCREMENT for table `portfolio`
 --
@@ -852,12 +859,12 @@ ALTER TABLE `tags`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `user_authentication`
 --
 ALTER TABLE `user_authentication`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 --
 -- AUTO_INCREMENT for table `user_groups`
 --

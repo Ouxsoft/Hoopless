@@ -16,8 +16,18 @@
 					</div>
     			</div>				
 				
-				<!-- navigation -->
 				<div class="col-md-4 col-lg-3">
+					<!-- search -->
+					<div class="input-group mb-3" id="search">
+						<input type="text" class="form-control" name="q" placeholder="Search"/>
+						<span class="input-group-btn">
+							<button class="btn btn-secondary" type="submit">
+								<span class="glyphicon glyphicon-search"></span>
+							</button>
+						</span>
+					</div>
+
+					<!-- navigation -->
 					<div id="menu_navigation">
 						<ul class="accordion" id="exCollapsingNavbar3">
 						{{#menu.navigation}}
@@ -41,7 +51,8 @@
 						{{/menu.navigation}}
 						</ul>
 					</div>
-
+					
+					<!-- community links -->
 					<div class="capsule">
 						<h3>Communities</h3><span class="capsule-div"></span>
 					</div>

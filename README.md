@@ -5,17 +5,14 @@ PHP.
 
 ## Features
 * Easy local server configuration via config files.
-* Templates
-..* Mustache
-..* Bootstrap 4 Base Theme
-..* Responsive mobile first design
-* Grunt
-..* automatic minified js and css for themes
-* Supports GIT workflow.
+* Uses "themes" to template sites.
+** Mustache
+** Bootstrap 4 Base Theme (responsive mobile first design)
+** Grunt Watch (Automatic minified JavaScript and SCSS files).
+* Designed for GIT workflow.
 * Uses "assets" to provide content.
-* Uses "nodes" to produce pages.
-* Uses "themes" to template nodes.
-* Uses "lib" files for PHP class and function page specific includes.
+* Uses "nodes" to produce pages. You can think of a node as a the split which determines one web page from another. All nodes exists in the /nodes directory as a individual sub folder, which is name after the node's id (node_id). Within a node folder there are usually two files that contains the page's specific logic (logic.php) and view (view.mustache). A nodes logic and view are stored as individual text files for version controlling purposes via GIT (if desired). A node is accessed via the instance_controller node_alias, which is stored in the site's database.
+* Uses "lib" files to store reusable PHP class and functions. Libs files are ment to be used similarly to how import files work in ANSI C/C++.
 
 ## Future Development Plans
 1. Theme updates

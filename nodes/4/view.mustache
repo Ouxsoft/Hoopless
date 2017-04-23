@@ -1,0 +1,36 @@
+<div class="col-md-12 bg-1">
+		<h2>Message</h2>
+		<p>Complete the form below to send a message.</p>
+
+		<form name="contact" id="contact" method="post" enctype="multipart/form-data">
+
+			<fieldset class="form-group">
+				<label for="name">Full Name:</label>
+				<input name="contact[name]" id="name" value="{{render.contact.name}}" class="form-control" placeholder="Enter name" aria-required="true"/>
+			</fieldset>
+
+			<fieldset class="form-group">
+				<label for="email">Email Address:</label>
+				<input name="contact[email]" id="email" value="{{render.contact.email}}" type="email" class="form-control"  placeholder="Enter email" aria-required="true"/>
+			</fieldset>
+
+			<fieldset class="form-group">
+				<label for="subject" style="display: block;">Subject:<div style="float:right">(optional)</div> </label>
+				<input name="contact[subject]" id="subject" value="{{render.contact.subject}}" class="form-control" placeholder="Enter subject"/>
+			</fieldset>
+
+			<fieldset class="form-group">
+				<label for="message">Message:</label>
+				<textarea name="contact[message]" id="message" class="form-control" placeholder="Enter message" aria-required="true">{{render.contact.message}}</textarea>
+			</fieldset>
+
+			<fieldset class="form-group">
+				<label for="norobot">Security Code:</label>
+				<br/>
+				<img src="/resources/themes/{{website.theme}}/images/captcha/norobot.png" alt="security key"/>
+				<input name="norobot" id="norobot" class="form-control" placeholder="Enter security code" aria-required="true"/>
+				<small class="text-muted">Case-sensitive</small>
+			</fieldset>
+			<input type="submit" class="btn btn-lg" name="command" title="Send"/>
+		</form>
+</div>

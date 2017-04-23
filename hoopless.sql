@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 18, 2017 at 11:35 PM
+-- Generation Time: Apr 22, 2017 at 11:53 PM
 -- Server version: 5.7.17-0ubuntu0.16.04.1
 -- PHP Version: 7.0.15-0ubuntu0.16.04.4
 
@@ -277,7 +277,7 @@ CREATE TABLE `node` (
 --
 
 INSERT INTO `node` (`node_id`, `parent_id`, `title`, `page_heading`, `meta_description`, `change_freq`, `priority`, `standalone`, `signin_required`, `timestamp`) VALUES
-(1, 0, 'Home', 'Full-Stack Developer', 'A developer\'s home', 'weekly', '1.0', 0, 0, '2017-04-02 21:09:41'),
+(1, 0, 'Home', 'Full-Stack Developer', 'A full-stack developer\'s home', 'weekly', '1.0', 0, 0, '2017-04-22 22:59:03'),
 (2, 1, 'Portfolio', 'Portfolio', 'Works completed', 'weekly', '1.0', 0, 0, '2017-03-20 01:50:17'),
 (3, 1, 'Resume', 'Resume', 'Resume', 'weekly', '0.5', 0, 0, '2017-03-20 01:50:17'),
 (4, 1, 'Contact', 'Contact', 'Contact and connect', 'monthly', '0.5', 0, NULL, '2017-03-20 01:50:17'),
@@ -297,13 +297,13 @@ INSERT INTO `node` (`node_id`, `parent_id`, `title`, `page_heading`, `meta_descr
 (18, 31, 'Luck', 'Luck', 'luck', 'weekly', '0.5', 0, 0, '2017-03-20 01:50:17'),
 (19, 31, 'Afflictions', 'Afflictions', 'afflictions', 'weekly', '0.5', 0, 0, '2017-03-20 01:50:17'),
 (20, 30, 'Color Selection', 'Color Selection', 'color selection', 'weekly', '0.5', 0, 0, '2017-03-20 01:50:17'),
-(21, 30, 'Pair 10', 'Pair 10', NULL, 'monthly', '0.5', 1, NULL, '2017-03-20 01:50:17'),
+(21, 30, 'Pair 10', 'Pair 10', NULL, 'monthly', '0.5', NULL, NULL, '2017-04-23 00:51:50'),
 (22, 34, 'Broadsword', 'Broadsword', 'Broadsword', 'weekly', '0.5', 0, NULL, '2017-03-20 01:50:17'),
 (23, 31, 'Instance', 'Instance', 'instance', 'weekly', '0.5', 0, NULL, '2017-03-20 01:50:17'),
 (25, 1, 'Search', 'Search', 'Search', 'weekly', '0.5', 0, 0, '2017-03-20 01:50:17'),
 (26, 32, 'Determining Square Root', 'Determining Square Root', 'Robot determining square root', 'weekly', '0.5', 0, NULL, '2017-03-20 01:50:17'),
 (27, 32, 'Solving Scrap', 'Solving Scrap', 'Robotics Solving Scrap', 'weekly', '0.5', 0, NULL, '2017-03-20 01:50:17'),
-(28, 32, 'Single Program', 'Single Program', 'Robotics single program', 'weekly', '0.5', 0, NULL, '2017-03-20 01:50:17'),
+(28, 32, 'Process Optimization', 'Process Optimization', 'Process Optimization', 'weekly', '0.5', 0, NULL, '2017-04-23 01:05:50'),
 (30, 17, 'AngularJS', 'AngularJS', 'Description', 'weekly', '0.5', 0, NULL, '2017-03-20 01:50:17'),
 (31, 17, 'PHP', 'PHP', 'Description', 'weekly', '0.5', 0, NULL, '2017-03-20 01:50:17'),
 (32, 17, 'Robotics', 'Robotics', 'Description', 'weekly', '0.5', 0, NULL, '2017-03-20 01:50:17'),
@@ -329,40 +329,40 @@ CREATE TABLE `node_alias` (
 --
 
 INSERT INTO `node_alias` (`alias_id`, `node_id`, `alias`) VALUES
-(1, 1, 'home.html'),
-(2, 2, 'portfolio.html'),
-(3, 3, 'resume.html'),
-(4, 4, 'contact.html'),
-(5, 5, 'admin/node/settings.html'),
-(6, 6, 'users.html'),
-(7, 7, 'users/sign-in.html'),
-(8, 8, 'users/settings.html'),
-(9, 9, 'users/sign-up.html'),
-(10, 10, 'site-map.html'),
-(11, 11, 'sitemap.xml'),
-(12, 12, 'portfolio/web-design-and-development.html'),
-(13, 13, 'portfolio/art-design.html'),
-(14, 14, 'portfolio/robotics-development.html'),
-(15, 15, 'portfolio/game-design.html'),
-(16, 16, 'dev.html'),
-(17, 17, 'case-studies.html'),
-(18, 18, 'case-studies/php/luck.html'),
-(19, 19, 'case-studies/php/afflictions.html'),
-(20, 20, 'snippets/color-selection.html'),
-(21, 21, 'case-studies/angularjs/pair-10.html'),
-(22, 22, 'case-studies/3d/broadsword.html'),
-(23, 23, 'case-studies/php/instance.html'),
-(24, 25, 'search.html'),
-(25, 26, 'case-studies/robotics/squareroot.html'),
-(26, 27, 'case-studies/robotics/solving-scrap.html'),
-(27, 28, 'case-studies/robotics/single-program.html'),
-(28, 30, 'case-studies/angularjs.html'),
-(29, 31, 'case-studies/php.html'),
-(30, 32, 'case-studies/robotics.html'),
-(31, 33, 'admin.html'),
-(32, 34, 'case-studies/3d.html'),
-(33, 35, 'admin/node/edit.html'),
-(34, 36, 'new-page.html');
+(1, 1, '/'),
+(2, 2, '/portfolio'),
+(3, 3, '/resume'),
+(4, 4, '/contact'),
+(5, 5, '/admin/node/settings'),
+(6, 6, '/users'),
+(7, 7, '/users/sign-in'),
+(8, 8, '/users/settings'),
+(9, 9, '/users/sign-up'),
+(10, 10, '/site-map'),
+(11, 11, '/sitemap.xml'),
+(12, 12, '/portfolio/web-design-and-development'),
+(13, 13, '/portfolio/art-design'),
+(14, 14, '/portfolio/robotics-development'),
+(15, 15, '/portfolio/game-design'),
+(16, 16, '/dev'),
+(17, 17, '/case-studies'),
+(18, 18, '/case-studies/php/luck'),
+(19, 19, '/case-studies/php/afflictions'),
+(20, 20, '/snippets/color-selection'),
+(21, 21, '/case-studies/angularjs/pair-10'),
+(22, 22, '/case-studies/3d/broadsword'),
+(23, 23, '/case-studies/php/instance'),
+(24, 25, '/search'),
+(25, 26, '/case-studies/robotics/squareroot'),
+(26, 27, '/case-studies/robotics/solving-scrap'),
+(27, 28, '/case-studies/robotics/single-program'),
+(28, 30, '/case-studies/angularjs'),
+(29, 31, '/case-studies/php'),
+(30, 32, '/case-studies/robotics'),
+(31, 33, '/admin'),
+(32, 34, '/case-studies/3d'),
+(33, 35, '/admin/node/edit'),
+(34, 36, '/new-page');
 
 -- --------------------------------------------------------
 
@@ -648,7 +648,9 @@ INSERT INTO `user_authentication` (`id`, `user_id`, `remote_address`, `authentic
 (25, 3, '127.0.0.1', 1, '2017-04-18 23:09:52', NULL, 0, NULL, '2017-04-19 03:09:52'),
 (26, NULL, '127.0.0.1', 0, NULL, NULL, NULL, NULL, '2017-04-19 03:23:57'),
 (27, NULL, '127.0.0.1', 0, NULL, NULL, NULL, NULL, '2017-04-19 03:24:02'),
-(28, 3, '127.0.0.1', 1, '2017-04-18 23:24:11', NULL, 0, NULL, '2017-04-19 03:24:11');
+(28, 3, '127.0.0.1', 1, '2017-04-18 23:24:11', NULL, 0, NULL, '2017-04-19 03:24:11'),
+(29, 3, '127.0.0.1', 1, '2017-04-20 20:52:26', NULL, 0, NULL, '2017-04-21 00:52:26'),
+(30, 3, '127.0.0.1', 1, '2017-04-20 22:40:30', NULL, 0, NULL, '2017-04-21 02:40:30');
 
 -- --------------------------------------------------------
 
@@ -864,7 +866,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `user_authentication`
 --
 ALTER TABLE `user_authentication`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 --
 -- AUTO_INCREMENT for table `user_groups`
 --

@@ -4,7 +4,7 @@ RewriteBase /
 RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
 RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^(.+)\.html$ index.php?request=%{REQUEST_URI} [L,QSA]
+RewriteRule ^(.+)$ index.php?request=%{REQUEST_URI} [L,QSA]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^(.+)\.pdf$ index.php?request=%{REQUEST_URI} [L,QSA]
 RewriteCond %{REQUEST_FILENAME} !-f

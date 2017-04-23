@@ -1,3 +1,4 @@
+{{^page.current.standalone}}
 					<!-- share buttons -->
 					<div class="mt-1">
 						<a href="https://plus.google.com/share?url={{website.server}}/{{page.current.alias}}&amp;related={{website.server}}">
@@ -14,18 +15,18 @@
 							<a href="javascript:window.print()"><span class="glyphicon glyphicon-print"></span> Print</a>
 						</small>
 					</div>
-    			</div>				
-				
+    			</div>
+
 				<div class="col-md-4 col-lg-3">
 					<!-- search -->
-					<div class="input-group mb-3" id="search">
+					<form class="input-group mb-3" id="search" action="/search" method="get">
 						<input type="text" class="form-control" name="q" placeholder="Search"/>
 						<span class="input-group-btn">
 							<button class="btn btn-secondary" type="submit">
 								<span class="glyphicon glyphicon-search"></span>
 							</button>
 						</span>
-					</div>
+					</form>
 
 					<!-- navigation -->
 					<div id="menu_navigation">
@@ -33,8 +34,8 @@
 						{{#menu.navigation}}
 							<li>
 								{{#alias}}
-								<a href="{{alias}}">{{title}}</a> 
-								{{/alias}}							
+								<a href="{{alias}}">{{title}}</a>
+								{{/alias}}
 								{{^alias}}
 								<a href="#" data-toggle="collapse" data-target="#menu_toggle{{id}}" data-parent="#left-nav1">
 									{{title}} <span class="glyphicon glyphicon-menu-down"></span>
@@ -43,7 +44,7 @@
 								{{#children}}
 									{{#alias}}
 									<li><a href="{{alias}}">{{title}}</a></li>
-									{{/alias}}							
+									{{/alias}}
 								{{/children}}
 								</ul>
 								{{/alias}}
@@ -51,7 +52,7 @@
 						{{/menu.navigation}}
 						</ul>
 					</div>
-					
+
 					<!-- community links -->
 					<div class="capsule">
 						<h3>Communities</h3><span class="capsule-div"></span>
@@ -90,3 +91,4 @@
 	</body>
 </html>
 <!-- powered by Hoopless -->
+{{/page.current.standalone}}

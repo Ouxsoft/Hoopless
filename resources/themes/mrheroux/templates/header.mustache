@@ -1,3 +1,4 @@
+{{^page.current.standalone}}
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -43,7 +44,7 @@
 							</form>
 							{{/user.full_name}}
 							{{^user.full_name}}
-							<a href="/users/sign-in.html" class="btn btn-secondary navbar-toggler-right" type="submit">Sign in</a>
+							<a href="/users/sign-in" class="btn btn-secondary navbar-toggler-right" type="submit">Sign in</a>
 							{{/user.full_name}}
 						</div>
 					</div>
@@ -54,8 +55,13 @@
 					<h1>{{page.current.page_heading}}</h1>
 					<!-- breadcrumbs -->
 					<ol class="breadcrumb">
-				    {{#page.breadcrumbs}}
-						<li><a class="breadcrumb-item{{#active}} active{{/active}}" href="/{{alias}}">{{title}}</a></li>
+			    {{#page.breadcrumbs}}
+						{{#active}}
+						<li><a class="breadcrumb-item active" href="#">{{title}}</a></li>
+						{{/active}}
+						{{^active}}
+						<li><a class="breadcrumb-item" href="{{alias}}">{{title}}</a></li>
+						{{/active}}
 					{{/page.breadcrumbs}}
 					</ol>
 				</div>
@@ -65,3 +71,7 @@
 			<div class="row">
 				<!-- page column -->
 				<div class="col-sm-12 col-md-8 col-lg-9 bg-4">
+					<div class="alert alert-warning" role="alert">
+					  This site is being used to test changes to <b>Hoopless</b>, which is currently in alpha. Meaning, we're intentionally breaking core features to make way for better web framework.
+					</div>
+{{/page.current.standalone}}

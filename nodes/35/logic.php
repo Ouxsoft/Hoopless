@@ -1,5 +1,6 @@
 <?php
-include('lib/alert.class.php');
+include 'includes/alert.inc';
+
 // add version history
 if($instance->verify()){
 	$file = 'nodes/'.$record_id.'.php';

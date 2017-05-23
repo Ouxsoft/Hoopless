@@ -1,5 +1,5 @@
 <?php
-include('lib/alert.class.php');
+include 'includes/alert.inc';
 
 /*
 Hoopless

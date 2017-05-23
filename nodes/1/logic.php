@@ -1,6 +1,5 @@
 <?php
 /*
-
 What exactly does that involve?
 
 Systems development life cycle (SDLC) - Understanding the process for planning, creating, testing, and deploying an information system.

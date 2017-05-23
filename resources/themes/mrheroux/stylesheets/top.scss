@@ -72,19 +72,7 @@
 @import "custom/fonts";
 @import "custom/prism";
 @import "custom/capsule";
-@import "custom/footer";
+@import "custom/sticky-footer";
 @import "custom/top-link";
 @import "custom/ability-score";
 @import "custom/accordion";
-body {
-	padding-top: 3rem;
-	@media (min-width: 768px) {
-		padding-top: 3rem;
-	}
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
-}
-html {
-  position: relative;
-  min-height: 100%;
-}

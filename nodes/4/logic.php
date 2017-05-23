@@ -1,5 +1,5 @@
 <?php
-include_once('lib/alert.class.php');
+include_once 'includes/alert.inc';
 
 // set var
 if(isset($_POST['contact'])){

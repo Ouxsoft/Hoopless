@@ -1,9 +1,9 @@
 # Hoopless
 Rapidly develop beautiful websites without jumping through hoops using Hoopless,
-a lightweight content management system designed for Linux, Apache, MySQL, and
-PHP.
+a lightweight content management system.
 
 ## Features
+* Uses Linux, Apache, MySQL, PHP, and Python.
 * Easy local server configuration via config files.
 * Uses "themes" to template sites.
 ** Mustache
@@ -12,6 +12,7 @@ PHP.
 * Designed for GIT workflow.
 * Uses "assets" to provide content.
 * Uses "nodes" to produce pages. You can think of a node as a the split which determines one web page from another. All nodes exists in the /nodes directory as a individual sub folder, which is name after the node's id (node_id). Within a node folder there are usually two files that contains the page's specific logic (logic.php) and view (view.mustache). A nodes logic and view are stored as individual text files for version controlling purposes via GIT (if desired). A node is accessed via the instance_controller node_alias, which is stored in the site's database.
+* Uses "aliases" symlinks to make editing "nodes" easy, which accounts for the one to many relationship 
 * Uses "lib" files to store reusable PHP class and functions. Libs files are ment to be used similarly to how import files work in ANSI C/C++.
 
 ## Future Development Plans
@@ -44,3 +45,8 @@ PHP.
 ..* Change projects to two columns and render all images
 ..* Add ehs cc as case study multiple...
 ..* Move color outside of angularjs
+
+
+// model - brains / logic
+// view - presentation layer / layout / colors
+// controller - handles communication through user and control

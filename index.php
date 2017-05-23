@@ -1,18 +1,11 @@
 <?php
-//	if ($_SERVER['REMOTE_ADDR']!=$this->config['debug_ip']){
-// error_reporting(0);
-// error_reporting(E_ALL);
-
-// model - brains / logic
-// view - presentation layer / layout / colors
-// controller - handles communication through user and control
-
 session_start();
 
-require('lib/log.class.php');
-require('lib/db.class.php');
-require('lib/instance_controller.class.php');
-require 'lib/Mustache/Autoloader.php';
+require 'includes/log.inc';
+require 'includes/db.inc';
+require 'includes/instance_controller.inc';
+
+require 'includes/Mustache/Autoloader.php';
 Mustache_Autoloader::register();
 
 $view = new Mustache_Engine(array(

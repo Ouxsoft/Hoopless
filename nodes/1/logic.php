@@ -1,4 +1,6 @@
 <?php
+$instance->years['experience'] = date('Y')-2002
+
 /*
 What exactly does that involve?
 

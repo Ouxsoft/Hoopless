@@ -10,15 +10,16 @@
   // main right column
   padding-top: 1em;
   padding-bottom: 1em;
-  background-color: #E8E9EB;
-  border: 1px solid #C2C7CB;
+  background-color: transparent; //#E8E9EB;
+  border: 1px solid rgba(#000, 0.1);//#D05141); //#C2C7CB;
+  color: #000;
+  border-radius: 3px;
 }
 
 .bg-2 {
   // right column content
-  background-color: rgba(40,62,74,0.1);
-  color: #000000;
   border: 1px solid #D9DADC;
+  border-radius: 3px;
 }
 
 .bg-3 {
@@ -28,5 +29,5 @@
 
 .bg-4 {
   color: lighten($color_foreground,28.6%);
-  border-right: 1px solid rgba(40,62,74,0.4);
+  border-right: 1px dot rgba(40,62,74,0.1);
 }

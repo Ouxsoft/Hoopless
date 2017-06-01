@@ -26,7 +26,11 @@ CFG = {}
 for section in config.sections():
 	CFG[section] = {}
 	for (key, value) in config.items('DIR'):
-		CFG[section][key] = root_dir + value
+		if key == 'nodes':
+			# because we want aliases links relative
+			CFG[section][key] = '..' + value
+		else:
+			CFG[section][key] = root_dir + value
 
 # allow for git within python
 git = sh.git.bake(_cwd=root_dir)

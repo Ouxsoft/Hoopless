@@ -30,6 +30,9 @@
 							<a id="logo" href="/" title="Home"><span class="hidden-sm-down">Matt</span><em>Heroux</em></a>
 						</div>
 						<div class="col-sm-12 col-md-6 col-lg-3 text-right">
+							<button class="btn btn-secondary navbar-right" type="submit">
+								<span class="glyphicon glyphicon-search"></span>
+							</button>
 							{{#user.full_name}}
 							<form method="post" name="user-sign-out" id="user-sign-out" enctype="multipart/form-data">
 								<div class="dropdown">
@@ -38,17 +41,14 @@
   									<span class="glyphicon glyphicon-user"></span> {{user.full_name}}
 									</button>
 									<div class="dropdown-menu" aria-labelledby="user-menu">
-  									<button type="submit" form="user-sign-out" value="Submit" class="dropdown-item" type="submit">Sign out</button>
-  					  		</div>
+  										<button type="submit" form="user-sign-out" value="Submit" class="dropdown-item" type="submit">Sign out</button>
+  					  				</div>
 								</div>
 							</form>
 							{{/user.full_name}}
 							{{^user.full_name}}
-							<a href="/users/sign-in" class="btn btn-secondary navbar-toggler-right" type="submit">Sign in</a>
+							<a href="/users/sign-in" class="btn btn-secondary navbar-right" type="submit"><span class="glyphicon glyphicon-user"></span></a>
 							{{/user.full_name}}
-							<button class="btn btn-secondary" type="submit">
-								<span class="glyphicon glyphicon-search"></span>
-							</button>
 						</div>
 					</div>
 				</div>

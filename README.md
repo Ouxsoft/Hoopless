@@ -16,6 +16,9 @@ a lightweight content management system.
 * Uses "lib" files to store reusable PHP class and functions. Libs files are ment to be used similarly to how import files work in ANSI C/C++.
 
 ## Future Development Plans
+0. permlink
+..* make links permanent even when page have moved by refrencing node_id, e.g. <a href="{{perm_link.23}}"></a>
+..* have tiny mce show this all cool like.
 1. Theme updates
 ..* Use PHP Mustache for themes
 ..* Fix up nodes to use PHP Mustache and further Boostrap4 support

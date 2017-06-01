@@ -1,6 +1,15 @@
 <?php
 //namespace main;
 
+// extend instance_controller
+// pass extent to mustache
+// define types in function including classes
+// function(int $int)
+// function(int ... )
+// function(link )
+// self::
+
+
 class instance_controller {
 	private $config;
 	private $raw_request;
@@ -29,6 +38,7 @@ class instance_controller {
 	public $support = array();
 	public $year;
 	public $render; // output /nodes/xx/logic.php variables are stored here
+	public $permalink = array();
 
 	// build tree from parent child relationship
 	function build_tree($elements, $parent_id = 0) {
@@ -153,6 +163,15 @@ class instance_controller {
 			return $href;
 		}
 	}
+	
+	function load_permalinks(){
+		// optimize - no reason to query twice 
+		global $db;
+		$results = $db->query('SELECT `node_id`, `alias` FROM `node_alias`');
+		foreach($results as $row){
+			$this->permalink[$row['node_id']] = $row['alias'];
+		}
+	}
 
 	// CONSTUCT
 	function __construct(){
@@ -181,6 +200,8 @@ class instance_controller {
 			$this->config['password'],
 			$this->config['dbname']
 		);
+
+		$this->load_permalinks();
 
 		// parse raw request to determine page requested
 		if(isset($_GET['request'])){

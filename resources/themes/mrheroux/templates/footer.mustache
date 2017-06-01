@@ -20,6 +20,9 @@
 				<div class="col-md-4 col-lg-3">
 					<!-- navigation -->
 					<div id="menu_navigation">
+						<div class="avatar">			
+							<img src="/resources/themes/{{website.theme}}/images/body/avatar.png" alt="avatar"/>
+						</div>
 						<ul class="accordion" id="exCollapsingNavbar3">
 						{{#menu.navigation}}
 							<li>
@@ -60,17 +63,6 @@
 
 		<!-- footer -->
 		<footer class="footer mt-3 pt-2 pb-2">
-			<div class="container">
-				<!-- search -->
-				<form class="input-group mb-3" id="search" action="/search" method="get">
-					<input type="text" class="form-control" name="q" placeholder="Search"/>
-					<span class="input-group-btn">
-						<button class="btn btn-secondary" type="submit">
-							<span class="glyphicon glyphicon-search"></span>
-						</button>
-					</span>
-				</form>
-			</div>
 			<div class="text-center">
 				<a class="block" title="Validate HTML5" href="https://validator.w3.org/nu/?doc={{page.current.alias}}" target="_blank" rel="nofollow">
 					<span class="glyphicon glyphicon-copyright-mark"></span> {{date.year}} {{website.title}} All rights reserved.

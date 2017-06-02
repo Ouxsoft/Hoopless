@@ -1,14 +1,14 @@
 {{^page.current.standalone}}
 					<!-- share buttons -->
 					<div class="mt-1">
-						<a href="https://plus.google.com/share?url={{website.server}}/{{page.current.alias}}&amp;related={{website.server}}">
-							<img src="/resources/themes/{{website.theme}}/images/social-networking/gplus.png" alt="Google Plus"/>
+						<a href="https://www.facebook.com/sharer/sharer.php?u={{website.server}}/{{page.current.alias}}">
+							<img src="/resources/themes/{{website.theme}}/images/social-networking/recommend.png" alt="Recommend"/>
 						</a>
 						<a href="https://twitter.com/intent/tweet?text={{website.server}}/{{page.current.alias}}&amp;related={{website.server}}">
 							<img src="/resources/themes/{{website.theme}}/images/social-networking/tweet.png" alt="Tweet"/>
 						</a>
-						<a href="https://www.facebook.com/sharer/sharer.php?u={{website.server}}/{{page.current.alias}}">
-							<img src="/resources/themes/{{website.theme}}/images/social-networking/recommend.png" alt="Recommend"/>
+						<a href="https://plus.google.com/share?url={{website.server}}/{{page.current.alias}}&amp;related={{website.server}}">
+							<img src="/resources/themes/{{website.theme}}/images/social-networking/gplus.png" alt="Google Plus"/>
 						</a>
 						<small style="float:right">
 							<a href="mailto:?"><span class="glyphicon glyphicon-envelope"></span> Email</a> |
@@ -20,10 +20,11 @@
 				<div class="col-md-4 col-lg-3">
 					<!-- navigation -->
 					<div id="menu_navigation">
-						<div class="avatar">			
-							<img src="/resources/themes/{{website.theme}}/images/body/avatar.png" alt="avatar"/>
-						</div>
 						<ul class="accordion" id="exCollapsingNavbar3">
+						<li class="avatar">
+							<img src="/resources/themes/{{website.theme}}/images/body/avatar.png" alt="avatar"/>
+							<br/>Hi, I'm <b>Matt</b>.
+						</li>
 						{{#menu.navigation}}
 							<li>
 								{{#alias}}

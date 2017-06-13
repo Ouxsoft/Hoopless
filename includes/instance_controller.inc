@@ -9,12 +9,15 @@
 // function(link )
 // self::
 
-
 class instance_controller {
-	private $config;
+	public $config; // 
 	private $raw_request;
-	private $href_cache = array();
+	private $href_cache = array(); // for link caching
+	public $cache = array(
+		'href' => array(),
+	);
 	private $hash_cache = array();
+
 	public $uri;
 	public $user = array(
 		'id' => null,
@@ -40,6 +43,12 @@ class instance_controller {
 	public $render; // output /nodes/xx/logic.php variables are stored here
 	public $permalink = array();
 
+	// parse permalink
+	public function parse_p1ermalink($string) {
+		return $string;
+	}
+	
+
 	// build tree from parent child relationship
 	function build_tree($elements, $parent_id = 0) {
 		$branch = array();
@@ -54,7 +63,7 @@ class instance_controller {
 		}
 		return $branch;
 	}
-
+	
 	// build menu array from an db array
 	public function build_menu($array, $level) {
 		$menu = array();
@@ -95,9 +104,14 @@ class instance_controller {
 		}
 	}
 
-	// verify a page record request matches the access token
+	public function help($string){
+		return $string;
+	}
+
 	public function verify($silent = false){
-		if($this->href($this->page['current']['alias'],$_GET['q']) == SERVER.'/'.$this->page['current']['alias'].'?q='.urlencode($_GET['q']).'&amp;a='.urlencode($_GET['a'])){
+		list(,,,$salt,$hash) = explode('$',crypt($this->page['current']['node_id'], '$6$rounds=5000$'.md5($_GET['q'].$this->config['href_salt'].'$')));
+		$sa = $salt.$hash;
+		if($sa==$_GET['sa']){
 			global $record_id;
 			$record_id = $_GET['q'];
 			return true;
@@ -183,6 +197,7 @@ class instance_controller {
 
 		// load local server config
 		$this->config = parse_ini_file('resources/config/default.conf');
+
 		date_default_timezone_set($this->config['timezone']);
 		define('SERVER',$this->config['server']);
 		$this->website = array(

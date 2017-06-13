@@ -1,14 +1,14 @@
 {
-  "name": "hoopless",
-  "version": "0.3.6",
-  "description": "A content management system designed for beautiful rapid development",
+  "name": "Hoopless Style",
+  "version": "0.4.0",
+  "description": "The mrheroux.com style for Hoopless",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mrheroux/hxcms.git"
+    "url": "git+https://github.com/mrheroux/hoopless.git"
   },
   "keywords": [
     "Hoopless",
@@ -17,9 +17,9 @@
   "author": "mrheroux",
   "license": "UNLICENSED",
   "bugs": {
-    "url": "https://github.com/mrheroux/hxcms/issues"
+    "url": "https://github.com/mrheroux/hoopless/issues"
   },
-  "homepage": "https://github.com/mrheroux/hxcms#readme",
+  "homepage": "https://github.com/mrheroux/hoopless#readme",
   "devDependencies": {
     "grunt": "^1.0.1",
     "grunt-contrib-sass": "^1.0.0",

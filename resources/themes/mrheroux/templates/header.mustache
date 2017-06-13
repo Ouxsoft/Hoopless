@@ -26,30 +26,34 @@
 					 			<span class="navbar-toggler-icon"></span>
 					 		</button>
 							<a id="logo" href="/" title="Home">
-								<span class="hidden-sm-down">Matt</span><em>Heroux</em>
+								<span class="hidden-sm-down">Mr</span><em>Heroux</em>
 							</a>
 						</div>
 						<div class="col-md-9 text-right">
-							<form style="display: inline-block;" method="get" action="/search" enctype="multipart/form-data">
-								<input class="search-box text-right" type="search" name="q" placeholder="Search..."/>
+							<form method="get" style="display:inline;" action="/search">
+								<input name="q" class="search-box text-right" type="search" placeholder="Search..."/>
 							</form>
-							{{#user.full_name}}
-							<form style="display: inline-block;" method="post" name="user-sign-out" id="user-sign-out" enctype="multipart/form-data">
-								<div class="dropdown">
+							<form method="post" style="display:inline;" name="user-sign-out" id="user-sign-out" enctype="multipart/form-data">
+								{{#user.full_name}}
+								<a href="{{#link.id}}33&q={{page.current.node_id}}&a=1&b=2&c=3#top{{/link.id}}" class="btn btn-secondary navbar-right">
+									Edit
+								</a>
+								<div class="dropdown" style="display:inline;">
 									<input type="hidden" name="user-sign-out" value="1"/>
 									<button class="btn btn-secondary dropdown-toggle" type="button" id="user-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
   										<span class="glyphicon glyphicon-user"></span> {{user.full_name}}
 									</button>
 									<div class="dropdown-menu" aria-labelledby="user-menu">
-  										<button type="submit" form="user-sign-out" value="Submit" class="dropdown-item" type="submit">Sign out</button>
-									</div>
+  										<button type="submit" form="user-sign-out" value="Submit" class="dropdown-item">Sign out</button>
+  					  				</div>
 								</div>
+								{{/user.full_name}}
+								{{^user.full_name}}
+								<a href="/users/sign-in" class="btn btn-secondary navbar-right" type="submit">Log in</a>
+								{{/user.full_name}}
 							</form>
-							{{/user.full_name}}
-							{{^user.full_name}}
-							<a href="/users/sign-in" class="btn btn-secondary navbar-right" type="submit">Log in</a>
-							{{/user.full_name}}
 						</div>
+					</div>
 				</div>
 			</nav>
 			<div id="window-top">
@@ -57,7 +61,7 @@
 					<h1>{{page.current.page_heading}}</h1>
 					<!-- breadcrumbs -->
 					<ol class="breadcrumb">
-			    	{{#page.breadcrumbs}}
+			    {{#page.breadcrumbs}}
 						{{#active}}
 						<li><a class="breadcrumb-item active" href="#">{{title}}</a></li>
 						{{/active}}
@@ -74,6 +78,6 @@
 				<!-- page column -->
 				<div class="col-sm-12 col-md-8 col-lg-9 bg-4">
 					<div class="alert alert-warning" role="alert">
-					  Testing changes to <a href="https://github.com/mrheroux/Hoopless">Hoopless</a>, things still need fixing :-) . 
+					  This site is being used to test changes to <b>Hoopless</b>, which is currently in alpha. Meaning, we're intentionally breaking core features to make way for a better web framework.
 					</div>
 {{/page.current.standalone}}

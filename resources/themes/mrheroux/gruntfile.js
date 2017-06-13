@@ -9,7 +9,7 @@ module.exports = function (grunt) {
           sourcemap: 'none'
         },
         files: {
-          'resources/themes/*/stylesheets/top.min.css': 'resources/themes/*/stylesheets/top.scss'
+          'stylesheets/top.min.css': 'stylesheets/top.scss'
         }
       }
     },
@@ -41,8 +41,8 @@ module.exports = function (grunt) {
       },
       target: {
         files: [{
-          src: 'resources/themes/*/stylesheets/top.min.css',          
-	dest: 'resources/themes/*/stylesheets/top.min.css',
+          src: 'stylesheets/top.min.css',          
+	dest: 'stylesheets/top.min.css',
         }]
       }
     },
@@ -54,25 +54,25 @@ module.exports = function (grunt) {
           sourceMapName : 'sourceMap.map'
         },
         src : [
-          'resources/themes/*/scripts/jquery/*.js',
-	  'resources/themes/*/scripts/bootstrap-4.0.0/bootstrap.js'
+          'scripts/jquery/*.js',
+	  'scripts/bootstrap-4.0.0/bootstrap.js'
 	 
         ],
-        dest : 'resources/themes/*/scripts/script.min.js'
+        dest : 'scripts/script.min.js'
       }
     },
     // compile when tasks are completed using watch plugin
     watch: {
       css: {
         files: [
-	  'resources/themes/*/stylesheets/*.scss',
-	  'resources/themes/*/stylesheets/**/*.scss'
+	  'stylesheets/*.scss',
+	  'stylesheets/**/*.scss'
 	],
         tasks: ['sass', 'cssmin']
       },
       js: {
         files: [
-          'resources/themes/*/scripts/*.js',
+          'scripts/*.js',
         ],
         tasks: ['uglify']
       }

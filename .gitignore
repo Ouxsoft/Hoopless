@@ -9,6 +9,6 @@ logs/*.*
 assets/resume.pdf
 
 # ignore NPM and Grunt dev files
-node_modules/
+resources/themes/*/node_modules/
 sourceMap.map
 .sass-cache

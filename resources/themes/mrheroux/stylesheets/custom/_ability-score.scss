@@ -1,4 +1,3 @@
-
 /* abilities */
 
 .no-bullets {
@@ -17,13 +16,16 @@
   }
 }
 
-.ability-score {
-  float: right;
-  color: lighten(grayscale($color_accent),20%);
+.experience-details {
+	color: $color_accent;
+	margin-bottom: 1rem;
 }
-
-.ability-score .filled, .experience-details {
-  color: $color_accent;
+.ability-score {
+	float: right;
+	color: lighten(grayscale($color_accent),20%);
+	.filled {
+		color: $color_accent;
+	}
 }
 
 @keyframes expand {

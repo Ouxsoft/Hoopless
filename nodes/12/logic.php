@@ -1,14 +1,5 @@
 <?php
 //nihil sub sole novum
-
-function portfolio_href($type, $string){
-	// get href for portfolio resources or href provided
-	if(substr($string, 0, 4) === "http"){
-		return($string);
-	} else {
-		return SERVER.'/assets/portfolio/'.$type.'/'.$string;
-	}
-}
 function results_score($query){
 	global $db;
 	$results = $db->query($query);
@@ -28,9 +19,9 @@ function results_score($query){
 	return $array;
 }
 
-$instance->render['web-skills'] = results_score("SELECT CONCAT(`name`, IF(`started` <= date_sub(now(), interval 10 year), ' (10+ Years)', IF(`started` < date_sub(now(), interval -10 year), CONCAT(' (',TIMESTAMPDIFF(YEAR,`started`, CURDATE()), ' Years)'), ''))) AS `title`, `score` FROM `abilities` WHERE `category` = 'Web skills' ORDER BY `score` DESC, `name`"); 
+$instance->render['skills'] = results_score("SELECT CONCAT(`name`, IF(`started` <= date_sub(now(), interval 10 year), ' (10+ Years)', IF(`started` < date_sub(now(), interval -10 year), CONCAT(' (',TIMESTAMPDIFF(YEAR,`started`, CURDATE()), ' Years)'), ''))) AS `title`, `score` FROM `abilities` WHERE `category` = 'Web skills' ORDER BY `score` DESC, `name`"); 
 
-$instance->render['web-tools'] = results_score("SELECT CONCAT(`name`, IF(`started` <= date_sub(now(), interval 10 year), ' (10+ Years)', IF(`started` < date_sub(now(), interval -10 year), CONCAT(' (',TIMESTAMPDIFF(YEAR,`started`, CURDATE()), ' Years)'), ''))) AS `title`, `score` FROM `abilities` WHERE `category` = 'Web tools' ORDER BY `score` DESC, `name`");
+$instance->render['tools'] = results_score("SELECT CONCAT(`name`, IF(`started` <= date_sub(now(), interval 10 year), ' (10+ Years)', IF(`started` < date_sub(now(), interval -10 year), CONCAT(' (',TIMESTAMPDIFF(YEAR,`started`, CURDATE()), ' Years)'), ''))) AS `title`, `score` FROM `abilities` WHERE `category` = 'Web tools' ORDER BY `score` DESC, `name`");
 
 $instance->render['languages'] = results_score("SELECT CONCAT(`name`, IF(`started` <= date_sub(now(), interval 10 year), ' (10+ Years)', IF(`started` < date_sub(now(), interval -10 year), CONCAT(' (',TIMESTAMPDIFF(YEAR,`started`, CURDATE()), ' Years)'), ''))) AS `title`, `score` FROM `abilities` WHERE `category` = 'Languages' ORDER BY `score` DESC, `name`");
 

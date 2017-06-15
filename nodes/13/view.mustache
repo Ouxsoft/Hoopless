@@ -1,0 +1,130 @@
+<div class="col-md-12 mb-2 bg-1">
+	<h2 class="center">Experiences</h2>
+	<h3>Careers</h3>
+	<hr/>
+	<div class="row">
+		<div class="col-md-4"><b>JNH Environmental Services, Inc.</b><br/>2012 to 2016</div>
+		<div class="col-md-8"><b>Lead Web Developer</b>
+			<p>Design web content, promotion items, and updated company's logo.</p>
+			<div class="experience-details">
+				<span class="glyphicon glyphicon-map-marker"></span>Rutland and Brandon, Vermont USA | <span class="glyphicon glyphicon-link"></span> <a href="https://jnhes.com" target="_blank">https://jnhes.com</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-4"><b>Small Startup Studio</b><br/>2004 to 2006</div>
+		<div class="col-md-8"><b>Web Developer</b>
+			<p>Designed and developed online development platform to enable game developers to collaborate. Designed in game content.</p>
+			<div class="experience-details">
+				<span class="glyphicon glyphicon-map-marker"></span>Online
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-4"><b>Lyndon Institute (Independent Publication)</b><br/>2012 to Present</div>
+		<div class="col-md-8"><b>Layout Editor</b>
+			<p>Arranged and balanced content for reoccurring publication using primarily Adobe® Illustrator.</p>
+			<div class="experience-details">
+				<span class="glyphicon glyphicon-map-marker"></span>Lyndon Center, Vermont
+			</div>
+		</div>
+	</div>
+
+		<h3>Education</h3>
+		<hr/>
+
+		<div class="row">
+			<div class="col-md-4"><b>Castleton University</b><br/>2012</div>
+			<div class="col-md-8"><b>Bachelor of Science in Computer Information Systems/Business</b>
+				<div class="experience-details">
+					<span class="glyphicon glyphicon-map-marker"></span>Castleton, Vermont USA
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-4"><b><abbr title="Community College of Vermont">CCV</abbr></b><br/>2009</div>
+			<div class="col-md-8"><b>Associate of Science Degree, Computer Systems Management</b>
+				<div class="experience-details">
+					<span class="glyphicon glyphicon-map-marker"></span>Newport, Vermont USA
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-4"><b>Cisco Systems Networking Academy</b><br/>2005</div>
+			<div class="col-md-8"><b>Fundamentals of Web Design</b>
+				<div class="experience-details">
+					<span class="glyphicon glyphicon-map-marker"></span>Lyndon Center, Vermont USA
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md-12 mb-2 bg-1">
+		<h2 class="center">Abilities</h2>
+		<h3>Skills</h3>
+		<hr/>
+		<div class="row">
+			{{#render.skills}}
+			<div class="col-md-6">
+				<ul class="no-bullets">
+					<li>
+						<span class="ability-title">{{title}}</span>
+						<span class="ability-score">
+							{{#score}}
+							<span class="glyphicon glyphicon-star{{.}}"></span>
+							{{/score}}
+						</span>
+					</li>
+				</ul>
+			</div>
+			{{/render.skills}}
+		</div>
+		<h3>Tools</h3>
+		<hr/>
+		<div class="row">
+			{{#render.tools}}
+			<div class="col-md-6">
+				<ul class="no-bullets">
+					<li>
+						<span class="ability-title">{{title}}</span>
+						<span class="ability-score">
+							{{#score}}
+							<span class="glyphicon glyphicon-star{{.}}"></span>
+							{{/score}}
+						</span>
+					</li>
+				</ul>
+			</div>
+			{{/render.tools}}
+		</div>
+	</div>
+
+	<div class="col-md-12 mb-2 bg-1">
+		<h2 class="center">Awards</h2>
+		<div class="row">
+			<div class="col-md-4"><b>Statewide Art Competition</b><br/>2005</div>
+			<div class="col-md-8"><b>Senator James M. Jeffords Award</b>
+				<p>Painted to win Senator James M. Jeffords award for statewide art competition.</p>
+				<div class="experience-details">
+					<span class="glyphicon glyphicon-map-marker"></span>Montpelier, Vermont
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md-12 mb-2 bg-1">
+		<h2 class="center">Projects</h2>
+		<div class="row">
+			{{#render.portfolio}}
+			<div class="col card">
+				<a href="/assets/portfolio/images/{{thumbnail}}" alt="{{title}}" data-toggle="lightbox" data-gallery="multiimages" data-title="{{title}}">
+					<img class="card-img-top" src="/assets/portfolio/thumbnails/{{thumbnail}}"/>
+				</a>
+			</div>
+			{{/render.portfolio}}
+		</div>
+	</div>

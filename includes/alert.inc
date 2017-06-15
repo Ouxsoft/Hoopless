@@ -1,4 +1,8 @@
 <?php
+/*
+TODO: Make it so alerts can be stored based on element id and can appear in multiple other places automagically.
+*/
+
 class user_alert {
 	public $_array = array();
 	function amount(){
@@ -29,5 +33,4 @@ class user_alert {
 		}
 	}
 }
-$alert = new user_alert;
 ?>

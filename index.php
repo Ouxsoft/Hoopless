@@ -27,9 +27,16 @@ $view = new Mustache_Engine(
 	)
 );
 
-
+/*
 // allow for mustache permalinks
 // q=2&b=2&3#top
+$instance->alert = array(
+	'get' => function($string, Mustache_LambdaHelper $helper) {
+		global $instance;
+	}
+);
+*/
+
 $instance->link = array(
 	'id' => function($string, Mustache_LambdaHelper $helper) {
 		global $instance;

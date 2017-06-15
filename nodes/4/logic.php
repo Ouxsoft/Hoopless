@@ -1,7 +1,4 @@
 <?php
-include_once 'includes/alert.inc';
-
-// set var
 if(isset($_POST['contact'])){
 	$instance->render['contact'] = $_POST['contact'];
 } else {
@@ -23,7 +20,7 @@ if(isset($_POST['contact'])) {
 	if(strlen($instance->render['contact']['name'])>0) {
 		$instance->render['contact']['name'] = trim($instance->render['contact']['name']);
 	} else {
-		$alert->add('warning','Provide a valid name'); $error = true;
+		$instance->alert->add('warning','Provide a valid name'); $error = true;
 	}
 
 	if(strlen($instance->render['contact']['subject'])>0) {
@@ -33,7 +30,7 @@ if(isset($_POST['contact'])) {
 	if((strlen($instance->render['contact']['email'])>0)&&(preg_match('/^[_\.0-9a-zA-Z-]+@([0-9a-zA-Z][0-9a-zA-Z-]+\.)+[a-zA-Z]{2,6}$/i', $instance->render['contact']['email']))) {
 		$instance->render['contact']['email'] = trim($instance->render['contact']['email']);
 	} else {
-		$alert->add('warning','Provide a valid email address');
+		$instance->alert->add('warning','Provide a valid email address');
 		$error = true;
 	}
 
@@ -44,13 +41,13 @@ if(isset($_POST['contact'])) {
 			$message = trim($instance->render['contact']['message']);
 		}
 	} else {
-		$alert->add('warning','Provide a message longer than 10 charaters');
+		$instance->alert->add('warning','Provide a message longer than 10 charaters');
 		$error = true;
 	}
 
 	if(!isset($_POST['norobot'])||(md5($_POST['norobot'])!=$_SESSION['code'])){
 		$error = true;
-		$alert->add('warning','Incorrect security code supplied');
+		$instance->alert->add('warning','Incorrect security code supplied');
 	}
 
 	if($error==false) {
@@ -63,12 +60,9 @@ if(isset($_POST['contact'])) {
 		$message .= 'IP address: '.$_SERVER['REMOTE_ADDR'].'<br/><br/>';
 		$message .= $instance->render['contact']['message'].PHP_EOL;
 		mail($instance->website['email'], $instance->render['contact']['subject'], '<html><body>'.$message.'</body></html>', $headers);
-		$alert->add('success','Your message was successfully sent. I will be in contact with you shortly');
+		$instance->alert->add('success','Your message was successfully sent. I will be in contact with you shortly');
 		$instance->render['contact']['subject'] = '';
 		$instance->render['contact']['message'] = '';
 	}
-}
-if($alert->amount()>0){
-	$alert->get();
 }
 ?>

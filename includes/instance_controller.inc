@@ -1,4 +1,6 @@
 <?php
+require('includes/alert.inc');
+
 //namespace main;
 
 // extend instance_controller
@@ -40,14 +42,18 @@ class instance_controller {
 	public $menu = array();
 	public $support = array();
 	public $year;
-	public $render; // output /nodes/xx/logic.php variables are stored here
+	
+	// output /nodes/xx/logic.php variables are stored here
+	public $render;
 	public $permalink = array();
-
+	
+	// controls user alerts
+	public $alert;
+	
 	// parse permalink
 	public function parse_p1ermalink($string) {
 		return $string;
 	}
-	
 
 	// build tree from parent child relationship
 	function build_tree($elements, $parent_id = 0) {
@@ -63,6 +69,7 @@ class instance_controller {
 		}
 		return $branch;
 	}
+	
 	
 	// build menu array from an db array
 	public function build_menu($array, $level) {
@@ -189,7 +196,8 @@ class instance_controller {
 
 	// CONSTUCT
 	function __construct(){
-		global $db;
+		global $db;		
+		
 		// set request time
 		$this->date = array(
 			'year' => date('Y'),
@@ -274,6 +282,9 @@ class instance_controller {
 				$this->page['breadcrumbs'] = NULL;
 			}
 		}
+
+		// enable user alerts
+		$this->alert = new user_alert;
 
 		// find out who user is
 		$this->user_get();

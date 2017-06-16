@@ -13,6 +13,7 @@
  $color_cta: #1B6CDE; // color 10% secondary accent
  $color_heading: #002261;
  $color_heading_1: #000;
+ $color_dark_bg: #283E4A;
 
 // Core variables and mixins
 @import "bootstrap-4.0.0/variables";
@@ -62,9 +63,7 @@
 // Utility classes
 @import "bootstrap-4.0.0/utilities";
 
-// glyphicons
-@import "glyphicons/glyphicon";
-
+// theme custom
 @import "custom/social-networking";
 @import "custom/window-top";
 @import "custom/backgrounds";

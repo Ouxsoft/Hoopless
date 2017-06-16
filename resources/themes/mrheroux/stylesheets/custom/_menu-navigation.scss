@@ -40,27 +40,44 @@ ul.accordion {
 	
 	margin: 0 !important;
 	padding: 0;
+	padding-bottom: 0.5rem;
+
 	width: 100%;
 	list-style-type: none;
 	a {
+		color: #000;
+		border-left: 5px solid transparent;
 		display: block;
-		padding: 0.5em;
-		.glyphicon-menu-down {
-			color: $nav_top_color;
+		padding: 0.2em 0.5em 0.2em 0.5em;
+		text-decoration: none !important;
+		&[aria-expanded="true"]{
+			.material-icons {
+				span {
+					display: none;
+				}
+				&:before {
+					color: lighten($color_accent,20%);
+					content: "arrow_drop_up";
+				}
+			}
+		}
+		.material-icons {
+			color: lighten($color_accent,10%);
 			display: inline-block;
 			float: right !important;
 		}
-	}
-	li {
-		border-top: 1px solid #D9DADC;
+		&:hover {
+			text-decoration: none;
+			border-left: 5px solid lighten($color_accent,10%);
+		}
+		
 	}
 	ul {
 		list-style-type: none;
-		background: rgba(40,62,74,0.121);
+		// background: rgba(40,62,74,0.121);
 		margin: 0;
 		padding: 0;
 		li {
-			border-top: 1px solid rgba(40,62,74,0.2);
 			a {
 				padding: 0.2em 0.2em 0.2em 1.5em;
 			}
@@ -72,9 +89,7 @@ ul.accordion {
 		height: 80px;
 		background: lighten($color_accent,20%);
 		margin: 0px 0px 62px 0px;
-		
 		border-bottom: 5px solid lighten($color_accent,10%); //#ff9999;
-		
 		padding: 1em 0; 
 		text-align: center;
 		//border-bottom: 0;

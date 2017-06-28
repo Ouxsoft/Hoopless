@@ -1,4 +1,29 @@
 /* TODO: rename these blocks */
+.block-carousel-light {
+	.carousel-caption {
+		bottom: 0;
+		position: absolute;
+		position: absolute;
+		padding: 5% 15%;
+		margin: 0;
+		left: 0;
+		right: 0;
+		background-color: rgba($color_dark_bg,0.9);
+		color: #FFF;
+	
+	}
+	.carousel-control-prev, .carousel-control-next {
+		i {
+			position: absolute;
+			bottom: 3rem;
+			font-weight: bold;
+			font-size: 2em;
+			color: rgba(#FFF,0.61);
+			background-color: transparent;
+			padding: 0.2rem;
+		}
+	}
+}
 .bg-1 {
 	// main right column
 	padding-top: 1em;
@@ -13,13 +38,15 @@
 	border-radius: 5px;
 	background-color: #FFF;
 	> h2 {
-		background-color: lighten( $color_dark_bg, 10%); // #C9C9C9;
-		border-bottom: 5px solid lighten($color_dark_bg,20%);
-		color:  #FFF;
+		//background-color: lighten($color_dark_bg, 20%); // #C9C9C9;
+		text-align: center;
+		//color:  #FFF;
 		font-weight: normal;
-		margin: -1rem;
-		margin-bottom: 1rem;
 		padding: 0.3rem 1rem;
+	}
+	em {
+		color: $color_accent;
+		font-style: normal;
 	}
 }
 

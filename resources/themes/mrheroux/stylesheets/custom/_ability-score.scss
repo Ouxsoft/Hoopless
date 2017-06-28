@@ -9,7 +9,7 @@
     cursor: pointer;
     > .ability-score {
       animation: expand 0.5s forwards;
-      .filled {
+      .material-icons {
         animation: highlight 0.5s forwards;
       }
     }
@@ -22,10 +22,8 @@
 }
 .ability-score {
 	float: right;
-	color: lighten(grayscale($color_accent),20%);
-	.filled {
-		color: $color_accent;
-	}
+	// color: lighten(grayscale($color_accent),20%);
+	color: $color_accent;
 }
 
 @keyframes expand {

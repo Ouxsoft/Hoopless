@@ -1,30 +1,31 @@
 <?php
 //nihil sub sole novum
-function results_score($query){
-	global $db;
-	$results = $db->query($query);
-	$array = array();
-	foreach($results as $row){
-		$sub_array = array();
-		$sub_array['title'] = $row['title'];
-		for($i = 0; $i<5; $i++){
-			if($row['score']>=$i){
-				$sub_array['score'][] = ' filled';
+function parse_stars($json) {
+	foreach($json as $row){
+		$sub_array = array(
+			'title' => $row['title'],
+			'score' => array(),
+		);
+		$count = 0;
+		do {
+			if ($row['score'] > 2) {
+				$sub_array['score'][] = 'star';
+			} else if ($row['score'] == 1) {
+				$sub_array['score'][] = 'star_half';
 			} else {
-				$sub_array['score'][] = '';
-			}
-		}
+				$sub_array['score'][] = 'star_border';
+			} 
+			$row['score'] = $row['score'] - 2;
+			$count = $count + 2;
+		} while ($count < 10);
 		$array[] = $sub_array;
 	}
-	return $array;
+	return $array;	
 }
 
-$instance->render['skills'] = results_score("SELECT CONCAT(`name`, IF(`started` <= date_sub(now(), interval 10 year), ' (10+ Years)', IF(`started` < date_sub(now(), interval -10 year), CONCAT(' (',TIMESTAMPDIFF(YEAR,`started`, CURDATE()), ' Years)'), ''))) AS `title`, `score` FROM `abilities` WHERE `category` = 'Web skills' ORDER BY `score` DESC, `name`"); 
-
-$instance->render['tools'] = results_score("SELECT CONCAT(`name`, IF(`started` <= date_sub(now(), interval 10 year), ' (10+ Years)', IF(`started` < date_sub(now(), interval -10 year), CONCAT(' (',TIMESTAMPDIFF(YEAR,`started`, CURDATE()), ' Years)'), ''))) AS `title`, `score` FROM `abilities` WHERE `category` = 'Web tools' ORDER BY `score` DESC, `name`");
-
-$instance->render['languages'] = results_score("SELECT CONCAT(`name`, IF(`started` <= date_sub(now(), interval 10 year), ' (10+ Years)', IF(`started` < date_sub(now(), interval -10 year), CONCAT(' (',TIMESTAMPDIFF(YEAR,`started`, CURDATE()), ' Years)'), ''))) AS `title`, `score` FROM `abilities` WHERE `category` = 'Languages' ORDER BY `score` DESC, `name`");
-
-$db->bind("category","web");
-$instance->render['portfolio'] = $db->query("SELECT CONCAT(IF(`title` IS NULL, 'N/A', CONCAT('<b>',`title`,'</b>')), IF(`media` IS NULL, '', CONCAT(' - ',`media`)),' ',`year`) AS `title`, `href`,`thumbnail` FROM `portfolio` WHERE `category` = :category ORDER BY `year` DESC, `id` ASC");
+$json_file = file_get_contents('nodes/' . $instance->page['current']['node_id']. '/data.json');
+$instance->render['data'] = json_decode($json_file, true);
+$instance->render['data']['skills'] = parse_stars($instance->render['data']['skills']);
+$instance->render['data']['tools'] = parse_stars($instance->render['data']['tools']);
+$instance->render['data']['languages'] = parse_stars($instance->render['data']['languages']);
 ?>

@@ -1,0 +1,54 @@
+{
+	"Experiences" : {
+		"Careers" : [
+			{
+				"company" : "Questech® Corporation",
+				"span" : "2006 to 2011",
+				"title" : "Programmer Operator",
+				"description" : "Developed software applications for Fanuc RJ32 robots and operated robots.",
+				"location" : "Rutland, Vermont USA",
+				"url" : "https://questech.com"
+			}
+		],
+		"Education" : [
+			{
+				"school" : "Castleton University",
+				"span" : "2012",
+				"title" : "Bachelor of Science in Computer Information Systems/Business",
+				"location" : "Castleton, Vermont USA"
+			},
+			{
+				"school" : "<abbr title=\"Community College of Vermont\">CCV</abbr>",
+				"span" : "2009",				
+				"title" : "Associate of Science Degree, Computer Systems Management",
+				"location" : "Newport, Vermont USA"
+			}		
+		]
+	},
+	"portfolio" : [
+		{
+			"url":"computer-controller.jpg",
+			"title":"Robot Controller Setup",
+			"description":"2009",
+			"class" : "active"
+		},
+		{
+			"url":"robot-calc-e.jpg",
+			"title":"Formula Example",
+			"description":"Pen Paper, et al. 2009"
+		}
+	],
+	"skills" : [
+		{"title":"Fanuc Karel","score":10},
+		{"title":"PR (Position Register) on FANUC TPP","score":10},
+		{"title":"TP Programming","score":10},
+		{"title":"Documentation (Web Based)","score":4},
+		{"title":"Icon Design","score":9},
+		{"title":"Rj32 Framework","score":8},
+		{"title":"6-Axis Industrial Robots","score":8.5}
+	],
+	"tools" : [
+		{"title":"Fanuc Controller / Teach Pendant","score":10},
+		{"title":"Visual Basic .NET (VB.NET)","score":8}
+	]
+}

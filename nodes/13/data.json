@@ -72,22 +72,23 @@
 		}
 	],
 	"skills" : [
-		{"title":"Creativity","score":4},
-		{"title":"Human Anatomy","score":4},
-		{"title":"Perspective","score":4}
+		{"title":"Creativity","score":10},
+		{"title":"Human Anatomy","score":7},
+		{"title":"Perspective","score":7},
+		{"title":"Awesomeness","score":10}
 	],
 	"tools": [
-		{"title":"Wacom Tablet Intuos 4","score":5},
-		{"title":"Acrylics","score":4},
-		{"title":"Adobe Illustrator","score":4},
-		{"title":"Adobe Photoshop","score":4},
-		{"title":"Sketchup","score":4},
-		{"title":"ZBrush","score":4},
-		{"title":"CAD (DraftSight)","score":3},
-		{"title":"FANUC Controller Software","score":3},
-		{"title":"Kerkythea (Render)","score":3},
-		{"title":"Pen and Ink","score":3},
-		{"title":"Watercolor","score":3}
+		{"title":"Wacom Tablet Intuos 4","score":10},
+		{"title":"Acrylics","score":6},
+		{"title":"Adobe Illustrator","score":8},
+		{"title":"Adobe Photoshop","score":8},
+		{"title":"Sketchup","score":8},
+		{"title":"ZBrush","score":8},
+		{"title":"CAD (DraftSight)","score":7},
+		{"title":"FANUC Controller Software","score":10},
+		{"title":"Kerkythea (Render)","score":7},
+		{"title":"Pen and Ink","score":6},
+		{"title":"Watercolor","score":6}
 	],
 	"portfolio" : [
 		{

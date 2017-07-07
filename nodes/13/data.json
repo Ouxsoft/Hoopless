@@ -1,0 +1,205 @@
+{
+	"Experiences" : {
+		"Careers" : [
+			{
+				"company" : "Marlboro College and Graduate School",
+				"span" : "2016 to Present",
+				"title" : "Web Developer",
+				"description" : "Develop, design, maintain and manage college website applications and associated servers. Develop customized web applications to meet the academic and business needs of the institution. Build, maintain, design and oversee all internal and external websites for the college including the web framework and associated databases; collaborate and coordinate with staff, faculty and students relative to content, applications, design, information architecture, structure, and user interface of college websites; redesign and enhance websites to improve the functionality, look, and utilization; research, evaluate and implement new web-related technology where appropriate to enhance the functionality and utilization of all Marlboro websites; and identify, troubleshoot and resolve web operational and accessibility issues.",
+				"location" : "Marlboro and Brattleboro, Vermont USA",
+				"url" : "https://www.marlboro.edu"
+			},
+			{
+				"company" : "JNH Environmental Services, Inc.",
+				"span" : "2012 to 2016",
+				"title" : "Lead Web Developer",
+				"description" : "Design web content, promotion items, report boiler plates, and updated company's logo.",
+				"location" : "Rutland and Brandon, Vermont USA",
+				"url" : "https://jnhes.com"
+			},
+			{
+				"company" : "Questech&reg; Corporation",
+				"span" : "2006 to 2011",
+				"title" : "Programmer Operator",
+				"description" : "Designed user interface and icons for robotic workcells.",
+				"location" : "Rutland, Vermont"
+			},
+			{
+				"company" : "Small Startup Studio",
+				"span" : "2004 to 2006",
+				"title" : "Web Developer",
+				"description" : "Designed and developed online development platform to enable game developers to collaborate. Designed in game content.",
+				"location" : "Pittsford, Vermont USA",
+				"url" : "https://jnhes.com"
+			},
+			{
+				"company" : "Lyndon Institute (Independent Publication)",
+				"span" : "2004",
+				"title" : "Layout Editor",
+				"description" : "Arranged and balanced content for reoccurring publication.",
+				"location" : "Lyndon Center, Vermont",
+				"url" : "https://www.lyndoninstitute.org/"
+			}
+		],
+		"Education" : [
+			{
+				"school" : "Castleton University",
+				"span" : "2012",
+				"title" : "Bachelor of Science in Computer Information Systems/Business",
+				"location" : "Castleton, Vermont USA"
+			},
+			{
+				"school" : "<abbr title=\"Community College of Vermont\">CCV</abbr>",
+				"span" : "2009",				
+				"title" : "Associate of Science Degree, Computer Systems Management",
+				"location" : "Newport, Vermont USA"
+			},
+			{
+				"school" : "Cisco Systems Networking Academy",
+				"span" : "2005",				
+				"title" : "Fundamentals of Web Design",
+				"location" : "Lyndon Center, Vermont USA"
+			}		
+		]
+	},
+	"Awards" : [
+		{
+			"where" : "Statewide Art Competition",
+			"title" : "Senator James M. Jeffords Award",
+			"span" : "2005",
+			"description" : "Painted to win Senator James M. Jeffords award for statewide art competition.",
+			"location" : "Montpelier, Vermont"
+		}
+	],
+	"skills" : [
+		{"title":"Creativity","score":4},
+		{"title":"Human Anatomy","score":4},
+		{"title":"Perspective","score":4}
+	],
+	"tools": [
+		{"title":"Wacom Tablet Intuos 4","score":5},
+		{"title":"Acrylics","score":4},
+		{"title":"Adobe Illustrator","score":4},
+		{"title":"Adobe Photoshop","score":4},
+		{"title":"Sketchup","score":4},
+		{"title":"ZBrush","score":4},
+		{"title":"CAD (DraftSight)","score":3},
+		{"title":"FANUC Controller Software","score":3},
+		{"title":"Kerkythea (Render)","score":3},
+		{"title":"Pen and Ink","score":3},
+		{"title":"Watercolor","score":3}
+	],
+	"portfolio" : [
+		{
+			"title":"Sword",
+			"description" : "3D Sculpture (Zbrush) 2016",
+			"url":"fathers-sword.jpg",
+			"class" : "active"
+		},
+		{
+			"title":"MrHeroux Logo Design",
+			"description" : "3D Sculpture 2016",
+			"url":"hx-logo-design.jpg"
+		},
+		{
+			"title":"Ouroboros Sketch",
+			"description" : "Photoshop and Wacom Intuos 4 2016",
+			"url":"line-practice.jpg"
+		},
+		{
+			"title":"Hyena",
+			"description" : "Painted (Wood Stain) 2015",
+			"url":"hyena-on-wood.jpg"
+		},
+		{
+			"title":"Hamsa The All-Seeing",
+			"description" : "Painted (Arcylic) 2015",
+			"url":"hansen-the-all-seeing.jpg"
+		},
+		{
+			"title":"JNH Logo",
+			"description" : "3D Digital Design (Sketchup, Kerkythea, etc.) 2015",
+			"url":"jnh-logo.jpg"
+		},
+		{
+			"title":"N/A",
+			"description" : "Painted (Arcylic) 2012",
+			"url":"conscience.jpg"
+		},
+		{
+			"title":"Oni Form",
+			"description" : "Digital Design (Photoshop) 2012",
+			"url":"oni-form.jpg"
+		},
+		{
+			"title":"Ace of Spades",
+			"description" : "Painted (Arcylic) 2012",
+			"url":"ace-of-spades.jpg"
+		},
+		{
+			"title":"Death Valley Unfinished",
+			"description" : "Acrylic 2012",
+			"url":"death-valley.jpg"
+		},
+		{
+			"title":"Seedling",
+			"description" : "Painted (Sketch Mix Media) 2011",
+			"url":"seedling.jpg"
+		},
+		{
+			"title":"Computing Monster",
+			"description" : "Painted (Mixed Media) 2011",
+			"url":"computing-monster.jpg"
+		},
+		{
+			"title":"Self Portrait",
+			"description" : "Digital Design 2010",
+			"url":"portrait.jpg"
+		},
+		{
+			"title":"Playing Dead",
+			"description" : "Digital Design (Photoshop) 2010",
+			"url":"playing-dead.jpg"
+		},
+		{
+			"title":"Taken",
+			"description" : "Digital Design (Photoshop) 2009",
+			"url":"taken.jpg"
+		},
+		{
+			"title":"Dirty Toilet",
+			"description" : "Digital Design (Photoshop) 2008",
+			"url":"dirty-toilet.jpg"
+		},
+		{
+			"title":"Random Landscape",
+			"description" : "Digital Design (Photoshop) 2008",
+			"url":"random-landscape-design.jpg"
+		},
+		{
+			"title":"Pick My Brain",
+			"description" : "Digital Design (Photoshop) 2008",
+			"url":"pick-my-brain.jpg"
+		},
+		{
+			"title":"John L Norris Art Center",
+			"description" : "Painted (Watercolors) 2005",
+			"url":"john-l-norris-art-center.jpg"
+		},
+		{
+			"title":"Train Demo",
+			"description" : "Digital Design (Rendered on PSP&reg;) 2005",
+			"url":"train-demo.jpg"
+		},
+		{
+			"title" : "Roy Wind",
+			"description" : "Painted (Pen and Ink) 2003",
+			"url":"roy-wind.jpg"
+		},
+		{
+			"title":"N/A",
+			"description" : "Digital Design (mspaint.exe) 2003",
+			"url":"lacking-spirit.jpg"
+		}
+	]
+}

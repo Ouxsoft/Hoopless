@@ -20,7 +20,8 @@ if(isset($_POST['contact'])) {
 	if(strlen($instance->render['contact']['name'])>0) {
 		$instance->render['contact']['name'] = trim($instance->render['contact']['name']);
 	} else {
-		$instance->alert->add('warning','Provide a valid name'); $error = true;
+		$instance->alert('Provide a valid name.','warning','contact-name');
+		$error = true;
 	}
 
 	if(strlen($instance->render['contact']['subject'])>0) {
@@ -30,7 +31,7 @@ if(isset($_POST['contact'])) {
 	if((strlen($instance->render['contact']['email'])>0)&&(preg_match('/^[_\.0-9a-zA-Z-]+@([0-9a-zA-Z][0-9a-zA-Z-]+\.)+[a-zA-Z]{2,6}$/i', $instance->render['contact']['email']))) {
 		$instance->render['contact']['email'] = trim($instance->render['contact']['email']);
 	} else {
-		$instance->alert->add('warning','Provide a valid email address');
+		$instance->alert('Provide a valid email address.','warning','contact-email');
 		$error = true;
 	}
 
@@ -41,13 +42,13 @@ if(isset($_POST['contact'])) {
 			$message = trim($instance->render['contact']['message']);
 		}
 	} else {
-		$instance->alert->add('warning','Provide a message longer than 10 charaters');
+		$instance->alert('Provide a message longer than 10 charaters.','warning','contact-msg');
 		$error = true;
 	}
 
 	if(!isset($_POST['norobot'])||(md5($_POST['norobot'])!=$_SESSION['code'])){
 		$error = true;
-		$instance->alert->add('warning','Incorrect security code supplied');
+		$instance->alert('Incorrect security code supplied.','warning','contact-norobot');
 	}
 
 	if($error==false) {
@@ -60,7 +61,7 @@ if(isset($_POST['contact'])) {
 		$message .= 'IP address: '.$_SERVER['REMOTE_ADDR'].'<br/><br/>';
 		$message .= $instance->render['contact']['message'].PHP_EOL;
 		mail($instance->website['email'], $instance->render['contact']['subject'], '<html><body>'.$message.'</body></html>', $headers);
-		$instance->alert->add('success','Your message was successfully sent. I will be in contact with you shortly');
+		$instance->alert('Your message was successfully sent. I will be in contact with you shortly.','success');
 		$instance->render['contact']['subject'] = '';
 		$instance->render['contact']['message'] = '';
 	}

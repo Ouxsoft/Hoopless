@@ -5,11 +5,23 @@
 		<form name="contact" id="contact" method="post" enctype="multipart/form-data">
 			<fieldset class="form-group">
 				<label for="name">Full Name:</label>
+				{{#alerts.contact-name}}
+					<div class="alert alert-{{type}}">
+						<a href="#" class="close" data-dismiss="alert" aria-label="close" title="Close">&times;</a>
+						{{value}}
+					</div>
+				{{/alerts.contact-name}}
 				<input name="contact[name]" id="name" value="{{render.contact.name}}" class="form-control" placeholder="Enter name" aria-required="true"/>
 			</fieldset>
 
 			<fieldset class="form-group">
 				<label for="email">Email Address:</label>
+				{{#alerts.contact-email}}
+					<div class="alert alert-{{type}}">
+						<a href="#" class="close" data-dismiss="alert" aria-label="close" title="Close">&times;</a>
+						{{value}}
+					</div>
+				{{/alerts.contact-email}}
 				<input name="contact[email]" id="email" value="{{render.contact.email}}" type="email" class="form-control"  placeholder="Enter email" aria-required="true"/>
 			</fieldset>
 
@@ -20,13 +32,25 @@
 
 			<fieldset class="form-group">
 				<label for="message">Message:</label>
+				{{#alerts.contact-msg}}
+					<div class="alert alert-{{type}}">
+						<a href="#" class="close" data-dismiss="alert" aria-label="close" title="Close">&times;</a>
+						{{value}}
+					</div>
+				{{/alerts.contact-msg}}
 				<textarea name="contact[message]" id="message" class="form-control" placeholder="Enter message" aria-required="true">{{render.contact.message}}</textarea>
 			</fieldset>
 
 			<fieldset class="form-group">
 				<label for="norobot">Security Code:</label>
+				{{#alerts.contact-norobot}}
+					<div class="alert alert-{{type}}">
+						<a href="#" class="close" data-dismiss="alert" aria-label="close" title="Close">&times;</a>
+						{{value}}
+					</div>
+				{{/alerts.contact-norobot}}
 				<br/>
-				<img src="/resources/themes/{{website.theme}}/images/captcha/norobot.png" alt="security key"/>
+				<img src="/themes/{{website.theme}}/images/captcha/norobot.png" alt="security key"/>
 				<input name="norobot" id="norobot" class="form-control" placeholder="Enter security code" aria-required="true"/>
 				<small class="text-muted">Case-sensitive</small>
 			</fieldset>

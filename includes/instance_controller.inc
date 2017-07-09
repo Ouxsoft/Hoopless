@@ -1,6 +1,4 @@
 <?php
-require('includes/alert.inc');
-
 //namespace main;
 
 // extend instance_controller
@@ -19,10 +17,10 @@ class instance_controller {
 		'href' => array(),
 	);
 	private $hash_cache = array();
-
 	public $uri;
 	public $user = array(
 		'id' => null,
+		'authorized' => null,
 		'sign-in' => array(
 			'failure' => NULL, // was a sign-in failure detected
 			'banned' => NULL, // is remote address banned from sign-in form
@@ -42,17 +40,30 @@ class instance_controller {
 	public $menu = array();
 	public $support = array();
 	public $year;
-	
-	// output /nodes/xx/logic.php variables are stored here
-	public $render;
 	public $permalink = array();
+	public $alerts = array(
+		'types' => array('success','info','warning','danger')
+	);
+	public $render;
 	
-	// controls user alerts
-	public $alert;
-	
-	// parse permalink
-	public function parse_p1ermalink($string) {
-		return $string;
+	// add to alert array
+	function alert($string, $type = 'info', $category = 'main'){
+		// add text
+		if(isset($this->alerts[$category]['value'])){
+			$this->alerts[$category]['value'] .= ' '.$string;
+		} else {
+			$this->alerts[$category]['value'] = $string;
+		}
+		// add type
+		if(isset($this->alerts[$category]['type'])){
+			$a = array_search($this->alerts[$category]['type'], $this->alerts['types']);
+			$b = array_search($type, $this->alerts['types']);
+			if($a < $b){
+				$this->alerts[$category]['type'] = $type;
+			}
+		} else {
+			$this->alerts[$category]['type'] = $type;
+		}
 	}
 
 	// build tree from parent child relationship
@@ -69,7 +80,6 @@ class instance_controller {
 		}
 		return $branch;
 	}
-	
 	
 	// build menu array from an db array
 	public function build_menu($array, $level) {
@@ -93,26 +103,6 @@ class instance_controller {
 		}
 
 		return $menu;
-	}
-
-	// build href hash cache
-	// TODO: UPDATE TO NEW LAYOUT
-	private function href_hash($record_id, $page = NULL){
-		if($page==NULL){
-			$page = $this->page['current']['alias'];
-		}
-		$ui = $page.$record_id;
-		if(array_key_exists($ui, $this->hash_cache)){
-			return $this->hash_cache[$ui];
-		} else {
-			$string = urlencode(str_replace('.','',crypt($ui, '$1$r'.md5($record_id.$this->config['href_salt']))));
-			$this->hash_cache[$ui] = $string;
-			return $string;
-		}
-	}
-
-	public function help($string){
-		return $string;
 	}
 
 	public function verify($silent = false){
@@ -198,14 +188,8 @@ class instance_controller {
 	function __construct(){
 		global $db;		
 		
-		// set request time
-		$this->date = array(
-			'year' => date('Y'),
-		);
-
 		// load local server config
 		$this->config = parse_ini_file('resources/config/default.conf');
-
 		date_default_timezone_set($this->config['timezone']);
 		define('SERVER',$this->config['server']);
 		$this->website = array(
@@ -283,26 +267,29 @@ class instance_controller {
 			}
 		}
 
-		// enable user alerts
-		$this->alert = new user_alert;
-
 		// find out who user is
 		$this->user_get();
 
-		// determine if user has permission to access the current page
-		$db->bind('user_id',$this->user['id']);
-		$db->bind('page_id',$this->page['current']['node_id']);
-		$active = $db->single(
-			'SELECT `active`
-			FROM `user_group_members`
-			LEFT JOIN `user_group_permissions` ON `user_group_members`.`group_id` = `user_group_permissions`.`group_id`
-			WHERE `user_id` = :user_id AND `page_id` = :page_id AND `user_group_permissions`.`permission` = 1
-			LIMIT 1;'
-		);
-		if($active==1){
-			$this->user['permission'] = true;
-		} else {
-			$this->user['permission'] = false;
+		// check access level of user current request
+		if($this->page['current']['state'] == 'active'){
+			if (($instance->page['current']['signin_required']==1)&&(!isset($instance->user['id']))){
+			} else {
+				$this->user['permission'] = true;
+			}		
+		} else if ($instance->page['current']['state'] == 'protected') {
+			// determine if user has permission to access the current page
+			$db->bind('user_id',$this->user['id']);
+			$db->bind('page_id',$this->page['current']['node_id']);
+			$active = $db->single(
+				'SELECT `active`
+				FROM `user_group_members`
+				LEFT JOIN `user_group_permissions` ON `user_group_members`.`group_id` = `user_group_permissions`.`group_id`
+				WHERE `user_id` = :user_id AND `page_id` = :page_id AND `user_group_permissions`.`permission` = 1
+				LIMIT 1;'
+			);
+			if($active==1){
+				$this->user['permission'] = true;
+			}
 		}
 
 		// get uri

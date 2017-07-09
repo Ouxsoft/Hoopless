@@ -1,0 +1,11 @@
+<!-- breadcrumbs -->
+<ol class="breadcrumb">
+{{#page.breadcrumbs}}
+	{{#active}}
+	<li><a class="breadcrumb-item active" href="#">{{title}}</a></li>
+	{{/active}}
+	{{^active}}
+	<li><a class="breadcrumb-item" href="{{alias}}">{{title}}</a></li>
+	{{/active}}
+{{/page.breadcrumbs}}
+</ol>

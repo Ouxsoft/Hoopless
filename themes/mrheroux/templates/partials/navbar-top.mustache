@@ -1,0 +1,38 @@
+<nav class="navbar fixed-top navbar navbar-inverse bg-inverse bg-faded">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3">
+				<button class="btn btn-primary hidden-md-up" type="button" data-toggle="collapse" data-target="#menu_navigation" aria-expanded="false" aria-controls="menu_navigation">
+		 			<span class="navbar-toggler-icon"></span>
+		 		</button>
+				<a id="logo" href="/" title="Home">
+		<span class="hidden-sm-down">Mr</span><em>Heroux</em>
+				</a>
+			</div>
+			<div class="col-md-9 text-right">
+				<form method="get" style="display:inline;" action="/search">
+		<input name="q" class="search-box text-right" type="search" placeholder="Search..."/>
+				</form>
+				<form method="post" style="display:inline;" name="user-sign-out" id="user-sign-out" enctype="multipart/form-data">
+		{{#user.full_name}}
+		<a href="{{#f.link}}33&q={{page.current.node_id}}&a=1&b=2&c=3#top{{/f.link}}" class="btn btn-secondary navbar-right">
+			Edit
+		</a>
+		<div class="dropdown" style="display:inline;">
+			<input type="hidden" name="user-sign-out" value="1"/>
+			<button class="btn btn-secondary dropdown-toggle" type="button" id="user-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  				<span class="glyphicon glyphicon-user"></span> {{user.full_name}}
+			</button>
+			<div class="dropdown-menu" aria-labelledby="user-menu">
+  				<button type="submit" form="user-sign-out" value="Submit" class="dropdown-item">Sign out</button>
+  		  	</div>
+		</div>
+		{{/user.full_name}}
+		{{^user.full_name}}
+		<a href="/users/sign-in" class="btn btn-secondary navbar-right" type="submit">Log in</a>
+		{{/user.full_name}}
+				</form>
+			</div>
+		</div>
+	</div>
+</nav>

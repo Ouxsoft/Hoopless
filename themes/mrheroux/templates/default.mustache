@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>{{page.current.title}}</title>
+		<meta name="description" content="{{page.current.meta_description}}"/>
+		<meta name="keywords" content="{{page.current.title.}}"/>
+		<link type="text/plain" rel="author" href="/humans.txt"/>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+		<meta name="apple-mobile-web-app-capable" content="yes"/>
+		<meta name="mobile-web-app-capable" content="yes"/>
+		<meta name="theme-color" content="#000"/>
+		<link rel="shortcut icon" href="/themes/{{website.theme}}/images/favicon/favicon.ico" type="image/x-icon"/>
+		<link rel="icon" href="/themes/{{website.theme}}/images/favicon/favicon.ico" type="image/x-icon"/>
+		<link rel="stylesheet" href="/themes/{{website.theme}}/stylesheets/top.min.css" type="text/css"/>
+	</head>
+	<body class="bg-body node-{{page.current.node_id}}">
+		<header>
+			{{> navbar-top}}
+			<div id="window-top">
+				<div class="container pt-5 pb-2 mb-2">
+					<h1>{{page.current.page_heading}}</h1>
+					{{> breadcrumb-trail}}
+				</div>
+			</div>
+		</header>
+		<div class="container">
+			<div class="row">
+				<!-- left column -->
+				<div class="col-sm-12 col-md-8 col-lg-9 bg-4">
+					{{#alerts.main}}
+					<div class="col-md-12 alert alert-{{type}}">
+						<a href="#" class="close" data-dismiss="alert" aria-label="close" title="Close">&times;</a>
+						{{value}}
+					</div>
+					{{/alerts.main}}
+					
+					{{#user.permission}}
+<!-- page -->
+{{> view}}
+<!-- /page -->
+					{{/user.permission}}
+					{{^user.permission}}
+					<div class="pagepad" style="display: block; text-align: center; font-weight: bold; text-transform: uppercase; font-size: 18px; font-family: Arial, Helvetica, sans-serif; margin-top: 25px;">Authorized Users Only</div>
+					{{> sign-in}}
+					{{/user.permission}}
+
+					<div class="mt-1">
+						{{> share-buttons}}
+					
+					</div>
+    			</div>
+				<!-- right column -->
+				<div class="col-md-4 col-lg-3">
+					{{> navbar-left}}
+    			</div>
+			</div>
+		</div>
+
+		<a href="#0" class="cd-top cd-is-visible cd-fade-out">Top</a>
+
+		<!-- footer -->
+		<footer class="footer mt-3 pt-2 pb-2">
+			<div class="container">
+				<i class="material-icons">copyright</i> {{#f.date}}Y{{/f.date}} {{website.title}}. All rights reserved.
+				<a class="block" style="float:right" title="Validate HTML5" href="https://validator.w3.org/nu/?doc={{page.current.alias}}" target="_blank" rel="nofollow">HTML5 <i class="material-icons">check_circle</i></a>
+			</div>
+		</footer>
+		{{> includes}}
+	</body>
+</html>
+<!-- powered by Hoopless -->

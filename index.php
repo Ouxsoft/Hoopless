@@ -3,62 +3,44 @@ session_start();
 
 require 'includes/db.inc';
 require 'includes/instance_controller.inc';
-
 require 'includes/Mustache/Autoloader.php';
 Mustache_Autoloader::register();
 
-/*
-// use .html instead of .mustache for default template extension
-$options =  array('extension' => '.html');
+// process nodes logic
+if($instance->user['permission']==true){
+	include 'nodes/'.$instance->page['current']['node_id'].'/logic.php';
+}
 
-$m = new Mustache_Engine(array(
-    'loader' => new Mustache_Loader_FilesystemLoader(dirname(__FILE__) . '/views', $options),
-));
-*/
 
-$view = new Mustache_Engine(
-	array(
-		'loader'=> new Mustache_Loader_CascadingLoader(
-			array(
-				new Mustache_Loader_FilesystemLoader('resources/themes/'.$instance->website['theme'].'/templates'),
-				new Mustache_Loader_FilesystemLoader('nodes/'.$instance->page['current']['node_id']),
-			)
-		)
-	)
-);
+// consider storing in 
+// general call.alerts
+// call.link
 
-/*
-// allow for mustache permalinks
-// q=2&b=2&3#top
-$instance->alert = array(
-	'get' => function($string, Mustache_LambdaHelper $helper) {
+// mustache functions (f)
+$instance->f = array(
+	// date, e.g. {{#f.date}}Y{{/f.date}}
+	'date' => function($format) {
+		return date($format);
+	},
+	
+	// permalinks, e.g. {{#f.link}}33&q=2&a=1&b=2&c=3#top{{/f.link}}
+	'link' => function($string, Mustache_LambdaHelper $helper) {
 		global $instance;
-	}
-);
-*/
-
-$instance->link = array(
-	'id' => function($string, Mustache_LambdaHelper $helper) {
-		global $instance;
+	
 		// separate fragment identifier from remaining string
 		if (($pos = strpos($string, '#')) !== FALSE) {
 			list($string, $fragment_id) = explode('#',$string);
 		}
-	
 		// split alias_id and remaining string
 		list($alias_id, $string) = explode('&',$string,2);
-	
 		// split parameters from remaining string
 		parse_str($string, $parameters);
-
-	// make href identifier for caching
+		// make href identifier for caching
 		$id = $alias_id.'?'.$parameters['q'];
 		$address = '';
-				
 		// will have to add something spiffy to accomidate for no record_id but extra and visa versa
 		if(array_key_exists($id, $instance->cache['href'])){
-			// return cached
-			// need to build out remaining q
+			// return cached need to build out remaining q
 			return $instance->cache['href'][$id].'#'.$fragment_id;
 			// make smarter this if makes no sense
 		} else {
@@ -93,57 +75,24 @@ $instance->link = array(
 			}
 		}
 	}
+	
 );
 
-echo $view->render('header',$instance);
+$html = new Mustache_Engine(
+	array(
+		'loader'=> new Mustache_Loader_CascadingLoader(
+			array(
+				new Mustache_Loader_FilesystemLoader('themes/'.$instance->website['theme'].'/templates'),
+				new Mustache_Loader_FilesystemLoader('themes/'.$instance->website['theme'].'/templates/partials'),
+				new Mustache_Loader_FilesystemLoader('nodes/'.$instance->page['current']['node_id']),
+			)
+		)
+	)
+);
 
-// if page is active, protected, or disabled and provide results
-switch ($instance->page['current']['state']) {
-	case 'active':
-		// require signin for specific node if not signed in
-		if(($instance->page['current']['signin_required']==1)&&(!isset($instance->user['id']))){
-			echo $view->render('header',$instance);
-			include('lib/alert.class.php');
-			echo '<div class="container">';
-			$alert->add('alert','<a href="'.$instance->href('users/sign-up').'">Sign up</a> to access this page');
-			$alert->get();
-			echo '</div>';
-      		echo $view->render('sign-in',$instance);
-		} else {
-	  		include('nodes/'.$instance->page['current']['node_id'].'/logic.php');
-			echo $view->render('view',$instance);
-		}
-		break;
-	case 'protected':
-		// check for account has access to protected access
-		if (isset($instance->user['id'])) {
-			if($instance->user['permission']==1){
-	  		include('nodes/'.$instance->page['current']['node_id'].'/logic.php');
-				echo $view->render('view',$instance);
-			} else {
-				// deny access
-				include('lib/alert.class.php');
-				echo '<div class="container">';
-				$alert->add('alert','<b style="text-transform: uppercase;">'.$instance->user['username'].'</b>, your account is not authorized to access this page. Sign in with an account authorized to use this page');
-				$alert->get();
-				echo '<div class="pagepad" style="display: block; text-align: center; font-weight: bold; text-transform: uppercase; font-size: 18px; font-family: Arial, Helvetica, sans-serif; margin-top: 25px;">Authorized Users Only</div>';
-				echo '</div>';
-				echo $view->render('sign-in',$instance);
-			}
-		} else {
-			// sign required
-			include('lib/alert.class.php');
-			echo '<div class="container">';
-			$alert->add('alert','You must sign-in to an authorized account to access this page');
-			$alert->get();
-			echo '<div class="pagepad" style="display: block; text-align: center; font-weight: bold; text-transform: uppercase; font-size: 18px; font-family: Arial, Helvetica, sans-serif; margin-top: 25px;">Authorized Users Only</div>';
-			echo '</div>';
-			echo $view->render('sign-in',$instance);
-		}
-		break;
-	default:
-    break;
+if ($instance->page['current']['standalone']==1){
+	echo $html->render('view',$instance);
+} else {
+	echo $html->render('default',$instance);
 }
-
-echo $view->render('footer',$instance);
 ?>

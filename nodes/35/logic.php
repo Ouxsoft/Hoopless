@@ -1,5 +1,4 @@
 <?php
-include 'includes/alert.inc';
 
 // add version history
 if($instance->verify()){
@@ -17,7 +16,7 @@ if($instance->verify()){
 		fclose($fp);
 	}
 	// replace with mustache call build alert into class
-	$alert->get();
+	//$alert->get();
 
 	$instance->render['file'] = htmlspecialchars(file_get_contents($file));
 }

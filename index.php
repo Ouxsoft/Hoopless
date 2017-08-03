@@ -11,16 +11,20 @@ if($instance->user['permission']==true){
 	include 'nodes/'.$instance->page['current']['node_id'].'/logic.php';
 }
 
-
-// consider storing in 
-// general call.alerts
-// call.link
-
 // mustache functions (f)
 $instance->f = array(
 	// date, e.g. {{#f.date}}Y{{/f.date}}
 	'date' => function($format) {
 		return date($format);
+	},
+	
+	'get_menu' => function($menu) {
+		global $db;
+		global $instance;
+		$db->bind('menu',$menu);
+		$results = $db->query('SELECT `menu_item`.`node_id` AS `id`,`menu_item`.`parent_id`,`menu_item`.`title`, `node_alias`.`alias` FROM `menu` LEFT JOIN `menu_item` ON `menu`.`menu_id` = `menu_item`.`menu_id` LEFT JOIN `node_alias` ON `menu_item`.`node_id` = `node_alias`.`node_id` WHERE `menu`.`title` = :menu ORDER BY `menu_item`.`parent_id`,`menu_item`.`weight` DESC, `menu_item`.`title` ASC');
+		$instance->menu[$menu] = $instance->build_menu($instance->build_tree($results),0);
+		return;
 	},
 	
 	// permalinks, e.g. {{#f.link}}33&q=2&a=1&b=2&c=3#top{{/f.link}}

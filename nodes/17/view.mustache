@@ -1,10 +1,11 @@
-<div class="col-md-12 mb-2 bg-1">
-	<p>Select from the following:</p>
-	<div class="list-group">
-  {{#render.node_list}}
-  <a class="list-group-item" href="{{alias}}">
-    <span class="glyphicon glyphicon-file" aria-hidden="true"></span> {{title}}
-  </a>
-  {{/render.node_list}}
-  </div>
+<p>Pick a case study:</p>
+<div class="list-group">
+	{{#f.get_menu}}case-studies{{/f.get_menu}}
+	{{#menu.case-studies}}
+	{{#alias}}
+	<a class="list-group-item" href="{{alias}}">
+		<i class="material-icons">free_breakfast</i>&nbsp;&nbsp; {{title}}
+	</a>
+	{{/alias}}
+	{{/menu.case-studies}}
 </div>

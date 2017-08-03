@@ -1,10 +1,11 @@
 # Hoopless
-Rapidly develop beautiful websites without jumping through hoops using Hoopless, the modern lightweight content management system designed for web curators and web developers.
+Rapidly develop beautiful websites without jumping through hoops. Hoopless is the modern lightweight content management system designed for web curators and web developers.
 
 ## Features
 * Easy local server configuration via config files.
 * Built in themes to template site.
  * Mustache
+   * permalink
  * Bootstrap 4 Base Theme (responsive mobile first design)
  * Grunt Watch (Automatic minified JavaScript and SCSS files).
 * Designed for GIT workflow.
@@ -22,12 +23,13 @@ Rapidly develop beautiful websites without jumping through hoops using Hoopless,
 
 ## Future Development Plans
 ### Dynamic node links / permlink
-- [x] make links permanent even when page have moved by refrencing alais/node_id, e.g. href="{{perm_link.23}}"
 - [ ] have tiny mce show this all cool like.
 ### Theme updates
 - [x] Use PHP Mustache for themes
 - [x] Fix up nodes to use PHP Mustache and further Boostrap4 support
 - [ ] Change "mrheroux" theme to "default"
+- [x] Allow for datetime calls with Mustache {{f.date}}mm/dd/YYY{f.date}}
+- [x] Area specific alerts
 ### Node editor
 - [x] Finish authentication
 - [ ] Create admin panel set root user in config

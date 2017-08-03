@@ -12,12 +12,6 @@
 class instance_controller {
 	public $config; // 
 	private $raw_request;
-	private $href_cache = array(); // for link caching
-	public $cache = array(
-		'href' => array(),
-	);
-	private $hash_cache = array();
-	public $uri;
 	public $user = array(
 		'id' => null,
 		'authorized' => null,
@@ -35,17 +29,24 @@ class instance_controller {
 	public $website = array(
 		'theme' => 'default'
 	);
-	public $page = array();
-	public $breadcrumbs = array();
+	public $page = array(
+		'breadcrumbs' => array()
+	);
 	public $menu = array();
-	public $support = array();
-	public $year;
 	public $permalink = array();
 	public $alerts = array(
 		'types' => array('success','info','warning','danger')
 	);
 	public $render;
-	
+
+	// TODO: kill these
+	private $href_cache = array(); // for link caching
+	public $cache = array(
+		'href' => array(),
+	);
+	private $hash_cache = array();
+	public $uri;
+
 	// add to alert array
 	function alert($string, $type = 'info', $category = 'main'){
 		// add text
@@ -314,18 +315,6 @@ class instance_controller {
 				}
 			}
 		}
-
-		// load navigation menu
-		$results = $db->query(
-			'SELECT `menu_item`.`node_id` AS `id`,`menu_item`.`parent_id`,IF(`menu_item`.`title` IS NULL,`node`.`title`, `menu_item`.`title`) AS `title`, `node_alias`.`alias`
-			FROM `menu`
-			LEFT JOIN `menu_item` ON `menu`.`menu_id` = `menu_item`.`menu_id`
-			LEFT JOIN `node` ON `menu_item`.`node_id` = `node`.`node_id`
-			LEFT JOIN `node_alias` ON `menu_item`.`node_id` = `node_alias`.`node_id`
-			WHERE `menu`.`title` = \'top-menu\'
-			ORDER BY `menu_item`.`item_id` ASC'
-		);
-		$this->menu['navigation'] = $this->build_menu($this->build_tree($results),0);
 	}
 
 	private function user_get(){

@@ -1,30 +1,34 @@
 {
    "name":"MATT HEROUX",
    "email":"http://mrheroux.com/contact",
-   "objective":"Experienced full-stack web developer seeking opportunity to bring knowledge of project management and open source development.",
-   "skills":[
-      "Full-Stack Development",
-      "Responsive Web Design",
-      "Graphic Design",
-      "Project Management",
-      "Coding and Scripting",
-      "Documentation",
-      "Database Development",
-      "Troubleshooting and Debugging",
-      "Customer Relations"
-   ],
-   "other":[
+   "objective":"Project Lead - Full Stack Developer",
+   "description":"Experienced full-stack developer seeking opportunity to bring knowledge leading and developing open source web solutions to your team.",
+   "sections":[
+      {
+         "title" : "skills",
+		 "list" : [
+            "Full-Stack (Open Source) Development",
+            "Responsive Web Design",
+            "Graphic Design",
+            "Project Management",
+            "Coding and Scripting",
+            "Documentation",
+            "Database Development",
+            "Troubleshooting and Debugging",
+            "Customer Relations"
+         ]
+      },
       {
          "title":"Professional Experience",
-         "list":[
+         "array":[
             {
                "title":"Web Developer",
                "date":"2016 to Present",
-               "description":"Marlboro College (Liberal-Arts College) and Marlboro Graduate School — Marlboro and Brattleboro, Vermont.",
-               "list":[
+               "description":"Marlboro College (Liberal-Arts College) — Marlboro and Brattleboro, Vermont.",
+               "array":[
                   {
                      "title":"FULL-STACK DEVELOPMENT. Develop, design, maintain and manage college website applications and associated servers. Develop customized web applications to meet the academic and business needs of the institution.",
-                     "list":[
+                     "array":[
                         "Build, maintain, design and oversee all internal and external websites for the college including the web framework and associated databases;",
                         "Collaborate and coordinate with staff, faculty and students relative to content, applications, design, information architecture, structure, and user interface of college websites;",
                         "Redesign and enhance websites to improve the functionality, look, and utilization;",
@@ -38,10 +42,10 @@
                "title":"Lead Web Developer",
                "date":"2012 to 2016",
                "description":"JNH Environmental Services, Inc. (Turnkey EHS Services Provider) — Rutland and Brandon, Vermont.",
-               "list":[
+               "array":[
                   {
                      "title":"FULL-STACK DEVELOPMENT. Spearheaded both the front-end and back-end development of proprietary web services.",
-                     "list":[
+                     "array":[
                         "Enabled for the proper characterization, packaging, labeling, shipping, and tracking of thousands of hazardous shipments in United States and Canada annually through the development of a comprehensive waste management system.",
                         "Managed chemicals for facilities across the Continental United States through the development of a chemical/product management system, which manages safety data sheets, governs chemical approvals, generates GHS compliant product labels, inventories chemicals, tracks materials, etc.",
                         "Trained, assessed, certified, and managed records for thousands of individuals by programming an online learning system that offers courses that meet training requirements defined by clients and federal, state, and local regulations.",
@@ -54,7 +58,7 @@
                   },
                   {
                      "title":"PROJECT MANAGEMENT. Managed projects throughout all development phases.",
-                     "list":[
+                     "array":[
                         "Decreased development requirements by leading a team in the creation and maintenance of in-house mobile-friendly custom-written Content Management System (CMS) built primarily with PHP, MySQL, HTML5, CSS3, JavaScript, jQuery, BASH, and Git.",
                         "Reduced development costs and times by introducing Agile Development (including SCRUM) into company's pipeline.",
                         "Completed projects on time and within budget by effectively communicating with staff, subcontractors, vendors, and clientele."
@@ -62,7 +66,7 @@
                   },
                   {
                      "title":"ART DESIGN. Created assets to help promote the company's brand and products.",
-                     "list":[
+                     "array":[
                         "Revitalized company image by refining the company's logo and working with the USPTO on registration.",
                         "Increased client retention by designing a mailing list system and working with vendors to create promotional artwork and items including: shirts, signs, lanyards, pens, mouse pads, flash lights, mats, holiday cards (2013 to 2016), mugs, flash drives, et al.",
                         "Improved SEO ranking and creditability by revamping the company's main website with in-house CMS, Bootstrap, et al. technologies.",
@@ -71,14 +75,14 @@
                   },
                   {
                      "title":"HARDWARE. Researched, built, and maintained systems designed to support current needs and allow for growth.",
-                     "list":[
+                     "array":[
                         "Supported reliable web application design by selecting and managing web development back-end, including CentOS Linux servers.",
                         "Enabled employees to perform daily job duties by selecting, configuring, and/or maintaining company's infrastructure including: workstations, network configurations, NAS servers, VoIP systems, printers, fax machine, et al."
                      ]
                   },
                   {
                      "title":"ENGINEERING. Created engineering deliverables that were reviewed, approved, and certified by Professional Engineers.",
-                     "list":[
+                     "array":[
                         "Defined project requirements through requirements analysis, design, implementation, testing and evolution of products and through working with clients, consulting authorities, and learning applicable federal, state, and local regulations.",
                         "Fought to get clientele back on track by authoring site-specific plans, reports, and systems designed to meet applicable regulations.",
                         "Designed facility sitemaps to accompany deliverables using CAD (DraftSight), SketchUp, Kerkythea (Render), ZBrush, etc.",
@@ -90,11 +94,11 @@
             {
                "title":"Programmer Operator",
                "date":"2006 to 2011",
-               "description":"Leddy Group (Staffing Agency) / Questech® Corporation Decorative Accessories Manufacturer — Rutland, Vermont.",
-               "list":[
+               "description":"Leddy Group (Staffing Agency) / Questech® Corporation (Decorative Accessories Manufacturer) — Rutland, Vermont.",
+               "array":[
                   {
                      "title":"FULL-STACK (CLOSED SOURCE) DEVELOPMENT. Developed software applications and tools used on multiple abstraction layers.",
-                     "list":[
+                     "array":[
                         "Programmed RJ-32 FANUC® robotics systems to get manufacturing robots to meet manufacturer production requirements using VB.NET, .NET, FANUC® TP (self-taught), KAREL (self-taught), HTML5, CSS3, JavaScript, et al.",
                         "Replaced inefficient multiple programs process with single precise system that ran every part flawlessly; increased quality and allowed for the reduction of metal material costs by 50%; reduced setup times by 600%; reduced downtimes (e.g. unnecessary and/or slow movements, time spent enabling protective shield, etc.); virtually eliminated scrap even on warped parts; maximized production rates; increased buff wheel life by 300%; reduced compound usage by >50%, which reduced cleaning efforts; reduced operator knowledge requirements; protected the safety of employees through safety parameter checks; accounted for environmental variables such as material selection, part specification, wheels' dimensions, equipped jigs, et al.; etc.",
                         "Programmed GUI application using .NET that displayed robot's stats, allowed users to select input part settings (e.g. width, height, etc.), and featured rich web documentation to assist operators.",
@@ -108,10 +112,10 @@
                "title":"Web Developer / Game Developer",
                "date":"2004 to 2006",
                "description":"Small Startup Studio (Game Designer) — Online.",
-               "list":[
+               "array":[
                   {
                      "title":"FULL-STACK DEVELOPMENT. Managed a team of eight (8) developers to release orignal game for entry in PS2Dev competition.",
-                     "list":[
+                     "array":[
                         "Built development platform utilizing LAMP, Wordpress, phpBB, punBB, DokuWiki, et al. to enable users to collaborate effectively.",
                         "Authored Game Design Document, which defined requirements of the development.",
                         "Programmed 2D isometric game engine for Portable Sony PlayStation® primarily using Lua.",
@@ -125,7 +129,7 @@
                "title":"Layout Editor",
                "date":"2003",
                "description":"Lyndon Institute (Independent Publication) — Lyndon Center, Vermont.",
-               "list":[
+               "array":[
                   {
                      "title":"LAYOUT DESIGN: Arranged and balanced content for reoccurring publication using primarily Adobe® Illustrator."
                   }
@@ -135,10 +139,10 @@
       },
       {
          "title":"Teaching Experience",
-         "list":[
+         "array":[
             {
-               "title":"Marlboro College Graduate & Professional Studies — Brattleboro, Vermont.",
-               "description":"Guest Speaker - MAT603 Web Design and Media Production",
+               "title":"Marlboro College Graduate & Professional Studies (Graduate School) — Brattleboro, Vermont.",
+               "description":"Guest Speaker - MAT603 Web Design and Media Production.",
                "date":"October 9, 2016"
             },
             {
@@ -155,7 +159,7 @@
       },
       {
          "title":"Education",
-         "list":[
+         "array":[
             {
                "title":"Master of Science, major in Project Management",
                "description":"Marlboro College Graduate & Professional Studies, Marlboro, Vermont",
@@ -185,7 +189,7 @@
       },
       {
          "title":"Awards",
-         "list":[
+         "array":[
             {
                "title":"SkillsUSA Computer Programming",
                "description":"Programmed a banking system to win 2nd place in SkillsUSA State of Vermont competition for computer programming.",

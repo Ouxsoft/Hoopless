@@ -1,0 +1,138 @@
+{
+   "name":"DAVID J HEROUX",
+   "email":"http://djheroux.com/contact.html",
+   "objective":"Corporate EHS Specialist",
+   "description":"Experienced EHS Specialist seeking opportunity to bring knowledge regulatory knowledge to your facility.",
+   "sections":[
+      {
+         "title":"Certifications",
+         "list":[
+            "OSHA 30 General Industry",
+            "Environmental Specialist",
+            "NIMS ICS 100, 200, 700, 800",
+            "Fall Protection Awareness",
+            "Concussion Awareness and Prevention",
+            "Confined Space Entry - Construction",
+            "CPR - National Safety Council",
+            "IATA - Dangerous Goods Regulations",
+            "DOT - Hazardous Materials Regulations",
+            "RCRA - Hazardous Waste Management",
+            "GHS - Globally Harmonized System",
+            "First Aid - National Safety Council",
+            "First Aid, Health, and Safety - Red Cross"
+         ]
+      },
+      {
+         "title":"Professional Experience",
+         "array":[
+            {
+               "title":"Corporate EHS Specialist",
+               "date":"2016 to Present",
+               "description":"Ennis-Flint (Traffic Safety Solution Provider) — Continental United States.",
+               "array":[
+                  {
+                     "title":"EHS Management. Working to keep facilities in compliance and protect the health and safety of employees and the environment.",
+                     "array":[
+                        "Created the first in-house program that tracks and manages all of our transportation trucks across over the U.S. to be within compliance of DOT regulations; the program evolved to being used by almost all departments at the corporate offices.",
+                        "Visited our facilities spread throughout the U.S. with surprise or planned audits and worked with Plant Managers on addressing issues found throughout the facility and helped make safer practices for employees.",
+                        "Developed and established new corporate EH&S programs that more clearly represent company and OSHA standards and regulations for all facilities.",
+                        "Created, implemented, and lead SWPPP and SPCC programs for our new facilities including obtaining permits, conducting employee training, and demostrating best management practices."
+                     ]
+                  }
+               ]
+            },
+            {
+               "title":"EHS Specialist",
+               "date":"2013 to 2017",
+               "description":"JNH Environmental Services, Inc. (Turnkey EHS Services Provider) — Rutland and Brandon, Vermont.",
+               "array":[
+                  {
+                     "title":"EHS Consultant. Fought to get clientele back on track to meet applicable regulations.",
+                     "array":[
+                        "Lead manager for the EHS Compliance Center™, a proprietary system that tracks and updates safety data sheets, Global Harmonized System (GHS) labels, emissions, regulatory annual reports, et al.",
+                        "Tasked with traveling around the United States creating regulatory plans for manufacturing and power generation industries requiring compliance assistance, remediation, development, etc.",
+                        "Responsible for generating hazardous, universal, and non-hazardous inventories, waste information profiles, labels, and manifest; chemical constituents; and annual reports.",
+                        "Coordinated hazardous waste storage and transportation to treatment storage and disposal facilities while staying in compliance with federal, state, local, and tribal laws and regulations for United States and Canada.",
+                        "Managing online and face-to-face training seminars for Resource Conservation and Recovery Act (RCRA), Department  of  Transportation  (DOT)  Hazardous  Materials  Regulations,  Workplace  Safety,  Global  Harmonizing  System (GHS), and Bloodborne Pathogens.",
+                        "Conducted Audits, Mock OSHA Inspections, Risk Assessments, Safety Inspections, Stack Testing, Well Water Monitoring and Emergency Exercise Planning for Clients.",
+                        "Responsible for Annual Hazardous Waste Summaries, Form R, Tier II, Permit Renewals, NOI, Et al. for facilities.",
+                        "Created Heath and Safety Plans, coordinated scope of work, price proposals, budgets, and training while ensuring compliance with regulatory agencies for decontamination and industrial cleaning of facilities across the United States.",
+                        "Developed  Boilerplates  and  standards  for  JNH  Environmental  Services,  Inc.  which  turned  time  consuming  and complicated processes into more efficient, consistent, and reliable output of documents, plans, permits, and record keeping for employees and clients.",
+                        "Created Safety Data Sheets (SDS) for clients according to EU, Canadian WHMIS, and GHS guidelines ensuring they are up to date with regulations, PELs, toxicology, and ecological reports."
+                     ]
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "title":"Volunteer / Other Experience",
+         "array":[
+            {
+               "title":"USA Climbing Coach",
+               "description":"Green Mountain Rock Climbing Center",
+               "date":"2016 - 2017"
+            },
+            {
+               "title":"Agoge Spartan Race Assistant",
+               "description":"Vermont Adventure Tours",
+               "date":"2016 - 2017"
+            },
+            {
+               "title":"Assistant High School Climbing Coach",
+               "description":"Otter Valley Union High School",
+               "date":"2015 - 2017"
+            },
+            {
+               "title":"Personal Chef",
+               "description":"Freelance",
+               "date":"2011 - 2017"
+            }
+         ]
+      },
+      {
+         "title":"Relevant Skills",
+         "array":[
+            {
+               "title":"Software Proficiencies",
+               "description":"Microsoft Access, Microsoft Excel, Microsoft PowerPoint, Microsoft Word, Adobe Photoshop, Adobe Indesign, Adobe Lightroom, Adobe Dreamweaver, Adobe Illustrator, MySQL, HTML5, CSS, JavaScript, SDSPro, Moodle"
+            },
+            {
+               "title":"Leadership and Managment Experience",
+               "description":"Leadership and managing experience in building, creating, presenting, and executing programs for clients and employees."
+            },
+            {
+               "title":"Regulatory Knowledge",
+               "description":"Knowledgeable in the following acts, institutes, programs, systems, and regulatory agencies: ANSI, ASTM, CAA, CERCLA (Superfund), CEQ, CFR, CWA, DHS, DOL, DOT, EPA, EPCRA, FEMA, FIFRA, GHS, HMIS, IATA, ISO 14001 and 18001, NFPA, NIMS, NIOSH, OPA, OSHA, RCRA, TDG, TSCA, TRI"
+            }
+         ]
+      },
+	  {
+	     "title":"EHS Experience",
+         "list":[
+               "Consulting",
+			 "Permitting",
+			 "Regulatory Reporting",
+			 "5S",
+			 "Site Remediation",
+			 "Well Development",
+			 "Well Monitoring",
+			 "Stack Testing",
+			 "Environmental Site Assessments",
+			 "Emergency Contingency Plans",
+			 "Stormwater Pollution Prevention Plans",
+			 "Healthy and Safety Plans",
+			 "Safety Audits",
+			 "Industrial Hygiene Reports",
+			 "Training Programs",
+			 "Phase I II III",
+			 "Workplace Violence Prevention Programs",
+			 "Respiratory Protection Program",
+			 "Ergonomic Training",
+			 "Implementing Administrative Controls",
+			 "Process Safety Management",
+			 "Spill Prevention Control and Countermeasures Plans"
+			]
+	   }
+   ]
+}

@@ -13,6 +13,7 @@
 * locate php.ini
 * vim php.ini
 ** memory_limit = 32M
+
 ** upload_max_filesize = 15M
 ** post_max_size = 20M
 ** Apache with mod_rewrite

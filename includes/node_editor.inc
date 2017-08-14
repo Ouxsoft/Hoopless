@@ -1,5 +1,16 @@
 <?php
+$node_dir = 'nodes/' . $instance->page['current']['node_id']. '/';
+$node_files =  array_slice(scandir($node_dir),2);
+echo '<h1>Node Editor #'.$instance->page['current']['node_id'].'</h1>';
+echo '<form method="GET">';
+echo 'File: <select name="file" onchange="this.form.submit()">';
+foreach($node_files as $value){
+	echo '<option>'.$value.'</option>';
+}
+echo '</select>';
+echo '</form>';
 
+/*
 // add version history
 if($instance->verify()){
 	$file = 'nodes/'.$record_id.'/view.mustache';
@@ -20,10 +31,8 @@ if($instance->verify()){
 
 	$instance->render['file'] = htmlspecialchars(file_get_contents($file));
 }
+*/
 
-/*
-// edit json
-<?php
 function is_json($string) {
 	try {
 		json_decode($string);
@@ -72,8 +81,8 @@ $json_file = file_get_contents('nodes/' . $instance->page['current']['node_id'].
   </style>
 </head>
 <body>
-  <input type="button" value="Save" onclick="javascript:post('/resume-pdf', {JSON: editor.getText()});"/>
-
+  <input type="button" value="Save" onclick="javascript:post('<?php
+  echo $_GET['request'];//['alias'].'/edit'; ?>', {JSON: editor.getText()});"/>
 
 <div id="jsoneditor"></div>
 
@@ -118,4 +127,3 @@ $json_file = file_get_contents('nodes/' . $instance->page['current']['node_id'].
 </script>
 </body>
 </html>
-*/

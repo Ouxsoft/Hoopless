@@ -1,3 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+	{{> head}}
+	<body class="bg-body node-{{page.current.node_id}}">
+		<header>
+			{{> navbar-top}}
+			<div id="window-top">
+				<div class="container pt-5 pb-2 mb-2">
+					<h1>{{page.current.page_heading}}</h1>
+					{{> breadcrumb-trail}}
+				</div>
+			</div>
+		</header>
+		<div id="page" class="container">
+			<div class="row">
+				<!-- left column -->
+				<div class="col-sm-12 col-md-8 col-lg-9 bg-4">
+					{{#alerts.main}}
+					<div class="col-md-12 alert alert-{{type}}">
+						<a href="#" class="close" data-dismiss="alert" aria-label="close" title="Close">&times;</a>
+						{{value}}
+					</div>
+					{{/alerts.main}}
+
+
 <h2>Your Account</h2>
 {{#user.sign-in.banned}}
 <div class="alert alert-danger" role="alert">
@@ -30,3 +55,27 @@
 	</form>
 </div>
 {{/user.sign-in.banned}}
+
+					<div class="mt-1">
+						{{> share-buttons}}
+					
+					</div>
+    			</div>
+				{{> navbar-left}}
+			</div>
+		</div>
+
+		<a href="#0" class="cd-top cd-is-visible cd-fade-out">Top</a>
+
+		<!-- footer -->
+		<footer class="footer mt-3 pt-2 pb-2">
+			<div class="container">
+				<i class="material-icons">copyright</i> {{#f.date}}Y{{/f.date}} {{website.title}}. All rights reserved.
+				<a class="block" style="float:right" title="Validate HTML5" href="https://validator.w3.org/nu/?doc={{page.current.alias}}" target="_blank" rel="nofollow">HTML5 <i class="material-icons">check_circle</i></a>
+			</div>
+		</footer>
+		{{> includes}}
+	</body>
+</html>
+<!-- powered by Hoopless -->
+

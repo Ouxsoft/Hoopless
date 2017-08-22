@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 02, 2017 at 11:13 PM
+-- Generation Time: Aug 21, 2017 at 10:31 PM
 -- Server version: 5.7.18-0ubuntu0.16.04.1
 -- PHP Version: 7.0.18-0ubuntu0.16.04.1
 
@@ -269,13 +269,13 @@ INSERT INTO `menu_item` (`item_id`, `menu_id`, `node_id`, `parent_id`, `title`, 
 CREATE TABLE `node` (
   `node_id` int(11) NOT NULL,
   `parent_id` int(11) DEFAULT NULL,
+  `permission_id` int(11) DEFAULT NULL,
   `title` varchar(50) DEFAULT NULL,
   `page_heading` varchar(255) DEFAULT NULL,
   `meta_description` varchar(1000) DEFAULT NULL,
   `change_freq` enum('always','hourly','daily','weekly','monthly','yearly','never') NOT NULL DEFAULT 'weekly',
   `priority` decimal(2,1) DEFAULT '0.5',
-  `standalone` tinyint(4) DEFAULT NULL COMMENT 'header/footer disabled (1) enabled (null)',
-  `signin_required` tinyint(1) DEFAULT NULL,
+  `template` enum('default','view') DEFAULT 'default' COMMENT 'header/footer disabled (1) enabled (null)',
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -283,37 +283,36 @@ CREATE TABLE `node` (
 -- Dumping data for table `node`
 --
 
-INSERT INTO `node` (`node_id`, `parent_id`, `title`, `page_heading`, `meta_description`, `change_freq`, `priority`, `standalone`, `signin_required`, `timestamp`) VALUES
-(1, 0, 'Home', 'Full-Stack Developer', 'A full-stack developer\'s home', 'weekly', '1.0', 0, 0, '2017-04-22 22:59:03'),
-(2, 1, 'Portfolio', 'Portfolio', 'Works completed', 'weekly', '1.0', 0, 0, '2017-03-20 01:50:17'),
-(4, 1, 'Contact', 'Contact', 'Contact and connect', 'monthly', '0.5', 0, NULL, '2017-03-20 01:50:17'),
-(5, 33, 'Nodes', 'Nodes', 'Node Settings', 'weekly', '0.0', 0, NULL, '2017-03-20 01:50:17'),
-(6, 1, 'Users', 'Users', 'Change group permissions, account settings, create an account, manage user groups, send a message to another user, etc', 'weekly', '0.5', 0, 0, '2017-03-20 01:50:17'),
-(7, 6, 'Sign-in', 'Sign-in', 'Sign-in to your account.', 'weekly', '0.5', 0, NULL, '2017-04-17 03:29:56'),
-(8, 6, 'Settings', 'Settings', 'Update your settings', 'weekly', '0.5', 0, 1, '2017-03-20 01:50:17'),
-(9, 6, 'Sign Up', 'Sign Up', 'Sign up for an account', 'weekly', '0.5', 0, 0, '2017-03-20 01:50:17'),
-(10, 1, 'Site Map', 'Site Map', NULL, 'weekly', '0.5', 0, 0, '2017-03-20 01:50:17'),
-(11, 10, 'Sitemap XML', 'Sitemap XML', NULL, 'weekly', '0.5', 1, 0, '2017-03-20 01:50:17'),
-(12, 2, 'Web Development', 'Web Development', 'Web design and development', 'weekly', '0.7', 0, 0, '2017-03-20 01:50:17'),
-(13, 2, 'Art Design', 'Art Design', 'Art design', 'weekly', '0.5', 0, 0, '2017-03-20 01:50:17'),
-(14, 2, 'Robotics Development', 'Robotics Development', 'Robotics development', 'weekly', '0.5', 0, 0, '2017-03-20 01:50:17'),
-(15, 2, 'Game Design', 'Game Design', 'Game design', 'weekly', '0.5', 0, 0, '2017-03-20 01:50:17'),
-(16, 33, 'Development', 'Development', 'dev', 'weekly', '0.5', 0, 0, '2017-03-20 01:50:17'),
-(17, 1, 'Case Studies', 'Case Studies', 'Studies about a situation that have been studied over time.', 'weekly', '0.5', 0, 0, '2017-03-20 01:50:17'),
-(18, 17, 'Luck', 'Luck', 'luck', 'weekly', '0.5', 0, 0, '2017-07-09 20:00:47'),
-(19, 17, 'Afflictions', 'Afflictions', 'afflictions', 'weekly', '0.5', 0, 0, '2017-07-09 20:00:47'),
-(20, 17, 'Color Selection', 'Color Selection', 'color selection', 'weekly', '0.5', 0, 0, '2017-07-09 20:00:47'),
-(21, 17, 'Pair 10', 'Pair 10', NULL, 'monthly', '0.5', NULL, NULL, '2017-07-09 20:00:47'),
-(22, 17, 'Broadsword', 'Broadsword', 'Broadsword', 'weekly', '0.5', 0, NULL, '2017-07-09 20:00:47'),
-(23, 17, 'Instance', 'Instance', 'instance', 'weekly', '0.5', 0, NULL, '2017-07-09 20:00:47'),
-(25, 1, 'Search', 'Search', 'Search', 'weekly', '0.5', 0, 0, '2017-03-20 01:50:17'),
-(26, 17, 'Determining Square Root', 'Determining Square Root', 'Robot determining square root', 'weekly', '0.5', 0, NULL, '2017-07-09 20:00:47'),
-(27, 17, 'Solving Scrap', 'Solving Scrap', 'Robotics Solving Scrap', 'weekly', '0.5', 0, NULL, '2017-07-09 20:00:47'),
-(28, 17, 'Process Optimization', 'Process Optimization', 'Process Optimization', 'weekly', '0.5', 0, NULL, '2017-07-09 20:00:48'),
-(33, 1, 'Administration', 'Administration', 'Description', 'weekly', '0.5', 0, NULL, '2017-03-20 01:50:17'),
-(35, 5, 'Edit', 'Edit', 'Edit nodes', 'weekly', '0.5', 0, NULL, '2017-03-20 01:50:17'),
-(36, 1, 'Title', NULL, 'Description', 'weekly', '0.5', NULL, NULL, '2017-04-17 03:22:58'),
-(37, 3, 'Resume PDF', 'Resume', NULL, 'weekly', '0.5', 1, NULL, '2017-08-01 23:32:55');
+INSERT INTO `node` (`node_id`, `parent_id`, `permission_id`, `title`, `page_heading`, `meta_description`, `change_freq`, `priority`, `template`, `timestamp`) VALUES
+(1, 0, NULL, 'Home', 'Full-Stack Developer', 'A full-stack developer\'s home', 'weekly', '1.0', 'default', '2017-08-19 01:37:51'),
+(2, 1, NULL, 'Portfolio', 'Portfolio', 'Works completed', 'weekly', '1.0', 'default', '2017-08-19 01:38:10'),
+(4, 1, NULL, 'Contact', 'Contact', 'Contact and connect', 'monthly', '0.5', 'default', '2017-08-19 01:38:10'),
+(5, 33, NULL, 'Nodes', 'Nodes', 'Node Settings', 'weekly', '0.0', 'default', '2017-08-19 01:38:10'),
+(6, 1, NULL, 'Users', 'Users', 'Change group permissions, account settings, create an account, manage user groups, send a message to another user, etc', 'weekly', '0.5', 'default', '2017-08-19 01:38:10'),
+(7, 6, NULL, 'Sign-in', 'Sign-in', 'Sign-in to your account.', 'weekly', '0.5', 'default', '2017-08-19 01:38:10'),
+(8, 6, 4, 'Settings', 'Settings', 'Update your settings', 'weekly', '0.5', 'default', '2017-08-19 01:38:10'),
+(9, 6, NULL, 'Sign Up', 'Sign Up', 'Sign up for an account', 'weekly', '0.5', 'default', '2017-08-19 01:38:10'),
+(11, 10, NULL, 'Sitemap XML', 'Sitemap XML', NULL, 'weekly', '0.5', 'view', '2017-08-22 01:28:44'),
+(12, 2, NULL, 'Web Development', 'Web Development', 'Web design and development', 'weekly', '0.7', 'default', '2017-08-19 01:38:10'),
+(13, 2, NULL, 'Art Design', 'Art Design', 'Art design', 'weekly', '0.5', 'default', '2017-08-19 01:38:10'),
+(14, 2, NULL, 'Robotics Development', 'Robotics Development', 'Robotics development', 'weekly', '0.5', 'default', '2017-08-19 01:38:10'),
+(15, 2, NULL, 'Game Design', 'Game Design', 'Game design', 'weekly', '0.5', 'default', '2017-08-19 01:38:10'),
+(16, 33, NULL, 'Development', 'Development', 'dev', 'weekly', '0.5', 'default', '2017-08-19 01:38:10'),
+(17, 1, NULL, 'Case Studies', 'Case Studies', 'Studies about a situation that have been studied over time.', 'weekly', '0.5', 'default', '2017-08-19 01:38:10'),
+(18, 17, NULL, 'Luck', 'Luck', 'luck', 'weekly', '0.5', 'default', '2017-08-19 01:38:10'),
+(19, 17, NULL, 'Afflictions', 'Afflictions', 'afflictions', 'weekly', '0.5', 'default', '2017-08-19 01:38:10'),
+(20, 17, NULL, 'Color Selection', 'Color Selection', 'color selection', 'weekly', '0.5', 'default', '2017-08-19 01:38:10'),
+(21, 17, NULL, 'Pair 10', 'Pair 10', NULL, 'monthly', '0.5', 'default', '2017-08-19 01:39:10'),
+(22, 17, NULL, 'Broadsword', 'Broadsword', 'Broadsword', 'weekly', '0.5', 'default', '2017-08-19 01:38:10'),
+(23, 17, NULL, 'Instance', 'Instance', 'instance', 'weekly', '0.5', 'default', '2017-08-19 01:38:10'),
+(25, 1, NULL, 'Search', 'Search', 'Search', 'weekly', '0.5', 'default', '2017-08-19 01:38:10'),
+(26, 17, NULL, 'Determining Square Root', 'Determining Square Root', 'Robot determining square root', 'weekly', '0.5', 'default', '2017-08-19 01:38:10'),
+(27, 17, NULL, 'Solving Scrap', 'Solving Scrap', 'Robotics Solving Scrap', 'weekly', '0.5', 'default', '2017-08-19 01:38:10'),
+(28, 17, NULL, 'Process Optimization', 'Process Optimization', 'Process Optimization', 'weekly', '0.5', 'default', '2017-08-19 01:38:10'),
+(33, 1, NULL, 'Administration', 'Administration', 'Description', 'weekly', '0.5', 'default', '2017-08-19 01:38:10'),
+(35, 5, NULL, 'Edit', 'Edit', 'Edit nodes', 'weekly', '0.5', 'default', '2017-08-19 01:38:10'),
+(36, 1, NULL, 'Title', NULL, 'Description', 'weekly', '0.5', 'default', '2017-08-19 01:39:10'),
+(37, 3, NULL, 'Resume PDF', 'Resume', NULL, 'weekly', '0.5', NULL, '2017-08-19 01:39:11');
 
 -- --------------------------------------------------------
 
@@ -370,55 +369,6 @@ INSERT INTO `node_alias` (`alias_id`, `node_id`, `alias`, `retired`, `redirect_n
 (33, 35, '/admin/node/edit', NULL, NULL, NULL, '2017-05-26 12:35:01'),
 (34, 36, '/new-page', NULL, NULL, NULL, '2017-05-26 12:35:01'),
 (35, 37, '/resume-pdf', NULL, NULL, NULL, '2017-08-01 23:29:53');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `node_permission`
---
-
-CREATE TABLE `node_permission` (
-  `permission_id` int(11) NOT NULL,
-  `node_id` int(11) NOT NULL,
-  `state` enum('disabled','active','protected') CHARACTER SET utf8 NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `node_permission`
---
-
-INSERT INTO `node_permission` (`permission_id`, `node_id`, `state`) VALUES
-(1, 1, 'active'),
-(2, 2, 'active'),
-(3, 3, 'active'),
-(4, 4, 'active'),
-(5, 12, 'active'),
-(6, 13, 'active'),
-(7, 14, 'active'),
-(8, 15, 'active'),
-(9, 16, 'active'),
-(10, 17, 'active'),
-(11, 18, 'active'),
-(12, 19, 'active'),
-(13, 20, 'active'),
-(14, 21, 'active'),
-(15, 22, 'active'),
-(16, 23, 'active'),
-(36, 35, 'active'),
-(18, 25, 'active'),
-(19, 11, 'active'),
-(20, 26, 'active'),
-(21, 27, 'active'),
-(22, 28, 'active'),
-(23, 5, 'active'),
-(37, 36, 'active'),
-(25, 30, 'active'),
-(26, 31, 'active'),
-(27, 32, 'active'),
-(28, 33, 'active'),
-(29, 34, 'active'),
-(39, 37, 'active'),
-(38, 7, 'active');
 
 -- --------------------------------------------------------
 
@@ -577,10 +527,10 @@ INSERT INTO `tags` (`tag_id`, `title`, `last_modified`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Table structure for table `user`
 --
 
-CREATE TABLE `users` (
+CREATE TABLE `user` (
   `user_id` int(11) NOT NULL,
   `full_name` varchar(50) CHARACTER SET utf8 DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
@@ -606,10 +556,10 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `users`
+-- Dumping data for table `user`
 --
 
-INSERT INTO `users` (`user_id`, `full_name`, `email`, `company`, `job_title`, `lat`, `lng`, `street_address`, `locality`, `region`, `postal_code`, `country`, `office_number`, `fax_number`, `mobile_number`, `home_number`, `salt`, `password`, `timezone`, `dateformat`, `timeformat`, `timestamp`) VALUES
+INSERT INTO `user` (`user_id`, `full_name`, `email`, `company`, `job_title`, `lat`, `lng`, `street_address`, `locality`, `region`, `postal_code`, `country`, `office_number`, `fax_number`, `mobile_number`, `home_number`, `salt`, `password`, `timezone`, `dateformat`, `timeformat`, `timestamp`) VALUES
 (3, 'admin', 'admin@example.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, '686a6345c775992ef897e5e75b017bcd', '$6$50$MWonXqsDeUy7gjEz3FUlqWcrjAr2rB166sdK0/Ktc2lVykokmsvxbFKHwwYBwu4u3EMVJG6tb7LBR6gAFzcCn/', 'US/Eastern', 'F j, Y', 'g:i a', '2014-03-21 09:32:59');
 
 -- --------------------------------------------------------
@@ -619,7 +569,7 @@ INSERT INTO `users` (`user_id`, `full_name`, `email`, `company`, `job_title`, `l
 --
 
 CREATE TABLE `user_authentication` (
-  `id` int(11) NOT NULL,
+  `ua_id` int(11) NOT NULL,
   `user_id` int(11) DEFAULT NULL,
   `remote_address` varchar(255) DEFAULT NULL,
   `authenticated` tinyint(1) DEFAULT NULL,
@@ -634,7 +584,7 @@ CREATE TABLE `user_authentication` (
 -- Dumping data for table `user_authentication`
 --
 
-INSERT INTO `user_authentication` (`id`, `user_id`, `remote_address`, `authenticated`, `sign_in_time`, `sign_out_time`, `stay_signed_in`, `token`, `timestamp`) VALUES
+INSERT INTO `user_authentication` (`ua_id`, `user_id`, `remote_address`, `authenticated`, `sign_in_time`, `sign_out_time`, `stay_signed_in`, `token`, `timestamp`) VALUES
 (12, NULL, '127.0.0.1', 0, NULL, NULL, NULL, NULL, '2017-04-19 00:56:29'),
 (11, NULL, '127.0.0.1', 0, NULL, NULL, NULL, NULL, '2017-04-18 03:54:21'),
 (10, NULL, '127.0.0.1', 0, NULL, NULL, NULL, NULL, '2017-04-18 03:54:16'),
@@ -683,11 +633,11 @@ INSERT INTO `user_authentication` (`id`, `user_id`, `remote_address`, `authentic
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_groups`
+-- Table structure for table `user_group`
 --
 
-CREATE TABLE `user_groups` (
-  `id` int(11) NOT NULL,
+CREATE TABLE `user_group` (
+  `ug_id` int(11) NOT NULL,
   `name` varchar(100) CHARACTER SET utf8 NOT NULL,
   `description` text CHARACTER SET utf8,
   `grantable` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'Whether user can assign',
@@ -697,34 +647,104 @@ CREATE TABLE `user_groups` (
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `user_group`
+--
+
+INSERT INTO `user_group` (`ug_id`, `name`, `description`, `grantable`, `active`, `user_id`, `created`, `timestamp`) VALUES
+(1, 'admin', 'administrator', 0, 1, 3, '2017-08-13 20:32:14', '2017-08-14 00:32:14');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_group_members`
+-- Table structure for table `user_group_has_member`
 --
 
-CREATE TABLE `user_group_members` (
-  `id` int(11) NOT NULL,
+CREATE TABLE `user_group_has_member` (
+  `ugm_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `group_id` int(11) NOT NULL,
-  `active` tinyint(1) DEFAULT NULL,
-  `created` datetime DEFAULT NULL,
+  `start_date` datetime NOT NULL,
+  `end_date` datetime DEFAULT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user_group_has_member`
+--
+
+INSERT INTO `user_group_has_member` (`ugm_id`, `user_id`, `group_id`, `start_date`, `end_date`, `timestamp`) VALUES
+(1, 3, 1, '2017-08-13 00:00:00', NULL, '2017-08-14 00:32:52');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_group_permissions`
+-- Table structure for table `user_group_has_permission`
 --
 
-CREATE TABLE `user_group_permissions` (
-  `id` int(11) NOT NULL,
+CREATE TABLE `user_group_has_permission` (
+  `ugp_id` int(11) NOT NULL,
   `group_id` int(11) NOT NULL,
-  `page_id` int(11) NOT NULL,
-  `permission` tinyint(1) DEFAULT NULL,
+  `permission_id` varchar(25) NOT NULL,
+  `start_date` datetime NOT NULL,
+  `end_date` datetime DEFAULT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user_group_has_permission`
+--
+
+INSERT INTO `user_group_has_permission` (`ugp_id`, `group_id`, `permission_id`, `start_date`, `end_date`, `timestamp`) VALUES
+(1, 1, '1', '2017-08-13 20:34:45', NULL, '2017-08-14 00:34:45');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_has_permission`
+--
+
+CREATE TABLE `user_has_permission` (
+  `up_id` int(25) NOT NULL,
+  `user_id` int(25) NOT NULL,
+  `permission_id` int(25) NOT NULL,
+  `start_date` datetime DEFAULT CURRENT_TIMESTAMP,
+  `end_date` datetime DEFAULT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user_has_permission`
+--
+
+INSERT INTO `user_has_permission` (`up_id`, `user_id`, `permission_id`, `start_date`, `end_date`, `timestamp`) VALUES
+(1, 3, 1, '2017-08-13 00:00:00', NULL, '2017-08-14 00:05:46'),
+(2, 3, 2, '2017-08-13 00:00:00', NULL, '2017-08-14 00:05:46'),
+(3, 3, 3, '2017-08-13 00:00:00', NULL, '2017-08-14 00:05:46');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_permission`
+--
+
+CREATE TABLE `user_permission` (
+  `permission_id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `start_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `end_date` datetime DEFAULT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user_permission`
+--
+
+INSERT INTO `user_permission` (`permission_id`, `name`, `start_date`, `end_date`, `timestamp`) VALUES
+(1, 'node-json-edit', '2017-08-13 21:50:55', NULL, '2017-08-14 01:50:55'),
+(2, 'node-logic-edit', '2017-08-13 21:50:55', NULL, '2017-08-14 01:50:55'),
+(3, 'node-view-edit', '2017-08-13 22:02:49', NULL, '2017-08-14 02:02:49'),
+(4, 'signed-in', '2017-08-18 21:05:25', NULL, '2017-08-19 01:05:25');
 
 --
 -- Indexes for dumped tables
@@ -767,12 +787,6 @@ ALTER TABLE `node_alias`
   ADD PRIMARY KEY (`alias_id`);
 
 --
--- Indexes for table `node_permission`
---
-ALTER TABLE `node_permission`
-  ADD PRIMARY KEY (`permission_id`);
-
---
 -- Indexes for table `portfolio`
 --
 ALTER TABLE `portfolio`
@@ -797,34 +811,46 @@ ALTER TABLE `tags`
   ADD PRIMARY KEY (`tag_id`);
 
 --
--- Indexes for table `users`
+-- Indexes for table `user`
 --
-ALTER TABLE `users`
+ALTER TABLE `user`
   ADD PRIMARY KEY (`user_id`);
 
 --
 -- Indexes for table `user_authentication`
 --
 ALTER TABLE `user_authentication`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`ua_id`);
 
 --
--- Indexes for table `user_groups`
+-- Indexes for table `user_group`
 --
-ALTER TABLE `user_groups`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `user_group`
+  ADD PRIMARY KEY (`ug_id`);
 
 --
--- Indexes for table `user_group_members`
+-- Indexes for table `user_group_has_member`
 --
-ALTER TABLE `user_group_members`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `user_group_has_member`
+  ADD PRIMARY KEY (`ugm_id`);
 
 --
--- Indexes for table `user_group_permissions`
+-- Indexes for table `user_group_has_permission`
 --
-ALTER TABLE `user_group_permissions`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `user_group_has_permission`
+  ADD PRIMARY KEY (`ugp_id`);
+
+--
+-- Indexes for table `user_has_permission`
+--
+ALTER TABLE `user_has_permission`
+  ADD PRIMARY KEY (`up_id`);
+
+--
+-- Indexes for table `user_permission`
+--
+ALTER TABLE `user_permission`
+  ADD PRIMARY KEY (`permission_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -861,11 +887,6 @@ ALTER TABLE `node`
 ALTER TABLE `node_alias`
   MODIFY `alias_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 --
--- AUTO_INCREMENT for table `node_permission`
---
-ALTER TABLE `node_permission`
-  MODIFY `permission_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
---
 -- AUTO_INCREMENT for table `portfolio`
 --
 ALTER TABLE `portfolio`
@@ -886,30 +907,40 @@ ALTER TABLE `post_tags`
 ALTER TABLE `tags`
   MODIFY `tag_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT for table `user`
 --
-ALTER TABLE `users`
+ALTER TABLE `user`
   MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `user_authentication`
 --
 ALTER TABLE `user_authentication`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `ua_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 --
--- AUTO_INCREMENT for table `user_groups`
+-- AUTO_INCREMENT for table `user_group`
 --
-ALTER TABLE `user_groups`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `user_group`
+  MODIFY `ug_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT for table `user_group_members`
+-- AUTO_INCREMENT for table `user_group_has_member`
 --
-ALTER TABLE `user_group_members`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `user_group_has_member`
+  MODIFY `ugm_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT for table `user_group_permissions`
+-- AUTO_INCREMENT for table `user_group_has_permission`
 --
-ALTER TABLE `user_group_permissions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `user_group_has_permission`
+  MODIFY `ugp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `user_has_permission`
+--
+ALTER TABLE `user_has_permission`
+  MODIFY `up_id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `user_permission`
+--
+ALTER TABLE `user_permission`
+  MODIFY `permission_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

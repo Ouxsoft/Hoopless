@@ -1,9 +1,5 @@
 <?php
-/*
-User
-used to manage information about the current client
-*/
-
+// user :: controls client info
 class user {
     public $id;
     public $fullname;
@@ -21,8 +17,7 @@ class user {
 			'remainder' => 0, // the remainder of tries before banned equals true
 		)
 	);
-    //public $authorized = false;
-    
+
     function __construct(){
         $this->get_metadata();
         $this->get_permission();
@@ -34,33 +29,28 @@ class user {
         } else {
             global $db;
             // load user permissions and user group permissions
-            $db->bind('user_id1',$this->id);
-            $db->bind('user_id2',$this->id);
+            $db->bind('user_id_1',$this->id);
+            $db->bind('user_id_2',$this->id);
             $results = $db->query('
-                SELECT `permission`
-                FROM `user_permission`
-                WHERE `user_id` = :user_id1
-                AND `end_date` IS NULL
-                UNION
-                SELECT `permission` FROM `user_group_member` 
-                LEFT JOIN `user_group_permission` ON `user_group_member`.`group_id` = `user_group_permission`.`group_id`
-                WHERE `user_id` = :user_id2
-                AND `user_group_permission`.`end_date` IS NULL
-                AND `user_group_member`.`end_date` IS NULL;
+				SELECT `name` FROM (
+					SELECT `permission_id`
+						FROM `user_has_permission`
+						WHERE `user_id` = :user_id_1
+						AND `end_date` IS NULL
+					UNION
+					SELECT `permission_id` FROM `user_group_has_member` 
+						LEFT JOIN `user_group_has_permission` ON `user_group_has_member`.`group_id` = `user_group_has_permission`.`group_id`
+						WHERE `user_id` = :user_id_2
+						AND `user_group_has_permission`.`end_date` IS NULL
+						AND `user_group_has_member`.`end_date` IS NULL    
+				) AS `permissions`
+				LEFT JOIN `user_permission` ON `permissions`.`permission_id` = `user_permission`.`permission_id`
+			 	WHERE `user_permission`.`end_date` IS NULL
             ');
             foreach($results as $row){
                 $this->permission[] = $row['permission'];
             }
             return true;    
-        }
-    }
-
-    // $user->access('human-resources')
-    function access($key){
-        if(in_array($key, $this->permission)){
-            return true;
-        } else {
-            return false;
         }
     }
 
@@ -191,8 +181,29 @@ class user {
                         ');
 					}
 				}
-			}
-		}
+            }
+        }
         return false;
+	}
+
+	// check if user has permissions to access something
+    // $user->access('human-resources')
+    function has_permission($permission){
+		if($permission==NULL){
+			return true;
+		} else if(in_array($permission, $this->permission)){
+            return true;
+        } else {
+            return false;
+        }
+	}
+	
+	// check if user sign in
+	function signed_in(){
+		if($this->id==NULL){
+			return false;
+		} else {
+			return true;
+		}
 	}
 }

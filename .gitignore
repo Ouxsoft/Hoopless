@@ -4,6 +4,7 @@ resources/config/*.conf
 
 # ignore logs
 logs/*.*
+.vscode
 
 # ignore special assets
 assets/resume.pdf

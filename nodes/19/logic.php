@@ -81,10 +81,10 @@ class character {
 $player = new character();
 
 // set stats
-$instance->render['player_stat'] = array();
+$page->render['player_stat'] = array();
 foreach($player->stats as $key => $value){
 	$player->stats[$key]['current'] =  mt_rand(0,1);
-	$instance->render['player_stat'][] = array(
+	$page->render['player_stat'][] = array(
 		'key' => $key,
 		'value' => number_format($player->stats[$key]['current']/1 * 100, 2)
 	);
@@ -95,6 +95,6 @@ $player->vital_check();
 
 // set afflictions based on stats
 foreach($player->afflictions as $key => $value) {
-	$instance->render['player_afflictions'][] = $key;
+	$page->render['player_afflictions'][] = $key;
 }
 ?>

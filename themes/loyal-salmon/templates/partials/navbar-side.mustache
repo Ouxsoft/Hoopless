@@ -1,0 +1,44 @@
+<!-- navbar-side -->
+<div id="menu_navigation" class="col-md-4 col-lg-3">
+	<!-- top-menu -->
+	<ul class="accordion" id="exCollapsingNavbar3">
+		<li>
+			<div class="avatar">
+				<img src="/themes/{{config.theme}}/images/body/avatar.jpg" alt="avatar"/>
+				<br/>
+				Hi, I'm <b>Matt</b>.
+			</div>
+		</li>
+		{{#f.get_menu}}top-menu{{/f.get_menu}}
+		{{#menu.top-menu}}
+		<li>
+			{{^submenu}}
+			<a href="{{alias}}">{{title}}</a>
+			{{/submenu}}
+			{{#submenu}}
+			<a href="#" data-toggle="collapse" data-target="#menu_toggle{{id}}" data-parent="#left-nav1">
+				{{title}} <i class="material-icons"><span>arrow_drop_down</span></i>
+			</a>
+			<ul class="collapse" id="menu_toggle{{id}}">
+				{{#children}}
+				<li><a href="{{alias}}">{{title}}</a></li>
+				{{/children}}
+			</ul>
+			{{/submenu}}
+		</li>
+		{{/menu.top-menu}}
+	</ul>
+	<!-- /top-menu -->
+
+	<!-- communities -->
+	<div class="capsule">
+		<h3>Communities</h3><span class="capsule-div"></span>
+	</div>
+	<ul class="accordion">
+		<li><a href="https://github.com/mrheroux" target="_blank">Code Repository</a></li>
+		<li><a href="https://www.linkedin.com/in/mrheroux" target="_blank">Stay Connected</a></li>
+		<li><a href="http://stackoverflow.com/users/6701768/mrheroux" target="_blank">Contributions</a></li>
+	</ul>
+	<!-- /communities -->
+</div>
+<!-- /navbar-side -->

@@ -15,6 +15,11 @@
  $color_heading_1: #000;
  $color_dark_bg: #283E4A;
 
+code[class*="language-"], pre[class*="language-"]{
+    white-space: pre-wrap !important;
+    word-wrap: break-word !important;
+ }
+
 // Core variables and mixins
 @import "bootstrap-4.0.0/variables";
 @import "bootstrap-4.0.0/mixins";

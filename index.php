@@ -1,36 +1,35 @@
 <?php
-ini_set('error_reporting', E_ALL);
+// get rid of cloud don't use seasons :P
+session_start(); 
 
-session_start(); // get rid of cloud does use seasons
-
+require 'includes/log.inc';
 require 'includes/db.inc';
-require 'includes/instance.inc';
+require 'includes/request.inc';
 require 'includes/user.inc';
+require 'includes/page.inc';
 
-$instance = new instance();
+$log = new log();
+$db = new database();
+$request = new request(); 
 $user = new user();
+$page = new page();
 
 // load html_writter
-
-
-if($instance->page['current']['template']!=NULL){
+if($page->template!=NULL){
 	require 'includes/html_writer.inc';
 }
 
 // how was the node requested
-switch ($instance->page['action']){
-	case NULL:
-		$html_writer->render('default',$instance);
-		break;
+switch ($request->action){
 	case 'edit':
 		if($user->has_permission('edit')){
 			require 'nodes/interactions/edit.inc';
 			break;
 		} else {
  			if($user->signed_in()){
-				$html_writer->render('sign-in',$instance);
+				$html_writer->render('sign-in',$page);
 			} else {
-				$html_writer->render('access-denied',$instance);
+				$html_writer->render('access-denied',$page);
 			}
 		}
 	case 'blame':
@@ -38,36 +37,34 @@ switch ($instance->page['action']){
 			require 'nodes/interactions/blame.inc';
 		} else {
 			if($user->signed_in()){
-				$html_writer->render('sign-in',$instance);
+				$html_writer->render('sign-in',$page);
 			} else {
-				$html_writer->render('access-denied',$instance);
+				$html_writer->render('access-denied',$page);
 			}
 		}
 		break;
 	case 'view': 
 	default:
-	
 		//  if user has permission
-		if($user->has_permission($instance->page['current']['permission'])){
+		if($user->has_permission($page->permission)){
 			// process nodes logic, which might not exist
-			@include 'nodes/'.$instance->page['current']['node_id'].'/logic.php';
-			
+			@include 'nodes/'.$page->node_id.'/logic.php';
+		
 			// render view
-			if($instance->page['current']['template']==NULL){
+			if($page->template==NULL){
 				// without template, for e.g. pdf
-				echo $html_writer->render('view',$instance);
+				echo $html_writer->render('view',$page);
 			} else {
 				// with template specified
-				echo $html_writer->render($instance->page['current']['template'],$instance);
+				echo $html_writer->render($page->template,$page);
 			}
 		} else {
 			if($user->signed_in()){
-				$html_writer->render('sign-in',$instance);
+				$html_writer->render('sign-in',$page);
 			} else {
-				$html_writer->render('access-denied',$instance);
+				$html_writer->render('access-denied',$page);
 			}
 		}
 		break;
 }
-
 ?>

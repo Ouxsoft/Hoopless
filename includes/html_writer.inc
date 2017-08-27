@@ -4,14 +4,14 @@ require 'includes/Mustache/Autoloader.php';
 Mustache_Autoloader::register();
 
 // mustache functions (f)
-$instance->f = array(
+$page->f = array(
 	// date, e.g. {{#f.date}}Y{{/f.date}}
 	'date' => function($format) {
 		return date($format);
 	},
 	'get_menu' => function($menu) {
 		global $db;
-		global $instance;
+		global $page;
 		$db->bind('menu',$menu);
 		$results = $db->query('
 			SELECT `menu_item`.`node_id` AS `id`,`menu_item`.`parent_id`,`menu_item`.`title`, `node_alias`.`alias` 
@@ -21,13 +21,13 @@ $instance->f = array(
 			WHERE `menu`.`title` = :menu 
 			ORDER BY `menu_item`.`parent_id`,`menu_item`.`weight` DESC, `menu_item`.`title` ASC;
 		');
-		$instance->menu[$menu] = $instance->build_menu($instance->build_tree($results),0);
+		$page->menu[$menu] = $page->build_menu($page->build_tree($results));
 		return;
 	},
 
 	// permalinks, e.g. {{#f.link}}33&q=2&a=1&b=2&c=3#top{{/f.link}}
 	'link' => function($string, Mustache_LambdaHelper $helper) {
-		global $instance;
+		global $request;
 		// separate fragment identifier from remaining string
 		if (($pos = strpos($string, '#')) !== FALSE) {
 			list($string, $fragment_id) = explode('#',$string);
@@ -40,9 +40,9 @@ $instance->f = array(
 		$id = $alias_id.'?'.$parameters['q'];
 		$address = '';
 		// will have to add something spiffy to accomidate for no record_id but extra and visa versa
-		if(array_key_exists($id, $instance->cache['href'])){
+		if(array_key_exists($id, $request->cache['href'])){
 			// return cached need to build out remaining q
-			return $instance->cache['href'][$id].'#'.$fragment_id;
+			return $request->cache['href'][$id].'#'.$fragment_id;
 			// make smarter this if makes no sense
 		} else {
 			// look up and cache
@@ -59,9 +59,9 @@ $instance->f = array(
 			// PAGE?q=2&sa=r123GFESFT
 			if(isset($parameters['q'])){
 				$parameters['q'] = $helper->render($parameters['q']);
-				list(,,,$salt,$hash) = explode('$',crypt($node_id,'$6$rounds=5000$'.md5($parameters['q'].$instance->config['href_salt'].'$')));
+				list(,,,$salt,$hash) = explode('$',crypt($node_id,'$6$rounds=5000$'.md5($parameters['q'].$request->config['href_salt'].'$')));
 				$sa = urlencode($salt.$hash);
-				$instance->cache['href'][$id] = array(
+				$request->cache['href'][$id] = array(
 					'alias' => $alias,
 					'q' => $parameters['q'],
 					'sa' => $sa,
@@ -75,7 +75,7 @@ $instance->f = array(
 				$output .= '&amp;sa='.$sa.'#'.$fragment_id;
 				return $output;
 			} else {
-				$instance->cache['href'][$id] = $alias;
+				$request->cache['href'][$id] = $alias;
 				return $alias.$extra;
 			}
 		}
@@ -84,17 +84,16 @@ $instance->f = array(
 
 $mustache_loader = array();
 
-if($instance->page['current']['template']==NULL){
-
-} else if($instance->page['current']['template']=='view'){
+if($page->template==NULL){
+} else if($page->template=='view'){
 } else {
-	$mustache_loader[] = new Mustache_Loader_FilesystemLoader('themes/'.$instance->website['theme'].'/templates');
-	$mustache_loader[] = new Mustache_Loader_FilesystemLoader('themes/'.$instance->website['theme'].'/templates/partials');
+	$mustache_loader[] = new Mustache_Loader_FilesystemLoader('themes/'.$request->website['theme'].'/templates');
+	$mustache_loader[] = new Mustache_Loader_FilesystemLoader('themes/'.$request->website['theme'].'/templates/partials');
 }
-if($instance->page['current']['node_id']==0){
+if($page->node_id==0){
 	// do nothing
 } else {
-	$mustache_loader[] = new Mustache_Loader_FilesystemLoader('nodes/'.$instance->page['current']['node_id']);
+	$mustache_loader[] = new Mustache_Loader_FilesystemLoader('nodes/'.$page->node_id);
 }
 
 $html_writer = new Mustache_Engine(array('loader'=> new Mustache_Loader_CascadingLoader($mustache_loader)));

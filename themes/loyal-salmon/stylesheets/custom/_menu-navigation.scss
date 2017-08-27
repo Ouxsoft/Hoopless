@@ -39,6 +39,7 @@ ul.accordion {
 }
 #menu_navigation { 
 	.collapse {
+		display: none;
 	    //@include media-breakpoint-up(sm) {
 			display: block !important;
 		//}
@@ -46,7 +47,7 @@ ul.accordion {
     @include media-breakpoint-down(sm) {
 		position: absolute !important;
 		top: 0;
-		left: 0;
+		right: 0;
 		max-width: 20rem;
 		height: 100%;
 		background-color: lighten($color_accent,20%);
@@ -105,11 +106,17 @@ ul.accordion {
 			// background: rgba(40,62,74,0.121);
 			margin: 0;
 			padding: 0;
-			li {
-				a {
-					padding: 0.2em 0.2em 0.2em 1.5em;
+			&[aria-expanded="true"] {
+				li {
+					display: block;
+					a {
+						padding: 0.2em 0.2em 0.2em 1.5em;
+					}
+					font-size: 80%;	
 				}
-				font-size: 80%;
+			}
+			li {
+				display: none;
 			}
 		}
 		.avatar {

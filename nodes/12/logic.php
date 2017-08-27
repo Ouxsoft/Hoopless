@@ -23,9 +23,9 @@ function parse_stars($json) {
 	return $array;
 }
 
-$json_file = file_get_contents('nodes/' . $instance->page['current']['node_id']. '/data.json');
-$instance->render['data'] = json_decode($json_file, true);
+$json_file = file_get_contents($page->folder.'data.json');
+$page->render['data'] = json_decode($json_file, true);
 foreach(array('skills','tools','languages') as $value){
-	$instance->render['data'][$value] = parse_stars($instance->render['data'][$value]);
+	$page->render['data'][$value] = parse_stars($page->render['data'][$value]);
 }
 ?>

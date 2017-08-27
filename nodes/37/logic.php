@@ -115,7 +115,7 @@ if(isset($_GET['resume'])){
 	$data_file = 'default';
 }
 
-$json_file = file_get_contents('nodes/' . $instance->page['current']['node_id']. '/'. $data_file .'.json');
+$json_file = file_get_contents($page->folder.$data_file.'.json');
 $data = json_decode($json_file);
 
 // init page

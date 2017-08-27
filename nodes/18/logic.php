@@ -53,11 +53,11 @@ class character {
 }
 
 $player = new character();
-$instance->render['roll_example'] = array();
+$page->render['roll_example'] = array();
 
 for ($i = 0; $i < 10; $i++) {
 	$roll = $player->roll(100);
-	$instance->render['roll_example'][] = array(
+	$page->render['roll_example'][] = array(
 		'roll' => $roll,
 		'roll_max' => $player->roll['max'],
 		'roll_percent' => number_format($roll/$player->roll['max'] * 100, 2),

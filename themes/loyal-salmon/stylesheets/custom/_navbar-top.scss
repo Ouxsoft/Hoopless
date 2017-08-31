@@ -1,0 +1,72 @@
+.navbar-top {
+    .btn {
+        background-color: transparent;
+        border: none !important;
+        color: #6C7E8B;
+        padding-right: 0.21em;
+        padding-left: 0.21em;
+        &:hover, &:focus {
+            outline: none;
+            box-shadow: none;
+            cursor: pointer;
+            color: #FFF;
+        }
+        .material-icons {
+            &.md-18 { font-size: 18px; }
+            &.md-24 { font-size: 24px; }
+            &.md-36 { font-size: 36px; }
+            &.md-48 { font-size: 48px; }
+        }
+    }
+    #logo {
+        font-size: 2rem;
+        font-family:  'big-n-bold';
+        color: #6C7E8B;
+        &:hover {
+          text-decoration: none;
+        }
+        em {
+          color: #FFF;
+          font-style: normal;
+        }
+        &.shrink {
+          font-size: 1.5rem;
+        }
+      }
+      .search-box {
+        text-align: left !important;
+        outline: none;
+        -webkit-appearance: textfield;
+        -webkit-box-sizing: content-box;
+        font-family: inherit;
+        font-size: 0.8em;
+        background: #ededed url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+        border: solid 1px #ccc;
+        margin-top: 0.2em;
+        padding: 9px 10px 9px 32px;
+        margin: 0;
+        width: 100px;
+        -webkit-transition: all .25s;
+        -moz-transition: all .25s;
+        transition: all .25s;
+        &:focus {
+            padding: 9px 10px;
+            width: 400px;
+            background-image: none;
+            background-color: #fff;
+            border-color: #66CC75;
+            -webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
+            -moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
+            box-shadow: 0 0 5px rgba(109,207,246,.5);
+        }
+        &::-webkit-search-decoration, &::-webkit-search-cancel-button {
+            display: none; 
+        }
+        &:-moz-placeholder {
+            color: #999;
+        }
+        &::-webkit-input-placeholder {
+            color: #999;
+        }
+    }    
+}

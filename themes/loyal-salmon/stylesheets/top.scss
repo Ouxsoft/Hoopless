@@ -70,15 +70,14 @@ code[class*="language-"], pre[class*="language-"]{
 
 // theme custom
 @import "custom/social-networking";
+@import "custom/navbar-top";
 @import "custom/window-top";
 @import "custom/backgrounds";
-@import "custom/menu-navigation";
-@import "custom/logo";
+@import "custom/navbar-side";
 @import "custom/fonts";
 @import "custom/prism";
 @import "custom/capsule";
 @import "custom/sticky-footer";
 @import "custom/top-link";
 @import "custom/ability-score";
-@import "custom/search-box";
 @import "custom/blocks";

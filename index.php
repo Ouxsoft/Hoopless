@@ -50,6 +50,8 @@ switch ($request->action){
 			// process nodes logic, which might not exist
 			@include 'nodes/'.$page->node_id.'/logic.php';
 		
+
+
 			// render view
 			if($page->template==NULL){
 				// without template, for e.g. pdf

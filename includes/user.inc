@@ -1,12 +1,13 @@
 <?php
 // user :: controls client info
+// TODO : Consider retired
 class user {
     public $id;
     public $fullname;
     public $dateformat;
     public $timeformat;
     public $timezone;
-    private $permission = array();
+   	public $permission = array();
     public $auth = array(
 		'failure' => NULL, // was a sign-in failure detected
 		'banned' => NULL, // is remote address banned from sign-in form
@@ -19,11 +20,11 @@ class user {
 	);
 
     function __construct(){
-        $this->get_metadata();
-        $this->get_permission();
+        $this->load();
+        $this->load_permission();
     }
 
-    function get_permission() {
+    function load_permission() {
         if($this->id==NULL) {
             return false;
         } else {
@@ -48,42 +49,58 @@ class user {
 			 	WHERE `user_permission`.`end_date` IS NULL
             ');
             foreach($results as $row){
-                $this->permission[] = $row['permission'];
-            }
-            return true;    
+                $this->permission[] = $row['name'];
+			}
+            return true;
         }
     }
 
-    function get_metadata() {
-		global $db;
-		if(isset($_POST['user-sign-out'])&&($_POST['user-sign-out']==1)){
-			// sign out user if requested
-			if(isset($_SESSION['user']['id'])){
-				// add sign off record, which invalidates token
-				$db->bind('remote_address',$_SERVER['REMOTE_ADDR']);
-				$db->bind('user_id',$_SESSION['user']['id']);
-				$db->query('
-                    UPDATE `user_authentication` SET `sign_out_time` = NOW()
-					WHERE `remote_address` = :remote_address 
-                    AND `user_id` = :user_id 
-                    AND `sign_out_time` IS NULL
-                    LIMIT 1;
-                ');
-				unset($_SESSION['user']);
-			}
-			// destroy cookie
-			unset($_COOKIE['site_nosense']);
-			@setcookie('site_nosense', null, -1, '/');
+	function get_token(){
+		// change token strength and db based on security desired
+		// include these
+		// $this->id;
+		// $_SERVER['REMOTE_ADDR'];
+		// $token = crypt($_SERVER['HTTP_X_FORWARDED_FOR'].$_SERVER['REMOTE_ADDR'], '$1$r'.$this->salt(date('U')));
+		
+		return random_bytes(255);
+	}
+
+	function check_hash($password, $salt, $hash){
+		// TODO: customize
+		if($hash == crypt($password, '$6$50$'.$salt)){
+			return true;
+		} else {
+			return false;
 		}
-		if (isset($_SESSION['user']['id'])) {
-            // check for session
-            $this->id = $_SESSION['user']['id'];
-            $this->fullname = $_SESSION['user']['full_name'];
-            $this->dateformat = $_SESSION['user']['dateformat'];
-            $this->timeformat = $_SESSION['user']['timeformat'];
-            $this->timezone = $_SESSION['user']['timezone'];
-            return true;
-		} elseif (isset($_COOKIE['site_nosense'])) {
+	}
+
+	function set_metadata($data = NULL){
+		if (isset($data['user_id'])){
+			// set user meta data
+			$this->id = $data['user_id'];
+			$this->full_name = $data['full_name'];
+			$this->dateformat = $data['dateformat'];
+			$this->timeformat = $data['timeformat'];
+			$this->timezone = $data['timezone'];
+			return true;
+		} else {
+			// set user meta data
+			$this->id = NULL;
+			$this->full_name = NULL;
+			$this->dateformat = NULL;
+			$this->timeformat = NULL;
+			$this->timezone = NULL;
+			return false;
+		}
+	}
+
+    function load() {
+		global $db;
+
+		// check if user signed in and who user is
+		if (isset($_COOKIE['site_nosense'])) {
+			// TODO: come up with something cleaver technically token should be renewed on page load for non-remember tokens
+
 			// check for sign-in token
 			$db->bind('token',$_COOKIE['site_nosense']);
 			$db->bind('remote_address',$_SERVER['REMOTE_ADDR']);
@@ -96,93 +113,115 @@ class user {
 				AND `user_authentication`.`sign_out_time` IS NULL
                 LIMIT 1;
             ');
-			if (count($row) > 0){
-				$this->id = $_SESSION['user']['id'] = $row['user_id'];
-				$this->fullname = $_SESSION['user']['full_name'] = $row['full_name'];
-				$this->dateformat = $_SESSION['user']['dateformat'] = $row['dateformat'];
-				$this->timeformat = $_SESSION['user']['timeformat'] = $row['timeformat'];
-				$this->timezone = $_SESSION['user']['timezone'] = $row['timezone'];
-				return true;
+			if ($this->set_metadata($row)==false){
+				// destroy cookie
+				unset($_COOKIE['site_nosense']);
+				@setcookie('site_nosense', null, -1, '/');
 			}
-		} elseif (isset($_POST['sign_in'])) {
+		}
+
+		// check if sign out requested
+		if(isset($_POST['user-sign-out'])&&($_POST['user-sign-out']==1)){
+			// sign out user if requested
+			if(isset($this->id)){
+				// add sign off record, which invalidates token
+				$db->bind('remote_address',$_SERVER['REMOTE_ADDR']);
+				$db->bind('user_id',$this->id);
+				$db->query('
+                    UPDATE `user_authentication` SET `sign_out_time` = NOW()
+					WHERE `remote_address` = :remote_address 
+                    AND `user_id` = :user_id 
+                    AND `sign_out_time` IS NULL
+                    LIMIT 1;
+				');
+				$this->set_metadata();
+			}
+			// destroy cookie
+			unset($_COOKIE['site_nosense']);
+			@setcookie('site_nosense', null, -1, '/');
+		}
+
+		// check for sign-in
+		if (isset($_POST['sign_in'])) {
 			$this->auth['tries']['email'] = $_POST['sign_in']['email'];
-			// check for sign-in
+			
 			// check in banned due to brute force tries
 			$db->bind('remote_address',$_SERVER['REMOTE_ADDR']);
 			$this->auth['tries']['current'] = $db->single('
-                SELECT COUNT(`id`)
+                SELECT COUNT(`ua_id`)
 				FROM `user_authentication`
 				WHERE `timestamp` > date_sub(now(), INTERVAL 30 MINUTE) 
                 AND `authenticated` = 0 
                 AND `remote_address` = :remote_address
                 LIMIT 5;
-            ');
+			');
 			if(is_numeric($this->auth['tries']['current'])){
 				$this->auth['tries']['remainder'] = $this->auth['tries']['max'] - $this->auth['tries']['current'];
+				// if no tries remaining ban user
+				if($this->auth['tries']['remainder']<=0){
+					$this->auth['banned'] = true;
+					return false;
+				}	
 			} else {
 				$this->auth['tries']['remainder'] = 0;
 			}
-			if($this->auth['tries']['remainder']<=0){
-				$this->auth['banned'] = true;
-			} else {
-				// trying to sign-in salt and password for check
-				// check if user exist
-				$db->bind('email', $this->auth['tries']['email']);
-				$row = $db->row('
-                    SELECT `user_id`, `full_name`, `dateformat`, `timeformat`, `timezone`, `salt`, `password` 
-                    FROM `user` 
-                    WHERE `email` = :email 
-                    LIMIT 1;
-                ');
-				if ($row==null){
-					$this->auth['failure'] = true;
-					// brute force protection
-					$db->bind('remote_address',$_SERVER['REMOTE_ADDR']);
-					$db->bind('user_id',null);
-					$db->bind('authenticated',0);
-					$db->query('
-                        INSERT INTO `user_authentication` (`id`, `remote_address`, `user_id`, `authenticated`, `timestamp`) VALUES (NULL, :remote_address, :user_id, :authenticated, CURRENT_TIMESTAMP)
-                    ');
+			
+			// check if user exist
+			$db->bind('email', $this->auth['tries']['email']);
+			$row = $db->row('
+                SELECT `user_id`, `full_name`, `dateformat`, `timeformat`, `timezone`, `salt`, `password` AS `hash` 
+                FROM `user` 
+                WHERE `email` = :email 
+                LIMIT 1;
+			');
+			
+			// if user does not exist insert record of failed attempt 
+			if (!isset($row['user_id'])||($row['user_id']==null)){
+				// brute force protection
+				$this->auth['failure'] = true;
+				$db->bind('remote_address',$_SERVER['REMOTE_ADDR']);
+				$db->bind('user_id',null);
+				$db->bind('authenticated',0);
+				$db->query('
+                   INSERT INTO `user_authentication` (`id`, `remote_address`, `user_id`, `authenticated`, `timestamp`) VALUES (NULL, :remote_address, :user_id, :authenticated, CURRENT_TIMESTAMP)
+				');
+				return false;
+			// trying to sign-in salt and password for check
+			} else if($this->check_hash($_POST['sign_in']['password'],$row['salt'],$row['hash'])){
+				// set user data
+				$this->set_metadata($row);
+				
+				// add login record
+				$token = $this->get_token();
+				$db->bind('remote_address', $_SERVER['REMOTE_ADDR']);
+				$db->bind('user_id',$this->id);
+				$db->bind('authenticated',1);
+				$db->bind('token',$token);
+				if(isset($_POST['sign_in']['remember'])&&($_POST['sign_in']['remember']=='true')){
+					$db->bind('stay_signed_in',1);
+					setcookie('site_nosense', $token, time() + (86400 * 30), '/');
 				} else {
-					if($row['password'] == crypt($_POST['sign_in']['password'], '$6$50$'.$row['salt'])){
-						unset($row['salt']);
-						unset($row['password']);                   
-                        $this->id = $_SESSION['user']['id'] = $row['user_id'];
-                        $this->fullname = $_SESSION['user']['full_name'] = $row['full_name'];
-                        $this->dateformat = $_SESSION['user']['dateformat'] = $row['dateformat'];
-                        $this->timeformat = $_SESSION['user']['timeformat'] = $row['timeformat'];
-                        $this->timezone = $_SESSION['user']['timezone'] = $row['timezone'];
+					$db->bind('stay_signed_in',0);
+					setcookie('site_nosense', $token, time() + (86400 * 30), '/');
+				}						
+				$db->query('
+					INSERT INTO `user_authentication` (`ua_id`, `remote_address`, `user_id`, `authenticated`, `sign_in_time`, `sign_out_time`, `stay_signed_in`, `token`, `timestamp`)
+                    VALUES (NULL, :remote_address, :user_id, :authenticated, NOW(), NULL, :stay_signed_in,:token, CURRENT_TIMESTAMP);
+				');
 
-						$db->bind('remote_address', $_SERVER['REMOTE_ADDR']);
-						$db->bind('user_id',$this->id);
-						$db->bind('authenticated',1);
-						if(isset($_POST['sign_in']['remember'])&&($_POST['sign_in']['remember']=="true")){
-							$db->bind("stay_signed_in",1);
-							$token = crypt($_SERVER['HTTP_X_FORWARDED_FOR'].$_SERVER['REMOTE_ADDR'], '$1$r'.$this->salt(date("U")));
-							setcookie('site_nosense', $token, time() + (86400 * 30), '/');
-							$db->bind('token',$token);
-						} else {
-							$db->bind('token',null);
-							$db->bind('stay_signed_in',0);
-						}
-						$db->query('
-                            INSERT INTO `user_authentication` (`id`, `remote_address`, `user_id`, `authenticated`, `sign_in_time`, `sign_out_time`, `stay_signed_in`, `token`, `timestamp`)
-                            VALUES (NULL, :remote_address, :user_id, :authenticated, NOW(), NULL, :stay_signed_in, :token, CURRENT_TIMESTAMP);
-                        ');
-						return true;
-					} else {
-						// show authorication failed and add brute force protection record
-						$this->auth['failure'] = true;
-						$db->bind('remote_address',$_SERVER['REMOTE_ADDR']);
-						$db->bind('user_id',$row['user_id']);
-						$db->bind('authenticated',0);
-						$db->query('
-                            INSERT INTO `user_authentication` (`id`, `remote_address`, `user_id`, `authenticated`, `timestamp`) VALUES (NULL, :remote_address, :user_id, :authenticated, CURRENT_TIMESTAMP)
-                        ');
-					}
-				}
-            }
-        }
+				return true;
+			// show authentication failed and add brute force protection record
+			} else {
+				$this->auth['failure'] = true;
+				$db->bind('remote_address',$_SERVER['REMOTE_ADDR']);
+				$db->bind('user_id',$row['user_id']);
+				$db->bind('authenticated',0);
+				$db->query('
+					INSERT INTO `user_authentication` (`id`, `remote_address`, `user_id`, `authenticated`, `timestamp`) VALUES (NULL, :remote_address, :user_id, :authenticated, CURRENT_TIMESTAMP)
+                ');
+			}
+		}
+		
         return false;
 	}
 

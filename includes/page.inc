@@ -12,7 +12,12 @@ class page {
 	public function __construct($identifier = NULL){
         global $db;
 		global $request;
+		global $user;
 		
+		// TODO: consider inheritance
+		// set renderable user info
+		@$this->user['full_name'] = $user->full_name;
+
 		if($identifier == NULL){
 			$identifier = $request->page_address;
 			$this->config = $request->config;

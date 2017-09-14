@@ -1,5 +1,5 @@
 <?php
-$instance->years['experience'] = date('Y')-2002
+$page->years_spent_developing = date('Y')-2002
 
 /*
 What exactly does that involve?

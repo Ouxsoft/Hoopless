@@ -3,24 +3,24 @@
 		<div class="row">
 			<div class="col-sm-3">
 				<a id="logo" href="/" title="Home">
-		<span class="hidden-sm-down">Mr</span><em>Heroux</em>
+					<span class="hidden-sm-down">Mr</span><em>Heroux</em>
 				</a>
 			</div>
 			<div class="col-sm-9 text-right">
-				<form method="post" style="display:inline;" name="user-sign-out" id="user-sign-out" enctype="multipart/form-data">
+				<form method="post" name="user-sign-out" id="user-sign-out" enctype="multipart/form-data">
 					{{#user.full_name}}
-					<a href="{{#f.link}}33&q={{node_id}}&a=1&b=2&c=3#top{{/f.link}}" class="btn btn-secondary navbar-right">
-						Edit
-					</a>
 					<div class="dropdown" style="display:inline;">
 						<input type="hidden" name="user-sign-out" value="1"/>
 						<button class="btn btn-secondary dropdown-toggle" type="button" id="user-menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-  							<span class="glyphicon glyphicon-user"></span> {{user.full_name}}
+  							<i class="material-icons md-24">account_circle</i> <span style="text-transform: capitalize;">{{user.full_name}}</span>
 						</button>
 						<div class="dropdown-menu" aria-labelledby="user-menu">
   							<button type="submit" form="user-sign-out" value="Submit" class="dropdown-item">Sign out</button>
 			  		  	</div>
 					</div>
+					<a href="{{#f.link}}33&q={{node_id}}&a=1&b=2&c=3#top{{/f.link}}" class="btn btn-secondary navbar-right">
+						Edit
+					</a>
 					{{/user.full_name}}
 				</form>
 				<form method="get" action="/search">
@@ -28,6 +28,7 @@
 					{{^user.full_name}}
 					<button class="btn" type="button" onclick="location.href='/users/sign-in';">
 						<i class="material-icons md-24">account_circle</i>
+						{{user.full_name}}
 					</button>
 					{{/user.full_name}}
 					<button class="btn hidden-md-up" type="button" data-toggle="collapse" data-target="#menu_navigation" aria-expanded="false" aria-controls="menu_navigation">

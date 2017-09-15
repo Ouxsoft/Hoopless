@@ -15,43 +15,49 @@ $user = new user();
 $page = new page();
 
 // load html_writter
-if($page->template!=NULL){
-	require 'includes/html_writer.inc';
-}
 
 // how was the node requested
 switch ($request->action){
 	case 'edit':
-		if($user->has_permission('edit')){
-			require 'nodes/interactions/edit.inc';
-			break;
+
+//"node-json-edit"
+//"node-logic-edit"
+//"node-view-edit"
+
+		if($user->has_permission('node-view-edit')){
+			require 'includes/html_writer.inc';
+			require 'node_interactions/edit.inc';
+			echo $html_writer->render('node-edit',$page);
 		} else {
- 			if($user->signed_in()){
-				$html_writer->render('sign-in',$page);
+			if($user->signed_in()){	
+				echo $html_writer->render('sign-in',$page);
 			} else {
-				$html_writer->render('access-denied',$page);
+				echo $html_writer->render('access-denied',$page);
 			}
 		}
+		break;
 	case 'blame':
 		if($user->has_permission('blame')){
 			require 'nodes/interactions/blame.inc';
 		} else {
 			if($user->signed_in()){
-				$html_writer->render('sign-in',$page);
+				echo $html_writer->render('sign-in',$page);
 			} else {
-				$html_writer->render('access-denied',$page);
+				echo $html_writer->render('access-denied',$page);
 			}
 		}
 		break;
 	case 'view': 
 	default:
+	if($page->template!=NULL){
+		require 'includes/html_writer.inc';
+	}
+	
 		//  if user has permission
 		if($user->has_permission($page->permission)){
 			// process nodes logic, which might not exist
 			@include 'nodes/'.$page->node_id.'/logic.php';
 		
-
-
 			// render view
 			if($page->template==NULL){
 				// without template, for e.g. pdf
@@ -62,9 +68,9 @@ switch ($request->action){
 			}
 		} else {
 			if($user->signed_in()){
-				$html_writer->render('sign-in',$page);
+				echo $html_writer->render('sign-in',$page);
 			} else {
-				$html_writer->render('access-denied',$page);
+				echo $html_writer->render('access-denied',$page);
 			}
 		}
 		break;

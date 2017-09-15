@@ -1,4 +1,7 @@
 <?php
+/* 
+contains information related to the page that is used to identify the page and for rendering
+*/
 class page {
 	public $node_id; // e.g. : 23
 	public $address; // absolute, e.g. : https://example.com/use-cases/ge/ehs
@@ -51,7 +54,6 @@ class page {
 			$this->node_id = $row['node_id'];
 			$this->alias = $row['alias'];
 			$this->address = $row['alias'];
-			$this->action = 'view';
 			$this->permission = $row['permission'];
 			$this->title = $row['title'];
 
@@ -68,9 +70,6 @@ class page {
 		    	    $this->template = $row['template'];
 					$this->heading = $row['heading'];
 					$this->meta_description = $row['meta_description'];
-
-			        // action = 'view';
-                    // uri
 				}
 				
 				// load breadcrumb

@@ -42,7 +42,16 @@ $page->f = array(
 		// will have to add something spiffy to accomidate for no record_id but extra and visa versa
 		if(array_key_exists($id, $request->cache['href'])){
 			// return cached need to build out remaining q
-			return $request->cache['href'][$id].'#'.$fragment_id;
+			$uri = $request->cache['href'][$id]['alias'];
+			if(isset($request->cache['href'][$id]['q'])){
+				$uri .= '&q='.$request->cache['href'][$id]['q'];				
+			}
+			if(isset($request->cache['href'][$id]['q'])){
+				$uri .= '&sa='.$request->cache['href'][$id]['sa'];				
+			}
+			if(isset($fragment_id)){
+				$uri .= '#'.$fragment_id;
+			}
 			// make smarter this if makes no sense
 		} else {
 			// look up and cache
@@ -83,13 +92,16 @@ $page->f = array(
 );
 
 $mustache_loader = array();
-
-if($page->template==NULL){
-} else if($page->template=='view'){
+if($request->action=='view'){
+	if($page->template!=NULL){
+		$mustache_loader[] = new Mustache_Loader_FilesystemLoader('themes/'.$request->website['theme'].'/templates');
+		$mustache_loader[] = new Mustache_Loader_FilesystemLoader('themes/'.$request->website['theme'].'/templates/partials');
+	}//	}||($page->template=='view'){
 } else {
 	$mustache_loader[] = new Mustache_Loader_FilesystemLoader('themes/'.$request->website['theme'].'/templates');
 	$mustache_loader[] = new Mustache_Loader_FilesystemLoader('themes/'.$request->website['theme'].'/templates/partials');
 }
+
 if($page->node_id==0){
 	// do nothing
 } else {

@@ -11,7 +11,7 @@
 						{{value}}
 					</div>
 				{{/alerts.contact-name}}
-				<input name="contact[name]" id="name" value="{{render.contact.name}}" class="form-control" placeholder="Enter name" aria-required="true"/>
+				<input name="contact[name]" id="name" value="{{contact.name}}" class="form-control" placeholder="Enter name" aria-required="true"/>
 			</fieldset>
 
 			<fieldset class="form-group">
@@ -22,12 +22,12 @@
 						{{value}}
 					</div>
 				{{/alerts.contact-email}}
-				<input name="contact[email]" id="email" value="{{render.contact.email}}" type="email" class="form-control"  placeholder="Enter email" aria-required="true"/>
+				<input name="contact[email]" id="email" value="{{contact.email}}" type="email" class="form-control"  placeholder="Enter email" aria-required="true"/>
 			</fieldset>
 
 			<fieldset class="form-group">
 				<label for="subject" style="display: block;">Subject:<div style="float:right">(optional)</div> </label>
-				<input name="contact[subject]" id="subject" value="{{render.contact.subject}}" class="form-control" placeholder="Enter subject"/>
+				<input name="contact[subject]" id="subject" value="{{contact.subject}}" class="form-control" placeholder="Enter subject"/>
 			</fieldset>
 
 			<fieldset class="form-group">
@@ -38,7 +38,7 @@
 						{{value}}
 					</div>
 				{{/alerts.contact-msg}}
-				<textarea name="contact[message]" id="message" class="form-control" placeholder="Enter message" aria-required="true">{{render.contact.message}}</textarea>
+				<textarea name="contact[message]" id="message" class="form-control" placeholder="Enter message" aria-required="true">{{contact.message}}</textarea>
 			</fieldset>
 
 			<fieldset class="form-group">

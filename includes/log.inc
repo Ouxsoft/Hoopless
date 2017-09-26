@@ -2,7 +2,6 @@
 // log : retains record for system admin
 class log {
 	private $path = 'logs/';
-	public $alerts = array('types' => array('success','info','warning','danger'));
 	
 	public function __construct() {}
 
@@ -28,24 +27,5 @@ class log {
 		$logcontent = 'Time : '.$date->format('H:i:s').PHP_EOL.$message.PHP_EOL.PHP_EOL;
 		$logcontent = $logcontent . file_get_contents($log);
 		file_put_contents($log, $logcontent);
-	}
-
-	public function alert(string $string, string $type = 'info', string $category = 'main'){
-		// add text
-		if(isset($this->alerts[$category]['value'])){
-			$this->alerts[$category]['value'] .= ' '.$string;
-		} else {
-			$this->alerts[$category]['value'] = $string;
-		}
-		// add type
-		if(isset($this->alerts[$category]['type'])){
-			$a = array_search($this->alerts[$category]['type'], $this->alerts['types']);
-			$b = array_search($type, $this->alerts['types']);
-			if($a < $b){
-				$this->alerts[$category]['type'] = $type;
-			}
-		} else {
-			$this->alerts[$category]['type'] = $type;
-		}
 	}
 }

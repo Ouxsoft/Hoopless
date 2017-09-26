@@ -4,7 +4,7 @@ require 'includes/Mustache/Autoloader.php';
 Mustache_Autoloader::register();
 
 // mustache functions (f)
-$page->f = array(
+$render->f = array(
 	// date, e.g. {{#f.date}}Y{{/f.date}}
 	'date' => function($format) {
 		return date($format);
@@ -12,6 +12,7 @@ $page->f = array(
 	'get_menu' => function($menu) {
 		global $db;
 		global $page;
+		global $render;
 		$db->bind('menu',$menu);
 		$results = $db->query('
 			SELECT `menu_item`.`node_id` AS `id`,`menu_item`.`parent_id`,`menu_item`.`title`, `node_alias`.`alias` 
@@ -21,7 +22,7 @@ $page->f = array(
 			WHERE `menu`.`title` = :menu 
 			ORDER BY `menu_item`.`parent_id`,`menu_item`.`weight` DESC, `menu_item`.`title` ASC;
 		');
-		$page->menu[$menu] = $page->build_menu($page->build_tree($results));
+		$render->menu[$menu] = $page->build_menu($page->build_tree($results));
 		return;
 	},
 
@@ -93,13 +94,13 @@ $page->f = array(
 
 $mustache_loader = array();
 if($request->action=='view'){
-	if($page->template!=NULL){
-		$mustache_loader[] = new Mustache_Loader_FilesystemLoader('themes/'.$request->website['theme'].'/templates');
-		$mustache_loader[] = new Mustache_Loader_FilesystemLoader('themes/'.$request->website['theme'].'/templates/partials');
-	}//	}||($page->template=='view'){
+	if($render->template!=NULL){
+		$mustache_loader[] = new Mustache_Loader_FilesystemLoader('themes/'.$CFG['theme'].'/templates');
+		$mustache_loader[] = new Mustache_Loader_FilesystemLoader('themes/'.$CFG['theme'].'/templates/partials');
+	}//	}||($render->template=='view'){
 } else {
-	$mustache_loader[] = new Mustache_Loader_FilesystemLoader('themes/'.$request->website['theme'].'/templates');
-	$mustache_loader[] = new Mustache_Loader_FilesystemLoader('themes/'.$request->website['theme'].'/templates/partials');
+	$mustache_loader[] = new Mustache_Loader_FilesystemLoader('themes/'.$CFG['theme'].'/templates');
+	$mustache_loader[] = new Mustache_Loader_FilesystemLoader('themes/'.$CFG['theme'].'/templates/partials');
 }
 
 if($page->node_id==0){

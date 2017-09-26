@@ -1,5 +1,5 @@
 <?php
-$page->years_spent_developing = date('Y')-2002
+$render->years_spent_developing = date('Y')-2002
 
 /*
 What exactly does that involve?

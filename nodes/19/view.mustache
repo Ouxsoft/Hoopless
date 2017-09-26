@@ -13,7 +13,7 @@
 	</h3>
 	<h4>Character Stats</h4>
 	<div class="row">
-		{{#render.player_stat}}
+		{{#player_stat}}
 		<div class="col-md-4">
 			{{key}}
 			<div class="progress">
@@ -22,12 +22,12 @@
 				</div>
 			</div>
 		</div>
-		{{/render.player_stat}}
+		{{/player_stat}}
 	</div>
 	<h3>Character Afflictions</h3>
-	{{#render.player_afflictions}}
+	{{#player_afflictions}}
 		<span class="badge badge-default">{{.}}</span>
-	{{/render.player_afflictions}}
+	{{/player_afflictions}}
 </div>
 
 <div class="col-md-12 mb-2 bg-1">

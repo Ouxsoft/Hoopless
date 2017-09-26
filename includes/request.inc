@@ -3,7 +3,6 @@
 
 // request :: controls the web request
 class request {
-	public $config;
 	public $raw_request;
 	public $website = array('theme' => 'default');
 	public $permalink = array();
@@ -44,26 +43,11 @@ class request {
 		$this->page_address = $alias;
 	}
 
-	// get config file
-	public function get_config(string $file){
-		return parse_ini_file('resources/config/'.$file.'.conf');	
-	}
 
 	// constuct
 	public function __construct(){
 		global $db;
 		global $user;
-
-		$this->config = $this->get_config('settings');
-		date_default_timezone_set($this->config['timezone']);
-
-		$this->website = array(
-			'title' => $this->config['title'],
-			'abbreviation' => $this->config['abbreviation'],
-			'theme' => $this->config['theme'],
-			'email' => $this->config['email'],
-			'server' => $this->config['server'],
-		);
 
 		// establish primary database connection
 

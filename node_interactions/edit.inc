@@ -10,6 +10,8 @@ function is_json($string) {
 }
 
 $node_dir = 'nodes/'.$page->node_id.'/';
+print_r($page->node_id);
+
 if(isset($_GET['file'])){
 	$file = basename($_GET['file']);
 	$file_path = $node_dir.'/'.$file;
@@ -39,7 +41,9 @@ if(isset($_GET['file'])){
 } else {
 	$file = NULL;
 }
+
 $node_files =  array_slice(scandir($node_dir),2);
+print_r($node_files);
 $page->render['node_files'] = '';
 foreach($node_files as $node_file){
 	$page->render['node_files'] .= '<option'.(($file==$node_file)?' selected':'').'>'.$node_file.'</option>';	

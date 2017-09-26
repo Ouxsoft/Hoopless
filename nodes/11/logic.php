@@ -9,14 +9,14 @@ $results = $db->query('
   WHERE `node`.`permission_id` IS NULL;
 ');
 
-$page->render['sitemap'] = array();
+$render->sitemap = array();
 
 foreach($results as $row){
   $file = $page->folder.'view.mustache';
   if(!file_exists($file)){
     continue;
   }
-  $page->render['sitemap'][] = array(
+  $render->sitemap[] = array(
     'loc' => $row['alias'],
     'lastmod' => date('c', filemtime($file)),
     'changefreq' => $row['change_freq'],

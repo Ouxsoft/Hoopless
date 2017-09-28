@@ -6,10 +6,13 @@
 		<header>
 			{{> navbar-top}}
 			<div id="window-top">
+				{{{block_window_top}}}
+				{{^block_window_top}}
 				<div class="container pt-5 pb-2 mb-2">
 					<h1>{{heading}}</h1>
 					{{> breadcrumb-trail}}
 				</div>
+				{{/block_window_top}}
 			</div>
 		</header>
 		<div id="page" class="container">

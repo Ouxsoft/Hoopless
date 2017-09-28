@@ -1,21 +1,47 @@
+h1 {
+	font-size: 1rem + 0.2 * 11.0901699438 !important;
+}
+h2 {
+	
+	font-size: 1rem + 0.2 * 6.85410196625 !important;
+}
+h3 {
+	font-size: 1rem + 0.2 * 4.2360679775 !important;
+}
+h4 {
+	font-size: 1rem + 0.2 * 2.61803398875 !important;
+}
+h5 {
+	font-size: 1rem + 0.2 * 1.61803398875 !important;
+}
+h6 {
+	font-size: 1rem !important;
+}
+
 /* TODO: rename these blocks */
 .block-carousel-light {
-	.carousel-caption {
-		bottom: 0;
-		position: absolute;
-		position: absolute;
-		padding: 5% 15%;
-		margin: 0;
-		left: 0;
-		right: 0;
-		background-color: rgba($color_dark_bg,0.9);
-		color: #FFF;
-	
+	position: relative;
+	.carousel-item{
+		padding-top: 100px;
+		margin: 0 auto;
+		text-align: center;
+		.carousel-caption {
+			height: 100px;
+			position: absolute;
+			padding: 1em 0;
+			top: 0;
+			margin: 0;
+			left: 0;
+			right: 0;
+			background-color: rgba($color_dark_bg,0.9);
+			color: #FFF;
+		}
 	}
+
 	.carousel-control-prev, .carousel-control-next {
 		i {
 			position: absolute;
-			bottom: 3rem;
+			top: 32px;
 			font-weight: bold;
 			font-size: 2em;
 			color: rgba(#FFF,0.61);
@@ -24,6 +50,7 @@
 		}
 	}
 }
+
 .bg-1 {
 	// main right column
 	padding-top: 1em;
@@ -34,7 +61,6 @@
 	border-color: transparent !important;
 	> h2 {
 		font-weight: normal;
-		border-bottom: 5px solid $color_dark_bg;
 		padding: 0 1rem 0.3rem 0;
 	}
 	em {

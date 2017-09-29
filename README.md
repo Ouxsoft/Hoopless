@@ -1,5 +1,6 @@
-* |_  _  _  _ | _  _ _
-* | |(_)(_)|_)|(/__\_\
+
+![alt text](https://github.com/mrheroux/hoopless/raw/master/assets/hoopless.png "hoopless")
+
   
 A modern lightweight PHP based content management system designed for web curators and web developers.
 

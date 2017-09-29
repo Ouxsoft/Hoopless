@@ -22,7 +22,7 @@ class database {
 
 	// load databases' config
 	public function __construct() {
-		$this->connections = parse_ini_file('resources/config/database.conf',true);
+		$this->connections = config_load('database', true);
 		$this->set_active();
 	}
 

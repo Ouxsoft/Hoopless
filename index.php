@@ -2,7 +2,7 @@
 // get rid of cloud don't use seasons :P
 session_start(); 
 
-require 'includes/load_config.inc';
+require 'includes/config_load.inc';
 require 'includes/log.inc';
 require 'includes/db.inc';
 require 'includes/request.inc';

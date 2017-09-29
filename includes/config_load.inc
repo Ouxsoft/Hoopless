@@ -1,11 +1,11 @@
 <?php
 // function to load configs
-function load_config(string $file){
-	return parse_ini_file('resources/config/'.$file.'.conf');	
+function config_load(string $file, $bool = false){
+	return parse_ini_file('config/'.$file.'.conf', $bool);	
 }
 
 // define global config, CFG
-$CFG = load_config('default.settings');
+$CFG = config_load('default.settings');
 
 // set environmental variables based on config
 date_default_timezone_set($CFG['timezone']);

@@ -1,5 +1,7 @@
-# Hoopless
-Rapidly develop beautiful websites without jumping through hoops. Hoopless is the modern lightweight content management system designed for web curators and web developers.
+# |_  _  _  _ | _  _ _
+# | |(_)(_)|_)|(/__\_\
+  
+A modern lightweight PHP based content management system designed for web curators and web developers.
 
 ## Features
 * Easy local server configuration via config files.

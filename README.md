@@ -1,5 +1,5 @@
-### |_  _  _  _ | _  _ _
-### | |(_)(_)|_)|(/__\_\
+* |_  _  _  _ | _  _ _
+* | |(_)(_)|_)|(/__\_\
   
 A modern lightweight PHP based content management system designed for web curators and web developers.
 

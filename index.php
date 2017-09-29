@@ -27,13 +27,13 @@ switch ($request->action){
 //"node-logic-edit"
 //"node-view-edit"
 
+		require 'includes/html_writer.inc';
 		if($user->has_permission('node-view-edit')){
-			require 'includes/html_writer.inc';
 			require 'node_interactions/edit.inc';
 			echo $html_writer->render('node-edit',$render);
 		} else {
-			print_r($user);
 			if($user->signed_in()){	
+				print_r($user);
 				echo $html_writer->render('sign-in',$render);
 			} else {
 				echo $html_writer->render('access-denied',$render);

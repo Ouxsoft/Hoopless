@@ -4,7 +4,7 @@ server = "http://mrheroux.localhost"
 timezone = Europe/Amsterdam
 abbreviation = "hx"
 theme = "loyal-salmon"
-href_salt = followyourheart
+href_salt = yourheart
 
 [ADMIN]
 email = contact@mrheroux.com

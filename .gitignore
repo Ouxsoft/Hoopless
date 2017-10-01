@@ -1,6 +1,5 @@
 # ignore local server configuration files
-resources/config/*.conf
-!resources/config/sample.conf
+config/*.conf
 
 # ignore logs
 logs/*.*

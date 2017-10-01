@@ -5,7 +5,7 @@ function config_load(string $file, $bool = false){
 }
 
 // define global config, CFG
-$CFG = config_load('default.settings');
+$CFG = config_load('settings');
 
 // set environmental variables based on config
 date_default_timezone_set($CFG['timezone']);

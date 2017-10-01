@@ -1,0 +1,6 @@
+; place all databases here
+[default]
+host = localhost
+dbname = hoopless
+user = root
+password = Ww2yz547v6BE0k6bjUjK

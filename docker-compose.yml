@@ -1,0 +1,19 @@
+# ./docker-compose.yml
+
+version: '3'
+
+services:
+
+  webapp:
+    image: ubuntu:18.04
+    hostname: webapp
+    build:
+      context: "docker"
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+      - "443:443"
+    container_name: Hoopless
+    env_file: docker/env/dev.conf
+    network_mode: "host"
+

@@ -686,12 +686,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ouxsoft/LivingMarkup.git",
-                "reference": "0be716f53528639cfde92808735668ddb62827ee"
+                "reference": "4140196260e2f948bb6015bb524d1ee3acfe5970"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ouxsoft/LivingMarkup/zipball/0be716f53528639cfde92808735668ddb62827ee",
-                "reference": "0be716f53528639cfde92808735668ddb62827ee",
+                "url": "https://api.github.com/repos/ouxsoft/LivingMarkup/zipball/4140196260e2f948bb6015bb524d1ee3acfe5970",
+                "reference": "4140196260e2f948bb6015bb524d1ee3acfe5970",
                 "shasum": ""
             },
             "require": {
@@ -710,9 +710,6 @@
             },
             "type": "library",
             "autoload": {
-                "files": [
-                    "src/Autoloader.php"
-                ],
                 "psr-4": {
                     "LivingMarkup\\": "src/"
                 }
@@ -748,7 +745,7 @@
                 "template",
                 "xml"
             ],
-            "time": "2020-05-28T02:14:43+00:00"
+            "time": "2020-05-29T12:02:10+00:00"
         },
         {
             "name": "psr/container",
@@ -805,12 +802,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/scssphp/scssphp.git",
-                "reference": "a60825a60548c76af17179bb8cd41b1cbc301cf5"
+                "reference": "9d71fb8273da60084db6f25cc506efba1d279cf5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/scssphp/scssphp/zipball/a60825a60548c76af17179bb8cd41b1cbc301cf5",
-                "reference": "a60825a60548c76af17179bb8cd41b1cbc301cf5",
+                "url": "https://api.github.com/repos/scssphp/scssphp/zipball/9d71fb8273da60084db6f25cc506efba1d279cf5",
+                "reference": "9d71fb8273da60084db6f25cc506efba1d279cf5",
                 "shasum": ""
             },
             "require": {
@@ -858,7 +855,7 @@
                 "scss",
                 "stylesheet"
             ],
-            "time": "2020-05-21T07:51:13+00:00"
+            "time": "2020-05-28T08:56:24+00:00"
         },
         {
             "name": "twbs/bootstrap",
@@ -2013,12 +2010,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "442730038e7dd5bc375cdb875bce389a9c6846b9"
+                "reference": "1a8bd75c86088b338a7d9fdd6ea41d3eb8ac0776"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/442730038e7dd5bc375cdb875bce389a9c6846b9",
-                "reference": "442730038e7dd5bc375cdb875bce389a9c6846b9",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/1a8bd75c86088b338a7d9fdd6ea41d3eb8ac0776",
+                "reference": "1a8bd75c86088b338a7d9fdd6ea41d3eb8ac0776",
                 "shasum": ""
             },
             "require": {
@@ -2088,7 +2085,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2020-05-27T05:41:21+00:00"
+            "time": "2020-05-28T08:02:33+00:00"
         },
         {
             "name": "psr/event-dispatcher",

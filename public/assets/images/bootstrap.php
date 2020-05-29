@@ -13,8 +13,8 @@ define('LHTML_OFF', 0);
 
 require dirname(__DIR__,3) . '/vendor/autoload.php';
 
-use LivingMarkup\Image;
-use LivingMarkup\Path;
+use Hoopless\Image;
+use Hoopless\Path;
 
 $request = array_key_exists('q', $_GET) ? $_GET['q'] : '';
 

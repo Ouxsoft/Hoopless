@@ -1,14 +1,7 @@
-# ignore local server configuration files
-config/*.conf
-
-# ignore logs
-logs/*.*
-.vscode
-
-# ignore special assets
-assets/resume.pdf
-
-# ignore NPM and Grunt dev files
-resources/themes/*/node_modules/
-sourceMap.map
-.sass-cache
+.project
+.buildpath
+.idea
+.phpunit.result.cache
+.php_cs.cache
+vendor
+config.yml

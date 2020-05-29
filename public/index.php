@@ -13,12 +13,12 @@ define('ASSET_DIR', ROOT_DIR . 'assets/');
 define('IMAGE_DIR', ASSET_DIR . 'images/');
 
 // set include path
-set_include_path( ROOT_DIR);
+set_include_path(ROOT_DIR);
 
 /**
  * Route traffic to a specific file
  * (chances are if response is blank the document is missing a root element)
  */
 
-$router = new LivingMarkup\Router();
+$router = new Hoopless\Router();
 $router->response();

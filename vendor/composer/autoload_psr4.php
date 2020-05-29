@@ -46,6 +46,7 @@ return array(
     'LHTML\\Modules\\Custom\\' => array($baseDir . '/app/modules/custom', $baseDir . '/app/modules/custom'),
     'LHTML\\Modules\\Core\\' => array($baseDir . '/app/modules/core', $baseDir . '/app/modules/core'),
     'Interop\\Container\\' => array($vendorDir . '/container-interop/container-interop/src/Interop/Container'),
+    'Hoopless\\' => array($baseDir . '/src', $baseDir . '/src'),
     'Doctrine\\Instantiator\\' => array($vendorDir . '/doctrine/instantiator/src/Doctrine/Instantiator'),
     'Doctrine\\Common\\Lexer\\' => array($vendorDir . '/doctrine/lexer/lib/Doctrine/Common/Lexer'),
     'Doctrine\\Common\\Annotations\\' => array($vendorDir . '/doctrine/annotations/lib/Doctrine/Common/Annotations'),

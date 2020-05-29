@@ -19,7 +19,6 @@ class ComposerStaticInit48eca015a9a6c2dacce6a1263a8a7d64
         '023d27dca8066ef29e6739335ea73bad' => __DIR__ . '/..' . '/symfony/polyfill-php70/bootstrap.php',
         '25072dd6e2470089de65ae7bf11d3109' => __DIR__ . '/..' . '/symfony/polyfill-php72/bootstrap.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
-        'dfa7e16e29aa9a40ecbed139fe81ded2' => __DIR__ . '/..' . '/ouxsoft/livingmarkup/src/Autoloader.php',
         '5c6ee6b26e6cfb93057be5f3d49959ad' => __DIR__ . '/../..' . '/src/Autoloader.php',
     );
 
@@ -81,6 +80,10 @@ class ComposerStaticInit48eca015a9a6c2dacce6a1263a8a7d64
         'I' => 
         array (
             'Interop\\Container\\' => 18,
+        ),
+        'H' => 
+        array (
+            'Hoopless\\' => 9,
         ),
         'D' => 
         array (
@@ -260,6 +263,11 @@ class ComposerStaticInit48eca015a9a6c2dacce6a1263a8a7d64
         'Interop\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/container-interop/container-interop/src/Interop/Container',
+        ),
+        'Hoopless\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src',
+            1 => __DIR__ . '/../..' . '/src',
         ),
         'Doctrine\\Instantiator\\' => 
         array (

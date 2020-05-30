@@ -17,6 +17,11 @@
   "license": "MIT",
   "authors": [
     {
+      "name": "Ouxsoft",
+      "homepage": "https://github.com/ouxsoft",
+      "role": "Organization"
+    },
+    {
       "name": "Matthew Heroux",
       "homepage": "https://github.com/hxtree",
       "role": "Senior Full-Stack Developer"
@@ -57,9 +62,6 @@
     "issues": "https://github.com/ouxsoft/Hoopless/issues"
   },
   "autoload": {
-    "files" : [
-      "src/Autoloader.php"
-    ],
     "psr-4": {
       "Hoopless\\" : "src/",
       "LHTML\\Modules\\Core\\": "app/modules/core/",
@@ -67,7 +69,6 @@
     }
   },
   "autoload-dev": {
-    "files" : ["src/Autoloader.php"],
     "psr-4": {
       "Hoopless\\" : "src/",
       "LHTML\\Modules\\Core\\": "app/modules/core/",

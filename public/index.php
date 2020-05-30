@@ -1,5 +1,7 @@
 <?php
 
+use LivingMarkup\Autoloader;
+
 require_once '../vendor/autoload.php';
 
 //ini_set('display_errors', 1);
@@ -19,6 +21,11 @@ set_include_path(ROOT_DIR);
  * Route traffic to a specific file
  * (chances are if response is blank the document is missing a root element)
  */
+
+$proc = new LivingMarkup\Processor();
+$proc->setConfig(dirname(__DIR__,1) . '/app/config/config.dist.yml');
+$proc->setBuilder();
+$proc->runBuffer();
 
 $router = new Hoopless\Router();
 $router->response();

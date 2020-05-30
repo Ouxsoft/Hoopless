@@ -8,33 +8,33 @@ modules:
   types:
     - name: 'Code'
       xpath: "//code[not(ancestor::*[@process='false'])]"
-      class_name: 'LivingMarkup\Modules\Core\Code'
+      class_name: 'LHTML\Modules\Core\Code'
     - name: 'If Statement'
       xpath: "//if[not(ancestor::*[@process='false'])]"
-      class_name: 'LivingMarkup\Modules\Core\IfStatement'
+      class_name: 'LHTML\Modules\Core\IfStatement'
     - name: 'Variable'
       xpath: "//var[not(ancestor::*[@process='false'])]"
-      class_name: 'LivingMarkup\Modules\Core\Variable'
+      class_name: 'LHTML\Modules\Core\Variable'
     - name: 'Image'
       xpath: "//img[not(ancestor::*[@process='false'])]"
-      class_name: 'LivingMarkup\Modules\Core\Image'
+      class_name: 'LHTML\Modules\Core\Image'
     - name: 'Hyperlink'
       xpath: "//a[not(ancestor::*[@process='false'])]"
-      class_name: 'LivingMarkup\Modules\Core\Hyperlink'
+      class_name: 'LHTML\Modules\Core\Hyperlink'
     - name: 'Redact'
       xpath: "//redact[not(ancestor::*[@process='false'])]"
-      class_name: 'LivingMarkup\Modules\Core\Redact'
+      class_name: 'LHTML\Modules\Core\Redact'
     - name: "Block[not(ancestor::*[@process='false'])]"
-      class_name: 'LivingMarkup\Modules\Custom\Blocks\{name}'
+      class_name: 'LHTML\Modules\Custom\Blocks\{name}'
       xpath: "//block[not(ancestor::*[@process='false'])]"
       settings:
         - cache_duration: '1 hour'
         - search_index: false
     - name: 'Partial'
-      class_name: 'LivingMarkup\Modules\Custom\Partials\{name}'
+      class_name: 'LHTML\Modules\Custom\Partials\{name}'
       xpath: "//partial[not(ancestor::*[@process='false'])]"
     - name: 'Widget'
-      class_name: 'LivingMarkup\Modules\Custom\Widgets\{name}'
+      class_name: 'LHTML\Modules\Custom\Widgets\{name}'
       xpath: "//widget[not(ancestor::*[@process='false'])]"
   # auto call these methods
   methods:

@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace LivingMarkup\Modules\Custom\Examples;
+namespace LHTML\Modules\Custom\Examples;
 
 use LivingMarkup\Module;
 

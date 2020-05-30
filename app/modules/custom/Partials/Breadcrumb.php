@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace LivingMarkup\Modules\Custom\Partials;
+namespace LHTML\Modules\Custom\Partials;
 
 use LivingMarkup\Module;
 

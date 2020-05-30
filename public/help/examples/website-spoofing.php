@@ -1,9 +1,10 @@
 <?php require 'vendor/autoload.php';
-add_module([
+global $add_modules;
+$add_modules[] = [
     'name' => 'Markup Injection',
-    'class_name' => 'LivingMarkup\Modules\Custom\Examples\MarkupInjection',
+    'class_name' => 'LHTML\Modules\Custom\Examples\MarkupInjection',
     'xpath' => '//h1',
-]);
+];
 ?><!doctype html>
 <html>
 <head>

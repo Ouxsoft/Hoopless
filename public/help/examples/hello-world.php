@@ -1,10 +1,11 @@
 <?php require 'vendor/autoload.php';
 
-add_module([
+global $add_modules;
+$add_modules[] = [
     'name' => 'Widget',
-    'class_name' => 'LivingMarkup\Modules\Custom\Examples\HelloWorld',
+    'class_name' => 'LHTML\Modules\Custom\Examples\HelloWorld',
     'xpath' => '//widget',
-]);
+];
 
 ?>
 <!--

@@ -1,10 +1,11 @@
 <?php require 'vendor/autoload.php';
 
-add_module([
+global $add_modules;
+$add_modules[] = [
     'name' => 'Block',
-    'class_name' => 'LivingMarkup\Modules\Custom\Examples\{name}',
+    'class_name' => 'LHTML\Modules\Custom\Examples\{name}',
     'xpath' => '//block',
-]);
+];
 
 ?>
 <!--

@@ -1,9 +1,11 @@
 <?php require 'vendor/autoload.php';
-add_module([
+
+global $add_modules;
+$add_modules[] = [
     'name' => 'Bitwise',
-    'class_name' => 'LivingMarkup\Modules\Custom\Examples\Bitwise',
+    'class_name' => 'LHTML\Modules\Custom\Examples\Bitwise',
     'xpath' => '//bitwise',
-]);
+];
 ?>
 <!--
   ~ This file is part of the LivingMarkup package.

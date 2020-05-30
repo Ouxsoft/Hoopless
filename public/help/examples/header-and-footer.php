@@ -1,15 +1,16 @@
 <?php require 'vendor/autoload.php';
 
-add_module([
+global $add_modules;
+$add_modules[] = [
     'name' => 'Footer',
-    'class_name' => 'LivingMarkup\Modules\Custom\Examples\Footer',
+    'class_name' => 'LHTML\Modules\Custom\Examples\Footer',
     'xpath' => '//footer',
-]);
-add_module([
+];
+$add_modules[] = [
     'name' => 'Head',
-    'class_name' => 'LivingMarkup\Modules\Custom\Examples\Head',
+    'class_name' => 'LHTML\Modules\Custom\Examples\Head',
     'xpath' => '//head',
-]);
+];
 
 ?>
 <!--

@@ -1,10 +1,11 @@
 <?php require 'vendor/autoload.php';
 
-add_module([
+global $add_modules;
+$add_modules[] = [
     'name' => 'ReactNativeWebView',
-    'class_name' => 'LivingMarkup\Modules\Custom\Examples\ReactNativeWebView',
+    'class_name' => 'LHTML\Modules\Custom\Examples\ReactNativeWebView',
     'xpath' => '//webview',
-]);
+];
 ?><!doctype html>
 <html>
 <head>

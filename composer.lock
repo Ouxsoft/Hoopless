@@ -686,12 +686,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ouxsoft/LivingMarkup.git",
-                "reference": "4140196260e2f948bb6015bb524d1ee3acfe5970"
+                "reference": "be8947d6dd5101ce2c650ce89a2d0b48f240e3bf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ouxsoft/LivingMarkup/zipball/4140196260e2f948bb6015bb524d1ee3acfe5970",
-                "reference": "4140196260e2f948bb6015bb524d1ee3acfe5970",
+                "url": "https://api.github.com/repos/ouxsoft/LivingMarkup/zipball/be8947d6dd5101ce2c650ce89a2d0b48f240e3bf",
+                "reference": "be8947d6dd5101ce2c650ce89a2d0b48f240e3bf",
                 "shasum": ""
             },
             "require": {
@@ -711,7 +711,7 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "LivingMarkup\\": "src/"
+                    "LivingMarkup\\": "src/LivingMarkup/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -727,10 +727,10 @@
                 {
                     "name": "Matthew Heroux",
                     "homepage": "https://github.com/hxtree",
-                    "role": "Senior Developer"
+                    "role": "Senior Full-Stack Developer"
                 }
             ],
-            "description": "LivingMarkup is a LHTML processor.",
+            "description": "A LHTML implementation written in PHP.",
             "homepage": "https://github.com/ouxsoft/LivingMarkup",
             "keywords": [
                 "HTML5",
@@ -740,12 +740,11 @@
                 "lhtml",
                 "livingMarkup",
                 "markup",
-                "php",
                 "processor",
-                "template",
+                "templating engine",
                 "xml"
             ],
-            "time": "2020-05-29T12:02:10+00:00"
+            "time": "2020-05-29T23:04:55+00:00"
         },
         {
             "name": "psr/container",
@@ -802,12 +801,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/scssphp/scssphp.git",
-                "reference": "9d71fb8273da60084db6f25cc506efba1d279cf5"
+                "reference": "bd039472981845392232ffffcc0ad745b119b01a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/scssphp/scssphp/zipball/9d71fb8273da60084db6f25cc506efba1d279cf5",
-                "reference": "9d71fb8273da60084db6f25cc506efba1d279cf5",
+                "url": "https://api.github.com/repos/scssphp/scssphp/zipball/bd039472981845392232ffffcc0ad745b119b01a",
+                "reference": "bd039472981845392232ffffcc0ad745b119b01a",
                 "shasum": ""
             },
             "require": {
@@ -855,7 +854,7 @@
                 "scss",
                 "stylesheet"
             ],
-            "time": "2020-05-28T08:56:24+00:00"
+            "time": "2020-05-29T15:35:18+00:00"
         },
         {
             "name": "twbs/bootstrap",

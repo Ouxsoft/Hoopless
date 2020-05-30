@@ -11,9 +11,10 @@
 
     <main role="main" class="container">
             <h1>Editing Guide</h1>
+            <p>Hoopless is a modular content management system that runs this site.</p>
 
             <h2>LivingMarkup</h2>
-            <p>LivingMarkup is PHP implementation of a LHTML5 processor.</p>
+            <p>Pages are run through a HTML templating engine, called LivingMarkup, which works based on the LHTML standard.</p>
             <a href="examples">Examples</a>
         </main>
         <script type="text/javascript" src="/assets/js/bootstrap/bootstrap.min.js"></script>

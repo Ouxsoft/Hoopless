@@ -32,7 +32,7 @@ return array(
     'Psr\\Container\\' => array($vendorDir . '/psr/container/src'),
     'Prophecy\\' => array($vendorDir . '/phpspec/prophecy/src/Prophecy'),
     'PhpCsFixer\\' => array($vendorDir . '/friendsofphp/php-cs-fixer/src'),
-    'LivingMarkup\\' => array($vendorDir . '/ouxsoft/livingmarkup/src'),
+    'LivingMarkup\\' => array($vendorDir . '/ouxsoft/livingmarkup/src/LivingMarkup'),
     'Laminas\\ZendFrameworkBridge\\' => array($vendorDir . '/laminas/laminas-zendframework-bridge/src'),
     'Laminas\\Validator\\' => array($vendorDir . '/laminas/laminas-validator/src'),
     'Laminas\\Uri\\' => array($vendorDir . '/laminas/laminas-uri/src'),

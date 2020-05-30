@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace LivingMarkup\Modules\Core;
+namespace LHTML\Modules\Core;
 
 use DateTime;
 use Exception;

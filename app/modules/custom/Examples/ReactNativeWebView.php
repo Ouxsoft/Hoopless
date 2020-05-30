@@ -1,8 +1,8 @@
 <?php
 /**
- * This file is part of the LivingMarkup package.
+ * This file is part of the Hoopless package.
  *
- * (c) Matthew Heroux <matthewheroux@gmail.com>
+ * (c) Ouxsoft <contact@ouxsoft.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -22,7 +22,7 @@ class ReactNativeWebView extends Module
                 window.ReactNativeWebView.postMesage({$object}, '*');
             </script>" . $this->xml;
         }
-        
+
         return $this->xml;
     }
 }

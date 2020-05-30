@@ -1,8 +1,8 @@
 <?php
 /**
- * This file is part of the LivingMarkup package.
+ * This file is part of the Hoopless package.
  *
- * (c) Matthew Heroux <matthewheroux@gmail.com>
+ * (c) Ouxsoft <contact@ouxsoft.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -27,21 +27,21 @@ class Variable extends Module
      */
     public function format(string $format)
     {
-        
+
         // set format function and parameters
         preg_match('/(?<function>\w+)\((?<parameters>[^)]+)/', $format, $matches);
         $function = $matches['function'];
         $parameters = explode(',', $matches['parameters']);
-        
+
         // sanitize each parameter
         foreach ($parameters as &$parameter) {
             // TODO: lookup and replace variables
             $parameter = trim($parameter, '\'');
         }
-        
+
         $value = $this->getVariable();
 
-        if (! method_exists($this, $function)) {
+        if (!method_exists($this, $function)) {
             return false;
         }
 
@@ -89,7 +89,7 @@ class Variable extends Module
      * @param string $tag
      * @return mixed|null
      */
-    private function getVariable(string $name, ?string $tag = '*') : ?string
+    private function getVariable(string $name, ?string $tag = '*'): ?string
     {
         foreach ($this->ancestors as $ancestor) {
             if (array_key_exists($name, $ancestor['properties']) && (($tag == '*') || ($tag == $ancestor['tag']))) {
@@ -112,7 +112,7 @@ class Variable extends Module
         // get variable
         $variable = $this->getVariable($name, $tag);
 
-        if ($variable===null) {
+        if ($variable === null) {
             return '<!-- Variable "' . $this->getArgByName('name') . '" Not Found -->';
         }
 

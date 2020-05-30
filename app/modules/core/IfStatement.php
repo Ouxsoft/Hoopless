@@ -1,8 +1,8 @@
 <?php
 /**
- * This file is part of the LivingMarkup package.
+ * This file is part of the Hoopless package.
  *
- * (c) Matthew Heroux <matthewheroux@gmail.com>
+ * (c) Ouxsoft <contact@ouxsoft.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -30,7 +30,7 @@ class IfStatement extends Module
      *
      * @return string
      */
-    public function now() : string
+    public function now(): string
     {
         return defined('LHTML_DATETIME') ? LHTML_DATETIME : 'NOW';
     }

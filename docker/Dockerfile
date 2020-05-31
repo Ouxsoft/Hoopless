@@ -43,6 +43,9 @@ RUN apt-get update \
 # install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
+# update composer packages on production and test
+RUN if [ "$DEPLOY_ENVIRONMENT" = "production" ] ||  [ "$DEPLOY_ENVIRONMENT" = "test" ] ; then cd /var/www && composer update ; fi
+
 # enable apache2 mods
 RUN a2enmod php7.2
 RUN a2enmod rewrite

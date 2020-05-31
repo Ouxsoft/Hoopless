@@ -1,7 +1,15 @@
 #!/bin/bash
+
 arg_1="$1"
 arg_2="$2"
 arg_3="$3"
+
+_help_str="Available commands:
+  start              Start containers
+  stop               Stop containers
+  exec               Exec program inside the container
+  help               Show this message
+"
 
 # should add a start prod
 
@@ -50,10 +58,14 @@ elif [ "$arg_1" == "stop" ] ; then
   echo "Remove web server container"
   docker-compose -f docker-compose.yml down
 
-elif [ "$arg_1" == "shell" ]; then
+elif [ "$arg_1" == "exec" ]; then
 
   echo "Exec into web server"
   docker-compose exec webapp bash
+
+elif [ "$arg_1" == "help" ]; then
+
+  echo "$_help_str"
 
 else
 

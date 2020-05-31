@@ -4,4 +4,8 @@
 .phpunit.result.cache
 .php_cs.cache
 vendor/*
+.idea
+.idea/*
+.vscode
+.vscode/*
 config.yml

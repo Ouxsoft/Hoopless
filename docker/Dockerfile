@@ -31,6 +31,9 @@ ENV APACHE_WORKER_MAX_CONNECTIONS_PER_CHILD 0
 # install apps
 RUN apt-get update \
     && apt-get install -y \
+    git \
+    zip \
+    unzip \
     apache2 \
     php7.2 \
     libapache2-mod-php7.2 \

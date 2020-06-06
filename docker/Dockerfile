@@ -5,7 +5,8 @@ LABEL maintainer="ouxsoft <noreply@example.com>"
 # (can be changed on docker run with -e)
 
 # system
-ENV TIMEZONE Etc/UTC
+#ENV TIMEZONE Etc/UTC
+ENV TIMEZONE America/New_York
 ENV DEBIAN_FRONTEND noninteractive
 
 # apache

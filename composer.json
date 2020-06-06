@@ -41,13 +41,13 @@
     "twbs/bootstrap": "^4.4.1",
     "components/jquery": "dev-master",
     "scssphp/scssphp": "dev-master",
-    "codemirror/CodeMirror": "5.53.2"
+    "codemirror/codemirror": "5.53.2"
   },
   "repositories": [
     {
       "type": "package",
       "package": {
-        "name": "codemirror/CodeMirror",
+        "name": "codemirror/codemirror",
         "version": "5.53.2",
         "dist": {
           "type": "zip",

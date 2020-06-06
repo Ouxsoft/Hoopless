@@ -49,6 +49,9 @@ if [ "$arg_1" == "start" ] ; then
 			-f docker-compose.yml \
 			-f docker-compose.dev.yml \
 		up -d --remove-orphans
+		# update composer
+		docker-compose exec webapp composer update -d /var/www/
+		docker-compose exec webapp composer dump-autoload --optimize -d /var/www/
   fi
 
 elif [ "$arg_1" == "stop" ] ; then

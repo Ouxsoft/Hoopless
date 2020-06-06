@@ -38,6 +38,7 @@ RUN apt-get update \
     php7.2-json \
     php7.2-gd \
     php7.2-yaml \
+    php7.2-mbstring \
     libxml2 curl
 
 # install composer

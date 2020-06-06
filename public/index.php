@@ -31,9 +31,9 @@ set_include_path(ROOT_DIR);
  */
 
 $proc = new LivingMarkup\Processor();
-$proc->setConfig(dirname(__DIR__,1) . '/app/config/config.dist.yml');
+$proc->loadConfig(dirname(__DIR__, 1) . '/app/config/config.dist.yml');
 $proc->setBuilder();
-$proc->runBuffer();
+$proc->parseBuffer();
 
 $router = new Hoopless\Router();
 $router->response();

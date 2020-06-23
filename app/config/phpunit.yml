@@ -2,38 +2,38 @@
 # Module Config
 #
 version: 1
-modules:
-  # type of modules to instantiate
+elements:
+  # type of elements to instantiate
   types:
     - name: 'Block'
-      class_name: 'LivingMarkup\Modules\Custom\Blocks\{name}'
+      class_name: 'LivingMarkup\Element\Custom\Blocks\{name}'
       xpath: '//block'
     - name: 'Partial'
-      class_name: 'LivingMarkup\Modules\Custom\Partials\{name}'
+      class_name: 'LivingMarkup\Element\Custom\Partials\{name}'
       xpath: '//partial'
     - name: 'Widget'
-      class_name: 'LivingMarkup\Modules\Custom\Widgets\{name}'
+      class_name: 'LivingMarkup\Element\Custom\Widgets\{name}'
       xpath: '//widget'
     - name: 'Image'
       xpath: '//img'
-      class_name: 'LivingMarkup\Modules\Core\Image'
+      class_name: 'LivingMarkup\Element\Core\Image'
     - name: 'Hyperlink'
       xpath: '//a'
-      class_name: 'LivingMarkup\Modules\Core\Hyperlink'
+      class_name: 'LivingMarkup\Element\Core\Hyperlink'
     - name: 'Variable'
       xpath: '//var'
-      class_name: 'LivingMarkup\Modules\Core\Variable'
+      class_name: 'LivingMarkup\Element\Core\Variable'
     - name: 'If Statement'
       xpath: '//if'
-      class_name: 'LivingMarkup\Modules\Core\IfStatement'
+      class_name: 'LivingMarkup\Element\Core\IfStatement'
     - name: 'Redact'
       xpath: '//redact'
-      class_name: 'LivingMarkup\Modules\Core\Redact'
+      class_name: 'LivingMarkup\Element\Core\Redact'
     - name: 'Markup Injection'
-      class_name: 'LivingMarkup\Modules\Custom\Examples\MarkupInjection'
+      class_name: 'LivingMarkup\Element\Custom\Examples\MarkupInjection'
       xpath: '//h1'
     - name: 'Bitwise'
-      class_name: 'LivingMarkup\Modules\Custom\Examples\Bitwise'
+      class_name: 'LivingMarkup\Element\Custom\Examples\Bitwise'
       xpath: '//bitwise'
 
   # order determines execution

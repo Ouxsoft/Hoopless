@@ -8,11 +8,11 @@
  * file that was distributed with this source code.
  */
 
-namespace LHTML\Modules\Custom\Examples;
+namespace LHTML\Element\Custom\Examples;
 
-use LivingMarkup\Module;
+use LivingMarkup\Element\AbstractElement;
 
-class ReactNativeWebView extends Module
+class ReactNativeWebView extends AbstractElement
 {
     public function onRender()
     {

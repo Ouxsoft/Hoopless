@@ -8,11 +8,11 @@
  * file that was distributed with this source code.
  */
 
-namespace LHTML\Modules\Core;
+namespace LHTML\Element\Core;
 
-use LivingMarkup\Module;
+use LivingMarkup\Element\AbstractElement;
 
-class Redact extends Module
+class Redact extends AbstractElement
 {
     public $char = '&#9608;';
 

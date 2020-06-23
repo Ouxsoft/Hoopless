@@ -8,22 +8,21 @@
  * file that was distributed with this source code.
  */
 
-namespace LHTML\Modules\Custom\Examples;
+namespace LHTML\Element\Custom\Examples;
+
+use LivingMarkup\Element\AbstractElement;
 
 
-use LivingMarkup\Module;
-
-class Footer extends Module
+class Head extends AbstractElement
 {
     public function onRender()
     {
-        $year = date('Y');
         return <<<HTML
-<footer>
-    <hr/>
-    <p>&copy; {$year} </p>
-</footer>
-<script/>
+<head lang="en">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
+	<title>My Website</title>
+	<link rel="stylesheet" type="text/css" href="style.css"/>
+</head>
 HTML;
     }
 }

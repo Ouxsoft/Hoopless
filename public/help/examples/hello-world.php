@@ -27,6 +27,6 @@ $add_modules[] = [
 
 <html lang="en">
 <body>
-	<widget name="HelloWorld"/>
+<example name="HelloWorld"></example>
 </body>
 </html>

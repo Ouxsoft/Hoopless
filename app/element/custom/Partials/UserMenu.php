@@ -8,11 +8,11 @@
  * file that was distributed with this source code.
  */
 
-namespace LHTML\Modules\Custom\Partials;
+namespace LHTML\Element\Custom\Partials;
 
-use LivingMarkup\Modules\Component;
+use LivingMarkup\Element\AbstractElement;
 
-class UserMenu extends \LivingMarkup\Module
+class UserMenu extends AbstractElement
 {
     public function onRender()
     {

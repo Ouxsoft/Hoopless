@@ -8,11 +8,12 @@
  * file that was distributed with this source code.
  */
 
-namespace LHTML\Modules\Custom\Examples;
+namespace LHTML\Element\Custom\Examples;
 
-use LivingMarkup\Module;
+use LivingMarkup\Element\AbstractElement;
 
-class MarkupInjection extends Module
+
+class MarkupInjection extends AbstractElement
 {
     public function onRender()
     {

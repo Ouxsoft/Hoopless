@@ -8,28 +8,27 @@
  * file that was distributed with this source code.
  */
 
-namespace LHTML\Modules\Custom\Examples;
+namespace LHTML\Element\Custom\Examples;
 
-use LivingMarkup\Module;
+use LivingMarkup\Element\AbstractElement;
+
 
 /**
  * Class UserProfile
  *
  * @package LivingMarkup\Modules\Widgets
  */
-class UserProfile extends Module
+class GroupProfile extends AbstractElement
 {
-    public $username = 'jane_doe';
-    public $first_name = 'Jane';
-    public $last_name = 'Doe';
+    public $group = 'Curators';
+    public $first_name = 'Website';
+    public $last_name = 'Curators';
 
     /**
-     * Prints Hello, World
-     *
      * @return mixed|string
      */
     public function onRender()
     {
-        return '<div class="user_profile">' . $this->xml . '</div>';
+        return '<div class="group_profile">' . $this->xml . '</div>';
     }
 }

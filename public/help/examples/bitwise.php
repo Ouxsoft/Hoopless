@@ -8,12 +8,6 @@
  * file that was distributed with this source code.
  */
 
-global $add_modules;
-$add_modules[] = [
-    'name' => 'Bitwise',
-    'class_name' => 'LHTML\Modules\Custom\Examples\Bitwise',
-    'xpath' => '//bitwise',
-];
 ?>
 <!--
   ~ This file is part of the LivingMarkup package.
@@ -27,13 +21,10 @@ $add_modules[] = [
 <html>
     <body>
         <h2>BitWise Example</h2>
-        <bitwise>
+        <example name="Bitwise">
             <arg name="number">2</arg>
             <arg name="count">6</arg>
             <arg name="operator">^</arg>
-            <p>
-                <arg></arg>
-            </p>
-        </bitwise>
+        </example>
     </body>
 </html>

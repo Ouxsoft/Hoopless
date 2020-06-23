@@ -7,19 +7,6 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
-global $add_modules;
-$add_modules[] = [
-    'name' => 'Footer',
-    'class_name' => 'LHTML\Modules\Custom\Examples\Footer',
-    'xpath' => '//footer',
-];
-$add_modules[] = [
-    'name' => 'Head',
-    'class_name' => 'LHTML\Modules\Custom\Examples\Head',
-    'xpath' => '//head',
-];
-
 ?>
 <!--
   ~ This file is part of the LivingMarkup package.
@@ -31,9 +18,9 @@ $add_modules[] = [
   -->
 
 <html>
-<head></head>
+    <example name="Head"></example>
     <body>
         <h1>Header and Footer Example</h1>
-        <footer></footer>
+        <example name="Footer"></example>
     </body>
 </html>

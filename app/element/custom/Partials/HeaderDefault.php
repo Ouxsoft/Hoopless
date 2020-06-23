@@ -8,15 +8,15 @@
  * file that was distributed with this source code.
  */
 
-namespace LHTML\Modules\Custom\Partials;
+namespace LHTML\Element\Custom\Partials;
 
-use LivingMarkup\Module;
+use LivingMarkup\Element\AbstractElement;
 
 /**
  * Class HeaderDefault
  * @package LivingMarkup\Modules\Custom\Partials
  */
-class HeaderDefault extends Module
+class HeaderDefault extends AbstractElement
 {
     public function onRender()
     {

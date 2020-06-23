@@ -8,11 +8,12 @@
  * file that was distributed with this source code.
  */
 
-namespace LHTML\Modules\Core;
+namespace LHTML\Element\Core;
+
+use LivingMarkup\Element\AbstractElement;
 
 use DateTime;
 use Exception;
-use LivingMarkup\Module;
 
 /**
  * Class IfStatement
@@ -23,7 +24,7 @@ use LivingMarkup\Module;
  * <p>Welcome Member</p>
  * </if>
  */
-class IfStatement extends Module
+class IfStatement extends AbstractElement
 {
     /**
      * Allow NOW to be define by constant for unit testing and debugging purposes

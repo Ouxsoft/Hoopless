@@ -30,8 +30,10 @@ set_include_path(ROOT_DIR);
  * (chances are if response is blank the document is missing a root element)
  */
 
+global $proc;
 $proc = new LivingMarkup\Processor();
 $proc->loadConfig(dirname(__DIR__, 1) . '/app/config/config.dist.yml');
+
 $proc->parseBuffer();
 
 $router = new Hoopless\Router();

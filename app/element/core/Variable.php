@@ -8,15 +8,16 @@
  * file that was distributed with this source code.
  */
 
-namespace LHTML\Modules\Core;
 
-use LivingMarkup\Module;
+namespace LHTML\Element\Core;
+
+use LivingMarkup\Element\AbstractElement;
 
 /**
  * Class Variable
  * @package LivingMarkup\Modules
  */
-class Variable extends Module
+class Variable extends AbstractElement
 {
 
     /**

@@ -64,15 +64,15 @@
   "autoload": {
     "psr-4": {
       "Hoopless\\" : "src/",
-      "LHTML\\Modules\\Core\\": "app/modules/core/",
-      "LHTML\\Modules\\Custom\\": "app/modules/custom/"
+      "LHTML\\Element\\Core\\": "app/element/core/",
+      "LHTML\\Element\\Custom\\": "app/element/custom/"
     }
   },
   "autoload-dev": {
     "psr-4": {
       "Hoopless\\" : "src/",
-      "LHTML\\Modules\\Core\\": "app/modules/core/",
-      "LHTML\\Modules\\Custom\\": "app/modules/custom/"
+      "LHTML\\Element\\Core\\": "app/element/core/",
+      "LHTML\\Element\\Custom\\": "app/element/custom/"
     }
   },
   "homepage": "https://github.com/ouxsoft/Hoopless",

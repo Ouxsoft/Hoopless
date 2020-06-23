@@ -8,9 +8,9 @@
  * file that was distributed with this source code.
  */
 
-namespace LHTML\Modules\Custom\Partials;
+namespace LHTML\Element\Custom\Partials;
 
-use LivingMarkup\Module;
+use LivingMarkup\Element\AbstractElement;
 
 /**
  * Class Breadcrumb
@@ -19,7 +19,7 @@ use LivingMarkup\Module;
  *
  * @package LivingMarkup\Modules\Partials
  */
-class Breadcrumb extends Module
+class Breadcrumb extends AbstractElement
 {
     public $separator = '/';
 

@@ -8,12 +8,13 @@
  * file that was distributed with this source code.
  */
 
-namespace LHTML\Modules\Core;
 
-use LivingMarkup\Module;
+namespace LHTML\Element\Core;
+
+use LivingMarkup\Element\AbstractElement;
 use LivingMarkup\Path;
 
-class Image extends Module
+class Image extends AbstractElement
 {
     // configurations
     const NUMBER_OF_STEPS = 4; // used to determine granularity of image sizes

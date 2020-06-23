@@ -8,9 +8,10 @@
  * file that was distributed with this source code.
  */
 
-namespace LHTML\Modules\Custom\Examples;
+namespace LHTML\Element\Custom\Examples;
 
-use LivingMarkup\Module;
+use LivingMarkup\Element\AbstractElement;
+
 
 /**
  * Class HelloWorld
@@ -21,7 +22,7 @@ use LivingMarkup\Module;
  *
  * @package LivingMarkup\Modules\Widgets
  */
-class HelloWorld extends Module
+class HelloWorld extends AbstractElement
 {
     /**
      * Prints Hello, World

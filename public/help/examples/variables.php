@@ -8,13 +8,6 @@
  * file that was distributed with this source code.
  */
 
-global $add_modules;
-$add_modules[] = [
-    'name' => 'Block',
-    'class_name' => 'LHTML\Modules\Custom\Examples\{name}',
-    'xpath' => '//block',
-];
-
 ?>
 <!--
   ~ This file is part of the LivingMarkup package.
@@ -27,15 +20,15 @@ $add_modules[] = [
 
 <html lang="en">
 <body>
-	<block name="GroupProfile">
+	<example name="GroupProfile">
 		<fieldset>
 			<legend>Group:</legend>
 			<var name="group"/>
 
-			<block name="UserProfile">
+			<example name="UserProfile">
 				<p>Welcome <var tag="block" name="first_name"/> <var name="last_name"/></p>
-			</block>
+			</example>
 		</fieldset>
-	</block>
+	</example>
 </body>
 </html>

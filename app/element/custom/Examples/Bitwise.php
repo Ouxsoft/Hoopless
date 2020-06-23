@@ -8,15 +8,14 @@
  * file that was distributed with this source code.
  */
 
-namespace LHTML\Modules\Custom\Examples;
+namespace LHTML\Element\Custom\Examples;
 
-use LivingMarkup\Module;
-
+use LivingMarkup\Element\AbstractElement;
 /**
  * Class Bitwise
  * @package LivingMarkup\Modules\Custom\Examples\Bitwise
  */
-class Bitwise extends Module
+class Bitwise extends AbstractElement
 {
 
     /**

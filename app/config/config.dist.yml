@@ -2,40 +2,43 @@
 # Component Config
 #
 version: 1
-modules:
+elements:
   # skip processing element with ancestor set to false by using:
   # xpath: "//element[not(ancestor::*[@process='false'])]"
   types:
     - name: 'Code'
       xpath: "//code[not(ancestor::*[@process='false'])]"
-      class_name: 'LHTML\Modules\Core\Code'
+      class_name: 'LHTML\Element\Core\Code'
     - name: 'If Statement'
       xpath: "//if[not(ancestor::*[@process='false'])]"
-      class_name: 'LHTML\Modules\Core\IfStatement'
+      class_name: 'LHTML\Element\Core\IfStatement'
     - name: 'Variable'
       xpath: "//var[not(ancestor::*[@process='false'])]"
-      class_name: 'LHTML\Modules\Core\Variable'
+      class_name: 'LHTML\Element\Core\Variable'
     - name: 'Image'
       xpath: "//img[not(ancestor::*[@process='false'])]"
-      class_name: 'LHTML\Modules\Core\Image'
+      class_name: 'LHTML\Element\Core\Image'
     - name: 'Hyperlink'
       xpath: "//a[not(ancestor::*[@process='false'])]"
-      class_name: 'LHTML\Modules\Core\Hyperlink'
+      class_name: 'LHTML\Element\Core\Hyperlink'
     - name: 'Redact'
       xpath: "//redact[not(ancestor::*[@process='false'])]"
-      class_name: 'LHTML\Modules\Core\Redact'
+      class_name: 'LHTML\Element\Core\Redact'
     - name: "Block[not(ancestor::*[@process='false'])]"
-      class_name: 'LHTML\Modules\Custom\Blocks\{name}'
+      class_name: 'LHTML\Element\Custom\Blocks\{name}'
       xpath: "//block[not(ancestor::*[@process='false'])]"
       settings:
         - cache_duration: '1 hour'
         - search_index: false
     - name: 'Partial'
-      class_name: 'LHTML\Modules\Custom\Partials\{name}'
+      class_name: 'LHTML\Element\Custom\Partials\{name}'
       xpath: "//partial[not(ancestor::*[@process='false'])]"
     - name: 'Widget'
-      class_name: 'LHTML\Modules\Custom\Widgets\{name}'
+      class_name: 'LHTML\Element\Custom\Widgets\{name}'
       xpath: "//widget[not(ancestor::*[@process='false'])]"
+    - name: 'Example'
+      class_name: 'LHTML\Element\Custom\Examples\{name}'
+      xpath: "//example[not(ancestor::*[@process='false'])]"
   # auto call these methods
   methods:
     - name: 'beforeLoad'

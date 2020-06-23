@@ -7,13 +7,6 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
-global $add_modules;
-$add_modules[] = [
-    'name' => 'Markup Injection',
-    'class_name' => 'LHTML\Modules\Custom\Examples\MarkupInjection',
-    'xpath' => '//h1',
-];
 ?><!doctype html>
 <html>
 <head>
@@ -53,7 +46,7 @@ $add_modules[] = [
 
 <body>
 <div>
-    <h1>Example Domain</h1>
+    <example name="MarkupInjection">Example Domain</example>
     <p>This domain is for use in illustrative examples in documents. You may use this
     domain in literature without prior coordination or asking for permission.</p>
     <p><a href="https://www.iana.org/domains/example">More information...</a></p>

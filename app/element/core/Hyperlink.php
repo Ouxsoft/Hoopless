@@ -8,9 +8,9 @@
  * file that was distributed with this source code.
  */
 
-namespace LHTML\Modules\Core;
+namespace LHTML\Element\Core;
 
-use LivingMarkup\Module;
+use LivingMarkup\Element\AbstractElement;
 
 /**
  * Class Hyperlink
@@ -18,7 +18,7 @@ use LivingMarkup\Module;
  * Replaces <a> tag links on website
  *
  */
-class Hyperlink extends Module
+class Hyperlink extends AbstractElement
 {
     private $href;
     private $alt;

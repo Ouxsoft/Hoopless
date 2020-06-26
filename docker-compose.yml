@@ -14,6 +14,4 @@ services:
       - "80:80"
       - "443:443"
     container_name: Hoopless
-    env_file: docker/env/dev.conf
     network_mode: "host"
-

@@ -23,8 +23,8 @@ class HeaderDefault extends AbstractElement
         return <<<HTML
 
         <nav class="navbar navbar-dark bg-dark">
-            <a class="navbar-brand" href="/">
-                <img src="/assets/images/livingmarkup/icon/light-transparent-bg.png" width="24" class="d-inline-block align-top" alt=""/>
+            <a class="navbar-brand text-center" href="/">
+                <img src="/assets/images/livingmarkup/icon/light-transparent-bg.png" width="24" class="brand align-top" alt=""/>
                 LivingMarkup            
             </a>
         </nav>

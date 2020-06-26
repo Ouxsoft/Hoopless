@@ -7,7 +7,9 @@
  * file that was distributed with this source code.
  */
 
-@import "hero-image";
-@import "navbar";
-
-@import "bootstrap.scss";
+.brand {
+  postion: absolute;
+  left: 50%;
+  margin-left: -50 px !important;
+  display: block;
+}

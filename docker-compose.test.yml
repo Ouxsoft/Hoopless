@@ -5,6 +5,6 @@ version: '3'
 services:
   webapp:
     env_file:
-       - docker/env/dev.conf
+       - docker/env/test.conf
     volumes:
        - "./:/var/www"

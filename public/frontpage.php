@@ -8,9 +8,9 @@
     <body class="front-page">
         <partial name="HeaderDefault"/>
 
-        <header class="masthead hero-image" style="background-image:url('assets/images/dimension/1260x630/offset/0,-20/livingmarkup/hero/oscar-fish.jpg');">
-            <div class="container h-100">
-                <div class="row h-100 align-items-center">
+        <header class="masthead vh-100 hero-image" style="background-image:url('assets/images/dimension/1260x630/offset/0,-20/livingmarkup/hero/oscar-fish.jpg');">
+            <div class="container vh-100">
+                <div class="row vh-100 align-items-center">
                     <div class="col-12 text-left text-light">
                         <h1 class="font-weight-light">Our new website is on its way</h1>
                         <p class="lead">Check back soon for updates.</p>

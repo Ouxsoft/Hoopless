@@ -13,15 +13,6 @@
 define('LivingMarkup_DATETIME', '2019-12-03 01:30:00');
 
 ?>
-<!--
-  ~ This file is part of the LivingMarkup package.
-  ~
-  ~ (c) Matthew Heroux <matthewheroux@gmail.com>
-  ~
-  ~ For the full copyright and license information, please view the LICENSE
-  ~ file that was distributed with this source code.
-  -->
-
 <html lang="en">
 <head>
     <title>If Statement</title>

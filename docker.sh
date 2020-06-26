@@ -8,11 +8,11 @@ _help_str="Available commands:
   start              Start containers
   stop               Stop containers
   exec               Exec program inside the container
+  config             Show docker config
   help               Show this message
 "
 
-# should add a start prod
-
+# Docker-compose start
 if [ "$arg_1" == "start" ] ; then
 
   # build web server container
@@ -54,6 +54,7 @@ if [ "$arg_1" == "start" ] ; then
 		docker-compose exec webapp composer dump-autoload --optimize -d /var/www/
   fi
 
+# Docker-compose stop
 elif [ "$arg_1" == "stop" ] ; then
 
   echo "Stop container(s)"
@@ -61,11 +62,27 @@ elif [ "$arg_1" == "stop" ] ; then
   echo "Remove web server container"
   docker-compose -f docker-compose.yml down
 
+# Docker-compose exec
 elif [ "$arg_1" == "exec" ]; then
 
   echo "Exec into web server"
   docker-compose exec webapp bash
 
+# Docker-compose compose
+elif [ "$arg_1" == "config" ]; then
+  if [ "$arg_2" == "prod" ]; then
+	  docker-compose -f docker-compose.yml -f docker-compose.prod.yml config
+  elif [ "$arg_2" == "test" ]; then
+	  docker-compose -f docker-compose.yml -f docker-compose.test.yml config
+  elif [ "$arg_2" == "dev" ]; then
+	  docker-compose -f docker-compose.yml -f docker-compose.dev.yml config
+  else
+    echo "Deployment environment required (dev, test, prod):"
+    echo "sudo ./docker.sh config prod"
+    exit
+  fi
+
+# Help
 elif [ "$arg_1" == "help" ]; then
 
   echo "$_help_str"

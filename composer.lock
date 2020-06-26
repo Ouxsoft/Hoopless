@@ -209,12 +209,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laminas/laminas-http.git",
-                "reference": "d0916b1466c0db02f3482c57be9cfcebdd363cc6"
+                "reference": "65de4ae2978a691f822c16daaaf6f4c38c27590d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laminas/laminas-http/zipball/d0916b1466c0db02f3482c57be9cfcebdd363cc6",
-                "reference": "d0916b1466c0db02f3482c57be9cfcebdd363cc6",
+                "url": "https://api.github.com/repos/laminas/laminas-http/zipball/65de4ae2978a691f822c16daaaf6f4c38c27590d",
+                "reference": "65de4ae2978a691f822c16daaaf6f4c38c27590d",
                 "shasum": ""
             },
             "require": {
@@ -239,8 +239,8 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.11.x-dev",
-                    "dev-develop": "2.12.x-dev"
+                    "dev-master": "2.12.x-dev",
+                    "dev-develop": "2.13.x-dev"
                 }
             },
             "autoload": {
@@ -259,7 +259,13 @@
                 "http client",
                 "laminas"
             ],
-            "time": "2020-04-15T19:25:01+00:00"
+            "funding": [
+                {
+                    "url": "https://funding.communitybridge.org/projects/laminas-project",
+                    "type": "community_bridge"
+                }
+            ],
+            "time": "2020-06-23T15:16:46+00:00"
         },
         {
             "name": "laminas/laminas-loader",
@@ -685,12 +691,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ouxsoft/LivingMarkup.git",
-                "reference": "6084428ec77e39dc48c1e3a6f16afa7a2f9de58d"
+                "reference": "4abfa19d0471747683ec887d32bb5fe0b79a4bdc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ouxsoft/LivingMarkup/zipball/6084428ec77e39dc48c1e3a6f16afa7a2f9de58d",
-                "reference": "6084428ec77e39dc48c1e3a6f16afa7a2f9de58d",
+                "url": "https://api.github.com/repos/ouxsoft/LivingMarkup/zipball/4abfa19d0471747683ec887d32bb5fe0b79a4bdc",
+                "reference": "4abfa19d0471747683ec887d32bb5fe0b79a4bdc",
                 "shasum": ""
             },
             "require": {
@@ -746,7 +752,21 @@
                 "templating engine",
                 "xml"
             ],
-            "time": "2020-06-22T21:57:06+00:00"
+            "funding": [
+                {
+                    "url": "https://github.com/sponsors/hxtree",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://www.paypal.me/hxtree",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/hxtree",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-06-25T01:55:02+00:00"
         },
         {
             "name": "psr/container",
@@ -803,12 +823,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/scssphp/scssphp.git",
-                "reference": "824e4cec10b2bfa88eec5dac23991cb9106622c1"
+                "reference": "0c3f939f56c87445ba945fdcc35d96d5541dacde"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/scssphp/scssphp/zipball/824e4cec10b2bfa88eec5dac23991cb9106622c1",
-                "reference": "824e4cec10b2bfa88eec5dac23991cb9106622c1",
+                "url": "https://api.github.com/repos/scssphp/scssphp/zipball/0c3f939f56c87445ba945fdcc35d96d5541dacde",
+                "reference": "0c3f939f56c87445ba945fdcc35d96d5541dacde",
                 "shasum": ""
             },
             "require": {
@@ -856,7 +876,7 @@
                 "scss",
                 "stylesheet"
             ],
-            "time": "2020-06-04T17:30:40+00:00"
+            "time": "2020-06-24T04:54:34+00:00"
         },
         {
             "name": "twbs/bootstrap",
@@ -2011,12 +2031,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "6b6cc3a509ca211f3cd5f9aac088d9ff93b3fa8d"
+                "reference": "4f3b99a9b7bb630c7d1e31f31e9636cd7f309ea0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/6b6cc3a509ca211f3cd5f9aac088d9ff93b3fa8d",
-                "reference": "6b6cc3a509ca211f3cd5f9aac088d9ff93b3fa8d",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/4f3b99a9b7bb630c7d1e31f31e9636cd7f309ea0",
+                "reference": "4f3b99a9b7bb630c7d1e31f31e9636cd7f309ea0",
                 "shasum": ""
             },
             "require": {
@@ -2086,7 +2106,17 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2020-06-22T12:02:43+00:00"
+            "funding": [
+                {
+                    "url": "https://phpunit.de/donate.html",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/sebastianbergmann",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-06-24T09:46:09+00:00"
         },
         {
             "name": "psr/event-dispatcher",
@@ -2802,12 +2832,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "27737091e88420e97cb7efdaf505820c709c3bbc"
+                "reference": "04531849253d4a989bc580a6d17a67538a9b39cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/27737091e88420e97cb7efdaf505820c709c3bbc",
-                "reference": "27737091e88420e97cb7efdaf505820c709c3bbc",
+                "url": "https://api.github.com/repos/symfony/console/zipball/04531849253d4a989bc580a6d17a67538a9b39cf",
+                "reference": "04531849253d4a989bc580a6d17a67538a9b39cf",
                 "shasum": ""
             },
             "require": {
@@ -2879,7 +2909,21 @@
                 "console",
                 "terminal"
             ],
-            "time": "2020-06-16T21:43:05+00:00"
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-06-24T13:36:31+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",

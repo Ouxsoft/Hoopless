@@ -6,6 +6,9 @@
 
 
 ## About
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/af61c01e07894689b9be009591e6b3b1)](https://app.codacy.com/gh/ouxsoft/Hoopless?utm_source=github.com&utm_medium=referral&utm_content=ouxsoft/Hoopless&utm_campaign=Badge_Grade_Dashboard)
+
 A modular content management system in PHP.
 
 ## Installation

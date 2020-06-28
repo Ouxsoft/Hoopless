@@ -46,3 +46,7 @@ env:
     # we need. You should remove this if it's not necessary or you have other
     # scripts handling this.
     - docker/web/provision.sh
+
+
+after_script:
+  - bash <(curl -s https://codecov.io/bash)

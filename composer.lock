@@ -2031,12 +2031,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "4f3b99a9b7bb630c7d1e31f31e9636cd7f309ea0"
+                "reference": "e5d0048362ef85e5690b4a0822d360261d909e4d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/4f3b99a9b7bb630c7d1e31f31e9636cd7f309ea0",
-                "reference": "4f3b99a9b7bb630c7d1e31f31e9636cd7f309ea0",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/e5d0048362ef85e5690b4a0822d360261d909e4d",
+                "reference": "e5d0048362ef85e5690b4a0822d360261d909e4d",
                 "shasum": ""
             },
             "require": {
@@ -2116,7 +2116,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-06-24T09:46:09+00:00"
+            "time": "2020-06-25T07:24:52+00:00"
         },
         {
             "name": "psr/event-dispatcher",

@@ -2,7 +2,7 @@
   "name": "ouxsoft/hoopless",
   "description": "Modular Content Management System.",
   "keywords": [
-    "livingMarkup",
+    "LivingMarkup",
     "template",
     "xml",
     "php",
@@ -18,7 +18,7 @@
   "authors": [
     {
       "name": "Ouxsoft",
-      "homepage": "https://github.com/ouxsoft",
+      "homepage": "ouxsoft.com",
       "role": "Organization"
     },
     {

@@ -12,7 +12,6 @@ namespace LHTML\Element\Custom\Examples;
 
 use LivingMarkup\Element\AbstractElement;
 
-
 class MarkupInjection extends AbstractElement
 {
     public function onRender()

@@ -12,7 +12,6 @@ namespace LHTML\Element\Custom\Examples;
 
 use LivingMarkup\Element\AbstractElement;
 
-
 /**
  * Class HelloWorld
  *

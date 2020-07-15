@@ -40,17 +40,19 @@ class Breadcrumb extends AbstractElement
         ];
 
         $out = '<!-- Breadcrumb -->' . PHP_EOL;
-        $out .= '<nav aria-label="breadcrumb">';
-        $out .= '<ol class="breadcrumb mb-0">';
+        $out .= '<nav class="breadcrumb" aria-label="breadcrumb">';
+        $out .= '<div class="container">';
+        $out .= '<ol class="m-0 p-0">';
         foreach ($pages as $page) {
             $out .= '<li class="breadcrumb-item active" aria-current="page">';
-            $out .= '<span class="separator">' . $this->separator . '</span> ';
-            $out .= '<a href="' . $page['href'] . '">';
+            $out .= '<a href="' . $page['href'] . '" class="pl-2 pr-2">';
             $out .= $page['title'];
             $out .= '</a>';
+            $out .= '<span class="separator pl-2 pr-2">' . $this->separator . '</span> ';
             $out .= '</li>';
         }
         $out .= '</ol>';
+        $out .= '</div>';
         $out .= '</nav>';
         return $out;
     }

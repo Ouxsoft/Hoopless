@@ -216,22 +216,22 @@ class Image
         $this->ratio_original = $this->width_original / $this->height_original;
 
         // TODO: Algorithum not perfect
-        if ( is_numeric($this->width) || is_numeric($this->height) ) {
+        if (is_numeric($this->width) || is_numeric($this->height)) {
             // if desired width and height set
-            if ( is_numeric($this->width) && is_numeric($this->height) ) {
-                if($this->width < $this->height){
+            if (is_numeric($this->width) && is_numeric($this->height)) {
+                if ($this->width < $this->height) {
                     $draw_image_height = $this->height;
                     $draw_image_width = $this->height * $this->ratio_original;
                 } else {
                     $draw_image_height = $this->width / $this->ratio_original;
                     $draw_image_width = $this->width;
                 }
-            // if width is not set but height is
-            } else if ( ! is_numeric($this->width) && is_numeric($this->height) ) {
+                // if width is not set but height is
+            } elseif (! is_numeric($this->width) && is_numeric($this->height)) {
                 $this->width = $this->height * $this->ratio_original;
                 $draw_image_width = $this->height * $this->ratio_original;
             // if width is set but height is not set
-            } else if ( is_numeric($this->width) && ! is_numeric($this->height) ) {
+            } elseif (is_numeric($this->width) && ! is_numeric($this->height)) {
                 $this->height = $this->width * $this->ratio_original;
                 $draw_image_height = $this->height * $this->ratio_original;
             }
@@ -258,7 +258,6 @@ class Image
             $center_x = ($this->width/2) - ($draw_image_width/2);
             $percent_x = ($this->focal_point_x * 2) * 0.01;
             $offset_x = $center_x - ($max_x * $percent_x);
-
         } else {
             // no width or height specified, use original file heights
             $this->width = $this->width_original;

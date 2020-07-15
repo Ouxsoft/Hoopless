@@ -11,6 +11,7 @@
 namespace LHTML\Element\Custom\Examples;
 
 use LivingMarkup\Element\AbstractElement;
+
 /**
  * Class Bitwise
  * @package LivingMarkup\Modules\Custom\Examples\Bitwise

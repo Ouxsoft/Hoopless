@@ -7,7 +7,8 @@
     </head>
     <body>
 
-        <partial name="HeaderDefault"/>
+
+    <partial name="Header\Standard"/>
 
         <main role="main" class="container">
             <h2>Examples</h2>
@@ -46,7 +47,7 @@
             <a href="website-spoofing">Website Spoofing</a>
             <p>This example demonstrates how to spoof an existing web page.</p>
         </main>
-        <script type="text/javascript" src="/assets/js/bootstrap/bootstrap.min.js"></script>
-        <script src="/assets/js/jquery/jquery.min.js"></script>
+
+    <partial name="Footer\Standard"/>
     </body>
 </html>

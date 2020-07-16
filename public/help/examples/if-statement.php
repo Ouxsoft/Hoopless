@@ -26,8 +26,8 @@ define('LivingMarkup_DATETIME', '2019-12-03 01:30:00');
 </head>
 <body>
 
-    <partial name="HeaderDefault"/>
-    <partial name="Breadcrumb"/>
+
+<partial name="Header\Standard"/>
 
     <main role="main" class="container">
         <h1>If Statement</h1>
@@ -96,8 +96,8 @@ define('LivingMarkup_DATETIME', '2019-12-03 01:30:00');
         </code>
     </main>
 
-    <script type="text/javascript" src="/assets/js/bootstrap/bootstrap.min.js"></script>
-    <script src="/assets/js/jquery/jquery.min.js"></script>
+
+<partial name="Footer\Standard"/>
 
     <script>
         function qsa(sel) {

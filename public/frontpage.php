@@ -6,32 +6,25 @@
         <title>Home</title>
     </head>
     <body class="front-page">
-        <partial name="HeaderDefault"/>
+        <partial name="Header\Standard">
+            <arg type="bool" name="frontpage">false</arg>
+        </partial>
 
-        <header class="masthead vh-100 hero-image" style="background-image:url('assets/images/dimension/1260x630/offset/0,-20/livingmarkup/hero/oscar-fish.jpg');">
+        <div class="hero-image masthead vh-100" style="background-image:url('/assets/images/dimension/1260x630/offset/0,-20/hero/oscar-fish.jpg');">
             <div class="container vh-100">
                 <div class="row vh-100 align-items-center">
                     <div class="col-12 text-left text-light">
                         <h1 class="font-weight-light">Our new website is on its way</h1>
                         <p class="lead">Check back soon for updates.</p>
-                        <a href="/help">Web Editing Guide</a>
                     </div>
                 </div>
             </div>
-        </header>
+        </div>
 
         <main role="main" class="container">
             <p class="lead"></p>
         </main>
 
-        <footer class="footer">
-            <div class="container">
-                <span class="text-muted">
-                </span>
-            </div>
-        </footer>
-
-        <script type="text/javascript" src="/assets/js/bootstrap/bootstrap.min.js"></script>
-        <script src="/assets/js/jquery/jquery.min.js"></script>
+        <partial name="Footer\Standard"/>
     </body>
 </html>

@@ -7,7 +7,7 @@
     </head>
     <body>
 
-    <partial name="HeaderDefault"/>
+    <partial name="Header\Standard"/>
 
     <main role="main" class="container">
             <h1>Editing Guide</h1>
@@ -17,7 +17,7 @@
             <p>Pages are run through a HTML templating engine, called LivingMarkup, which works based on the LHTML standard.</p>
             <a href="examples">Examples</a>
         </main>
-        <script type="text/javascript" src="/assets/js/bootstrap/bootstrap.min.js"></script>
-        <script src="/assets/js/jquery/jquery.min.js"></script>
+
+    <partial name="Footer\Standard"/>
     </body>
 </html>

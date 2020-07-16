@@ -21,8 +21,8 @@
     <link rel="stylesheet" type="text/css" href="/assets/css/codemirror/dracula.css"/>
 </head>
 <body>
-<partial name="HeaderDefault"/>
-<partial name="Breadcrumb"/>
+
+<partial name="Header\Standard"/>
 
 <main role="main" class="container">
     <code process="false">
@@ -32,6 +32,10 @@
 
     </code>
 </main>
+
+
+<partial name="Footer\Standard"/>
+
 <script>
     function qsa(sel) {
         return Array.apply(null, document.querySelectorAll(sel));

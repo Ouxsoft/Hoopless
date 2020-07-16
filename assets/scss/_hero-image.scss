@@ -7,8 +7,8 @@
  * file that was distributed with this source code.
  */
 
-// crop at 1440x600
-.hero-image {
+div.hero-image {
+  // crop at 1440x600
   width: 100%;
   height: 400px;
   position: relative;
@@ -17,9 +17,10 @@
   background-position: center;
 }
 
-// crop at 1260x630
+
 .front-page {
-  .hero-image {
+  // crop at 1260x630
+  div.hero-image {
     width: 100%;
     min-height: 50vw;
   }

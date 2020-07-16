@@ -22,8 +22,8 @@
 </head>
 <body>
 
-<partial name="HeaderDefault"/>
-<partial name="Breadcrumb"/>
+
+<partial name="Header\Standard"/>
 
 <main role="main" class="container">
     <h1>Hello World</h1>
@@ -31,8 +31,8 @@
         <example name="HelloWorld"></example>
     </code>
 </main>
-<script type="text/javascript" src="/assets/js/bootstrap/bootstrap.min.js"></script>
-<script src="/assets/js/jquery/jquery.min.js"></script>
+
+<partial name="Footer\Standard"/>
 
 <script>
     function qsa(sel) {

@@ -26,7 +26,7 @@ class Standard extends AbstractElement
         <footer class="bg-dark footer mt-5">
             <div class="container pt-5">            
                 <div class="row">
-                    <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="col-sm-12 col-md-4 col-lg-3 text-left">
                        <img src="/assets/images/ouxsoft/logo/white-transparent-bg.png" width="120" class="brand align-top" alt="Ouxsoft"/>
                     </div>
                     <div class="col-sm-6 col-md-4 col-lg-3">

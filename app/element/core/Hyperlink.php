@@ -32,9 +32,22 @@ class Hyperlink extends AbstractElement
      */
     public function onRender()
     {
-        $this->href = isset($this->args['href']) ? $this->args['href'] : '#';
-        $this->alt = isset($this->args['alt']) ? $this->args['alt'] : '';
+        $args = $this->getArgs();
+        $attributes = '';
 
-        return "<a href=\"{$this->href}\">{$this->xml}</a>";
+        foreach ($args as $arg => $value) {
+            switch ($arg) {
+                case 'href':
+                    $value = isset($value) ? $value : '#';
+                    break;
+                default:
+                    // do nothing;
+                    break;
+            }
+
+            $attributes .= " {$arg}=\"{$value}\"";
+        }
+
+        return "<a{$attributes}>{$this->xml}</a>";
     }
 }

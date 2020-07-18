@@ -23,7 +23,7 @@ class Standard extends AbstractElement
         $year = date('Y');
 
         return <<<HTML
-        <footer class="bg-dark footer">
+        <footer class="bg-dark footer mt-5">
             <div class="container pt-5">            
                 <div class="row">
                     <div class="col-sm-6 col-md-4 col-lg-3">

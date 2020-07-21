@@ -9,14 +9,27 @@
 
     <partial name="Header\Standard"/>
 
-    <main role="main" class="container">
-            <h1>Editing Guide</h1>
-            <p>Hoopless is a modular content management system that runs this site.</p>
 
-            <h2>LivingMarkup</h2>
-            <p>Pages are run through a HTML templating engine, called LivingMarkup, which works based on the LHTML standard.</p>
-            <a href="examples">Examples</a>
-        </main>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="order-md-2 col-md-8 pl-md-3 col-lg-9 pl-lg-5 ">
+
+                <h1 class="page-title">Editing Guide</h1>
+                <p class="lead">Hoopless is the content management system (CMS) used manage this website.</p>
+
+                <h3>Accessibility Guidelines</h3>
+                <p>Editors must adhere to the <a href="https://www.w3.org/WAI/WCAG20/glance/">WCAG 2.0 Accessibility standards</a> when editing this website to help ensure the information presented remains perceivable, operable, and understandable to all.</p>
+
+                <h3>LivingMarkup Modules</h3>
+                <p>Editors can use dynamic markup. This is due to pages being written in an HTML templating engine, called <a href="https://github.com/ouxsoft/LivingMarkup">LivingMarkup</a>, which works based on the <a href="https://github.com/ouxsoft/LHTML">LHTML standard</a>. Learn the basics of the modules available from these <a href="examples">Examples</a>.</p>
+
+            </div>
+
+            <partial name="Navbar\SideMenu">
+
+            </partial>
+        </div>
+    </div>
 
     <partial name="Footer\Standard"/>
     </body>

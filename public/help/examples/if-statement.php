@@ -31,13 +31,13 @@ define('LivingMarkup_DATETIME', '2019-12-03 01:30:00');
 
         <h1>If Statement</h1>
         <p>
-            An if statement is a programming conditional statement that, if proved true, displays information
-            contained within. If statements are provided to empower users but should be used sparingly. Often it's better
-            complex nested logic to be separated into a custom module than to try and use markup exclusively.
+            An if statement is a programming conditional statement that, if proved true, shows the information
+            contained within.  If statements should be used sparingly; it is better to use a custom element to maintain
+            complex nested logic;.
         </p>
 
         <h2>Conditions</h2>
-        <p>An if statement toggle is based on one or more conditional checks. These checks are supplied as arguments.</p>
+        <p>An if statement toggle is based on one or more conditional checks that are supplied as arguments.</p>
 
         <h3>Time</h3>
         <p>A condition based on the time of day.</p>

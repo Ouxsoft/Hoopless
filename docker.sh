@@ -9,6 +9,7 @@ _help_str="Available commands:
   stop               Stop containers
   exec               Exec program inside the container
   config             Show docker config
+  errors             Show Apache2 error log
   help               Show this message
 "
 
@@ -81,6 +82,10 @@ elif [ "$arg_1" == "config" ]; then
     echo "sudo ./docker.sh config prod"
     exit
   fi
+
+# Docker-compose tail
+elif [ "$arg_1" == "errors" ]; then
+  docker-compose exec webapp tail /var/log/apache2/error.log
 
 # Help
 elif [ "$arg_1" == "help" ]; then

@@ -10,62 +10,69 @@
 
 ?>
 <html lang="en">
-<head>
-    <title>Variables</title>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    <link href="/assets/css/main.min.css" rel="stylesheet"/>
-    <link rel="stylesheet" type="text/css" href="/assets/css/codemirror/codemirror.css"/>
+<head name="Standard">
+    <title>If Statement</title>
+
     <script src="/assets/js/codemirror/codemirror.js"/>
     <script src="/assets/js/codemirror/xml.js"/>
-    <link rel="stylesheet" type="text/css" href="/assets/css/codemirror/dracula.css"/>
+
 </head>
 <body>
 
+<header name="Standard"/>
 
-<partial name="Header\Standard"/>
+<div class="container">
+    <div class="row">
+        <main name="Standard" class="editable">
 
-<main role="main" class="container">
+            <h1>Variables</h1>
+            LHTML allows variables to be passed to ancestor elements.
 
-    <h1>Variables</h1>
-    LHTML allows variables to be passed to ancestor elements.
+            <nav class="nav nav-tabs">
+                <a class="nav-item nav-link active" data-toggle="tab" href="#code-1">Code</a>
+                <a class="nav-item nav-link" data-toggle="tab" href="#result-1">Results</a>
+            </nav>
+            <div class="tab-content border border-top-0 p-3 mb-3">
+                <div id="code-1" class="tab-pane fade show active">
+                    <code process="false">
+                        <example name="GroupProfile">
+                            <fieldset>
+                                <legend>Group:</legend>
+                                <var name="group"/>
 
-    <nav class="nav nav-tabs">
-        <a class="nav-item nav-link active" data-toggle="tab" href="#code-1">Code</a>
-        <a class="nav-item nav-link" data-toggle="tab" href="#result-1">Results</a>
-    </nav>
-    <div class="tab-content border border-top-0 p-3 mb-3">
-        <div id="code-1" class="tab-pane fade show active">
-            <code process="false">
-                <example name="GroupProfile">
-                    <fieldset>
-                        <legend>Group:</legend>
-                        <var name="group"/>
-
-                        <example name="UserProfile">
-                            <p>Welcome <var tag="block" name="first_name"/> <var name="last_name"/></p>
+                                <example name="UserProfile">
+                                    <p>Welcome <var tag="block" name="first_name"/> <var name="last_name"/></p>
+                                </example>
+                            </fieldset>
                         </example>
-                    </fieldset>
-                </example>
-            </code>
-        </div>
-        <div id="result-1" class="tab-pane fade">
-            <example name="GroupProfile">
-                <fieldset>
-                    <legend>Group:</legend>
-                    <var name="group"/>
+                    </code>
+                </div>
+                <div id="result-1" class="tab-pane fade">
+                    <example name="GroupProfile">
+                        <fieldset>
+                            <legend>Group:</legend>
+                            <var name="group"/>
 
-                    <example name="UserProfile">
-                        <p>Welcome <var tag="block" name="first_name"/> <var name="last_name"/></p>
+                            <example name="UserProfile">
+                                <p>Welcome <var tag="block" name="first_name"/> <var name="last_name"/></p>
+                            </example>
+                        </fieldset>
                     </example>
-                </fieldset>
-            </example>
-        </div>
+                </div>
+            </div>
+
+        </main>
+
+        <nav name="SideMenu">
+            <nav name="QuickLinks" class="editable">
+
+            </nav>
+        </nav>
     </div>
-</main>
+</div>
 
+<footer name="Standard"/>
 
-<partial name="Footer\Standard"/>
 <script>
     function qsa(sel) {
         return Array.apply(null, document.querySelectorAll(sel));
@@ -81,5 +88,7 @@
         });
     });
 </script>
+
+
 </body>
 </html>

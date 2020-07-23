@@ -1,16 +1,14 @@
 <html lang="en">
-    <head>
-        <meta charset="utf-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-        <link href="/assets/css/main.min.css" rel="stylesheet"/>
-        <title>Examples</title>
-    </head>
-    <body>
+<head name="Standard">
+    <title>Examples</title>
+</head>
+<body>
 
+<header name="Standard"/>
 
-    <partial name="Header\Standard"/>
-
-        <main role="main" class="container">
+<div class="container">
+    <div class="row">
+        <main name="Standard" class="editable">
             <h2>Examples</h2>
             <p>
                 These code snippets are not processed due to an ancestor with attribute process="false".
@@ -48,6 +46,13 @@
             <p>This example demonstrates how to spoof an existing web page.</p>
         </main>
 
-    <partial name="Footer\Standard"/>
-    </body>
+        <nav name="SideMenu">
+            <nav name="QuickLinks" class="editable">
+            </nav>
+        </nav>
+    </div>
+</div>
+
+<footer name="Standard"/>
+</body>
 </html>

@@ -41,7 +41,8 @@
     "twbs/bootstrap": "^4.4.1",
     "components/jquery": "dev-master",
     "scssphp/scssphp": "dev-master",
-    "codemirror/codemirror": "5.53.2"
+    "codemirror/codemirror": "5.53.2",
+    "ext-simplexml": "*"
   },
   "repositories": [
     {

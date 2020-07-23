@@ -15,9 +15,9 @@ elements:
     - name: 'Variable'
       xpath: "//var[not(ancestor::*[@process='false'])]"
       class_name: 'LHTML\Element\Core\Variable'
-    - name: 'Image'
-      xpath: "//img[not(ancestor::*[@process='false'])]"
-      class_name: 'LHTML\Element\Core\Image'
+#    - name: 'Image'
+#      xpath: "//img[not(ancestor::*[@process='false'])]"
+#      class_name: 'LHTML\Element\Core\Image'
     - name: 'Hyperlink'
       xpath: "//a[not(ancestor::*[@process='false'])]"
       class_name: 'LHTML\Element\Core\Hyperlink'
@@ -36,6 +36,21 @@ elements:
     - name: 'Widget'
       class_name: 'LHTML\Element\Custom\Widgets\{name}'
       xpath: "//widget[not(ancestor::*[@process='false'])]"
+    - name: "Nav"
+      class_name: 'LHTML\Element\Custom\Nav\{name}'
+      xpath: "//nav[not(ancestor::*[@process='false']|ancestor::main)]" # Do not process nav under main, such as tabs
+    - name: "Head"
+      class_name: 'LHTML\Element\Custom\Head\{name}'
+      xpath: "//head[not(ancestor::*[@process='false'])]"
+    - name: "Header"
+      class_name: 'LHTML\Element\Custom\Header\{name}'
+      xpath: "//header[not(ancestor::*[@process='false'])]"
+    - name: "Main"
+      class_name: 'LHTML\Element\Custom\MainContent\{name}'
+      xpath: "//main[not(ancestor::*[@process='false'])]"
+    - name: "Footer"
+      class_name: 'LHTML\Element\Custom\Footer\{name}'
+      xpath: "//footer[not(ancestor::*[@process='false'])]"
     - name: 'Example'
       class_name: 'LHTML\Element\Custom\Examples\{name}'
       xpath: "//example[not(ancestor::*[@process='false'])]"

@@ -27,6 +27,6 @@ class Redact extends AbstractElement
      */
     public function onRender(): string
     {
-        return preg_replace("/<[^>]+>(*SKIP)(*F)|./", $this->char, $this->xml);
+        return preg_replace("/<[^>]+>(*SKIP)(*F)|./", $this->char. '<wbr/>', $this->xml);
     }
 }

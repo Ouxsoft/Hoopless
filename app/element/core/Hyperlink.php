@@ -45,6 +45,7 @@ class Hyperlink extends AbstractElement
                     break;
             }
 
+            $value = htmlspecialchars($value);
             $attributes .= " {$arg}=\"{$value}\"";
         }
 

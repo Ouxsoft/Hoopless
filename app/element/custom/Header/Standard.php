@@ -8,13 +8,13 @@
  * file that was distributed with this source code.
  */
 
-namespace LHTML\Element\Custom\Partials\Header;
+namespace LHTML\Element\Custom\Header;
 
 use LivingMarkup\Element\AbstractElement;
 
 /**
- * Class HeaderDefault
- * @package LivingMarkup\Modules\Custom\Partials
+ * Class Standard
+ * @package LHTML\Element\Custom\Header
  */
 class Standard extends AbstractElement
 {
@@ -63,7 +63,6 @@ class Standard extends AbstractElement
     {
         return <<<HTML
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark "> 
-
     
     <div class="container">
     <a class="navbar-brand d-block d-lg-none" href="/">
@@ -116,6 +115,7 @@ HTML;
     public function onRender()
     {
         return <<<HTML
+<!-- Header -->
 <header>
     {$this->getNavbar()}
     {$this->getBreadcrumbs()}

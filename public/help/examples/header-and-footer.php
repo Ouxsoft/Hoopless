@@ -8,33 +8,54 @@
  * file that was distributed with this source code.
  */
 ?>
-
 <html lang="en">
-<head>
-    <title>Heander and Footer</title>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    <link href="/assets/css/main.min.css" rel="stylesheet"/>
-    <link rel="stylesheet" type="text/css" href="/assets/css/codemirror/codemirror.css"/>
+<head name="Standard">
+    <title>If Statement</title>
+
     <script src="/assets/js/codemirror/codemirror.js"/>
     <script src="/assets/js/codemirror/xml.js"/>
-    <link rel="stylesheet" type="text/css" href="/assets/css/codemirror/dracula.css"/>
+
 </head>
 <body>
 
-<partial name="Header\Standard"/>
+<header name="Standard"/>
 
-<main role="main" class="container">
-    <code process="false">
-        <example name="Head"></example>
-        <h1>Header and Footer Example</h1>
-        <example name="Footer"></example>
+<div class="container">
+    <div class="row">
+        <main name="Standard" class="editable">
 
-    </code>
-</main>
+            <h1>Header &amp; Footer</h1>
 
+            <nav class="nav nav-tabs">
+                <a class="nav-item nav-link active" data-toggle="tab" href="#code-1">Code</a>
+                <a class="nav-item nav-link" data-toggle="tab" href="#result-1">Results</a>
+            </nav>
+            <div class="tab-content border border-top-0 p-3 mb-3">
+                <div id="code-1" class="tab-pane fade show active">
+                    <code process="false">
+                        <example name="Head"></example>
+                        <h1>Header and Footer Example</h1>
+                        <example name="Footer"></example>
+                    </code>
+                </div>
+                <div id="result-1" class="tab-pane fade">
+                    <example name="Head"></example>
+                    <h1>Header and Footer Example</h1>
+                    <example name="Footer"></example>
+                </div>
+            </div>
 
-<partial name="Footer\Standard"/>
+        </main>
+
+        <nav name="SideMenu">
+            <nav name="QuickLinks" class="editable">
+
+            </nav>
+        </nav>
+    </div>
+</div>
+
+<footer name="Standard"/>
 
 <script>
     function qsa(sel) {
@@ -51,5 +72,7 @@
         });
     });
 </script>
+
+
 </body>
 </html>

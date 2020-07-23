@@ -181,6 +181,7 @@ define('LivingMarkup_DATETIME', '2019-12-03 01:30:00');
         </main>
 
         <nav name="SideMenu">
+            <arg name="menu" type="string">help</arg>
             <nav name="QuickLinks" class="editable">
 
             </nav>

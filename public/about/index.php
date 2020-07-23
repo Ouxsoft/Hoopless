@@ -27,6 +27,7 @@
         </main>
 
         <nav name="SideMenu">
+            <arg name="menu" type="string">about</arg>
             <nav name="QuickLinks" class="editable">
                 <a href="https://www.algaebase.org/browse/taxonomy/?tc=accept&amp;id=6986">
                     Ourococcus

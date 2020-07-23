@@ -26,7 +26,9 @@
         </main>
 
         <nav name="SideMenu">
+            <arg name="menu" type="string">help</arg>
             <nav name="QuickLinks" class="editable">
+                <arg name="menu" type="string">help</arg>
                 <a href="https://github.com/ouxsoft/hoopless">
                     Hoopless
                 </a>

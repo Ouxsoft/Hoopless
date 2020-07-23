@@ -52,6 +52,7 @@
         </main>
 
         <nav name="SideMenu">
+            <arg name="menu" type="string">help</arg>
             <nav name="QuickLinks" class="editable">
 
             </nav>

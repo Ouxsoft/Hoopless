@@ -22,7 +22,7 @@
                     <th>Type</th>
                 </tr>
                 <tr>
-                    <td><a href="elements/examples">Code</a></td>
+                    <td><a href="elements/code">Code</a></td>
                     <td>&lt;code&gt;</td>
                     <td>Core</td>
                 </tr>

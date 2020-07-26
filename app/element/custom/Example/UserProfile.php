@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace LHTML\Element\Custom\Examples;
+namespace LHTML\Element\Custom\Example;
 
 use LivingMarkup\Element\AbstractElement;
 
@@ -17,17 +17,19 @@ use LivingMarkup\Element\AbstractElement;
  *
  * @package LivingMarkup\Modules\Widgets
  */
-class GroupProfile extends AbstractElement
+class UserProfile extends AbstractElement
 {
-    public $group = 'Curators';
-    public $first_name = 'Website';
-    public $last_name = 'Curators';
+    public $username = 'jane_doe';
+    public $first_name = 'Jane';
+    public $last_name = 'Doe';
 
     /**
+     * Prints Hello, World
+     *
      * @return mixed|string
      */
     public function onRender()
     {
-        return '<div class="group_profile">' . $this->xml . '</div>';
+        return '<div class="user_profile">' . $this->xml . '</div>';
     }
 }

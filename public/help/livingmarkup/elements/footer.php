@@ -11,10 +11,12 @@
 ?>
 <html lang="en">
 <head name="Standard">
-    <title>If Statement</title>
+    <title>Bitwise</title>
 
     <script src="/assets/js/codemirror/codemirror.js"/>
     <script src="/assets/js/codemirror/xml.js"/>
+    <link href="/assets/css/codemirror/codemirror.css" rel="stylesheet"/>
+    <link href="/assets/css/codemirror/dracula.css" rel="stylesheet"/>
 
 </head>
 <body>
@@ -25,39 +27,26 @@
     <div class="row">
         <main name="Standard" class="editable">
 
-            <h1>Variables</h1>
-            LHTML allows variables to be passed to ancestor elements.
+            <h1>Footer Element</h1>
+            <p>
+                The footer element uses the footer element. It is provided to streamline setting the header section of
+                each page of the website which usually contains similar content. Passing arguments to this partial
+                is a best management practice.
+            </p>
 
+            <h2>Standard</h2>
             <nav class="nav nav-tabs">
-                <a class="nav-item nav-link active" data-toggle="tab" href="#code-1">Code</a>
-                <a class="nav-item nav-link" data-toggle="tab" href="#result-1">Results</a>
+                <a class="nav-item nav-link active" data-toggle="tab" href="#code-2">Code</a>
+                <a class="nav-item nav-link" data-toggle="tab" href="#result-2">Results</a>
             </nav>
             <div class="tab-content border border-top-0 p-3 mb-3">
-                <div id="code-1" class="tab-pane fade show active">
+                <div id="code-2" class="tab-pane fade show active">
                     <code process="false">
-                        <example name="GroupProfile">
-                            <fieldset>
-                                <legend>Group:</legend>
-                                <var name="group"/>
-
-                                <example name="UserProfile">
-                                    <p>Welcome <var tag="block" name="first_name"/> <var name="last_name"/></p>
-                                </example>
-                            </fieldset>
-                        </example>
+                        <footer name="Standard"/>
                     </code>
                 </div>
-                <div id="result-1" class="tab-pane fade">
-                    <example name="GroupProfile">
-                        <fieldset>
-                            <legend>Group:</legend>
-                            <var name="group"/>
-
-                            <example name="UserProfile">
-                                <p>Welcome <var tag="block" name="first_name"/> <var name="last_name"/></p>
-                            </example>
-                        </fieldset>
-                    </example>
+                <div id="result-2" class="tab-pane fade">
+                    <footer name="Standard"/>
                 </div>
             </div>
 

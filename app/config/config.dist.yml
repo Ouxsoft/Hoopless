@@ -31,7 +31,7 @@ elements:
         - cache_duration: '1 hour'
         - search_index: false
     - name: 'Partial'
-      class_name: 'LHTML\Element\Custom\Partials\{name}'
+      class_name: 'LHTML\Element\Custom\Partial\{name}'
       xpath: "//partial[not(ancestor::*[@process='false'])]"
     - name: 'Widget'
       class_name: 'LHTML\Element\Custom\Widgets\{name}'
@@ -46,13 +46,13 @@ elements:
       class_name: 'LHTML\Element\Custom\Header\{name}'
       xpath: "//header[not(ancestor::*[@process='false'])]"
     - name: "Main"
-      class_name: 'LHTML\Element\Custom\MainContent\{name}'
+      class_name: 'LHTML\Element\Custom\Main\{name}'
       xpath: "//main[not(ancestor::*[@process='false'])]"
     - name: "Footer"
       class_name: 'LHTML\Element\Custom\Footer\{name}'
       xpath: "//footer[not(ancestor::*[@process='false'])]"
     - name: 'Example'
-      class_name: 'LHTML\Element\Custom\Examples\{name}'
+      class_name: 'LHTML\Element\Custom\Example\{name}'
       xpath: "//example[not(ancestor::*[@process='false'])]"
   # auto call these methods
   methods:

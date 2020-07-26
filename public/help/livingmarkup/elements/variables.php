@@ -7,6 +7,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+
 ?>
 <html lang="en">
 <head name="Standard">
@@ -14,6 +15,8 @@
 
     <script src="/assets/js/codemirror/codemirror.js"/>
     <script src="/assets/js/codemirror/xml.js"/>
+    <link href="/assets/css/codemirror/codemirror.css" rel="stylesheet"/>
+    <link href="/assets/css/codemirror/dracula.css" rel="stylesheet"/>
 
 </head>
 <body>
@@ -24,7 +27,8 @@
     <div class="row">
         <main name="Standard" class="editable">
 
-            <h1>Hello World</h1>
+            <h1>Variable Element</h1>
+            LHTML allows child elements to access ancestor elements public variables.
 
             <nav class="nav nav-tabs">
                 <a class="nav-item nav-link active" data-toggle="tab" href="#code-1">Code</a>
@@ -33,11 +37,29 @@
             <div class="tab-content border border-top-0 p-3 mb-3">
                 <div id="code-1" class="tab-pane fade show active">
                     <code process="false">
-                        <example name="HelloWorld"></example>
+                        <example name="GroupProfile">
+                            <fieldset>
+                                <legend>Group:</legend>
+                                <var name="group"/>
+
+                                <example name="UserProfile">
+                                    <p>Welcome <var tag="block" name="first_name"/> <var name="last_name"/></p>
+                                </example>
+                            </fieldset>
+                        </example>
                     </code>
                 </div>
                 <div id="result-1" class="tab-pane fade">
-                    <example name="HelloWorld"></example>
+                    <example name="GroupProfile">
+                        <fieldset>
+                            <legend>Group:</legend>
+                            <var name="group"/>
+
+                            <example name="UserProfile">
+                                <p>Welcome <var tag="block" name="first_name"/> <var name="last_name"/></p>
+                            </example>
+                        </fieldset>
+                    </example>
                 </div>
             </div>
 

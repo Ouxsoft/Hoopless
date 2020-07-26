@@ -1,20 +1,11 @@
-<?php require 'vendor/autoload.php';
-/**
- * This file is part of the Hoopless package.
- *
- * (c) Ouxsoft <contact@ouxsoft.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
-?>
 <html lang="en">
 <head name="Standard">
     <title>Bitwise</title>
 
     <script src="/assets/js/codemirror/codemirror.js"/>
     <script src="/assets/js/codemirror/xml.js"/>
+    <link href="/assets/css/codemirror/codemirror.css" rel="stylesheet"/>
+    <link href="/assets/css/codemirror/dracula.css" rel="stylesheet"/>
 
 </head>
 <body>
@@ -25,30 +16,30 @@
     <div class="row">
         <main name="Standard" class="editable">
 
-            <h1>BitWise Example</h1>
-            <p>A bitwise example.</p>
+            <h1>Main Element</h1>
+            <p>
+                The main element is a wrapper for the main content element tag. It's purpose is to hold the
+                main section of the page where content appears. It is a provided for CSS abstraction purposes
+                to ensure the same layout and CSS classes are applied to the main content across the site.
+            </p>
 
+            <h2>Standard</h2>
             <nav class="nav nav-tabs">
-                <a class="nav-item nav-link active" data-toggle="tab" href="#code-1">Code</a>
-                <a class="nav-item nav-link" data-toggle="tab" href="#result-1">Results</a>
+                <a class="nav-item nav-link active" data-toggle="tab" href="#code-2">Code</a>
+                <a class="nav-item nav-link" data-toggle="tab" href="#result-2">Results</a>
             </nav>
             <div class="tab-content border border-top-0 p-3 mb-3">
-                <div id="code-1" class="tab-pane fade show active">
+                <div id="code-2" class="tab-pane fade show active">
                     <code process="false">
-                        <example name="Bitwise">
-                            <arg name="number">2</arg>
-                            <arg name="count">6</arg>
-                            <arg name="operator">^</arg>
-                        </example>
-
+                        <main name="Standard"/>
                     </code>
                 </div>
-                <div id="result-1" class="tab-pane fade">
-                    <example name="Bitwise">
-                        <arg name="number">2</arg>
-                        <arg name="count">6</arg>
-                        <arg name="operator">^</arg>
-                    </example>
+                <div id="result-2" class="tab-pane fade">
+                    <textarea class="w-100" style="min-height: 300px;">
+
+                    <main name="Standard"/>
+
+                    </textarea>
                 </div>
             </div>
 

@@ -1,19 +1,11 @@
-<?php require 'vendor/autoload.php';
-/**
- * This file is part of the Hoopless package.
- *
- * (c) Ouxsoft <contact@ouxsoft.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-?>
 <html lang="en">
 <head name="Standard">
-    <title>If Statement</title>
+    <title>Bitwise</title>
 
     <script src="/assets/js/codemirror/codemirror.js"/>
     <script src="/assets/js/codemirror/xml.js"/>
+    <link href="/assets/css/codemirror/codemirror.css" rel="stylesheet"/>
+    <link href="/assets/css/codemirror/dracula.css" rel="stylesheet"/>
 
 </head>
 <body>
@@ -24,24 +16,29 @@
     <div class="row">
         <main name="Standard" class="editable">
 
-            <h1>Header &amp; Footer</h1>
+            <h1>Header Element</h1>
+            <p>
+                The header element is provided to streamline setting the header section of each page of the website
+                which usually contains similar content. Passing arguments to this partial is a best management practice.
+            </p>
 
+            <h2>Standard</h2>
             <nav class="nav nav-tabs">
-                <a class="nav-item nav-link active" data-toggle="tab" href="#code-1">Code</a>
-                <a class="nav-item nav-link" data-toggle="tab" href="#result-1">Results</a>
+                <a class="nav-item nav-link active" data-toggle="tab" href="#code-2">Code</a>
+                <a class="nav-item nav-link" data-toggle="tab" href="#result-2">Results</a>
             </nav>
             <div class="tab-content border border-top-0 p-3 mb-3">
-                <div id="code-1" class="tab-pane fade show active">
+                <div id="code-2" class="tab-pane fade show active">
                     <code process="false">
-                        <example name="Head"></example>
-                        <h1>Header and Footer Example</h1>
-                        <example name="Footer"></example>
+                        <header name="Standard"/>
                     </code>
                 </div>
-                <div id="result-1" class="tab-pane fade">
-                    <example name="Head"></example>
-                    <h1>Header and Footer Example</h1>
-                    <example name="Footer"></example>
+                <div id="result-2" class="tab-pane fade">
+                    <textarea class="w-100" style="min-height: 300px;">
+
+                    <header name="Standard"/>
+
+                    </textarea>
                 </div>
             </div>
 

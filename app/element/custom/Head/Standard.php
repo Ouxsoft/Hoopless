@@ -27,8 +27,6 @@ class Standard extends AbstractElement
     
     <link href="/assets/css/main.min.css" rel="stylesheet"/>
     
-    <link href="/assets/css/codemirror/codemirror.css" rel="stylesheet"/>
-    <link href="/assets/css/codemirror/dracula.css" rel="stylesheet"/>
     {$this->innerText()}
       
 </head>

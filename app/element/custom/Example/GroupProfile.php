@@ -8,28 +8,26 @@
  * file that was distributed with this source code.
  */
 
-namespace LHTML\Element\Custom\Examples;
+namespace LHTML\Element\Custom\Example;
 
 use LivingMarkup\Element\AbstractElement;
 
 /**
- * Class HelloWorld
- *
- * Hyperlink simple HelloWorld Module example
- *
- * <widget name="HelloWorld"/>
+ * Class UserProfile
  *
  * @package LivingMarkup\Modules\Widgets
  */
-class HelloWorld extends AbstractElement
+class GroupProfile extends AbstractElement
 {
+    public $group = 'Curators';
+    public $first_name = 'Website';
+    public $last_name = 'Curators';
+
     /**
-     * Prints Hello, World
-     *
      * @return mixed|string
      */
     public function onRender()
     {
-        return 'Hello, World';
+        return '<div class="group_profile">' . $this->xml . '</div>';
     }
 }

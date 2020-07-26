@@ -8,24 +8,25 @@
  * file that was distributed with this source code.
  */
 
-namespace LHTML\Element\Custom\MainContent;
+namespace LHTML\Element\Custom\Partial;
 
 use LivingMarkup\Element\AbstractElement;
 
-/**
- * Class HeaderDefault
- * @package LivingMarkup\Modules\Custom\Partials
- */
-class Standard extends AbstractElement
+class UserMenu extends AbstractElement
 {
-
     public function onRender()
     {
         return <<<HTML
-<!-- Main Content -->
-<main id="main-content" class="order-md-2 col-md-8 pl-md-3 col-lg-9 pl-lg-5 ">
-{$this->innerText()}
-</main>
+<!-- User Menu -->
+<div>
+<condition toggle="signed_in">
+    <h2>Welcome, <var name="username"/></h2>
+    <p>You're signed in right now</p>
+</condition>
+<condition toggle="signed_out">
+    <a href="1000" alt="Test">Sign in</a>
+</condition>
+</div>
 HTML;
     }
 }

@@ -5,6 +5,8 @@
 
     <script src="/assets/js/codemirror/codemirror.js"/>
     <script src="/assets/js/codemirror/xml.js"/>
+    <link href="/assets/css/codemirror/codemirror.css" rel="stylesheet"/>
+    <link href="/assets/css/codemirror/dracula.css" rel="stylesheet"/>
 
 </head>
 <body>
@@ -14,7 +16,7 @@
 <div class="container">
     <div class="row">
         <main name="Standard" class="editable">
-            <h1>Redacted</h1>
+            <h1>Redacted Element</h1>
             Whole paragraphs can be redacted:
 
             <nav class="nav nav-tabs">

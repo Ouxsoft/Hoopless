@@ -5,6 +5,8 @@
 
     <script src="/assets/js/codemirror/codemirror.js"/>
     <script src="/assets/js/codemirror/xml.js"/>
+    <link href="/assets/css/codemirror/codemirror.css" rel="stylesheet"/>
+    <link href="/assets/css/codemirror/dracula.css" rel="stylesheet"/>
 
 </head>
 <body>
@@ -15,7 +17,7 @@
     <div class="row">
         <main name="Standard" class="editable">
 
-            <h1>Images</h1>
+            <h1>Images Element</h1>
             <p>
                 Images can be automatically resized for your need. Simply upload large images and have them resized on the fly.
             </p>

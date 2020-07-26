@@ -18,6 +18,8 @@ define('LivingMarkup_DATETIME', '2019-12-03 01:30:00');
 
     <script src="/assets/js/codemirror/codemirror.js"/>
     <script src="/assets/js/codemirror/xml.js"/>
+    <link href="/assets/css/codemirror/codemirror.css" rel="stylesheet"/>
+    <link href="/assets/css/codemirror/dracula.css" rel="stylesheet"/>
 
 </head>
 <body>
@@ -28,7 +30,7 @@ define('LivingMarkup_DATETIME', '2019-12-03 01:30:00');
     <div class="row">
         <main name="Standard" class="editable">
 
-            <h1>If Statement</h1>
+            <h1>If Element</h1>
             <p>
                 An if statement is a programming conditional statement that, if proved true, shows the information
                 contained within.  If statements should be used sparingly; it is better to use a custom element to maintain
@@ -48,7 +50,7 @@ define('LivingMarkup_DATETIME', '2019-12-03 01:30:00');
             <div class="tab-content border border-top-0 p-3 mb-3">
                 <div id="code-1" class="tab-pane fade show active">
                     <code process="false">
-                        <if time_start="0:00" time_end="23:59">
+                        <if time_start="0:00" time_end="11:59am">
                             <p>Good morning.</p>
                         </if>
                         <if time_start="12:00pm" time_end="3:59pm">

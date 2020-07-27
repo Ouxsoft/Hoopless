@@ -18,7 +18,6 @@ use LivingMarkup\Element\AbstractElement;
  */
 class Standard extends AbstractElement
 {
-
     public function onRender()
     {
         return <<<HTML

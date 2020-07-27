@@ -65,7 +65,7 @@ git clone git@github.com:ouxsoft/Hoopless.git
 ### Via Docker
 Start with [Docker](https://docs.docker.com/get-docker/)
 ```shell script
-sudo ./docker.sh start dev
+sudo ./stack start dev
 ```
 
 View in browser [https://localhost](https://localhost)

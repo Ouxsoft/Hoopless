@@ -12,11 +12,18 @@
     <div class="container h-100">
         <div class="row h-100 align-items-center">
             <div class="col-12 text-left text-light">
-                <h1 class="font-weight-light">We make software</h1>
-                <p class="lead">that breaks assumptions.</p>
+                <h1 class="font-weight-light">
+                    Developing software
+                </h1>
+                <p class="lead"><i class="fas fa-code fa-1x"></i> that breaks assumptions. </p>
             </div>
         </div>
     </div>
+    <aside class="info-box bg-secondary p-4 editable">
+        <a class="text-white" href="/news">
+            <em>Get the latest updates.</em>
+        </a>
+    </aside>
 </div>
 
 <div class="container">

@@ -9,6 +9,7 @@
 
 div.hero-image {
   // crop at 1440x600
+  position: relative;
   background-position: 50% 50%;
   background-position-x: 50%;
   background-position-y: 50%;
@@ -25,6 +26,18 @@ div.hero-image {
   transition-property: opacity;
   transition-timing-function: ease;
   width: 1357px;
+
+  aside {
+    bottom: 120px;
+    box-sizing: border-box;
+    display: block;
+    max-width: 329.517px;
+    min-width: 302.05px;
+    position: absolute;
+    right: 0px;
+    top: 582px;
+    z-index: 3;
+  }
 }
 
 

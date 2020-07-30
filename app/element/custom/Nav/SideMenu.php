@@ -19,6 +19,9 @@ use LivingMarkup\Element\AbstractElement;
 class SideMenu extends AbstractElement
 {
     private $menus = [
+        'news' => [
+            '/news/' => 'News',
+        ],
         'about' => [
             '/about/' => 'About',
         ],

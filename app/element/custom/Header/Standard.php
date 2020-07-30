@@ -100,6 +100,9 @@ class Standard extends AbstractElement
         
             <ul class="navbar-nav pull-sm-right">
                 <li class="nav-item">
+                    <a class="nav-link" href="/news">News</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="/about">About</a>
                 </li>
                 <li class="nav-item">

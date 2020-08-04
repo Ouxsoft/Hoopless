@@ -24,7 +24,7 @@ class News extends AbstractElement
      language they are using.</p>
      
      <p>Watch what we intend to do about it.</p>
-     <iframe width="560" height="315" src="https://www.youtube.com/embed/6zEXsQKPL_M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>'
+     <iframe width="560" height="315" src="https://www.youtube.com/embed/6zEXsQKPL_M&rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>'
         ],
 
     ];

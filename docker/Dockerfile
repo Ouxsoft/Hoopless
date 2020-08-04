@@ -61,6 +61,7 @@ RUN sed -i "s/error_reporting = .*$/error_reporting = E_ERROR | E_WARNING | E_PA
 
 # expose Apache.
 EXPOSE 80
+EXPOSE 443
 
 # copy repo into web directory
 # instead we are mounting in docker command -v .:/var/www

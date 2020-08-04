@@ -8,3 +8,4 @@ services:
        - docker/env/prod.conf
     volumes:
        - "./:/var/www"
+       - "/etc/letsencrypt/live/ouxsoft.com/:/etc/apache2/certs"

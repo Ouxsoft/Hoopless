@@ -87,11 +87,9 @@ elif [ "$arg_1" == "errors" ]; then
 
 # Help
 elif [ "$arg_1" == "help" ]; then
-
   echo "$_help_str"
 
 else
-
   echo "Pass argument 'stop' or 'start'"
 
 fi

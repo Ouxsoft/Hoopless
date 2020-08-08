@@ -16,3 +16,13 @@ apt-get install -y \
     php7.2-mbstring \
     libxml2 curl
 
+cp ../../docker/apache2/000-default.conf /etc/apache2/sites-available/000-default.conf
+
+
+
+a2enmod php7.2
+a2enmod rewrite
+
+systemctl restart apache2
+
+

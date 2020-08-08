@@ -20,7 +20,7 @@ class News extends AbstractElement
             'title' => 'LHTML Add Custom Element',
             'body' => '
             <p>See how easy it is to create your own custom LHTML elements using Hoopless. In this example we create our own custom Alert elements that acts as a CSS abstraction layer to generate Bootstrap 4 alerts.</p>
-           <iframe width="560" height="315" src="https://www.youtube.com/embed/qRfHpkMwFOY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>'
+           <iframe width="560" height="315" src="https://www.youtube.com/embed/HxZ2qitsUUs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>'
 
         ],
         [

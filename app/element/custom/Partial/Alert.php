@@ -12,7 +12,7 @@ namespace LHTML\Element\Custom\Partial;
 
 use LivingMarkup\Element\AbstractElement;
 
-class Alerts extends AbstractElement
+class Alert extends AbstractElement
 {
     public function onRender()
     {

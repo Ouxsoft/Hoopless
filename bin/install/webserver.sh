@@ -15,18 +15,24 @@ apt-get install -y \
     php7.2-yaml \
     php7.2-mbstring \
     libxml2 curl
-    composer \
 
 cp ../../docker/apache2/000-default.conf /etc/apache2/sites-available/000-default.conf
 
+# configure apache2
 a2enmod php7.2
 a2enmod rewrite
+a2enmod ssl
 
-cd /var/www/Hoopless
-composer update
+# install composer
+curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
+# update composer
+cd /var/www/Hoopless && composer update;
+
+# grant apache2 permissions to web directory
 chown -R www-data:www-data /var/www
 
+# restart apache2
 systemctl restart apache2
 
 

@@ -5,19 +5,33 @@ arg_2="$2"
 arg_3="$3"
 
 _help_str="Available commands:
-  start              Start containers
-  stop               Stop containers
+  start dev          Start developmenet containers
+  stop dev           Stop development containers
   exec               Exec program inside the container
   config             Show docker config
   errors             Show Apache2 error log
+  install test       Install for test server
+  install prod       Install on production server
   help               Show this message
 "
 
 # Docker-compose start
-if [ "$arg_1" == "start" ] ; then
+if [ "$arg_1" == "install" ] ; then
+
+  if [ "$arg_2" == "prod" ] ; then
+      echo "Run web server for production environment"
+      echo "Install web server for test environment"
+      ./setup/install/webserver.sh
+      ./setup/install/certbot.sh
+    elif [ "$arg_2" == "test" ] ; then
+      echo "Install web server for test environment"
+      ./setup/install/webserver.sh
+    fi
+
+elif [ "$arg_1" == "start" ] ; then
 
   # build web server container
-  if [ "$arg_2" == "dev" ] || [ "$arg_2" == "test" ] || [ "$arg_2" == "prod" ] ; then
+  if [ "$arg_2" == "dev" ] ; then
     echo "Build web server container"
     if [ "$arg_3" == "clean" ] ; then
   		docker-compose build --pull --no-cache
@@ -25,31 +39,19 @@ if [ "$arg_1" == "start" ] ; then
   		docker-compose build
     fi
   else
-    echo "Deployment environment required (dev, test, prod):"
+    echo "Deployment environment required (dev):"
     echo "sudo ./docker.sh start dev clean"
     exit
   fi
 
   # run web server for environment
-  if [ "$arg_2" == "prod" ] ; then
-    echo "Run web server for production environment"
- 		docker-compose \
-			-f docker-compose.yml \
-			-f docker-compose.prod.yml \
-		up -d --remove-orphans
-  elif [ "$arg_2" == "test" ] ; then
-    echo "Run web server for test environment"
- 		docker-compose \
-			-f docker-compose.yml \
-			-f docker-compose.test.yml \
-		up -d --remove-orphans
-  elif [ "$arg_2" == "dev" ] ; then
+  if [ "$arg_2" == "dev" ] ; then
     # mount local volume for rapid development
     echo "Run web server for development environment"
  		docker-compose \
 			-f docker-compose.yml \
 			-f docker-compose.dev.yml \
-		up -d --remove-orphans
+		  up -d --remove-orphans
 		# update composer
 		docker-compose exec webapp composer update -d /var/www/
 		docker-compose exec webapp composer dump-autoload --optimize -d /var/www/
@@ -71,14 +73,10 @@ elif [ "$arg_1" == "exec" ]; then
 
 # Docker-compose compose
 elif [ "$arg_1" == "config" ]; then
-  if [ "$arg_2" == "prod" ]; then
-	  docker-compose -f docker-compose.yml -f docker-compose.prod.yml config
-  elif [ "$arg_2" == "test" ]; then
-	  docker-compose -f docker-compose.yml -f docker-compose.test.yml config
-  elif [ "$arg_2" == "dev" ]; then
+  if [ "$arg_2" == "dev" ]; then
 	  docker-compose -f docker-compose.yml -f docker-compose.dev.yml config
   else
-    echo "Deployment environment required (dev, test, prod):"
+    echo "Deployment environment required (dev):"
     echo "sudo ./docker.sh config prod"
     exit
   fi

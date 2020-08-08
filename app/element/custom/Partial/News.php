@@ -19,10 +19,10 @@ class News extends AbstractElement
             'date' => '2019-01-28',
             'title' => 'Reworking The Language of the Web',
             'body' =>
-                '<p>There is something fundamentally wrong about the way web teams work together to build websites. The problem is the language they are using is not empowering.</p>
-     
-     <p>Watch what we intend to do about it.</p>
-     <iframe width="560" height="315" src="https://www.youtube.com/embed/6zEXsQKPL_M&rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>'
+                '<p>There is something fundamentally wrong about the way web teams work together to build websites. The problem is the language they\'re using, HTML, was not designed to communicate within teams but to a browser. That makes it a poor choice to help empower team members, encourage effective communication, and encode the message that is the site between stakeholders.</p>
+                 
+                 <p>Watch what we intend to do about it.</p>
+                 <iframe width="560" height="315" src="https://www.youtube.com/embed/6zEXsQKPL_M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>'
         ],
 
     ];

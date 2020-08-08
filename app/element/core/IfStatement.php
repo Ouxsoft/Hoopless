@@ -52,30 +52,39 @@ class IfStatement extends AbstractElement
 
         $pass = true;
 
+        $time_start = $this->getArgByName('time_start');
+        $time_end = $this->getArgByName('time_end');
+        $date_start = $this->getArgByName('date_start');
+        $date_end = $this->getArgByName('date_end');
+        $day_of_week = $this->getArgByName('day_of_week');
+        $datetime_start = $this->getArgByName('datetime_start');
+        $datetime_end = $this->getArgByName('datetime_end');
+        $else = $this->getArgByName('else');
+
         // allow a condition based on time_start and time_end
-        if (isset($this->args['time_start']) && isset($this->args['time_end'])) {
-            if (!$this->isTimeNowBetween($this->args['time_start'], $this->args['time_end'])) {
+        if (($time_start !== null) && ($time_end !== null)) {
+            if (!$this->isTimeNowBetween($time_start, $time_end)) {
                 $pass = false;
             }
         }
 
         // allow a condition based on date_start and date_end
-        if (isset($this->args['date_end']) && isset($this->args['date_start'])) {
-            if (!$this->isDateNowBetween($this->args['date_start'], $this->args['date_end'])) {
+        if (($date_start !== null) && ($date_end !== null)) {
+            if (!$this->isDateNowBetween($date_start, $date_end)) {
                 $pass = false;
             }
         }
 
         // allow a condition based on day_of_week
-        if (isset($this->args['day_of_week'])) {
-            if (!$this->isNowSameDayOfWeek($this->args['day_of_week'])) {
+        if ($day_of_week !== null) {
+            if (!$this->isNowSameDayOfWeek($day_of_week)) {
                 $pass = false;
             }
         }
 
         // allow a condition based on datetime
-        if (isset($this->args['datetime_end']) && isset($this->args['datetime_start'])) {
-            if (!$this->isDatetimeNowBetween($this->args['datetime_start'], $this->args['datetime_end'])) {
+        if (($datetime_start !== null) && ($datetime_end !== null)) {
+            if (!$this->isDatetimeNowBetween($datetime_start, $datetime_end)) {
                 $pass = false;
             }
         }
@@ -94,8 +103,8 @@ class IfStatement extends AbstractElement
         }
 
         // return else xml child
-        if (isset($this->args['else'])) {
-            return $this->args['else'];
+        if ($else !== null) {
+            return $else;
         }
 
         // return empty string
@@ -126,18 +135,12 @@ class IfStatement extends AbstractElement
         $end_datetime = new DateTime($this->now());
         $end_datetime->setTime($end['hour'], $end['minute'], $end['second']);
 
-        // use next day if end time before start time
-        if ($start_datetime->getTimestamp() > $end_datetime->getTimestamp()) {
-            $end_datetime->modify('+ 1 day');
+        if ($start_datetime > $end_datetime) {
+            $end_datetime->modify('+1 day');
         }
 
-        // if now between start and end return true
-        if (($now_datetime->getTimestamp() > $start_datetime->getTimestamp()) &&
-            ($now_datetime->getTimestamp() < $end_datetime->getTimestamp())) {
-            return true;
-        } else {
-            return false;
-        }
+        return ($start_datetime <= $now_datetime && $now_datetime <= $end_datetime) ||
+            ($start_datetime <= $now_datetime->modify('+1 day') && $now_datetime <= $end_datetime);
     }
 
     /**

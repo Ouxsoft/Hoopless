@@ -39,11 +39,10 @@
                     <code process="false">
                         <example name="GroupProfile">
                             <fieldset>
-                                <legend>Group:</legend>
-                                <var name="group"/>
+                                <legend>Group: <var name="group"/></legend>
 
                                 <example name="UserProfile">
-                                    <p>Welcome <var tag="block" name="first_name"/> <var name="last_name"/></p>
+                                    <p>Welcome <var tag="example" name="first_name"/> <var name="last_name"/></p>
                                 </example>
                             </fieldset>
                         </example>
@@ -52,11 +51,10 @@
                 <div id="result-1" class="tab-pane fade">
                     <example name="GroupProfile">
                         <fieldset>
-                            <legend>Group:</legend>
-                            <var name="group"/>
+                            <legend>Group: <var name="group"/></legend>
 
                             <example name="UserProfile">
-                                <p>Welcome <var tag="block" name="first_name"/> <var name="last_name"/></p>
+                                <p>Welcome <var tag="example" name="first_name"/> <var name="last_name"/></p>
                             </example>
                         </fieldset>
                     </example>

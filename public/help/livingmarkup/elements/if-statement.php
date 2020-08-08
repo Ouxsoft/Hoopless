@@ -8,9 +8,6 @@
  * file that was distributed with this source code.
  */
 
-// define a datetime to allow consistent display results
-// comment out to default to NOW
-define('LivingMarkup_DATETIME', '2019-12-03 01:30:00');
 ?>
 <html lang="en">
 <head name="Standard">
@@ -40,6 +37,8 @@ define('LivingMarkup_DATETIME', '2019-12-03 01:30:00');
             <h2>Conditions</h2>
             <p>An if statement toggle is based on one or more conditional checks that are supplied as arguments.</p>
 
+            <p>The example conditions are based on the server's current time <?php echo date('F j, Y, g:i a');?></p>
+
             <h3>Time</h3>
             <p>A condition based on the time of day.</p>
 
@@ -50,29 +49,29 @@ define('LivingMarkup_DATETIME', '2019-12-03 01:30:00');
             <div class="tab-content border border-top-0 p-3 mb-3">
                 <div id="code-1" class="tab-pane fade show active">
                     <code process="false">
-                        <if time_start="0:00" time_end="11:59am">
+                        <if time_start="3:00am" time_end="11:59am">
                             <p>Good morning.</p>
                         </if>
                         <if time_start="12:00pm" time_end="3:59pm">
                             <p>Good day.</p>
                         </if>
                         <if>
-                            <arg name="time_start">4:00pm</arg>
-                            <arg name="time_end">11:59pm</arg>
+                            <arg name="time_start" type="string">2:00pm</arg>
+                            <arg name="time_end" type="string">2:59am</arg>
                             <p>Good evening.</p>
                         </if>
                     </code>
                 </div>
                 <div id="result-1" class="tab-pane fade">
-                    <if time_start="0:00" time_end="23:59">
+                    <if time_start="3:00am" time_end="11:59am">
                         <p>Good morning.</p>
                     </if>
                     <if time_start="12:00pm" time_end="3:59pm">
                         <p>Good day.</p>
                     </if>
                     <if>
-                        <arg name="time_start">4:00pm</arg>
-                        <arg name="time_end">11:59pm</arg>
+                        <arg name="time_start" type="string">2:00pm</arg>
+                        <arg name="time_end" type="string">2:59am</arg>
                         <p>Good evening.</p>
                     </if>
                 </div>

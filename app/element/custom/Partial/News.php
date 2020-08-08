@@ -16,6 +16,14 @@ class News extends AbstractElement
 {
     private $news = [
         [
+            'date' => '2020-08-08',
+            'title' => 'LHTML Elements Behind Hoopless',
+            'body' => '
+            <p>We take a quick look at the if statment, variable, and redacted LHTML elements used in Hoopless.</p>
+           <iframe width="560" height="315" src="https://www.youtube.com/embed/2w9vNNlsSRg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>'
+        ],
+
+        [
             'date' => '2020-08-07',
             'title' => 'LHTML Add Custom Element',
             'body' => '

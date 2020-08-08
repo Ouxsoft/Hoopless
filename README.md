@@ -62,13 +62,19 @@ git clone git@github.com:ouxsoft/Hoopless.git
 
 ## Usage
 
-### Via Docker
-Start with [Docker](https://docs.docker.com/get-docker/)
+### Via Docker 
+Start container with [Docker](https://docs.docker.com/get-docker/) for local development.
+
 ```shell script
 sudo ./stack start dev
 ```
-
 View in browser [https://localhost](https://localhost)
+
+### Via Shell
+Start on production Ubuntu 18.04 server
+```shell script
+sudo ./stack install prod
+```
 
 ## Creators
 

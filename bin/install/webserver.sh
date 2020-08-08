@@ -15,15 +15,20 @@ apt-get install -y \
     php7.2-yaml \
     php7.2-mbstring \
     libxml2 curl
+    composer \
 
 cp ../../docker/apache2/000-default.conf /etc/apache2/sites-available/000-default.conf
-
-
 
 a2enmod php7.2
 a2enmod rewrite
 
-systemctl restart apache2
+cd /var/www/Hoopless
+composer update
 
 chown -R www-data:www-data /var/www
+
+systemctl restart apache2
+
+
+
 

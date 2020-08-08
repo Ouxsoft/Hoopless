@@ -16,7 +16,10 @@ apt-get install -y \
     php7.2-mbstring \
     libxml2 curl
 
-cp ../../docker/apache2/000-default.conf /etc/apache2/sites-available/000-default.conf
+# enable ouxsoft site
+cp ../../docker/apache2/ouxsoft.conf /etc/apache2/sites-available/ouxsoft.conf
+a2dissite 000-default
+a2ensite ouxsoft
 
 # configure apache2
 a2enmod php7.2

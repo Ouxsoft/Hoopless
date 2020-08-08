@@ -21,7 +21,7 @@
     </div>
     <aside class="info-box bg-secondary p-4 editable">
         <a class="text-white" href="/news">
-            <em>Get the latest updates.</em>
+            <em>See the latest updates.</em>
         </a>
     </aside>
 </div>
@@ -30,9 +30,8 @@
     <p>
         We are building the framework behind this site, <a href="https://github.com/ouxsoft/Hoopless">Hoopless</a>.
         With the goal of creating a more expressive language to empower web teams to communicate design.
-
-        <a href="/help/livingmarkup" class="btn" >Learn More</a>
     </p>
+    <a href="/help/livingmarkup" class="btn btn-primary" >Learn More</a>
 </div>
 
 <footer name="Standard"/>

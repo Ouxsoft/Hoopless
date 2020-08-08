@@ -25,4 +25,5 @@ a2enmod rewrite
 
 systemctl restart apache2
 
+chown -R www-data:www-data /var/www
 

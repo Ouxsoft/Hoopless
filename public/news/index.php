@@ -11,8 +11,12 @@
         <main name="Standard" class="editable">
             <h1>News</h1>
 
+            <alert type="info">
+                Check out the latest stories from Ouxsoft.
+            </alert>
+
             <partial name="News">
-                <arg name="limit" type="int">5</arg>
+                <arg name="limit" type="int">4</arg>
             </partial>
 
         </main>

@@ -24,11 +24,10 @@ class Standard extends AbstractElement
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    
-    <link href="/assets/css/main.min.css" rel="stylesheet"/>
-    
+    <meta name="author" content="Ouxsoft"/>    
+    <meta name="keywords" content="Ouxsoft, Web Design"/>
+    <link href="/assets/css/main.min.css" rel="stylesheet"/>    
     {$this->innerText()}
-      
 </head>
 HTML;
     }

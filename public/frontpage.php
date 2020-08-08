@@ -1,6 +1,6 @@
 <html lang="en">
 <head name="Standard">
-    <title>Help</title>
+    <title>Ouxsoft Home</title>
 </head>
 <body>
 

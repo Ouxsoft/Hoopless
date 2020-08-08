@@ -16,6 +16,22 @@ class News extends AbstractElement
 {
     private $news = [
         [
+            'date' => '2020-08-07',
+            'title' => 'LHTML Add Custom Element',
+            'body' => '
+            <p>See how easy it is to create your own custom LHTML elements using Hoopless. In this example we create our own custom Alert elements that acts as a CSS abstraction layer to generate Bootstrap 4 alerts.</p>
+           <iframe width="560" height="315" src="https://www.youtube.com/embed/qRfHpkMwFOY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>'
+
+        ],
+        [
+            'date' => '2020-08-07',
+            'title' => 'LHTML Under the Hood',
+            'body' => '
+            <p>LHTML works to make communicate the elements of design between team members while still delivering top notch HTML to the web browser</p>
+           <iframe width="560" height="315" src="https://www.youtube.com/embed/L4u2qh5Elco" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>'
+
+        ],
+        [
             'date' => '2019-01-28',
             'title' => 'Reworking The Language of the Web',
             'body' =>
@@ -32,10 +48,10 @@ class News extends AbstractElement
         $out = '';
         foreach ($this->news as $news) {
             $out .= <<<HTML
-<article>
+<article class="mb-5">
     <h3>{$news['title']}</h3>
+    <p><i>Published: <date>{$news['date']}</date></i></p>
     <hr/>
-    <p>Published: <date>{$news['date']}</date></p>
     {$news['body']}
 </article>
 HTML;

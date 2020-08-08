@@ -1,6 +1,6 @@
 <html lang="en">
 <head name="Standard">
-    <title>Help</title>
+    <title>About</title>
 </head>
 <body>
 

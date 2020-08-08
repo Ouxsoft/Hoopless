@@ -48,6 +48,9 @@ elements:
     - name: "Main"
       class_name: 'LHTML\Element\Custom\Main\{name}'
       xpath: "//main[not(ancestor::*[@process='false'])]"
+    - name: "Alert"
+      class_name: 'LHTML\Element\Custom\Partial\Alerts'
+      xpath: "//alert[not(ancestor::*[@process='false'])]"
     - name: "Footer"
       class_name: 'LHTML\Element\Custom\Footer\{name}'
       xpath: "//footer[not(ancestor::*[@process='false'])]"

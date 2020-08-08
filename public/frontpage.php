@@ -29,6 +29,9 @@
 <div class="container">
     <p>
         We are building the framework behind this site, <a href="https://github.com/ouxsoft/Hoopless">Hoopless</a>.
+        With the goal of creating a more expressive language to empower web teams to communicate design.
+
+        <a href="/help/livingmarkup" class="btn" >Learn More</a>
     </p>
 </div>
 

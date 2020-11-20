@@ -1,8 +1,8 @@
 exclude_paths:
-- "public/assets/js/**/*"
-- "public/assets/css/**/*"
-- "assets/scss/**/*"
+- "app/public/assets/js/**/*"
+- "app/public/assets/css/**/*"
+- "app/assets/scss/**/*"
 - "**.md"
 - "**.sh"
 - "**.scss"
-- "Dockerfile"
+- "setup/docker/Dockerfile"

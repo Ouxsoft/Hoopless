@@ -1,16 +1,14 @@
 # ./docker-compose.yml
 
-version: '3'
+version: "3.8"
 
 services:
-
-  webapp:
-    image: ubuntu:18.04
-    hostname: webapp
+  apache_2:
+    image: library/ubuntu:20.04
     build:
-      context: "setup/docker"
-      dockerfile: Dockerfile
+      context: ./setup/docker
+      dockerfile: ./Dockerfile
     ports:
       - "80:80"
       - "443:443"
-    container_name: Hoopless
+    container_name: hoopless

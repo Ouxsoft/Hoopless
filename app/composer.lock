@@ -176,16 +176,16 @@
         },
         {
             "name": "laminas/laminas-escaper",
-            "version": "2.7.x-dev",
+            "version": "2.6.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laminas/laminas-escaper.git",
-                "reference": "4f40bf7735efde17e0791fdfabe84e1693ee8b70"
+                "reference": "46879b76891c81d154f3f3c8ece7a5dd395015d6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laminas/laminas-escaper/zipball/4f40bf7735efde17e0791fdfabe84e1693ee8b70",
-                "reference": "4f40bf7735efde17e0791fdfabe84e1693ee8b70",
+                "url": "https://api.github.com/repos/laminas/laminas-escaper/zipball/46879b76891c81d154f3f3c8ece7a5dd395015d6",
+                "reference": "46879b76891c81d154f3f3c8ece7a5dd395015d6",
                 "shasum": ""
             },
             "require": {
@@ -199,7 +199,6 @@
                 "laminas/laminas-coding-standard": "~1.0.0",
                 "phpunit/phpunit": "^5.7.27 || ^6.5.8 || ^7.1.2"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -364,16 +363,16 @@
         },
         {
             "name": "laminas/laminas-router",
-            "version": "3.4.x-dev",
+            "version": "3.3.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laminas/laminas-router.git",
-                "reference": "c348c6898fd1c93b910566295337544b80dff751"
+                "reference": "5e55c60ac9bd88624025a86895551daaac6a01e6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laminas/laminas-router/zipball/c348c6898fd1c93b910566295337544b80dff751",
-                "reference": "c348c6898fd1c93b910566295337544b80dff751",
+                "url": "https://api.github.com/repos/laminas/laminas-router/zipball/5e55c60ac9bd88624025a86895551daaac6a01e6",
+                "reference": "5e55c60ac9bd88624025a86895551daaac6a01e6",
                 "shasum": ""
             },
             "require": {
@@ -382,17 +381,22 @@
                 "laminas/laminas-servicemanager": "^2.7.8 || ^3.3",
                 "laminas/laminas-stdlib": "^3.2.1",
                 "laminas/laminas-zendframework-bridge": "^1.0",
-                "php": "^7.1"
+                "php": "^5.6 || ^7.0"
+            },
+            "conflict": {
+                "laminas/laminas-mvc": "<3.0.0"
+            },
+            "replace": {
+                "zendframework/zend-router": "^3.3.0"
             },
             "require-dev": {
                 "laminas/laminas-coding-standard": "~1.0.0",
                 "laminas/laminas-i18n": "^2.7.4",
-                "phpunit/phpunit": "^7.5.18"
+                "phpunit/phpunit": "^5.7.22 || ^6.4.1 || ^7.5.18"
             },
             "suggest": {
                 "laminas/laminas-i18n": "^2.7.4, if defining translatable HTTP path segments"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laminas": {
@@ -413,6 +417,7 @@
             "homepage": "https://laminas.dev",
             "keywords": [
                 "laminas",
+                "mvc",
                 "routing"
             ],
             "support": {
@@ -429,7 +434,7 @@
                     "type": "community_bridge"
                 }
             ],
-            "time": "2020-09-12T07:51:56+00:00"
+            "time": "2020-09-12T07:51:52+00:00"
         },
         {
             "name": "laminas/laminas-servicemanager",
@@ -933,12 +938,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/scssphp/scssphp.git",
-                "reference": "b083052f5ae0c5596f2474a9ebe2a0003c143c9d"
+                "reference": "417ec6e3340db0e40ce7b5ac2cf4a1425122d5ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/scssphp/scssphp/zipball/b083052f5ae0c5596f2474a9ebe2a0003c143c9d",
-                "reference": "b083052f5ae0c5596f2474a9ebe2a0003c143c9d",
+                "url": "https://api.github.com/repos/scssphp/scssphp/zipball/417ec6e3340db0e40ce7b5ac2cf4a1425122d5ca",
+                "reference": "417ec6e3340db0e40ce7b5ac2cf4a1425122d5ca",
                 "shasum": ""
             },
             "require": {
@@ -993,7 +998,7 @@
                 "issues": "https://github.com/scssphp/scssphp/issues",
                 "source": "https://github.com/scssphp/scssphp/tree/master"
             },
-            "time": "2020-11-11T09:25:55+00:00"
+            "time": "2020-11-18T16:25:56+00:00"
         },
         {
             "name": "twbs/bootstrap",
@@ -1433,12 +1438,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfPHP/PHP-CS-Fixer.git",
-                "reference": "de042be445ebdaafd0d893cccd6399d8d9fe6467"
+                "reference": "71c0e0ea29ff873929f0e23c70a0cea3793e0c23"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/de042be445ebdaafd0d893cccd6399d8d9fe6467",
-                "reference": "de042be445ebdaafd0d893cccd6399d8d9fe6467",
+                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/71c0e0ea29ff873929f0e23c70a0cea3793e0c23",
+                "reference": "71c0e0ea29ff873929f0e23c70a0cea3793e0c23",
                 "shasum": ""
             },
             "require": {
@@ -1531,7 +1536,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-11-13T12:03:47+00:00"
+            "time": "2020-11-16T11:00:45+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -1817,12 +1822,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionDocBlock.git",
-                "reference": "069a785b2141f5bcf49f3e353548dc1cce6df556"
+                "reference": "e3324ecbde7319b0bbcf0fd7ca4af19469c38da9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/069a785b2141f5bcf49f3e353548dc1cce6df556",
-                "reference": "069a785b2141f5bcf49f3e353548dc1cce6df556",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/e3324ecbde7319b0bbcf0fd7ca4af19469c38da9",
+                "reference": "e3324ecbde7319b0bbcf0fd7ca4af19469c38da9",
                 "shasum": ""
             },
             "require": {
@@ -1866,7 +1871,7 @@
                 "issues": "https://github.com/phpDocumentor/ReflectionDocBlock/issues",
                 "source": "https://github.com/phpDocumentor/ReflectionDocBlock/tree/master"
             },
-            "time": "2020-09-03T19:13:55+00:00"
+            "time": "2020-11-18T14:27:38+00:00"
         },
         {
             "name": "phpdocumentor/type-resolver",
@@ -2264,12 +2269,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "c17a1728a514e21ddbd8d8f3846b141d5d39587e"
+                "reference": "00cb4e37e7d46ce73c4bb9703e85a0bd0a3550d4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/c17a1728a514e21ddbd8d8f3846b141d5d39587e",
-                "reference": "c17a1728a514e21ddbd8d8f3846b141d5d39587e",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/00cb4e37e7d46ce73c4bb9703e85a0bd0a3550d4",
+                "reference": "00cb4e37e7d46ce73c4bb9703e85a0bd0a3550d4",
                 "shasum": ""
             },
             "require": {
@@ -2353,7 +2358,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-11-14T06:57:12+00:00"
+            "time": "2020-11-17T14:13:12+00:00"
         },
         {
             "name": "psr/event-dispatcher",
@@ -3125,12 +3130,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "d1d8b8fd9b605630aa73b1b384e246fee54e8ffa"
+                "reference": "b194bea28f51b40ab61acb1ba66b9a31f6b4bd0c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/d1d8b8fd9b605630aa73b1b384e246fee54e8ffa",
-                "reference": "d1d8b8fd9b605630aa73b1b384e246fee54e8ffa",
+                "url": "https://api.github.com/repos/symfony/console/zipball/b194bea28f51b40ab61acb1ba66b9a31f6b4bd0c",
+                "reference": "b194bea28f51b40ab61acb1ba66b9a31f6b4bd0c",
                 "shasum": ""
             },
             "require": {
@@ -3199,7 +3204,7 @@
                 "terminal"
             ],
             "support": {
-                "source": "https://github.com/symfony/console/tree/v5.2.0-RC1"
+                "source": "https://github.com/symfony/console/tree/5.x"
             },
             "funding": [
                 {
@@ -3215,7 +3220,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-11-05T20:05:54+00:00"
+            "time": "2020-11-20T08:48:10+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",
@@ -3522,12 +3527,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "19de51f4fd1cb88ba4d8d9a8c39d79cca7f11577"
+                "reference": "fd8305521692f27eae3263895d1ef1571c71a78d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/19de51f4fd1cb88ba4d8d9a8c39d79cca7f11577",
-                "reference": "19de51f4fd1cb88ba4d8d9a8c39d79cca7f11577",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/fd8305521692f27eae3263895d1ef1571c71a78d",
+                "reference": "fd8305521692f27eae3263895d1ef1571c71a78d",
                 "shasum": ""
             },
             "require": {
@@ -3560,7 +3565,7 @@
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/finder/tree/v5.2.0-RC1"
+                "source": "https://github.com/symfony/finder/tree/5.x"
             },
             "funding": [
                 {
@@ -3576,7 +3581,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-11-02T07:55:38+00:00"
+            "time": "2020-11-18T09:42:36+00:00"
         },
         {
             "name": "symfony/options-resolver",

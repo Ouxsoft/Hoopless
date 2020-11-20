@@ -1,0 +1,99 @@
+#!/bin/bash
+
+arg_1="$1"
+arg_2="$2"
+arg_3="$3"
+
+_help_str="Available commands:
+  start dev          Start development environment containers
+  stop dev           Stop development environment containers
+  exec               Exec program inside the container
+  config             Show docker config
+  errors             Show apache2 error log
+  install test       Run install on test server
+  install prod       Run install on production server
+  wipe               Remove all docker containers
+  help               Show this message
+"
+
+# Docker-compose start
+if [ "$arg_1" == "wipe"]; then
+  docker-compose system prune -a
+
+elif [ "$arg_1" == "install" ]; then
+
+  if [ "$arg_2" == "prod" ]; then
+    echo "Install web server for production environment"
+    ./setup/install/webserver.sh
+    ./setup/install/certbot.sh
+  elif [ "$arg_2" == "test" ]; then
+    echo "Install web server for test environment"
+    ./setup/install/webserver.sh
+  fi
+
+elif [ "$arg_1" == "start" ]; then
+
+  # build web server container
+  if [ "$arg_2" == "dev" ]; then
+    echo "Build web server container"
+    if [ "$arg_3" == "clean" ]; then
+      docker-compose build --pull --no-cache
+    else
+      docker-compose build
+    fi
+  else
+    echo "Deployment environment required (dev):"
+    echo "sudo ./stack start dev clean"
+    exit
+  fi
+
+  # run web server for environment
+  if [ "$arg_2" == "dev" ]; then
+    # mount local volume for rapid development
+    echo "Run web server for development environment"
+    docker-compose \
+    -f docker-compose.yml \
+    -f docker-compose.dev.yml \
+    up -d --remove-orphans
+
+    # update composer
+    docker-compose exec apache_2 composer update -d ./var/www/app
+    docker-compose exec apache_2 composer dump-autoload --optimize -d ./var/www/app
+  fi
+
+# Docker-compose stop
+elif [ "$arg_1" == "stop" ]; then
+
+  echo "Stop container(s)"
+  docker-compose down
+  echo "Remove web server container"
+  docker-compose -f docker-compose.yml down
+
+# Docker-compose exec
+elif [ "$arg_1" == "exec" ]; then
+
+  echo "Exec into web server"
+  docker-compose exec apache2 bash
+
+# Docker-compose compose
+elif [ "$arg_1" == "config" ]; then
+  if [ "$arg_2" == "dev" ]; then
+    docker-compose -f docker-compose.yml -f docker-compose.dev.yml config
+  else
+    echo "Deployment environment required (dev):"
+    echo "sudo ./stack config prod"
+    exit
+  fi
+
+# Docker-compose tail
+elif [ "$arg_1" == "errors" ]; then
+  docker-compose exec apache_2 tail /var/log/apache2/error.log
+
+# Help
+elif [ "$arg_1" == "help" ]; then
+  echo "$_help_str"
+
+else
+  echo "Pass argument 'stop' or 'start'"
+
+fi

@@ -1,10 +1,12 @@
 # ./docker-compose.dev.yml
 
-version: '3'
+version: "3.8"
 
 services:
-  webapp:
+  apache_2:
     env_file:
-       - setup/docker/env/dev.conf
+      - ./setup/docker/env/dev.conf
     volumes:
-       - "./:/var/www"
+      - type: bind
+        source: ./app
+        target: /var/www/app

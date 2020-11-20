@@ -11,7 +11,7 @@
 // turn off LHTML5 Autoloader
 define('LHTML_OFF', 0);
 
-require dirname(__DIR__,3) . '/vendor/autoload.php';
+require dirname(__DIR__, 3) . '/vendor/autoload.php';
 
 use Hoopless\Image;
 use Hoopless\Path;

@@ -19,7 +19,7 @@ ENV APACHE_LOCK_DIR /var/lock/apache2
 ENV APACHE_SERVER_ADMIN admin@localhost
 ENV APACHE_SERVER_NAME localhost
 ENV APACHE_SERVER_ALIAS docker.localhost
-ENV APACHE_DOCUMENT_ROOT /var/www/html
+ENV APACHE_DOCUMENT_ROOT /var/www/app
 ENV APACHE_WORKER_START_SERVERS 2
 ENV APACHE_WORKER_MIN_SPARE_THREADS 2
 ENV APACHE_WORKER_MAX_SPARE_THREADS 10
@@ -49,7 +49,7 @@ RUN apt-get update \
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # update composer packages on production and test
-RUN if [ "$DEPLOY_ENVIRONMENT" = "production" ] ||  [ "$DEPLOY_ENVIRONMENT" = "test" ] ; then cd /var/www && composer update ; fi
+#RUN if [ "$DEPLOY_ENVIRONMENT" = "production" ] ||  [ "$DEPLOY_ENVIRONMENT" = "test" ] ; then cd /var/www/app && composer update ; fi
 
 # enable apache2 mods
 RUN a2enmod php7.2

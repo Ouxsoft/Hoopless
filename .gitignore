@@ -1,11 +1,11 @@
 .project
 .buildpath
 .idea
-.phpunit.result.cache
-.php_cs.cache
-vendor/*
+app/.phpunit.result.cache
+app/.php_cs.cache
+app/vendor/*
 .idea
 .idea/*
 .vscode
 .vscode/*
-config.yml
+app/config.yml

@@ -32,7 +32,7 @@ set_include_path(ROOT_DIR);
 
 global $proc;
 $proc = new LivingMarkup\Processor();
-$proc->loadConfig(dirname(__DIR__, 1) . '/app/config/config.dist.yml');
+$proc->loadConfig(ROOT_DIR . 'config/config.dist.yml');
 
 $proc->parseBuffer();
 

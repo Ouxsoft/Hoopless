@@ -65,15 +65,15 @@
   "autoload": {
     "psr-4": {
       "Hoopless\\" : "src/",
-      "LHTML\\Element\\Core\\": "app/element/core/",
-      "LHTML\\Element\\Custom\\": "app/element/custom/"
+      "LHTML\\Element\\Core\\": "element/core/",
+      "LHTML\\Element\\Custom\\": "element/custom/"
     }
   },
   "autoload-dev": {
     "psr-4": {
       "Hoopless\\" : "src/",
-      "LHTML\\Element\\Core\\": "app/element/core/",
-      "LHTML\\Element\\Custom\\": "app/element/custom/"
+      "LHTML\\Element\\Core\\": "element/core/",
+      "LHTML\\Element\\Custom\\": "element/custom/"
     }
   },
   "homepage": "https://github.com/ouxsoft/Hoopless",
@@ -83,7 +83,7 @@
   },
   "scripts": {
     "build": [
-      "php-cs-fixer fix --rules=@PSR2 --using-cache=no app/",
+      "php-cs-fixer fix --rules=@PSR2 --using-cache=no public/",
       "php-cs-fixer fix --rules=@PSR2 --using-cache=no src/",
       "php-cs-fixer fix --rules=@PSR2 --using-cache=no test/",
       "php bin/SassCompiler.php",
@@ -103,7 +103,7 @@
       "find var/cache/images/ -type f -not -name '.gitignore' -delete"
     ],
     "fix-code": [
-      "php-cs-fixer fix --rules=@PSR2 --using-cache=no app/",
+      "php-cs-fixer fix --rules=@PSR2 --using-cache=no public/",
       "php-cs-fixer fix --rules=@PSR2 --using-cache=no src/",
       "php-cs-fixer fix --rules=@PSR2 --using-cache=no test/"
     ]

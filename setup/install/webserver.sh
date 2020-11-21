@@ -30,7 +30,7 @@ a2enmod ssl
 curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # update composer
-cd /var/www/ouxsoft && composer update;
+cd /var/www/ && composer update;
 
 # grant apache2 permissions to web directory
 chown -R www-data:www-data /var/www

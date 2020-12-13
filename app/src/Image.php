@@ -147,10 +147,12 @@ class Image
      */
     public function output(): bool
     {
+        /*
         // if cache exist, then output it
         if ($this->sendCache()) {
             return true;
         }
+        */
 
         // load and resize file
         if (! $this->load() || ! $this->resize()) {
@@ -160,7 +162,7 @@ class Image
         }
 
         // save cache
-        $this->saveCache();
+        // $this->saveCache();
 
         // send image
         if ($this->sendImage()) {
@@ -179,10 +181,11 @@ class Image
         // assets
         $assets_filename = $this->filename;
         $assets_filepath = $this->assets_dir . $this->filename;
+
         $assets_validator = new Exists($this->assets_dir);
 
         if (!$assets_validator->isValid($assets_filename)) {
-            //    return false;
+            // return false;
         }
 
         // create image from file

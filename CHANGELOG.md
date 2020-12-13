@@ -10,6 +10,10 @@ All releases must adhere to [SemVer 2](https://semver.org/) naming convention an
 
 ## Hoopless [Unreleased]
 * Fixed: Image resize algorithm
+* Added: Ngnix Docker image
+* Added: PHP FastCGI Docker image
+* Removed: Apache2 Docker image
+* Removed: Image resize caching (considering handing with caching layer)
 
 ## Hoopless 0.1.0
 * Added: Example, Footer, Head, Header, Main, Nav, and Partial elements.

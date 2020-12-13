@@ -12,12 +12,14 @@ _help_str="Available commands:
   errors             Show apache2 error log
   install test       Run install on test server
   install prod       Run install on production server
+  nginx reload       Reload nginx
+  clear cache        Clears cache
   wipe               Remove all docker containers
   help               Show this message
 "
 
 # Docker-compose start
-if [ "$arg_1" == "wipe"]; then
+if [ "$arg_1" == "wipe" ]; then
   docker-compose system prune -a
 
 elif [ "$arg_1" == "install" ]; then
@@ -57,8 +59,8 @@ elif [ "$arg_1" == "start" ]; then
     up -d --remove-orphans
 
     # update composer
-    docker-compose exec apache_2 composer update -d ./var/www/app
-    docker-compose exec apache_2 composer dump-autoload --optimize -d ./var/www/app
+    docker-compose exec hoopless-webserverdock composer update -d ./application/
+    docker-compose exec hoopless-webserver composer dump-autoload --optimize -d ./application/
   fi
 
 # Docker-compose stop
@@ -89,6 +91,19 @@ elif [ "$arg_1" == "config" ]; then
 elif [ "$arg_1" == "errors" ]; then
   docker-compose exec apache_2 tail /var/log/apache2/error.log
 
+# ngnix
+elif [ "$arg_1" == "nginx" ]; then
+  if [ "$arg_2" == "reload" ]; then
+    docker exec -it hoopless-webserver nginx -s reload
+  fi
+
+# clear cache
+elif [ "$arg_1" == "clear" ]; then
+  if [ "$arg_2" == "cache" ]; then
+    rm -r ./app/var/cache/images/*
+    #docker exec -it hoopless-webserver rm -r /application/var/cache/images/*
+  fi
+
 # Help
 elif [ "$arg_1" == "help" ]; then
   echo "$_help_str"
@@ -97,3 +112,4 @@ else
   echo "Pass argument 'stop' or 'start'"
 
 fi
+

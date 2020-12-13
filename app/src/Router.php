@@ -23,20 +23,19 @@ class Router
      */
     public function __construct()
     {
-        $route = (array_key_exists('REDIRECT_URL', $_SERVER))?$_SERVER['REDIRECT_URL']:'';
-
-        $this->request($route);
+        $this->request();
     }
 
     /**
      * @param string $route
      */
-    public function request(string $route)
+    public function request()
     {
+        $route = (array_key_exists('SCRIPT_NAME', $_SERVER))?$_SERVER['SCRIPT_NAME']:'';
         $route = (string) ltrim($route, '/');
 
         // send empty request to home
-        if ($route == '') {
+        if ($route == '' || $route == 'index.php') {
             $route = 'frontpage';
         }
 
@@ -49,8 +48,11 @@ class Router
 
         // check for directory traversal or if file does not exist
         $real_base = realpath(PUBLIC_DIR);
-        $user_path = PUBLIC_DIR . $this->route;
+        $user_path = PUBLIC_DIR . $route;
+
+
         $real_user_path = realpath($user_path);
+
         if (($real_user_path === false)
             || (strpos($real_user_path, $real_base) !== 0)
             || (is_file($route) === false)

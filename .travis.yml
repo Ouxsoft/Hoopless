@@ -1,6 +1,9 @@
 language: php
 php:
-  - 7.2
+  - 7.4
+services:
+  - docker
+
 env:
   # You may want to update this to whatever the latest version is, or keep it
   # the same as your local machines. However, I have only tested it with 1.8.0+.
@@ -11,7 +14,7 @@ env:
   before_install:
     # update is required to update the repositories to see the new packages for
     # Docker.
-    - sudo ./stack install test
+    - docker-compose up
 
 after_script:
   - bash <(curl -s https://codecov.io/bash)

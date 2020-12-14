@@ -1,12 +1,19 @@
-# ./docker-compose.dev.yml
-
-version: "3.8"
+version: "3.1"
 
 services:
-  apache_2:
-    env_file:
-      - ./setup/docker/env/dev.conf
+  jenkins:
+    build:
+      context:                        ./zend
+      dockerfile:                     Dockerfile
+    image:                            zend/test-automation-jenkins
+    container_name:                   zjenkins
+    restart:  unless-stopped
+    ports:
+      - "8080:8080"
     volumes:
-      - type: bind
-        source: ./app
-        target: /var/www/app
+      - ./.volume/apps:/apps
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "5"

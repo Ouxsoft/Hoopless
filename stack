@@ -59,8 +59,10 @@ elif [ "$arg_1" == "start" ]; then
     up -d --remove-orphans
 
     # update composer
-    docker-compose exec hoopless-webserverdock composer update -d ./application/
-    docker-compose exec hoopless-webserver composer dump-autoload --optimize -d ./application/
+    # must be ran outside of Dockerfile due to mount
+    docker exec hoopless-webserver composer update -d .
+    docker exec hoopless-webserver composer dump-autoload --optimize -d .
+    docker exec hoopless-webserver chmod 0755 var/cache/images
   fi
 
 # Docker-compose stop

@@ -1,7 +1,7 @@
 FROM php:7.4-fpm-alpine3.12
 
 # use the default production configuration
-#RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
+RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 
 WORKDIR "/application"
 
@@ -10,6 +10,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 # install essential build tools
 RUN apk add --no-cache \
+    curl \
     autoconf \
     g++ \
     make \
@@ -18,19 +19,6 @@ RUN apk add --no-cache \
 
 # set UTC server time
 RUN echo "UTC" > /etc/timezone
-
-# install composer
-ENV COMPOSER_HOME /composer
-ENV PATH ./vendor/bin:/composer/vendor/bin:$PATH
-ENV COMPOSER_ALLOW_SUPERUSER 1
-RUN curl -s https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin/ --filename=composer
-
-# install bzip2 extension
-RUN apk add --no-cache \
-    bzip2-dev \
-    && docker-php-ext-install -j$(nproc) bz2 \
-    && docker-php-ext-enable bz2 \
-    && rm -rf /tmp/*
 
 # install GD extension
 RUN apk add --no-cache \
@@ -42,7 +30,6 @@ RUN apk add --no-cache \
       libpng-dev \
     && docker-php-ext-configure gd \
       --with-freetype=/usr/include/ \
-      --with-png=/usr/include/ \
       --with-jpeg=/usr/include/ \
     && docker-php-ext-install -j$(nproc) gd \
     && docker-php-ext-enable gd \
@@ -59,27 +46,6 @@ RUN apk add --no-cache \
     && docker-php-ext-enable intl \
     && rm -rf /tmp/*
 
-# install mbstring extension
-RUN apk add --no-cache \
-    oniguruma-dev \
-    && docker-php-ext-install mbstring \
-    && docker-php-ext-enable mbstring \
-    && rm -rf /tmp/*
-
-# install yaml extension
-RUN apk add --no-cache \
-    oniguruma-dev \
-    && docker-php-ext-install yaml \
-    && docker-php-ext-enable yaml \
-    && rm -rf /tmp/*
-
-# install curl extension
-RUN apk add --no-cache \
-    oniguruma-dev \
-    && docker-php-ext-install curl \
-    && docker-php-ext-enable curl \
-    && rm -rf /tmp/*
-
 # install opcache, xdebug
 # WARNING disable XDBUG on prod
 RUN docker-php-source extract \
@@ -92,18 +58,12 @@ RUN docker-php-source extract \
     && docker-php-ext-enable opcache xdebug apcu \
     && docker-php-source delete \
     && rm -rf /tmp/*    
-    
+
 # allow webserver to to use modify application
 RUN chown -R www-data:www-data /application/
 
-# # install apps
-#     zip \
-#     unzip \
-#     php7.2 \
-#     php7.2-mysql \
-#     php7.2-dom \
-#     php7.2-json \
-#     php7.2-gd \
-#     php7.2-yaml \
-#     libxml2 \
-#     curl
+# install composer
+ENV COMPOSER_HOME /composer
+ENV PATH ./vendor/bin:/composer/vendor/bin:$PATH
+ENV COMPOSER_ALLOW_SUPERUSER 1
+RUN curl -s https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin/ --filename=composer

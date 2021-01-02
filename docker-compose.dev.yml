@@ -34,10 +34,12 @@ services:
   jenkins:
     build: ./docker/jenkins
     container_name: hoopless-jenkins
+    volumes:
+      - ./docker/jenkins/jenkins_home:/var/jenkins_home
     ports:
       - "8081:8081"
     environment:
-      - VIRTUAL_HOST=test.localhost
+      - VIRTUAL_HOST=jenkins.localhost
       - VIRTUAL_PORT=8081
     networks:
       - proxynet

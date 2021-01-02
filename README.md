@@ -60,7 +60,7 @@ Start container with [Docker](https://docs.docker.com/get-docker/) for local dev
 View in browser:
 * [http://localhost](http://localhost)
 * [http://db.localhost](http://db.localhost)
-* [http://test.localhost](http://test.localhost)
+* [http://jenkins.localhost/blue](http://jenkins.localhost/blue) -- user: admin, password: admin
 
 
 ### Via Shell

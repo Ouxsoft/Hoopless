@@ -1,19 +1,64 @@
-version: "3.1"
+version: "3.8"
 
 services:
-  jenkins:
-    build:
-      context:                        ./zend
-      dockerfile:                     Dockerfile
-    image:                            zend/test-automation-jenkins
-    container_name:                   zjenkins
-    restart:  unless-stopped
+
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    container_name: hoopless-proxy
+    ports:
+      - "80:80"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+    networks:
+      - proxynet
+
+  webserver:
+    environment:
+      - VIRTUAL_HOST=localhost
+    networks:
+      - proxynet
+
+  phpmyadmin:
+    depends_on: [ mysql ]
+    container_name: hoopless-phpmyadmin
+    image: phpmyadmin/phpmyadmin
     ports:
       - "8080:8080"
+    environment:
+      - VIRTUAL_HOST=db.localhost
+    env_file:
+      - ./docker/env/dev.env
+    networks:
+      - proxynet
+
+  jenkins:
+    build: ./docker/jenkins
+    container_name: hoopless-jenkins
+    ports:
+      - "8081:8081"
+    environment:
+      - VIRTUAL_HOST=test.localhost
+      - VIRTUAL_PORT=8081
+    networks:
+      - proxynet
+
+  php-fpm:
+    networks:
+      - proxynet
+
+  mysql:
+    image: mysql:8.0
+    container_name: hoopless-mysql
+    working_dir: /application
     volumes:
-      - ./.volume/apps:/apps
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "10m"
-        max-file: "5"
+      - ./app:/application
+    ports:
+      - "3306:3306"
+    env_file:
+      - ./docker/env/dev.env
+    networks:
+      - proxynet
+
+networks:
+  proxynet:
+    external: false

@@ -1,115 +1,212 @@
 #!/bin/bash
+# Shell script for simplifying running commonly used features
 
 arg_1="$1"
 arg_2="$2"
 arg_3="$3"
 
-_help_str="Available commands:
-  start dev          Start development environment containers
-  stop dev           Stop development environment containers
-  exec               Exec program inside the container
-  config             Show docker config
-  errors             Show apache2 error log
-  install test       Run install on test server
-  install prod       Run install on production server
-  nginx reload       Reload nginx
-  clear cache        Clears cache
-  wipe               Remove all docker containers
-  help               Show this message
+function show_help {
+  echo "
+  Available commands:
+
+  start [environment]        - Start development environment containers
+  stop [environment]         - Stop development environment containers
+  exec [container]           - Exec program inside the container
+  kill [container]           - Kill a container
+  config                     - Show docker config
+  errors                     - Show apache2 error log
+  nginx reload               - Reload nginx
+  clear cache                - Clear cache
+  build {clean}              - Build containers
+  wipe                       - Remove all docker containers
+  top                        - Show top processes
+  ps                         - Show stack processes
+  up                         - Bring development environment up
+  down                       - Bring development environment down
+  install [environment]      - Run install for server
+  help                       - Show this message
 "
+}
 
-# Docker-compose start
-if [ "$arg_1" == "wipe" ]; then
-  docker-compose system prune -a
+function docker_ps {
+  docker-compose ps
+}
 
-elif [ "$arg_1" == "install" ]; then
+function docker_kill {
+  local $container=$1
+  docker-compose kill $container
+}
 
-  if [ "$arg_2" == "prod" ]; then
+function docker_logs {
+  docker-compose logs
+}
+
+function docker_top {
+  docker-compose top
+}
+
+function docker_up {
+  docker-compose up
+}
+
+function docker_down {
+  docker-compose down
+}
+
+function docker_wipe {
+  docker system prune -a
+}
+
+function docker_exec {
+  local $container=$1
+  echo "Exec into $container"
+  docker exec $container bash
+}
+
+function docker_start {
+  local env=$1
+  if [ "$env" = "" ]; then
+    env="dev"
+  fi
+  if [ -f "./docker-compose.$env.yml" ]; then
+    echo "Start containers for $env environment"
+    if [ -f "./docker-compose.override.yml" ]; then
+      docker-compose \
+      -f docker-compose.yml \
+      -f docker-compose.override.yml \
+      -f docker-compose.$env.yml \
+      up -d --remove-orphans
+    else
+      docker-compose \
+      -f docker-compose.yml \
+      -f docker-compose.$env.yml \
+      up -d --remove-orphans
+    fi
+    # must be ran outside of Dockerfile due to mount
+    echo "Update composer"
+    docker exec hoopless-webserver composer update -d .
+    docker exec hoopless-webserver composer dump-autoload --optimize -d .
+    docker exec hoopless-webserver chmod 0755 var/cache/images
+  else
+    echo "A valid stack environment required, e.g.:"
+    echo "./stack start dev"
+  fi
+}
+
+function docker_stop {
+  local env=$1
+  if [ "$env" = "" ]; then
+    env="dev"
+  fi
+  if [ -f "./docker-compose.$env.yml" ]; then
+    echo "Stop containers for $env environment"
+    if [ -f "./docker-compose.override.yml" ]; then
+      docker-compose \
+      -f docker-compose.yml \
+      -f docker-compose.override.yml \
+      -f docker-compose.$env.yml \
+      down
+    else
+      docker-compose \
+      -f docker-compose.yml \
+      -f docker-compose.$env.yml \
+      down
+    fi
+  else
+    echo "A valid stack environment required, e.g.:"
+    echo "./stack stop dev"
+  fi
+}
+
+function docker_config {
+  local env=$1
+  if [ "$env" = "" ]; then
+    env="dev"
+  fi
+  if [ -f "./docker-compose.$env.yml" ]; then
+    echo "Show config for $env environment"
+    if [ -f "./docker-compose.override.yml" ]; then
+      docker-compose \
+      -f docker-compose.yml \
+      -f docker-compose.override.yml \
+      -f docker-compose.$env.yml \
+      config
+    else
+      docker-compose \
+      -f docker-compose.yml \
+      -f docker-compose.$env.yml \
+      config
+    fi
+  else
+    echo "A valid stack environment required, e.g.:"
+    echo "./stack config dev"
+  fi
+}
+
+function docker_build {
+  local param_1=$1
+  echo "Build web server container"
+  if [ "$param_1" == "clean" ]; then
+    docker-compose build --pull --no-cache
+  else
+    docker-compose build
+  fi
+}
+
+function docker_errors {
+  echo "Tailing NGINX Error Log"
+  docker exec hoopless-webserver tail ../var/log/nginx/error.log
+}
+
+function ngnix_reload {
+  docker exec -it hoopless-webserver nginx -s reload
+}
+
+function stack_install {
+  local env=$1
+  if [ "$env" == "prod" ]; then
     echo "Install web server for production environment"
     ./setup/install/webserver.sh
     ./setup/install/certbot.sh
-  elif [ "$arg_2" == "test" ]; then
+  elif [ "$env" == "test" ]; then
     echo "Install web server for test environment"
     ./setup/install/webserver.sh
   fi
+}
 
+function clear_cache {
+  rm -r ./app/var/cache/images/*
+  #docker exec -it hoopless-webserver rm -r /application/var/cache/images/*
+}
+
+if [ "$arg_1" == "wipe" ]; then
+  docker_wipe
+elif [ "$arg_1" == "build" ]; then
+  docker_build $arg_2
+elif [ "$arg_1" == "ps" ]; then
+  docker_ps
+elif [ "$arg_1" == "install" ]; then
+  stack_install $arg_2
 elif [ "$arg_1" == "start" ]; then
-
-  # build web server container
-  if [ "$arg_2" == "dev" ]; then
-    echo "Build web server container"
-    if [ "$arg_3" == "clean" ]; then
-      docker-compose build --pull --no-cache
-    else
-      docker-compose build
-    fi
-  else
-    echo "Deployment environment required (dev):"
-    echo "sudo ./stack start dev clean"
-    exit
-  fi
-
-  # run web server for environment
-  if [ "$arg_2" == "dev" ]; then
-    # mount local volume for rapid development
-    echo "Run web server for development environment"
-    docker-compose \
-    -f docker-compose.yml \
-    -f docker-compose.dev.yml \
-    up -d --remove-orphans
-
-    # update composer
-    docker-compose exec hoopless-webserverdock composer update -d ./application/
-    docker-compose exec hoopless-webserver composer dump-autoload --optimize -d ./application/
-  fi
-
-# Docker-compose stop
+  docker_start $arg_2
 elif [ "$arg_1" == "stop" ]; then
-
-  echo "Stop container(s)"
-  docker-compose down
-  echo "Remove web server container"
-  docker-compose -f docker-compose.yml down
-
-# Docker-compose exec
+  docker_stop $arg_2
 elif [ "$arg_1" == "exec" ]; then
-
-  echo "Exec into web server"
-  docker-compose exec apache2 bash
-
-# Docker-compose compose
+  docker_exec $arg_2
 elif [ "$arg_1" == "config" ]; then
-  if [ "$arg_2" == "dev" ]; then
-    docker-compose -f docker-compose.yml -f docker-compose.dev.yml config
-  else
-    echo "Deployment environment required (dev):"
-    echo "sudo ./stack config prod"
-    exit
-  fi
-
-# Docker-compose tail
+  docker_config $arg_2
 elif [ "$arg_1" == "errors" ]; then
-  docker-compose exec apache_2 tail /var/log/apache2/error.log
-
-# ngnix
+  docker_errors
 elif [ "$arg_1" == "nginx" ]; then
   if [ "$arg_2" == "reload" ]; then
-    docker exec -it hoopless-webserver nginx -s reload
+    nginx_reload
   fi
-
-# clear cache
 elif [ "$arg_1" == "clear" ]; then
   if [ "$arg_2" == "cache" ]; then
-    rm -r ./app/var/cache/images/*
-    #docker exec -it hoopless-webserver rm -r /application/var/cache/images/*
+    clear_cache
   fi
-
-# Help
 elif [ "$arg_1" == "help" ]; then
-  echo "$_help_str"
-
+  show_help
 else
-  echo "Pass argument 'stop' or 'start'"
-
+  show_help
 fi
-

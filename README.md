@@ -47,29 +47,22 @@ HTML should be maintainable and separated by a markup abstraction layer.
 
 ## Installation
 
-### Via Composer
-Hoopless is available on [Packagist](https://packagist.org/packages/ouxsoft/hoopless).
-
-Install with [Composer](https://getcomposer.org/download/):
-```shell script
-composer require ouxsoft/hoopless
-```
-
-### Via Git
 Install with [Git](https://git-scm.com/):
 ```shell script
 git clone git@github.com:ouxsoft/Hoopless.git
 ```
 
-## Usage
-
-### Via Docker 
 Start container with [Docker](https://docs.docker.com/get-docker/) for local development.
 
 ```shell script
-sudo ./stack start dev
+sudo ./stack start
 ```
-View in browser [https://localhost](https://localhost)
+
+View in browser:
+* [https://localhost](http://localhost)
+* [https://db.localhost](http://db.localhost)
+* [https://test.localhost](http://test.localhost)
+
 
 ### Via Shell
 Start on production Ubuntu 18.04 server

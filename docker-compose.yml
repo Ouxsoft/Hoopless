@@ -1,20 +1,6 @@
 version: "3.8"
 services:
 
-    mysql:
-      image: mysql:8.0
-      container_name: hoopless-mysql
-      working_dir: /application
-      volumes:
-        - ./app:/application
-      environment:
-        - MYSQL_ROOT_PASSWORD=root_user_pwd
-        - MYSQL_DATABASE=hoopless
-        - MYSQL_USER=app
-        - MYSQL_PASSWORD=app_pwd
-      ports:
-        - "1027:3306"
-
     webserver:
       image: nginx:alpine
       container_name: hoopless-webserver
@@ -22,9 +8,6 @@ services:
       volumes:
           - ./app:/application
           - ./docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
-      ports:
-       - "80:80"
-       - "443:443"
 
     php-fpm:
       build: ./docker/php-fpm

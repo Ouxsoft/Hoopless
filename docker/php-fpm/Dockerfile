@@ -1,4 +1,6 @@
 FROM php:7.4-fpm-alpine3.12
+ARG user=www-data
+ARG group=www-data
 
 # use the default production configuration
 RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
@@ -60,10 +62,16 @@ RUN docker-php-source extract \
     && rm -rf /tmp/*    
 
 # allow webserver to to use modify application
-RUN chown -R www-data:www-data /application/
+RUN chown -R $group:$user /application/
+
+# Install composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # install composer
-ENV COMPOSER_HOME /composer
-ENV PATH ./vendor/bin:/composer/vendor/bin:$PATH
-ENV COMPOSER_ALLOW_SUPERUSER 1
-RUN curl -s https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin/ --filename=composer
+#ENV COMPOSER_HOME /composer
+#ENV PATH ./vendor/bin:/composer/vendor/bin:$PATH
+#ENV COMPOSER_ALLOW_SUPERUSER 1
+
+#RUN curl -s https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin/ --filename=composer
+
+USER $user

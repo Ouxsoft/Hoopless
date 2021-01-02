@@ -6,18 +6,24 @@ arg_2="$2"
 arg_3="$3"
 
 function show_help {
-  echo "Available commands:
+  echo "
+  Available commands:
+
   start [environment]        - Start development environment containers
   stop [environment]         - Stop development environment containers
-  exec                       - Exec program inside the container
+  exec [container]           - Exec program inside the container
+  kill [container]           - Kill a container
   config                     - Show docker config
-  ps                         - Show stack processes
   errors                     - Show apache2 error log
-  install test               - Run install on test server
-  install prod               - Run install on production server
   nginx reload               - Reload nginx
-  clear cache                - Clears cache
+  clear cache                - Clear cache
+  build {clean}              - Build containers
   wipe                       - Remove all docker containers
+  top                        - Show top processes
+  ps                         - Show stack processes
+  up                         - Bring development environment up
+  down                       - Bring development environment down
+  install [environment]      - Run install for server
   help                       - Show this message
 "
 }
@@ -26,13 +32,35 @@ function docker_ps {
   docker-compose ps
 }
 
+function docker_kill {
+  local $container=$1
+  docker-compose kill $container
+}
+
+function docker_logs {
+  docker-compose logs
+}
+
+function docker_top {
+  docker-compose top
+}
+
+function docker_up {
+  docker-compose up
+}
+
+function docker_down {
+  docker-compose down
+}
+
 function docker_wipe {
   docker system prune -a
 }
 
 function docker_exec {
-  echo "Exec into web server"
-  docker-compose exec apache2 bash
+  local $container=$1
+  echo "Exec into $container"
+  docker exec $container bash
 }
 
 function docker_start {
@@ -153,6 +181,8 @@ function clear_cache {
 
 if [ "$arg_1" == "wipe" ]; then
   docker_wipe
+elif [ "$arg_1" == "build" ]; then
+  docker_build $arg_2
 elif [ "$arg_1" == "ps" ]; then
   docker_ps
 elif [ "$arg_1" == "install" ]; then

@@ -7,7 +7,7 @@
 
 ## About
 
-A modular content management system in PHP.
+A modular content management system in PHP 
 
 HTML should be maintainable and separated by a markup abstraction layer.
 

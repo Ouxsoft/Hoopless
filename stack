@@ -1,5 +1,5 @@
 #!/bin/bash
-# Shell script for simplifying running commonly used features
+# Simple shell script to run commonly used features
 
 arg_1="$1"
 arg_2="$2"
@@ -15,14 +15,14 @@ function show_help {
   kill [container]           - Kill a container
   config                     - Show docker config
   errors                     - Show apache2 error log
-  nginx reload               - Reload nginx
-  clear cache                - Clear cache
-  build {clean}              - Build containers
   wipe                       - Remove all docker containers
   top                        - Show top processes
   ps                         - Show stack processes
+  build {clean}              - Build containers
   up                         - Bring development environment up
   down                       - Bring development environment down
+  nginx reload               - Reload nginx
+  clear cache                - Clear cache
   install [environment]      - Run install for server
   help                       - Show this message
 "
@@ -179,24 +179,30 @@ function clear_cache {
   #docker exec -it hoopless-webserver rm -r /application/var/cache/images/*
 }
 
-if [ "$arg_1" == "wipe" ]; then
-  docker_wipe
-elif [ "$arg_1" == "build" ]; then
-  docker_build $arg_2
-elif [ "$arg_1" == "ps" ]; then
-  docker_ps
-elif [ "$arg_1" == "install" ]; then
-  stack_install $arg_2
-elif [ "$arg_1" == "start" ]; then
+if [ "$arg_1" == "start" ]; then
   docker_start $arg_2
 elif [ "$arg_1" == "stop" ]; then
   docker_stop $arg_2
 elif [ "$arg_1" == "exec" ]; then
   docker_exec $arg_2
+elif [ "$arg_1" == "kill" ]; then
+  docker_kill $arg_2
 elif [ "$arg_1" == "config" ]; then
   docker_config $arg_2
 elif [ "$arg_1" == "errors" ]; then
   docker_errors
+elif [ "$arg_1" == "wipe" ]; then
+  docker_wipe
+elif [ "$arg_1" == "top" ]; then
+  docker_top
+elif [ "$arg_1" == "ps" ]; then
+  docker_ps
+elif [ "$arg_1" == "build" ]; then
+  docker_build $arg_2
+elif [ "$arg_1" == "up" ]; then
+  docker_up
+elif [ "$arg_1" == "down" ]; then
+  docker_down
 elif [ "$arg_1" == "nginx" ]; then
   if [ "$arg_2" == "reload" ]; then
     nginx_reload
@@ -205,6 +211,8 @@ elif [ "$arg_1" == "clear" ]; then
   if [ "$arg_2" == "cache" ]; then
     clear_cache
   fi
+elif [ "$arg_1" == "install" ]; then
+  stack_install $arg_2
 elif [ "$arg_1" == "help" ]; then
   show_help
 else

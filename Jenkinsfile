@@ -15,10 +15,10 @@ pipeline {
           }
         }
 
-        stage('') {
+        stage('error') {
           steps {
             echo 'Run Coverage'
-            sh 'bash <(curl -s https://codecov.io/bash)'
+            sh 'curl -s https://codecov.io/bash | bash'
           }
         }
 

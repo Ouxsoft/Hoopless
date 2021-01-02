@@ -58,9 +58,9 @@ Start container with [Docker](https://docs.docker.com/get-docker/) for local dev
 ```
 
 View in browser:
-* [https://localhost](http://localhost)
-* [https://db.localhost](http://db.localhost)
-* [https://test.localhost](http://test.localhost)
+* [http://localhost](http://localhost)
+* [http://db.localhost](http://db.localhost)
+* [http://test.localhost](http://test.localhost)
 
 
 ### Via Shell

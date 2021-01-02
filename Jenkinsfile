@@ -18,7 +18,8 @@ pipeline {
         stage('error') {
           steps {
             echo 'Run Coverage'
-            sh 'curl -s https://codecov.io/bash | bash'
+            sh '''curl -s https://codecov.io/bash | bash -s -- -c -F aFlag -f .codacy.yml
+'''
           }
         }
 

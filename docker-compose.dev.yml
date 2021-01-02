@@ -2,7 +2,6 @@ version: "3.8"
 
 services:
 
-  # proxy routes traffic
   nginx-proxy:
     image: jwilder/nginx-proxy
     container_name: hoopless-proxy
@@ -13,14 +12,12 @@ services:
     networks:
       - proxynet
 
-  # http://localhost
   webserver:
     environment:
       - VIRTUAL_HOST=localhost
     networks:
       - proxynet
 
-  # http://db.localhost
   phpmyadmin:
     depends_on: [ mysql ]
     container_name: hoopless-phpmyadmin
@@ -34,7 +31,6 @@ services:
     networks:
       - proxynet
 
-  # http://test.localhost:8080
   jenkins:
     build: ./docker/jenkins
     container_name: hoopless-jenkins

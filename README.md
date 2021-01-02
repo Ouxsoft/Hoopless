@@ -9,9 +9,7 @@
 
 ## About
 
-A modular content management system in PHP 
-
-HTML should be maintainable and separated by a markup abstraction layer.
+A modular content management system using a markup abstraction layer.
 
 ```
 <html lang="en">

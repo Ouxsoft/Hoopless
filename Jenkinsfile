@@ -8,8 +8,20 @@ pipeline {
     }
 
     stage('Test') {
-      steps {
-        echo 'Test'
+      parallel {
+        stage('Test') {
+          steps {
+            echo 'Test'
+          }
+        }
+
+        stage('') {
+          steps {
+            echo 'Run Coverage'
+            sh 'bash <(curl -s https://codecov.io/bash)'
+          }
+        }
+
       }
     }
 

@@ -67,11 +67,4 @@ RUN chown -R $group:$user /application/
 # Install composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# install composer
-#ENV COMPOSER_HOME /composer
-#ENV PATH ./vendor/bin:/composer/vendor/bin:$PATH
-#ENV COMPOSER_ALLOW_SUPERUSER 1
-
-#RUN curl -s https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin/ --filename=composer
-
 USER $user

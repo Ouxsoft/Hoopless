@@ -51,17 +51,19 @@ Install with [Git](https://git-scm.com/):
 git clone git@github.com:ouxsoft/Hoopless.git
 ```
 
-Start container with [Docker](https://docs.docker.com/get-docker/) for local development.
+Start local development stack using [Docker](https://docs.docker.com/get-docker/).
 
 ```shell script
 ./stack start
 ```
 
-View in browser:
-* [http://localhost](http://localhost)
-* [http://db.localhost](http://db.localhost)
-* [http://jenkins.localhost/blue](http://jenkins.localhost/blue) -- user: admin, password: admin
+View in web browser:
 
+|  | URL | Notes |
+| :--- | :--- | :--- |
+| Website | [http://localhost](http://localhost) | |
+| Database | [http://db.localhost](http://db.localhost) | |
+| Continuous Deployment | [http://cd.localhost/blue](http://cd.localhost/blue) | user: admin <br/> password: admin |
 
 ### Via Shell
 Start on production Ubuntu 18.04 server

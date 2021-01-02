@@ -1,4 +1,6 @@
 FROM php:7.4-fpm-alpine3.12
+# FROM 7.4-fpm-buster
+
 ARG user=www-data
 ARG group=www-data
 
@@ -17,7 +19,8 @@ RUN apk add --no-cache \
     g++ \
     make \
     openssl-dev \
-    git
+    git \
+    yaml-dev
 
 # set UTC server time
 RUN echo "UTC" > /etc/timezone
@@ -48,6 +51,10 @@ RUN apk add --no-cache \
     && docker-php-ext-enable intl \
     && rm -rf /tmp/*
 
+# install ext-yaml
+RUN pecl channel-update pecl.php.net
+RUN pecl install yaml-2.0.0 && docker-php-ext-enable yaml
+
 # install opcache, xdebug
 # WARNING disable XDBUG on prod
 RUN docker-php-source extract \
@@ -64,7 +71,7 @@ RUN docker-php-source extract \
 # allow webserver to to use modify application
 RUN chown -R $group:$user /application/
 
-# Install composer
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+# install composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 USER $user

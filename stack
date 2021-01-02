@@ -89,8 +89,9 @@ function docker_start {
     fi
     # must be ran outside of Dockerfile due to mount
     echo "Update composer"
-    docker exec hoopless-webserver composer update -d .
-    docker exec hoopless-webserver composer dump-autoload --optimize -d .
+    docker exec hoopless-php-fpm composer update -d .
+    docker exec hoopless-php-fpm composer dump-autoload --optimize -d .
+    echo "Set NGNIX file permissions on cache director"
     docker exec hoopless-webserver chmod 0755 var/cache/images
   else
     echo "A valid stack environment required, e.g.:"

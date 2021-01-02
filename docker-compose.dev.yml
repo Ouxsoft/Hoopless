@@ -39,7 +39,7 @@ services:
     ports:
       - "8081:8081"
     environment:
-      - VIRTUAL_HOST=jenkins.localhost
+      - VIRTUAL_HOST=cd.localhost
       - VIRTUAL_PORT=8081
     networks:
       - proxynet

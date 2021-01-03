@@ -4,10 +4,10 @@
 
 <p align="center">
     <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/ouxsoft/hoopless">
-    <img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/y/ouxsoft/hoopless">
-    <a href="https://app.codacy.com/gh/ouxsoft/Hoopless?utm_source=github.com&utm_medium=referral&utm_content=ouxsoft/Hoopless&utm_campaign=Badge_Grade_Dashboard"><img alt="Codacy grade" src="https://api.codacy.com/project/badge/Grade/af61c01e07894689b9be009591e6b3b1"></a>
-        <img alt="Codecov" src="https://img.shields.io/codecov/c/github/ouxsoft/hoopless">
+    <a href="https://app.codacy.com/gh/ouxsoft/Hoopless?utm_source=github.com&utm_medium=referral&utm_content=ouxsoft/Hoopless&utm_campaign=Badge_Grade_Dashboard">
+    <img alt="Codacy grade" src="https://api.codacy.com/project/badge/Grade/af61c01e07894689b9be009591e6b3b1">
     </a>
+    <img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/y/ouxsoft/hoopless">
 </p>
 
 

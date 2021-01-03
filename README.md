@@ -59,11 +59,11 @@ Start local development stack using [Docker](https://docs.docker.com/get-docker/
 
 View in web browser:
 
-|  | URL | Notes |
-| :--- | :--- | :--- |
-| Website | [http://localhost](http://localhost) | |
-| Database | [http://db.localhost](http://db.localhost) | |
-| Continuous Deployment | [http://cd.localhost/blue](http://cd.localhost/blue) | user: admin <br/> password: admin |
+|  | URL | Username | Password
+| :--- | :--- | :--- | :--- |
+| Website | [http://localhost](http://localhost) | | |
+| Database | [http://db.localhost](http://db.localhost) | | |
+| Continuous Deployment | [http://cd.localhost/blue](http://cd.localhost/blue) | admin | admin |
 
 ### Via Shell
 Start on production Ubuntu 18.04 server

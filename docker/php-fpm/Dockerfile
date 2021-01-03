@@ -1,5 +1,4 @@
-FROM php:7.4-fpm-alpine3.12
-# FROM 7.4-fpm-buster
+FROM php:7.4-fpm-buster
 
 ARG user=www-data
 ARG group=www-data
@@ -12,51 +11,47 @@ WORKDIR "/application"
 # fix debconf warnings upon build
 ARG DEBIAN_FRONTEND=noninteractive
 
-# install essential build tools
-RUN apk add --no-cache \
-    curl \
-    autoconf \
+RUN apt-get update && \
+    apt-get install -y \
+    wget \
+    gnupg \
     g++ \
-    make \
-    openssl-dev \
-    git \
-    yaml-dev
+    locales \
+    unzip \
+    dialog \
+    apt-utils \
+    curl \
+    git && \
+    apt-get clean
+
+# libpng-dev needed by "gd" extension
+# libzip-dev needed by "zip" extension
+# libicu-dev for intl extension
+RUN apt-get update && \
+    apt-get install -y \
+    libpng-dev \
+    libjpeg-dev \
+    libfreetype6-dev \
+    libzip-dev \
+    libicu-dev \
+    vim && \
+    apt-get clean
+
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg
+
+# install necessary tools for running application
+RUN docker-php-ext-install \
+    gd \
+    intl \
+    opcache \
+    zip
 
 # set UTC server time
-RUN echo "UTC" > /etc/timezone
+RUN echo "UTC" > /etc/timezone && \
+    dpkg-reconfigure -f noninteractive tzdata
 
-# install GD extension
-RUN apk add --no-cache \
-      freetype \
-      libjpeg-turbo \
-      libpng \
-      freetype-dev \
-      libjpeg-turbo-dev \
-      libpng-dev \
-    && docker-php-ext-configure gd \
-      --with-freetype=/usr/include/ \
-      --with-jpeg=/usr/include/ \
-    && docker-php-ext-install -j$(nproc) gd \
-    && docker-php-ext-enable gd \
-    && apk del --no-cache \
-      freetype-dev \
-      libjpeg-turbo-dev \
-      libpng-dev \
-    && rm -rf /tmp/*
-
-# install intl extension
-RUN apk add --no-cache \
-    icu-dev \
-    && docker-php-ext-install -j$(nproc) intl \
-    && docker-php-ext-enable intl \
-    && rm -rf /tmp/*
-
-# install ext-yaml
-RUN pecl channel-update pecl.php.net
-RUN pecl install yaml-2.0.0 && docker-php-ext-enable yaml
-
-# install opcache, xdebug
-# WARNING disable XDBUG on prod
+## install opcache, xdebug
+## WARNING disable XDBUG on prod
 RUN docker-php-source extract \
     && pecl install opcache xdebug apcu \
     && echo "xdebug.remote_enable=on\n" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
@@ -66,7 +61,7 @@ RUN docker-php-source extract \
     && echo "xdebug.remote_connect_back=1\n" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
     && docker-php-ext-enable opcache xdebug apcu \
     && docker-php-source delete \
-    && rm -rf /tmp/*    
+    && rm -rf /tmp/*
 
 # allow webserver to to use modify application
 RUN chown -R $group:$user /application/
@@ -75,3 +70,4 @@ RUN chown -R $group:$user /application/
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 USER $user
+#USER root

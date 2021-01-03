@@ -5,4 +5,4 @@ exclude_paths:
 - "**.md"
 - "**.sh"
 - "**.scss"
-- "setup/docker/Dockerfile"
+- "docker/**/*"

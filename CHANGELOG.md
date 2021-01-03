@@ -9,11 +9,22 @@ All releases must adhere to [SemVer 2](https://semver.org/) naming convention an
 >PATCH version - when you make backwards compatible bug fixes.
 
 ## Hoopless [Unreleased]
+
+## Hoopless 1.2.0
 * Fixed: Image resize algorithm
-* Added: Ngnix Docker image
-* Added: PHP FastCGI Docker image
+* Added: Nginx Docker image
+* Added: PHP Buster FastCGI Docker image
+* Added: Jenkins Docker image
+* Added: MySQL Docker image
+* Added: PhpMyAdmin Docker image
 * Removed: Apache2 Docker image
 * Removed: Image resize caching (considering handing with caching layer)
+
+## Hoopless 1.0.0
+* Added: Apache2 and PHP Docker Image
+* Added: TravisCI
+* Added: Installation scripts
+* Fixed: Misc bugs
 
 ## Hoopless 0.1.0
 * Added: Example, Footer, Head, Header, Main, Nav, and Partial elements.

@@ -1,4 +1,3 @@
-<?php require 'vendor/autoload.php'; ?>
 <html lang="en">
 <head name="Standard">
     <title>Images</title>

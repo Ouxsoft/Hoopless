@@ -164,7 +164,7 @@ function docker_errors {
   docker exec hoopless-webserver tail ../var/log/nginx/error.log
 }
 
-function ngnix_reload {
+function nginx_reload {
   docker exec -it hoopless-webserver nginx -s reload
 }
 

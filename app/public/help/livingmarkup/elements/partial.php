@@ -1,5 +1,3 @@
-
-
 <html lang="en">
 <head name="Standard">
     <title>LivingMarkup</title>

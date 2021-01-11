@@ -49,11 +49,11 @@ services:
       - proxynet
 
   mysql:
-    image: mysql:8.0
+    build: ./docker/mysql
     container_name: hoopless-mysql
     working_dir: /application
     volumes:
-      - ./app:/application
+      - ./app/sql:/docker-entrypoint-initdb.d:rw
     ports:
       - "3306:3306"
     env_file:

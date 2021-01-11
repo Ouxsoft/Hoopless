@@ -38,11 +38,11 @@
     "laminas/laminas-router": "^3.3@dev",
     "laminas/laminas-http": "^2.11@dev",
     "ouxsoft/livingmarkup" : "dev-master",
-    "twbs/bootstrap": "^4.4.1",
     "components/jquery": "dev-master",
     "scssphp/scssphp": "dev-master",
     "codemirror/codemirror": "5.53.2",
-    "ext-simplexml": "*"
+    "ext-simplexml": "*",
+    "twbs/bootstrap": "dev-main"
   },
   "repositories": [
     {

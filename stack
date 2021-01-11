@@ -61,10 +61,10 @@ function docker_exec {
   local container=$1
   local cmd="${@:2:99}"
   if [ "$cmd" = "" ]; then
-    docker exec -it $container bash
+    docker exec -it --user root $container bash
   else
     echo "Run $container $cmd"
-    docker exec $container $cmd
+    docker exec --user root $container $cmd
   fi
 }
 

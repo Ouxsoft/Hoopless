@@ -8,7 +8,8 @@
  * file that was distributed with this source code.
  */
 
-use LivingMarkup\Autoloader;
+use LivingMarkup\Factory\ProcessorFactory;
+use Hoopless\Router;
 
 require_once '../vendor/autoload.php';
 
@@ -24,12 +25,12 @@ set_include_path(ROOT_DIR);
 
 // instantiate processor with configuration and set to parse buffer
 global $processor;
-$processor = new LivingMarkup\Processor();
+$processor = ProcessorFactory::getInstance();
 $processor->loadConfig(CONFIG_DIR . 'config.dist.json');
 $processor->parseBuffer();
 
 // Route traffic to a specific file
-$router = new Hoopless\Router();
+$router = new Router();
 $router->response();
 
 // if response is a blank document chances are the page is missing a root element

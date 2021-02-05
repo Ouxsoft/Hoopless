@@ -18,6 +18,26 @@ services:
     networks:
       - proxynet
 
+  mysql:
+    build: ./docker/mysql
+    container_name: hoopless-mysql
+    working_dir: /application
+    volumes:
+      - ./app/sql:/docker-entrypoint-initdb.d:rw
+    ports:
+      - "3306:3306"
+    env_file:
+      - ./docker/env/dev.env
+    networks:
+      - proxynet
+
+  mailhog:
+    image: mailhog/mailhog:latest
+    restart: always
+    ports:
+      - 1025:1025
+      - 8025:8025
+
   phpmyadmin:
     depends_on: [ mysql ]
     container_name: hoopless-phpmyadmin
@@ -45,19 +65,6 @@ services:
       - proxynet
 
   php-fpm:
-    networks:
-      - proxynet
-
-  mysql:
-    build: ./docker/mysql
-    container_name: hoopless-mysql
-    working_dir: /application
-    volumes:
-      - ./app/sql:/docker-entrypoint-initdb.d:rw
-    ports:
-      - "3306:3306"
-    env_file:
-      - ./docker/env/dev.env
     networks:
       - proxynet
 

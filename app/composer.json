@@ -2,7 +2,7 @@
   "name": "ouxsoft/hoopless",
   "description": "Modular Content Management System.",
   "keywords": [
-    "LivingMarkup",
+    "PHPMarkup",
     "template",
     "xml",
     "php",
@@ -20,11 +20,6 @@
       "name": "Ouxsoft",
       "homepage": "http://ouxsoft.com",
       "role": "Organization"
-    },
-    {
-      "name": "Matthew Heroux",
-      "homepage": "https://github.com/hxtree",
-      "role": "Developer"
     }
   ],
   "require": {
@@ -37,7 +32,7 @@
     "laminas/laminas-validator": "^2.13.2",
     "laminas/laminas-router": "^3.3@dev",
     "laminas/laminas-http": "^2.11@dev",
-    "ouxsoft/livingmarkup" : "dev-master",
+    "ouxsoft/phpmarkup" : "dev-master",
     "components/jquery": "dev-master",
     "scssphp/scssphp": "dev-master",
     "codemirror/codemirror": "5.53.2",
@@ -60,7 +55,7 @@
   ],
   "minimum-stability": "dev",
   "support": {
-    "issues": "https://github.com/ouxsoft/Hoopless/issues"
+    "issues": "https://github.com/Ouxsoft/Hoopless/issues"
   },
   "autoload": {
     "psr-4": {
@@ -76,7 +71,7 @@
       "LHTML\\Element\\Custom\\": "element/custom/"
     }
   },
-  "homepage": "https://github.com/ouxsoft/Hoopless",
+  "homepage": "https://github.com/Ouxsoft/Hoopless",
   "require-dev": {
     "phpunit/phpunit": "^8",
     "friendsofphp/php-cs-fixer": "^2.17@dev"

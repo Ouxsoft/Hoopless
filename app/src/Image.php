@@ -2,7 +2,7 @@
 /**
  * This file is part of the Hoopless package.
  *
- * (c) Ouxsoft <contact@ouxsoft.com>
+ * (c) Ouxsoft <contact@Ouxsoft.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -19,7 +19,7 @@ use Laminas\Validator\File\Exists;
  * if the image exists, than it generates a resized image and stores it in cache
  * and then serves that image
  *
- * @package LivingMarkup
+ * @package PHPMarkup
  */
 class Image
 {

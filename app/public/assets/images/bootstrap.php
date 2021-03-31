@@ -1,6 +1,6 @@
 <?php
 /**
- * This file is part of the LivingMarkup package.
+ * This file is part of the PHPMarkup package.
  *
  * (c) Matthew Heroux <matthewheroux@gmail.com>
  *

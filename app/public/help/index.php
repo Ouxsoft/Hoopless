@@ -12,10 +12,10 @@
             <h1>Editing Guide</h1>
             <p class="lead">Hoopless is the content management system (CMS) used manage this website.</p>
 
-            <h3>LivingMarkup Pages</h3>
+            <h3>PHPMarkup Pages</h3>
             <p>
                 To provide the best expereince for our web editors and users our pages are dynamically maintained
-                using LivingMarkup. <a href="/help/livingmarkup">Learn more</a>.
+                using PHPMarkup. <a href="/help/livingmarkup">Learn more</a>.
             </p>
             <h3>Bootstrap CSS Framework</h3>
             <p>
@@ -33,13 +33,13 @@
             <arg name="menu" type="string">help</arg>
             <nav name="QuickLinks" class="editable">
                 <arg name="menu" type="string">help</arg>
-                <a href="https://github.com/ouxsoft/hoopless">
+                <a href="https://github.com/Ouxsoft/hoopless">
                     Hoopless
                 </a>
-                <a href="https://github.com/ouxsoft/LivingMarkup">
-                    LivingMarkup
+                <a href="https://github.com/Ouxsoft/PHPMarkup">
+                    PHPMarkup
                 </a>
-                <a href="https://github.com/ouxsoft/LHTML">
+                <a href="https://github.com/Ouxsoft/LHTML">
                     LHTML Standard
                 </a>
             </nav>

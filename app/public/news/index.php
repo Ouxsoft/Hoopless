@@ -25,13 +25,13 @@
             <arg name="menu" type="string">news</arg>
             <nav name="QuickLinks" class="editable">
                 <arg name="menu" type="string">help</arg>
-                <a href="https://github.com/ouxsoft/hoopless">
+                <a href="https://github.com/Ouxsoft/hoopless">
                     Hoopless
                 </a>
-                <a href="https://github.com/ouxsoft/LivingMarkup">
-                    LivingMarkup
+                <a href="https://github.com/Ouxsoft/PHPMarkup">
+                    PHPMarkup
                 </a>
-                <a href="https://github.com/ouxsoft/LHTML">
+                <a href="https://github.com/Ouxsoft/LHTML">
                     LHTML Standard
                 </a>
             </nav>

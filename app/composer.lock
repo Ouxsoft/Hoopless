@@ -1052,12 +1052,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "69912cdfd7dd655aea526aaf3bc16ae4a052c8cd"
+                "reference": "6e7f1a9a347f4cc38a8973044440afa52f2cffcd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/69912cdfd7dd655aea526aaf3bc16ae4a052c8cd",
-                "reference": "69912cdfd7dd655aea526aaf3bc16ae4a052c8cd",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/6e7f1a9a347f4cc38a8973044440afa52f2cffcd",
+                "reference": "6e7f1a9a347f4cc38a8973044440afa52f2cffcd",
                 "shasum": ""
             },
             "replace": {
@@ -1101,7 +1101,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2021-03-31T01:41:54+00:00"
+            "time": "2021-03-31T06:08:04+00:00"
         }
     ],
     "packages-dev": [

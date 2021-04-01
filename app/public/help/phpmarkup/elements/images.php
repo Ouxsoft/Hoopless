@@ -33,24 +33,24 @@
                 <div id="code-1" class="tab-pane fade show active">
                     <code process="false">
                         <!-- resize by height -->
-                        <img src="/assets/images/height/50/livingmarkup/logo/original.jpg" alt="LivingMarkup" />
+                        <img src="/assets/images/height/50/livingmarkup/logo/original.jpg" alt="PHPMarkup" />
                         <!-- resize by width -->
-                        <img src="/assets/images/width/50/livingmarkup/logo/original.jpg" alt="LivingMarkup" />
+                        <img src="/assets/images/width/50/livingmarkup/logo/original.jpg" alt="PHPMarkup" />
                         <!-- resize by width and height -->
-                        <img src="/assets/images/width/50/height/50/livingmarkup/logo/original.jpg" alt="LivingMarkup" />
+                        <img src="/assets/images/width/50/height/50/livingmarkup/logo/original.jpg" alt="PHPMarkup" />
                         <!-- resize by width and height using dimension parameter -->
-                        <img src="/assets/images/dimension/50x50/livingmarkup/logo/original.jpg" alt="LivingMarkup" />
+                        <img src="/assets/images/dimension/50x50/livingmarkup/logo/original.jpg" alt="PHPMarkup" />
                     </code>
                 </div>
                 <div id="result-1" class="tab-pane fade">
                     <!-- resize by height -->
-                    <img src="/assets/images/height/50/livingmarkup/logo/original.jpg" alt="LivingMarkup" />
+                    <img src="/assets/images/height/50/livingmarkup/logo/original.jpg" alt="PHPMarkup" />
                     <!-- resize by width -->
-                    <img src="/assets/images/width/50/livingmarkup/logo/original.jpg" alt="LivingMarkup" />
+                    <img src="/assets/images/width/50/livingmarkup/logo/original.jpg" alt="PHPMarkup" />
                     <!-- resize by width and height -->
-                    <img src="/assets/images/width/50/height/50/livingmarkup/logo/original.jpg" alt="LivingMarkup" />
+                    <img src="/assets/images/width/50/height/50/livingmarkup/logo/original.jpg" alt="PHPMarkup" />
                     <!-- resize by width and height using dimension parameter -->
-                    <img src="/assets/images/dimension/50x50/livingmarkup/logo/original.jpg" alt="LivingMarkup" />
+                    <img src="/assets/images/dimension/50x50/livingmarkup/logo/original.jpg" alt="PHPMarkup" />
                 </div>
             </div>
 
@@ -67,28 +67,28 @@
                 <div id="code-2" class="tab-pane fade show active">
                     <code process="false">
                         <!-- center -->
-                        <img src="/assets/images/dimension/50x50/offset/0,0/livingmarkup/logo/original.jpg" alt="LivingMarkup" />
+                        <img src="/assets/images/dimension/50x50/offset/0,0/livingmarkup/logo/original.jpg" alt="PHPMarkup" />
                         <!-- left -->
-                        <img src="/assets/images/dimension/50x50/offset/-50,0/livingmarkup/logo/original.jpg" alt="LivingMarkup" />
+                        <img src="/assets/images/dimension/50x50/offset/-50,0/livingmarkup/logo/original.jpg" alt="PHPMarkup" />
                         <!-- right -->
-                        <img src="/assets/images/dimension/50x50/offset/50,0/livingmarkup/logo/original.jpg" alt="LivingMarkup" />
+                        <img src="/assets/images/dimension/50x50/offset/50,0/livingmarkup/logo/original.jpg" alt="PHPMarkup" />
                         <!-- top -->
-                        <img src="/assets/images/dimension/50x50/offset/0,-50/livingmarkup/logo/original.jpg" alt="LivingMarkup" />
+                        <img src="/assets/images/dimension/50x50/offset/0,-50/livingmarkup/logo/original.jpg" alt="PHPMarkup" />
                         <!-- bottom -->
-                        <img src="/assets/images/dimension/50x50/offset/0,50/livingmarkup/logo/original.jpg" alt="LivingMarkup" />
+                        <img src="/assets/images/dimension/50x50/offset/0,50/livingmarkup/logo/original.jpg" alt="PHPMarkup" />
                     </code>
                 </div>
                 <div id="result-2" class="tab-pane fade">
                     <!-- center -->
-                    <img src="/assets/images/dimension/50x50/offset/0,0/livingmarkup/logo/original.jpg" alt="LivingMarkup" />
+                    <img src="/assets/images/dimension/50x50/offset/0,0/livingmarkup/logo/original.jpg" alt="PHPMarkup" />
                     <!-- left -->
-                    <img src="/assets/images/dimension/50x50/offset/-50,0/livingmarkup/logo/original.jpg" alt="LivingMarkup" />
+                    <img src="/assets/images/dimension/50x50/offset/-50,0/livingmarkup/logo/original.jpg" alt="PHPMarkup" />
                     <!-- right -->
-                    <img src="/assets/images/dimension/50x50/offset/50,0/livingmarkup/logo/original.jpg" alt="LivingMarkup" />
+                    <img src="/assets/images/dimension/50x50/offset/50,0/livingmarkup/logo/original.jpg" alt="PHPMarkup" />
                     <!-- top -->
-                    <img src="/assets/images/dimension/50x50/offset/0,-50/livingmarkup/logo/original.jpg" alt="LivingMarkup" />
+                    <img src="/assets/images/dimension/50x50/offset/0,-50/livingmarkup/logo/original.jpg" alt="PHPMarkup" />
                     <!-- bottom -->
-                    <img src="/assets/images/dimension/50x50/offset/0,50/livingmarkup/logo/original.jpg" alt="LivingMarkup" />
+                    <img src="/assets/images/dimension/50x50/offset/0,50/livingmarkup/logo/original.jpg" alt="PHPMarkup" />
                 </div>
             </div>
 

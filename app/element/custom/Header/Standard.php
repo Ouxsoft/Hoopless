@@ -2,7 +2,7 @@
 /**
  * This file is part of the Hoopless package.
  *
- * (c) Ouxsoft <contact@ouxsoft.com>
+ * (c) Ouxsoft <contact@Ouxsoft.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -10,7 +10,7 @@
 
 namespace LHTML\Element\Custom\Header;
 
-use LivingMarkup\Element\AbstractElement;
+use Ouxsoft\PHPMarkup\Element\AbstractElement;
 
 /**
  * Class Standard
@@ -66,7 +66,7 @@ class Standard extends AbstractElement
     
     <div class="container">
     <a class="navbar-brand d-block d-lg-none" href="/">
-        <img src="/assets/images/ouxsoft/logo/inline-transparent-bg.png" width="120" class="brand align-top" alt="Ouxsoft"/>
+        <img src="/assets/images/Ouxsoft/logo/inline-transparent-bg.png" width="120" class="brand align-top" alt="Ouxsoft"/>
     </a> 
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -83,9 +83,9 @@ class Standard extends AbstractElement
                         Projects
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="https://github.com/ouxsoft/LivingMarkup">LivingMarkup</a>
-                        <a class="dropdown-item" href="https://github.com/ouxsoft/LHTML">LHTML</a>
-                        <a class="dropdown-item" href="https://github.com/ouxsoft/Hoopless">Hoopless</a>
+                        <a class="dropdown-item" href="https://github.com/Ouxsoft/PHPMarkup">PHPMarkup</a>
+                        <a class="dropdown-item" href="https://github.com/Ouxsoft/LHTML">LHTML</a>
+                        <a class="dropdown-item" href="https://github.com/Ouxsoft/Hoopless">Hoopless</a>
                     </div>
                 </li>
             </ul>
@@ -93,7 +93,7 @@ class Standard extends AbstractElement
             <ul class="nav navbar-nav navbar-logo mx-auto">
                 <li class="nav-item">
                     <a class="navbar-brand d-none d-lg-block" href="/">
-                        <img src="/assets/images/ouxsoft/logo/inline-transparent-bg.png" width="120" class="brand align-top" alt="Ouxsoft"/>
+                        <img src="/assets/images/Ouxsoft/logo/inline-transparent-bg.png" width="120" class="brand align-top" alt="Ouxsoft"/>
                     </a> 
                 </li>       
             </ul>
@@ -106,7 +106,7 @@ class Standard extends AbstractElement
                     <a class="nav-link" href="/about">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="https://github.com/ouxsoft">GitHub</a>
+                    <a class="nav-link" href="https://github.com/Ouxsoft">GitHub</a>
                 </li>
             </ul>
         </div>

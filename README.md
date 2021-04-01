@@ -1,13 +1,13 @@
 <p align="center">
-<img src="https://raw.githubusercontent.com/ouxsoft/Hoopless/master/app/assets/images/hoopless/logo.png" alt="Hoopless">
+<img src="https://raw.githubusercontent.com/Ouxsoft/Hoopless/master/app/assets/images/hoopless/logo.png" alt="Hoopless">
 </p>
 
 <p align="center">
-    <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/ouxsoft/hoopless">
-    <a href="https://app.codacy.com/gh/ouxsoft/Hoopless?utm_source=github.com&utm_medium=referral&utm_content=ouxsoft/Hoopless&utm_campaign=Badge_Grade_Dashboard">
+    <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/Ouxsoft/hoopless">
+    <a href="https://app.codacy.com/gh/Ouxsoft/Hoopless?utm_source=github.com&utm_medium=referral&utm_content=Ouxsoft/Hoopless&utm_campaign=Badge_Grade_Dashboard">
     <img alt="Codacy grade" src="https://api.codacy.com/project/badge/Grade/af61c01e07894689b9be009591e6b3b1">
     </a>
-    <img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/y/ouxsoft/hoopless">
+    <img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/y/Ouxsoft/hoopless">
 </p>
 
 
@@ -52,7 +52,7 @@ A modular content management system using a markup abstraction layer.
 
 Install with [Git](https://git-scm.com/):
 ```shell script
-git clone git@github.com:ouxsoft/Hoopless.git
+git clone git@github.com:Ouxsoft/Hoopless.git
 ```
 
 Start local development stack using [Docker](https://docs.docker.com/get-docker/).

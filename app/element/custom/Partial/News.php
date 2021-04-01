@@ -2,7 +2,7 @@
 /**
  * This file is part of the Hoopless package.
  *
- * (c) Ouxsoft <contact@ouxsoft.com>
+ * (c) Ouxsoft <contact@Ouxsoft.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -10,7 +10,7 @@
 
 namespace LHTML\Element\Custom\Partial;
 
-use LivingMarkup\Element\AbstractElement;
+use Ouxsoft\PHPMarkup\Element\AbstractElement;
 
 class News extends AbstractElement
 {
@@ -56,11 +56,14 @@ class News extends AbstractElement
         $out = '';
         foreach ($this->news as $news) {
             $out .= <<<HTML
+
 <article class="mb-5">
+
     <h3>{$news['title']}</h3>
     <p><i>Published: <date>{$news['date']}</date></i></p>
-    <hr/>
+
     {$news['body']}
+    <hr/>
 </article>
 HTML;
         }

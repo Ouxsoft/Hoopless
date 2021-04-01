@@ -2,13 +2,14 @@
 /**
  * This file is part of the Hoopless package.
  *
- * (c) Ouxsoft <contact@ouxsoft.com>
+ * (c) Ouxsoft <contact@Ouxsoft.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
-use LivingMarkup\Factory\ProcessorFactory;
+use Ouxsoft\PHPMarkup\Factory\ProcessorFactory;
+
 use Hoopless\Router;
 
 require_once '../vendor/autoload.php';

@@ -15,7 +15,7 @@
             <h3>PHPMarkup Pages</h3>
             <p>
                 To provide the best expereince for our web editors and users our pages are dynamically maintained
-                using PHPMarkup. <a href="/help/livingmarkup">Learn more</a>.
+                using PHPMarkup. <a href="/help/phpmarkup">Learn more</a>.
             </p>
             <h3>Bootstrap CSS Framework</h3>
             <p>

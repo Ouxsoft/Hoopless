@@ -1,6 +1,6 @@
 <html lang="en">
 <head name="Standard">
-    <title>LivingMarkup</title>
+    <title>PHPMarkup</title>
 </head>
 <body>
 

@@ -2,7 +2,7 @@
 /**
  * This file is part of the Hoopless package.
  *
- * (c) Ouxsoft <contact@ouxsoft.com>
+ * (c) Ouxsoft <contact@Ouxsoft.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -10,7 +10,7 @@
 
 namespace LHTML\Element\Custom\Footer;
 
-use LivingMarkup\Element\AbstractElement;
+use Ouxsoft\PHPMarkup\Element\AbstractElement;
 
 /**
  * Class Standard
@@ -28,7 +28,7 @@ class Standard extends AbstractElement
     <div class="container pt-5 pb-3">            
         <div class="row">
             <div class="col-sm-12 col-md-4 col-lg-3">
-               <img src="/assets/images/ouxsoft/logo/white-transparent-bg.png" width="120" class="brand align-top m-auto" alt="Ouxsoft"/>
+               <img src="/assets/images/Ouxsoft/logo/white-transparent-bg.png" width="120" class="brand align-top m-auto" alt="Ouxsoft"/>
             </div>
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <nav class="nav flex-column ">
@@ -42,7 +42,7 @@ class Standard extends AbstractElement
             </div>        
             <div class="col-sm-6 col-md-4 col-lg-3 text-right">
                 <nav class="nav flex-column ">
-                    <a href="https://github.com/ouxsoft" class="nav-item nav-link text-white-50">                    
+                    <a href="https://github.com/Ouxsoft" class="nav-item nav-link text-white-50">                    
                         <i class="fab fa-github fa-2x"></i>
                     </a>
                 </nav>

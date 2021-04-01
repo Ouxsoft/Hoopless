@@ -1,6 +1,6 @@
 <html lang="en">
 <head name="Standard">
-    <title>LivingMarkup</title>
+    <title>PHPMarkup</title>
 </head>
 <body>
 
@@ -9,9 +9,9 @@
 <div class="container">
     <div class="row">
         <main name="Standard" class="editable">
-            <h1>LivingMarkup</h1>
+            <h1>PHPMarkup</h1>
 
-            <p>Editors can use dynamic markup in maintaining pages. This is due to pages being written in an HTML templating engine language called <a href="https://github.com/ouxsoft/LHTML">LHTML</a>, which is processed via the <a href="https://github.com/ouxsoft/LivingMarkup">LivingMarkup</a> engine.</p>
+            <p>Editors can use dynamic markup in maintaining pages. This is due to pages being written in an HTML templating engine language called <a href="https://github.com/Ouxsoft/LHTML">LHTML</a>, which is processed via the <a href="https://github.com/Ouxsoft/PHPMarkup">PHPMarkup</a> engine.</p>
 
             <h2>LHTML Elements</h2>
 

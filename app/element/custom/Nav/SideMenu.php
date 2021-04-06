@@ -27,7 +27,7 @@ class SideMenu extends AbstractElement
         ],
         'help' => [
             '/help/' => 'Editing Guide',
-            '/help/livingmarkup/' => 'PHPMarkup',
+            '/help/phpmarkup/' => 'PHPMarkup',
         ],
     ];
     public function onRender()

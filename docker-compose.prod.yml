@@ -31,39 +31,6 @@ services:
     networks:
       - proxynet
 
-  mailhog:
-    image: mailhog/mailhog:latest
-    restart: always
-    ports:
-      - 1025:1025
-      - 8025:8025
-
-  phpmyadmin:
-    depends_on: [ mysql ]
-    container_name: hoopless-phpmyadmin
-    image: phpmyadmin/phpmyadmin
-    ports:
-      - "8080:8080"
-    environment:
-      - VIRTUAL_HOST=db.localhost
-    env_file:
-      - ./docker/env/dev.env
-    networks:
-      - proxynet
-
-  jenkins:
-    build: ./docker/jenkins
-    container_name: hoopless-jenkins
-    volumes:
-      - ./docker/jenkins/jenkins_home:/var/jenkins_home
-    ports:
-      - "8081:8081"
-    environment:
-      - VIRTUAL_HOST=cd.localhost
-      - VIRTUAL_PORT=8081
-    networks:
-      - proxynet
-
   php-fpm:
     networks:
       - proxynet

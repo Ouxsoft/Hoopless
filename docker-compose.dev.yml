@@ -13,6 +13,8 @@ services:
       - proxynet
 
   webserver:
+    build:
+      target: development
     environment:
       - VIRTUAL_HOST=localhost
     networks:

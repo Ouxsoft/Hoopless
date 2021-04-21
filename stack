@@ -99,6 +99,12 @@ function docker_start {
   fi
 }
 
+function docker_push {
+  docker build -t push-example .
+  # docker push <hub-user>/<repo-name>:<tag>
+  #docker push ouxsoft/hoopless_webserver:latest
+}
+
 function docker_stop {
   local env=$1
   if [ "$env" = "" ]; then

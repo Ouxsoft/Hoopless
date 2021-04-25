@@ -13,8 +13,6 @@ services:
       - proxynet
 
   webserver:
-    build:
-      target: standard
     environment:
       - VIRTUAL_HOST=localhost
     networks:
@@ -31,11 +29,13 @@ services:
     ports:
       - "3306:3306"
     env_file:
-      - ./env/dev.env
+      - ./docker/env/dev.env
     networks:
       - proxynet
 
   php-fpm:
+    build:
+      target: standard
     networks:
       - proxynet
 

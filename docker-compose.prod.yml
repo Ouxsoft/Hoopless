@@ -14,14 +14,16 @@ services:
 
   webserver:
     build:
-      target: production
+      target: standard
     environment:
       - VIRTUAL_HOST=localhost
     networks:
       - proxynet
 
   mysql:
-    build: ./docker/mysql
+    build:
+      context: ./
+      dockerfile: /docker/mysql/Dockerfile
     container_name: hoopless-mysql
     working_dir: /application
     volumes:
@@ -29,7 +31,7 @@ services:
     ports:
       - "3306:3306"
     env_file:
-      - ./docker/env/dev.env
+      - ./env/dev.env
     networks:
       - proxynet
 

@@ -14,14 +14,16 @@ services:
 
   webserver:
     build:
-      target: development
+      target: testing
     environment:
       - VIRTUAL_HOST=localhost
     networks:
       - proxynet
 
   mysql:
-    build: ./docker/mysql
+    build:
+      context: ./
+      dockerfile: ./docker/mysql/Dockerfile
     container_name: hoopless-mysql
     working_dir: /application
     volumes:
@@ -54,10 +56,12 @@ services:
       - proxynet
 
   jenkins:
-    build: ./docker/jenkins
+    build:
+      context: ./docker/jenkins
+      dockerfile: Dockerfile
     container_name: hoopless-jenkins
     volumes:
-      - ./docker/jenkins/jenkins_home:/var/jenkins_home
+      - ./jenkins_home:/var/jenkins_home
     ports:
       - "8081:8081"
     environment:

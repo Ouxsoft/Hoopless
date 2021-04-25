@@ -1,18 +1,21 @@
 #######################################
-# Standard
+# Build
 #######################################
-FROM php:7.4-fpm-buster AS standard
+FROM php:7.4-fpm-buster AS build
 
-ARG user=www-data
-ARG group=www-data
+# Arguments defined in docker-compose.yml
+ARG user
+ARG group
+ARG uid
+ARG composer_user
 
-# fix debconf warnings upon build
-ARG DEBIAN_FRONTEND=noninteractive
+WORKDIR /application
 
-WORKDIR "/application"s
-
+# libpng-dev needed by "gd" extension
+# libzip-dev needed by "zip" extension
+# libicu-dev for intl extension
 RUN apt-get update \
-    && apt-get install -y \
+    && DEBIAN_FRONTEND=noninteractive apt-get install -y \
     wget \
     gnupg \
     g++ \
@@ -22,13 +25,7 @@ RUN apt-get update \
     apt-utils \
     curl \
     git \
-    && apt-get clean
-
-# libpng-dev needed by "gd" extension
-# libzip-dev needed by "zip" extension
-# libicu-dev for intl extension
-RUN apt-get update \
-    && apt-get install -y \
+    bash \
     libpng-dev \
     libjpeg-dev \
     libfreetype6-dev \
@@ -37,50 +34,51 @@ RUN apt-get update \
     vim \
     && apt-get clean
 
-RUN docker-php-ext-configure gd --with-freetype --with-jpeg
-
 # install necessary tools for running application
-RUN docker-php-ext-install \
+# install opcache, apcu
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install \
     gd \
     intl \
     opcache \
-    zip
-
-# set UTC server time
-RUN echo "UTC" > /etc/timezone \
-    && dpkg-reconfigure -f noninteractive tzdata
-
-## install opcache, apcu
-RUN docker-php-source extract \
+    zip \
+    && docker-php-source extract \
     && pecl install opcache apcu \
     && docker-php-ext-enable opcache apcu \
     && docker-php-source delete \
     && rm -rf /tmp/*
 
-# install composer
-RUN EXPECTED_CHECKSUM="$(php -r 'copy("https://composer.github.io/installer.sig", "php://stdout");')" \
-    php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
-    ACTUAL_CHECKSUM="$(php -r "echo hash_file('sha384', 'composer-setup.php');")" \
-    if [ "$EXPECTED_CHECKSUM" != "$ACTUAL_CHECKSUM" ] \
-    then \
-        >&2 echo 'ERROR: Invalid installer checksum' \
-        rm composer-setup.php \
-        exit 1 \
-    fi \
-    php composer-setup.php --quiet \
-    RESULT=$? \
-    rm composer-setup.php \
-    exit $RESULT
+# set UTC server time
+RUN echo "UTC" > /etc/timezone \
+    && dpkg-reconfigure -f noninteractive tzdata
+
+# Create system user to run Composer
+RUN useradd -G www-data,root -u $uid -d /home/$composer_user $composer_user
+RUN mkdir -p /home/$composer_user/.composer && \
+    chown -R $composer_user:$composer_user /home/$composer_user
+
+# install Composer programmatically (https://getcomposer.org/doc/faqs/how-to-install-composer-programmatically.md)
+COPY ./docker/php-fpm/composer-installer.sh /usr/local/bin/composer-installer
+RUN apt-get -yqq update \
+    && chmod +x /usr/local/bin/composer-installer \
+    && composer-installer \
+    && mv composer.phar /usr/local/bin/composer \
+    && chmod +x /usr/local/bin/composer \
+    && composer --version \
+    && chown -R $group:$user /var/www/ \
+    && chown -R $group:$user ~/.composer/
+
+COPY ./app /application
+RUN composer install --prefer-source --no-interaction
+ENV PATH="~/.composer/vendor/bin:./vendor/bin:${PATH}"
 
 # allow webserver to to use modify application
 RUN chown -R $group:$user /application/
 
-USER $user
-
 #######################################
-# Development
+# Testing
 #######################################
-FROM standard AS development
+FROM build AS testing
 
 RUN mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini"
 
@@ -93,7 +91,11 @@ RUN pecl install xdebug \
     && docker-php-ext-enable xdebug \
     && rm -rf /tmp/*
 
+USER $user
+
 #######################################
-# Production
+# Standard
 #######################################
-FROM standard AS production
+FROM build AS standard
+
+USER $user

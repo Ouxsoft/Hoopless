@@ -28,7 +28,8 @@
     "ext-json": "*",
     "ext-libxml": "*",
     "ext-gd": "*",
-    "ouxsoft/phpmarkup" : "v4.0.1",
+    "ext-simplexml": "*",
+    "ouxsoft/phpmarkup" : "v4.0.2",
     "laminas/laminas-config": "^3.3.0",
     "laminas/laminas-validator": "^2.13.2",
     "laminas/laminas-router": "^3.3@dev",
@@ -36,7 +37,6 @@
     "components/jquery": "dev-master",
     "scssphp/scssphp": "dev-master",
     "codemirror/codemirror": "5.53.2",
-    "ext-simplexml": "*",
     "twbs/bootstrap": "dev-main"
   },
   "repositories": [

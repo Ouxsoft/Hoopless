@@ -87,9 +87,9 @@ RUN pecl install xdebug \
     && docker-php-ext-enable xdebug \
     && rm -rf /tmp/*
 
-COPY ./app /application
-RUN composer install --dev --no-interaction
-ENV PATH="~/.composer/vendor/bin:./vendor/bin:${PATH}"
+#COPY ./app /application
+#RUN composer install --dev --no-interaction
+#ENV PATH="~/.composer/vendor/bin:./vendor/bin:${PATH}"
 
 USER $user
 
@@ -97,6 +97,7 @@ USER $user
 # Standard
 #######################################
 FROM build AS standard
+
 
 COPY ./app /application
 RUN composer install --no-dev --no-interaction

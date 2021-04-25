@@ -93,7 +93,7 @@ class Standard extends AbstractElement
             <ul class="nav navbar-nav navbar-logo mx-auto">
                 <li class="nav-item">
                     <a class="navbar-brand d-none d-lg-block" href="/">
-                        <img src="/assets/images/Ouxsoft/logo/inline-transparent-bg.png" width="120" class="brand align-top" alt="Ouxsoft"/>
+                        <img src="/assets/images/ouxsoft/logo/inline-transparent-bg.png" width="120" class="brand align-top" alt="Ouxsoft"/>
                     </a> 
                 </li>       
             </ul>

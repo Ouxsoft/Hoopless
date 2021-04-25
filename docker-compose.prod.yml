@@ -1,0 +1,30 @@
+version: "3.4"
+
+services:
+
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    container_name: hoopless-proxy
+    ports:
+      - "80:80"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+    networks:
+      - proxynet
+
+  webserver:
+    environment:
+      - VIRTUAL_HOST=ouxsoft.com
+      - VIRTUAL_PROTO=http
+    networks:
+      - proxynet
+
+  php-fpm:
+    build:
+      target: standard
+    networks:
+      - proxynet
+
+networks:
+  proxynet:
+    external: false

@@ -10,6 +10,7 @@ All releases must adhere to [SemVer 2](https://semver.org/) naming convention an
 
 ## Hoopless [Unreleased]
 Released: TBD. Notable changes:
+* Added: Prod deploy
 
 ## Hoopless v1.3.0
 Released: 2021-03-23. Notable changes:

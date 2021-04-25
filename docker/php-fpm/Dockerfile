@@ -1,18 +1,21 @@
-FROM php:7.4-fpm-buster
+#######################################
+# Build
+#######################################
+FROM php:7.4-fpm-buster AS build
 
-ARG user=www-data
-ARG group=www-data
+# Arguments defined in docker-compose.yml
+ARG user
+ARG group
+ARG uid
+ARG composer_user
 
-# use the default production configuration
-RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
+WORKDIR /application
 
-WORKDIR "/application"
-
-# fix debconf warnings upon build
-ARG DEBIAN_FRONTEND=noninteractive
-
-RUN apt-get update && \
-    apt-get install -y \
+# libpng-dev needed by "gd" extension
+# libzip-dev needed by "zip" extension
+# libicu-dev for intl extension
+RUN apt-get update \
+    && DEBIAN_FRONTEND=noninteractive apt-get install -y \
     wget \
     gnupg \
     g++ \
@@ -21,53 +24,84 @@ RUN apt-get update && \
     dialog \
     apt-utils \
     curl \
-    git && \
-    apt-get clean
-
-# libpng-dev needed by "gd" extension
-# libzip-dev needed by "zip" extension
-# libicu-dev for intl extension
-RUN apt-get update && \
-    apt-get install -y \
+    git \
+    bash \
     libpng-dev \
     libjpeg-dev \
     libfreetype6-dev \
     libzip-dev \
     libicu-dev \
-    vim && \
-    apt-get clean
-
-RUN docker-php-ext-configure gd --with-freetype --with-jpeg
+    vim \
+    && apt-get clean
 
 # install necessary tools for running application
-RUN docker-php-ext-install \
+# install opcache, apcu
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install \
     gd \
     intl \
     opcache \
-    zip
+    zip \
+    && docker-php-source extract \
+    && pecl install opcache apcu \
+    && docker-php-ext-enable opcache apcu \
+    && docker-php-source delete \
+    && rm -rf /tmp/*
 
 # set UTC server time
-RUN echo "UTC" > /etc/timezone && \
-    dpkg-reconfigure -f noninteractive tzdata
+RUN echo "UTC" > /etc/timezone \
+    && dpkg-reconfigure -f noninteractive tzdata
 
-## install opcache, xdebug
-## WARNING disable XDBUG on prod
-RUN docker-php-source extract \
-    && pecl install opcache xdebug apcu \
+# Create system user to run Composer
+RUN useradd -G www-data,root -u $uid -d /home/$composer_user $composer_user
+RUN mkdir -p /home/$composer_user/.composer && \
+    chown -R $composer_user:$composer_user /home/$composer_user
+
+# install Composer programmatically (https://getcomposer.org/doc/faqs/how-to-install-composer-programmatically.md)
+COPY ./docker/php-fpm/composer-installer.sh /usr/local/bin/composer-installer
+RUN apt-get -yqq update \
+    && chmod +x /usr/local/bin/composer-installer \
+    && composer-installer \
+    && mv composer.phar /usr/local/bin/composer \
+    && chmod +x /usr/local/bin/composer \
+    && composer --version \
+    && chown -R $group:$user /var/www/ \
+    && chown -R $group:$user ~/.composer/
+
+# allow webserver to to use modify application
+RUN chown -R $group:$user /application/
+
+#######################################
+# Testing
+#######################################
+FROM build AS testing
+
+RUN mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini"
+
+RUN pecl install xdebug \
     && echo "xdebug.remote_enable=on\n" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
     && echo "xdebug.remote_autostart=on\n" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
     && echo "xdebug.remote_port=9000\n" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
     && echo "xdebug.remote_handler=dbgp\n" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
     && echo "xdebug.remote_connect_back=1\n" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
-    && docker-php-ext-enable opcache xdebug apcu \
-    && docker-php-source delete \
+    && docker-php-ext-enable xdebug \
     && rm -rf /tmp/*
 
-# allow webserver to to use modify application
-RUN chown -R $group:$user /application/
-
-# install composer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+#COPY ./app /application
+#RUN composer install --dev --no-interaction
+#ENV PATH="~/.composer/vendor/bin:./vendor/bin:${PATH}"
 
 USER $user
-#USER root
+
+#######################################
+# Standard
+#######################################
+FROM build AS standard
+
+
+COPY ./app /application
+RUN composer install --no-dev --no-interaction
+ENV PATH="~/.composer/vendor/bin:./vendor/bin:${PATH}"
+
+
+USER $user

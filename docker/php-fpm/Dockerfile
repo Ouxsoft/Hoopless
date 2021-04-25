@@ -68,10 +68,6 @@ RUN apt-get -yqq update \
     && chown -R $group:$user /var/www/ \
     && chown -R $group:$user ~/.composer/
 
-COPY ./app /application
-RUN composer install --prefer-source --no-interaction
-ENV PATH="~/.composer/vendor/bin:./vendor/bin:${PATH}"
-
 # allow webserver to to use modify application
 RUN chown -R $group:$user /application/
 
@@ -91,11 +87,20 @@ RUN pecl install xdebug \
     && docker-php-ext-enable xdebug \
     && rm -rf /tmp/*
 
+COPY ./app /application
+RUN composer install --dev --no-interaction
+ENV PATH="~/.composer/vendor/bin:./vendor/bin:${PATH}"
+
 USER $user
 
 #######################################
 # Standard
 #######################################
 FROM build AS standard
+
+COPY ./app /application
+RUN composer install --no-dev --no-interaction
+ENV PATH="~/.composer/vendor/bin:./vendor/bin:${PATH}"
+
 
 USER $user

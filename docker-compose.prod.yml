@@ -14,7 +14,9 @@ services:
 
   webserver:
     environment:
+      - VIRTUAL_HOSTNAME=ouxsoft.com
       - VIRTUAL_HOST=localhost
+      - VIRTUAL_PROTO=http
     networks:
       - proxynet
 

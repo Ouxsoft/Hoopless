@@ -13,8 +13,6 @@ services:
       - proxynet
 
   webserver:
-    build:
-      target: testing
     environment:
       - VIRTUAL_HOST=localhost
     networks:
@@ -71,6 +69,8 @@ services:
       - proxynet
 
   php-fpm:
+    build:
+      target: testing
     networks:
       - proxynet
 

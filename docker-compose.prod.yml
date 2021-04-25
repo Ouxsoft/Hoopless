@@ -18,21 +18,6 @@ services:
     networks:
       - proxynet
 
-  mysql:
-    build:
-      context: ./
-      dockerfile: docker/mysql/Dockerfile
-    container_name: hoopless-mysql
-    working_dir: /application
-    volumes:
-      - ./app/sql:/docker-entrypoint-initdb.d:rw
-    ports:
-      - "3306:3306"
-    env_file:
-      - ./docker/env/dev.env
-    networks:
-      - proxynet
-
   php-fpm:
     build:
       target: standard

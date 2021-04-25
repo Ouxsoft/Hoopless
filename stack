@@ -85,9 +85,9 @@ function docker_start {
       up -d --remove-orphans
     fi
     # must be ran outside of Dockerfile due to mount
-    echo "Update composer"
-    docker exec --user root hoopless-php-fpm composer update -d .
-    docker exec --user root hoopless-php-fpm composer dump-autoload --optimize -d .
+    # echo "Update composer"
+    # docker exec --user root hoopless-php-fpm composer update -d .
+    # docker exec --user root hoopless-php-fpm composer dump-autoload --optimize -d .
     echo "Set NGNIX file permissions on cache director"
     docker exec hoopless-webserver chmod 0755 var/cache/images
   else

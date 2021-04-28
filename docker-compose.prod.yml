@@ -34,8 +34,8 @@ services:
   webserver:
     environment:
       - VIRTUAL_PROTO=http
-      - VIRTUAL_HOST=ouxsoft
-      - LETSENCRYPT_HOST=ouxsoft
+      - VIRTUAL_HOST=ouxsoft.com
+      - LETSENCRYPT_HOST=ouxsoft.com
     restart: always
     networks:
       - proxynet

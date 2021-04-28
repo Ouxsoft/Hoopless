@@ -41,15 +41,15 @@ Released: 2020-26-2020. Notable changes:
 ## Hoopless v0.0.3
 Released: 2020-06-28. Notable changes:
 * Added: Individual width and height parametrized image requests.
-* Improve: /help section
+* Improved: /help section
 
 ## Hoopless v0.0.2
 Released: 2020-05-29. Notable changes:
 * Added: PHPMarkup LHTML5 processor
 * Added: Docker.
 * Removed: Mustache.
-* Remove: Nodes.
-* Remove: Aliases.
+* Removed: Nodes.
+* Removed: Aliases.
 
 # Hoopless v0.0.1
 Released: 2017-10-10. Notable changes:

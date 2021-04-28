@@ -6,7 +6,7 @@ RUN apt-get install -y software-properties-common \
     && apt update \
     && apt install -y certbot \
     && certbot certonly \
-    --manual -d *.Ouxsoft.com -d Ouxsoft.com \
-    --agree-tos -m webmaster@Ouxsoft.com \
+    --manual -d *.ouxsoft.com -d ouxsoft.com \
+    --agree-tos -m webmaster@ouxsoft.com \
     --no-bootstrap --manual-public-ip-logging-ok --preferred-challenges dns-01 \
     --server https://acme-v02.api.letsencrypt.org/directory

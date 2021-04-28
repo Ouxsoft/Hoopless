@@ -3,18 +3,21 @@ version: "3.4"
 services:
 
   nginx-proxy:
-    image: jwilder/nginx-proxy
+    image: nginxproxy/nginx-proxy
     container_name: hoopless-proxy
     ports:
       - "80:80"
+      - "443:443"
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
+      #- ./certs:/etc/nginx/certs
     networks:
       - proxynet
 
   webserver:
     environment:
       - VIRTUAL_HOST=localhost
+      - CERT_NAME=localhost
     networks:
       - proxynet
 

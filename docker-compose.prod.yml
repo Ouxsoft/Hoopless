@@ -2,20 +2,41 @@ version: "3.4"
 
 services:
 
-  nginx-proxy:
-    image: jwilder/nginx-proxy
+  proxy:
+    image: nginxproxy/nginx-proxy
     container_name: hoopless-proxy
     ports:
+      # automatically redirects http to https
       - "80:80"
+      - "443:443"
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
+      # required for Let's Encrypt certificates
+      - nginx_certs:/etc/nginx/certs:ro
+      - nginx_vhosts:/etc/nginx/vhost.d
+      - nginx_html:/usr/share/nginx/html
+    restart: always
     networks:
       - proxynet
 
+  letsencrypt:
+    image: jrcs/letsencrypt-nginx-proxy-companion
+    environment:
+      - DEFAULT_EMAIL=admin@ouxsoft.com
+      - NGINX_PROXY_CONTAINER=proxy
+    volumes_from:
+      - proxy
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - nginx_certs:/etc/nginx/certs:rw
+    restart: always
+
   webserver:
     environment:
-      - VIRTUAL_HOST=ouxsoft.com
       - VIRTUAL_PROTO=http
+      - VIRTUAL_HOST=ouxsoft
+      - LETSENCRYPT_HOST=ouxsoft
+    restart: always
     networks:
       - proxynet
 
@@ -28,3 +49,9 @@ services:
 networks:
   proxynet:
     external: false
+
+volumes:
+  ## NGINX reverse proxy container volumes
+  nginx_certs:
+  nginx_vhosts:
+  nginx_html:

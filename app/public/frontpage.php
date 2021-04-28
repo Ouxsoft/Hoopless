@@ -29,7 +29,7 @@
 <div class="container">
     <p>
         We are building the framework behind this site, <a href="https://github.com/Ouxsoft/Hoopless">Hoopless</a>.
-        With the goal of creating a more expressive language to empower web teams to communicate design.
+        With the goal of creating a more expressive markup language to empower web teams to communicate design.
     </p>
     <a href="/help/phpmarkup" class="btn btn-primary" >Learn More</a>
 </div>

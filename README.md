@@ -1,15 +1,17 @@
 <p align="center">
-<img src="https://raw.githubusercontent.com/Ouxsoft/Hoopless/master/app/assets/images/hoopless/logo.png" alt="Hoopless">
+    <img src="https://raw.githubusercontent.com/Ouxsoft/Hoopless/master/app/assets/images/hoopless/logo.png" alt="Hoopless">
 </p>
 
 <p align="center">
     <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/Ouxsoft/hoopless">
+    <a href="#tada-php-support" title="PHP Versions Supported">
+            <img alt="PHP Versions Supported" src="https://img.shields.io/badge/php-7.3%20to%208.0-777bb3.svg?logo=php&logoColor=white&labelColor=555555">
+        </a>      
     <a href="https://app.codacy.com/gh/Ouxsoft/Hoopless?utm_source=github.com&utm_medium=referral&utm_content=Ouxsoft/Hoopless&utm_campaign=Badge_Grade_Dashboard">
-    <img alt="Codacy grade" src="https://api.codacy.com/project/badge/Grade/af61c01e07894689b9be009591e6b3b1">
+        <img alt="Codacy grade" src="https://api.codacy.com/project/badge/Grade/af61c01e07894689b9be009591e6b3b1">
     </a>
     <img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/y/Ouxsoft/hoopless">
 </p>
-
 
 ## About
 
@@ -71,8 +73,9 @@ View in web browser:
 
 ### Via Shell
 Start on production Ubuntu 18.04 server
+
 ```shell script
-./stack install prod
+./stack start prod
 ```
 
 ## Creators

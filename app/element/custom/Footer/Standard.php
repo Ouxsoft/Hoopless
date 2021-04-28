@@ -28,7 +28,7 @@ class Standard extends AbstractElement
     <div class="container pt-5 pb-3">            
         <div class="row">
             <div class="col-sm-12 col-md-4 col-lg-3">
-               <img src="/assets/images/Ouxsoft/logo/white-transparent-bg.png" width="120" class="brand align-top m-auto" alt="Ouxsoft"/>
+               <img src="/assets/images/ouxsoft/logo/white-transparent-bg.png" width="120" class="brand align-top m-auto" alt="Ouxsoft"/>
             </div>
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <nav class="nav flex-column ">

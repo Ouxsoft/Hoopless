@@ -66,7 +66,7 @@ class Standard extends AbstractElement
     
     <div class="container">
     <a class="navbar-brand d-block d-lg-none" href="/">
-        <img src="/assets/images/Ouxsoft/logo/inline-transparent-bg.png" width="120" class="brand align-top" alt="Ouxsoft"/>
+        <img src="/assets/images/ouxsoft/logo/inline-transparent-bg.png" width="120" class="brand align-top" alt="Ouxsoft"/>
     </a> 
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -93,7 +93,7 @@ class Standard extends AbstractElement
             <ul class="nav navbar-nav navbar-logo mx-auto">
                 <li class="nav-item">
                     <a class="navbar-brand d-none d-lg-block" href="/">
-                        <img src="/assets/images/Ouxsoft/logo/inline-transparent-bg.png" width="120" class="brand align-top" alt="Ouxsoft"/>
+                        <img src="/assets/images/ouxsoft/logo/inline-transparent-bg.png" width="120" class="brand align-top" alt="Ouxsoft"/>
                     </a> 
                 </li>       
             </ul>

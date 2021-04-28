@@ -2,20 +2,41 @@ version: "3.4"
 
 services:
 
-  nginx-proxy:
-    image: jwilder/nginx-proxy
-    container_name: hoopless-proxy
+  proxy:
+    image: nginxproxy/nginx-proxy
+    container_name: nginx-proxy
     ports:
       - "80:80"
+      - "443:443"
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
+      - letsencrypt-certs:/etc/nginx/certs
+      - letsencrypt-vhost-d:/etc/nginx/vhost.d
+      - letsencrypt-html:/usr/share/nginx/html
+    restart: always
     networks:
       - proxynet
 
+  letsencrypt-proxy:
+    image: jrcs/letsencrypt-nginx-proxy-companion
+    container_name: letsencrypt-proxy
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - letsencrypt-certs:/etc/nginx/certs
+      - letsencrypt-vhost-d:/etc/nginx/vhost.d
+      - letsencrypt-html:/usr/share/nginx/html
+    environment:
+      - DEFAULT_EMAIL=admin@ouxsoft.com
+      - NGINX_PROXY_CONTAINER=nginx-proxy
+
   webserver:
+    container_name: nginx-server
     environment:
       - VIRTUAL_HOST=ouxsoft.com
-      - VIRTUAL_PROTO=http
+      - LETSENCRYPT_HOST=ouxsoft.com
+    expose:
+      - 80
+    restart: unless-stopped
     networks:
       - proxynet
 
@@ -28,3 +49,8 @@ services:
 networks:
   proxynet:
     external: false
+
+volumes:
+  letsencrypt-certs:
+  letsencrypt-vhost-d:
+  letsencrypt-html:

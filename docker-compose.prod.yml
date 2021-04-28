@@ -30,6 +30,8 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - nginx_certs:/etc/nginx/certs:rw
     restart: always
+    networks:
+      - proxynet
 
   webserver:
     environment:

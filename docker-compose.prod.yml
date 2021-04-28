@@ -24,8 +24,6 @@ services:
     environment:
       - DEFAULT_EMAIL=admin@ouxsoft.com
       - NGINX_PROXY_CONTAINER=proxy
-    volumes_from:
-      - proxy
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - nginx_certs:/etc/nginx/certs:rw

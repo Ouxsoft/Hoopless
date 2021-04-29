@@ -72,14 +72,14 @@ View in web browser:
 | Continuous Deployment | [http://cd.localhost/blue](http://cd.localhost/blue) | admin | admin |
 
 ### Via Shell
-Start on production Ubuntu 18.04 server
+
+Start production stack using [Docker](https://docs.docker.com/get-docker/).
 
 ```shell script
 ./stack start prod
 ```
 
-## Creators
-
-***Matthew Heroux***
-
-  * [https://github.com/hxtree](https://github.com/hxtree)
+## Contributing
+Hoopless is an open source project. If you find a problem or want to discuss new features or improvements
+**please** create an issue, and/or if possible create a pull request. Contributing is easy with this
+docker based development environment.

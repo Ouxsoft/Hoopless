@@ -23,7 +23,6 @@ function show_help {
   down                       - Bring development environment down
   nginx reload               - Reload nginx
   clear cache                - Clear cache
-  install [environment]      - Run install for server
   help                       - Show this message
 "
 }
@@ -169,18 +168,6 @@ function docker_errors {
 
 function nginx_reload {
   docker exec -it hoopless-webserver nginx -s reload
-}
-
-function stack_install {
-  local env=$1
-  if [ "$env" == "prod" ]; then
-    echo "Install web server for production environment"
-    ./setup/install/webserver.sh
-    ./setup/install/certbot.sh
-  elif [ "$env" == "test" ]; then
-    echo "Install web server for test environment"
-    ./setup/install/webserver.sh
-  fi
 }
 
 function clear_cache {

@@ -98,7 +98,6 @@ USER $user
 #######################################
 FROM build AS standard
 
-
 COPY ./app /application
 RUN composer install --no-dev --no-interaction
 ENV PATH="~/.composer/vendor/bin:./vendor/bin:${PATH}"

@@ -16,7 +16,7 @@
             </alert>
 
             <partial name="News">
-                <arg name="limit" type="int">4</arg>
+                <arg name="limit" type="int">10</arg>
             </partial>
 
         </main>

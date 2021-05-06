@@ -1,0 +1,60 @@
+@font-face {
+  font-family: 'ouxicons';
+  src: url('/assets/fonts/Ouxicons/ouxicons-regular.ttf')  format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.arrow-cta span {
+  display: block;
+  position: relative;
+}
+
+.icon {
+  font-family:'ouxicons', sans-serif;
+  speak:none;
+  font-style:normal;
+  font-weight:normal;
+  font-variant:normal;
+  text-transform:none;
+  line-height:1;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale
+}
+
+.arrow-cta__icon {
+  font-size: 0.5625rem;
+  display: inline-block;
+  position: relative;
+  align-items: center;
+
+  &:before {
+    text-rendering: geometricPrecision;
+    font-family: 'ouxicons';
+    speak:none;
+    font-style:normal;
+    font-weight:normal;
+    font-variant:normal;
+    text-transform:none;
+    line-height:1;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    content:""
+  }
+
+  &:after{
+    content:'\e91f';
+    font-family: 'ouxicons';
+    display:block;
+    width:0;
+    height:100%;
+    position:absolute;
+    top:0;
+    left:0;
+    color:rgba(255,255,255,0.5);
+    transform-origin:left center;
+    transition:width .15s linear;
+    overflow:hidden
+  }
+
+}

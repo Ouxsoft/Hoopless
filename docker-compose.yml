@@ -6,7 +6,7 @@ services:
       build:
         context: .
         dockerfile: docker/nginx/Dockerfile
-      container_name: hoopless-webserver
+      container_name: nginx-server
       working_dir: /application
       volumes:
         - ./app:/application:rw

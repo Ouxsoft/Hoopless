@@ -2,16 +2,7 @@
   "name": "ouxsoft/hoopless",
   "description": "Modular Content Management System.",
   "keywords": [
-    "PHPMarkup",
-    "template",
-    "xml",
-    "php",
-    "processor",
-    "dom",
-    "engine",
-    "lhtml",
-    "html5",
-    "html"
+    "Content Management System"
   ],
   "type": "project",
   "license": "MIT",
@@ -37,7 +28,7 @@
     "components/jquery": "dev-master",
     "scssphp/scssphp": "dev-master",
     "codemirror/codemirror": "5.53.2",
-    "twbs/bootstrap": "dev-main"
+    "twbs/bootstrap": "4.6.0"
   },
   "repositories": [
     {

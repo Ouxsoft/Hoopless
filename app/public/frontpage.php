@@ -13,26 +13,31 @@
         <div class="row h-100 align-items-center">
             <div class="col-12 text-left text-light">
                 <h1 class="font-weight-light">
-                    Developing software
+                    Empowering collaborators
                 </h1>
-                <p class="lead"><i class="fas fa-code fa-1x"></i> that breaks assumptions. </p>
+                <p class="lead"><i class="fas fa-code fa-1x"></i> Engineering Software </p>
             </div>
         </div>
     </div>
     <aside class="info-box bg-secondary p-4 editable">
         <a class="text-white" href="/news">
-            <em>See the latest updates.</em>
+            <em>Latest News and Videos.
+            </em>
         </a>
     </aside>
 </div>
 
 <div class="container">
     <p>
-        We are building the framework behind this site, <a href="https://github.com/Ouxsoft/Hoopless">Hoopless</a>.
-        With the goal of creating a more expressive markup language to empower web teams to communicate design.
+        We are building <a href="https://github.com/Ouxsoft/Hoopless">Hoopless</a> the content management system
+        powering this site.
+        The goal of Hoopless is to create a more expressive markup language to empower web teams and communicate design.
     </p>
-    <a href="/help/phpmarkup" class="btn btn-primary" >Learn More</a>
+    <a href="/help/phpmarkup" class="btn btn-primary" >
+        Learn More <span class="arrow-cta__icon" aria-hidden="true"></span>
+    </a>
 </div>
+
 
 <footer name="Standard"/>
 </body>

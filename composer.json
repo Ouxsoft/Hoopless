@@ -13,6 +13,10 @@
       "role": "Organization"
     }
   ],
+  "homepage": "https://github.com/Ouxsoft/Hoopless",
+  "support": {
+    "issues": "https://github.com/Ouxsoft/Hoopless/issues"
+  },
   "require": {
     "php": ">=7.1",
     "ext-dom": "*",
@@ -25,10 +29,15 @@
     "laminas/laminas-validator": "^2.13.2",
     "laminas/laminas-router": "^3.3@dev",
     "laminas/laminas-http": "^2.11@dev",
-    "components/jquery": "dev-master",
-    "scssphp/scssphp": "dev-master",
+    "components/jquery": "3.5.1",
+    "scssphp/scssphp": "v1.4.1",
     "codemirror/codemirror": "5.53.2",
-    "twbs/bootstrap": "4.6.0"
+    "twbs/bootstrap": "4.6.0",
+    "doctrine/orm": "^2.6.2"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "9.5.4",
+    "friendsofphp/php-cs-fixer": "v3.0.0"
   },
   "repositories": [
     {
@@ -44,28 +53,12 @@
       }
     }
   ],
-  "minimum-stability": "dev",
-  "support": {
-    "issues": "https://github.com/Ouxsoft/Hoopless/issues"
-  },
   "autoload": {
     "psr-4": {
       "Hoopless\\" : "src/",
       "LHTML\\Element\\Core\\": "element/core/",
       "LHTML\\Element\\Custom\\": "element/custom/"
     }
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "Hoopless\\" : "src/",
-      "LHTML\\Element\\Core\\": "element/core/",
-      "LHTML\\Element\\Custom\\": "element/custom/"
-    }
-  },
-  "homepage": "https://github.com/Ouxsoft/Hoopless",
-  "require-dev": {
-    "phpunit/phpunit": "^8",
-    "friendsofphp/php-cs-fixer": "^2.17@dev"
   },
   "scripts": {
     "build": [

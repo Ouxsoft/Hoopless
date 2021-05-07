@@ -1,0 +1,7 @@
+exclude_paths:
+- "public/assets/js/**/*"
+- "public/assets/css/**/*"
+- "assets/scss/**/*"
+- "**.md"
+- "**.sh"
+- "**.scss"

@@ -52,4 +52,4 @@ A modular content management system using a markup abstraction layer.
 
 ## Installation
 
-For deployment, we recommend to use [Hoopless Stack](https://githun.com/Ouxsoft/hoopless-stack).
+For deployment, we recommend to use [Hoopless Stack](https://github.com/Ouxsoft/hoopless-stack).

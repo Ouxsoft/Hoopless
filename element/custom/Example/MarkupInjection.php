@@ -12,6 +12,10 @@ namespace LHTML\Element\Custom\Example;
 
 use Ouxsoft\PHPMarkup\Element\AbstractElement;
 
+/**
+ * Class MarkupInjection
+ * @package LHTML\Element\Custom\Example
+ */
 class MarkupInjection extends AbstractElement
 {
     public function onRender()

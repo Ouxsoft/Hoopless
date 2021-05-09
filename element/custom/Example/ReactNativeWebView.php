@@ -12,6 +12,10 @@ namespace LHTML\Element\Custom\Example;
 
 use Ouxsoft\PHPMarkup\Element\AbstractElement;
 
+/**
+ * Class ReactNativeWebView
+ * @package LHTML\Element\Custom\Example
+ */
 class ReactNativeWebView extends AbstractElement
 {
     public function onRender()

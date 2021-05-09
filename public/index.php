@@ -29,7 +29,6 @@ $appConfig['elements'] = require ROOT_DIR . 'config/elements.config.php';
 $appConfig['routines'] = require ROOT_DIR . 'config/routines.config.php';
 
 // instantiate processor with configuration and set to parse buffer
-global $processor;
 $processor = ProcessorFactory::getInstance();
 $processor->addRoutines($appConfig['routines']);
 $processor->addElements($appConfig['elements']);

@@ -5,7 +5,7 @@
 <body>
 
 <header name="Standard">
-    <arg type="bool" name="frontpage">false</arg>
+    <arg type="bool" name="frontpage">true</arg>
 </header>
 
 <div class="hero-image w-100 mb-5" style="background-image:url('/assets/images/dimension/1260x630/offset/0,-20/hero/pattern-bg.jpg');">

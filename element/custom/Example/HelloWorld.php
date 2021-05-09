@@ -14,12 +14,7 @@ use Ouxsoft\PHPMarkup\Element\AbstractElement;
 
 /**
  * Class HelloWorld
- *
- * Hyperlink simple HelloWorld Module example
- *
- * <widget name="HelloWorld"/>
- *
- * @package PHPMarkup\Modules\Widgets
+ * @package LHTML\Element\Custom\Example
  */
 class HelloWorld extends AbstractElement
 {
@@ -28,7 +23,7 @@ class HelloWorld extends AbstractElement
      *
      * @return mixed|string
      */
-    public function onRender()
+    public function onRender() : string
     {
         return 'Hello, World';
     }

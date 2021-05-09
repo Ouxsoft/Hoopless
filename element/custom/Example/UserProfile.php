@@ -14,8 +14,7 @@ use Ouxsoft\PHPMarkup\Element\AbstractElement;
 
 /**
  * Class UserProfile
- *
- * @package PHPMarkup\Modules\Widgets
+ * @package LHTML\Element\Custom\Example
  */
 class UserProfile extends AbstractElement
 {
@@ -23,12 +22,7 @@ class UserProfile extends AbstractElement
     public $first_name = 'Jane';
     public $last_name = 'Doe';
 
-    /**
-     * Prints Hello, World
-     *
-     * @return mixed|string
-     */
-    public function onRender()
+    public function onRender() : string
     {
         return '<div class="user_profile">' . $this->xml . '</div>';
     }

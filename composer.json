@@ -25,10 +25,8 @@
     "ext-gd": "*",
     "ext-simplexml": "*",
     "ouxsoft/phpmarkup" : "v4.0.2",
-    "laminas/laminas-config": "^3.3.0",
-    "laminas/laminas-validator": "^2.13.2",
-    "laminas/laminas-router": "^3.3@dev",
-    "laminas/laminas-http": "^2.11@dev",
+    "laminas/laminas-validator": "2.14.4",
+    "mustache/mustache": "2.13.0",
     "components/jquery": "3.5.1",
     "scssphp/scssphp": "v1.4.1",
     "codemirror/codemirror": "5.53.2",
@@ -55,7 +53,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "Hoopless\\" : "src/",
+      "Ouxsoft\\Hoopless\\" : "core/",
       "LHTML\\Element\\Core\\": "element/core/",
       "LHTML\\Element\\Custom\\": "element/custom/"
     }
@@ -63,8 +61,7 @@
   "scripts": {
     "build": [
       "php-cs-fixer fix --rules=@PSR2 --using-cache=no public/",
-      "php-cs-fixer fix --rules=@PSR2 --using-cache=no src/",
-      "php-cs-fixer fix --rules=@PSR2 --using-cache=no test/",
+      "php-cs-fixer fix --rules=@PSR2 --using-cache=no core/",
       "php bin/SassCompiler.php",
       "rm -rf public/assets/js/bootstrap",
       "cp -R vendor/twbs/bootstrap/dist/js/ public/assets/js/bootstrap",

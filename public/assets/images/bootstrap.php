@@ -11,10 +11,10 @@
 // turn off LHTML5 Autoloader
 define('LHTML_OFF', 0);
 
-require dirname(__DIR__, 3) . '/vendor/autoload.php';
+require __DIR__ . '/../../../vendor/autoload.php';
 
-use Hoopless\Image;
-use Hoopless\Path;
+use Ouxsoft\Hoopless\Image;
+use Ouxsoft\Hoopless\Path;
 
 $request = array_key_exists('q', $_GET) ? $_GET['q'] : '';
 

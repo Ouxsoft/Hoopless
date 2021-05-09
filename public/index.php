@@ -8,11 +8,10 @@
  * file that was distributed with this source code.
  */
 
-use Ouxsoft\PHPMarkup\Factory\ProcessorFactory;
-
-use Hoopless\Router;
-
 require_once '../vendor/autoload.php';
+
+use Ouxsoft\PHPMarkup\Factory\ProcessorFactory;
+use Ouxsoft\Hoopless\Router;
 
 // define common directories
 define('ROOT_DIR', dirname(__DIR__, 1) . '/');
@@ -24,10 +23,16 @@ define('CONFIG_DIR', ROOT_DIR . 'config/');
 // set include path
 set_include_path(ROOT_DIR);
 
+// load config
+$appConfig = [];
+$appConfig['elements'] = require ROOT_DIR . 'config/elements.config.php';
+$appConfig['routines'] = require ROOT_DIR . 'config/routines.config.php';
+
 // instantiate processor with configuration and set to parse buffer
 global $processor;
 $processor = ProcessorFactory::getInstance();
-$processor->loadConfig(CONFIG_DIR . 'config.dist.json');
+$processor->addRoutines($appConfig['routines']);
+$processor->addElements($appConfig['elements']);
 $processor->parseBuffer();
 
 // Route traffic to a specific file

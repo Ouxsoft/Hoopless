@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Hoopless;
+namespace Ouxsoft\Hoopless;
 
 /**
  * Class Router

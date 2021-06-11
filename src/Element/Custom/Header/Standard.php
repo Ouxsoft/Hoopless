@@ -14,8 +14,6 @@ use Ouxsoft\PHPMarkup\Element\AbstractElement;
 use Mustache_Engine;
 use Mustache_Loader_FilesystemLoader;
 
-
-
 /**
  * Class Standard
  * @package LHTML\Element\Custom\Header
@@ -37,7 +35,7 @@ class Standard extends AbstractElement
         }
 
         $view = new Mustache_Engine([
-            'loader' => new Mustache_Loader_FilesystemLoader(ROOT_DIR . 'views')
+            'loader' => new Mustache_Loader_FilesystemLoader(ROOT_DIR . 'templates')
         ]);
 
         // TODO: get current page
@@ -59,7 +57,7 @@ class Standard extends AbstractElement
     public function getNavbar()
     {
         $view = new Mustache_Engine([
-            'loader' => new Mustache_Loader_FilesystemLoader(ROOT_DIR . 'views')
+            'loader' => new Mustache_Loader_FilesystemLoader(ROOT_DIR . 'templates')
         ]);
 
         return $view->render('elements/top-navbar',
@@ -71,11 +69,11 @@ class Standard extends AbstractElement
     public function onRender()
     {
         return <<<HTML
-<!-- Header -->
-<header>
-    {$this->getNavbar()}
-    {$this->getBreadcrumbs()}
-</header>
+        <!-- Header -->
+        <header>
+            {$this->getNavbar()}
+            {$this->getBreadcrumbs()}
+        </header>
 HTML;
     }
 }

@@ -1,7 +1,8 @@
 <?php
 
+namespace Ouxsoft\Hoopless\Entity;
 
-
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -57,7 +58,7 @@ class ContentTypeSchema
     private $description;
 
     /**
-     * @var \DateTime
+     * @var DateTime
      *
      * @ORM\Column(name="timestamp", type="datetime", nullable=false, options={"default"="CURRENT_TIMESTAMP"})
      */

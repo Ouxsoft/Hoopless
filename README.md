@@ -53,3 +53,8 @@ A modular content management system using a markup abstraction layer.
 ## Installation
 
 For deployment, we recommend to use [Hoopless Stack](https://github.com/Ouxsoft/hoopless-stack).
+
+
+# Database
+
+./vendor/bin/doctrine-migrations --configuration="config/migrations.php" migrations:generate

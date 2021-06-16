@@ -1,6 +1,6 @@
 <?php
 
-
+namespace Ouxsoft\Hoopless\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 

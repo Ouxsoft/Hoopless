@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="content_type_schema")
  * @ORM\Entity
  */
-class ContentTypeSchema
+class CustomSchema
 {
     /**
      * @var int

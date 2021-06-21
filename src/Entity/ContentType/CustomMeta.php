@@ -2,32 +2,31 @@
 
 namespace Ouxsoft\Hoopless\Entity;
 
-use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * ContentTypeEntity
+ * ContentTypeEntityValue
  *
- * @ORM\Table(name="content_type_entity")
+ * @ORM\Table(name="custom_meta")
  * @ORM\Entity
  */
-class ContentTypeEntity
+class CustomMeta
 {
     /**
      * @var int
      *
-     * @ORM\Column(name="entity_id", type="integer", nullable=false)
+     * @ORM\Column(name="value_id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $entityId;
+    private $valueId;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="schema_id", type="integer", nullable=false)
+     * @ORM\Column(name="type_id", type="integer", nullable=false)
      */
-    private $schemaId;
+    private $typeId;
 
     /**
      * @var int
@@ -37,11 +36,11 @@ class ContentTypeEntity
     private $versionId;
 
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\Column(name="group_id", type="integer", nullable=false)
+     * @ORM\Column(name="serialized_value", type="blob", length=65535, nullable=false)
      */
-    private $groupId;
+    private $serializedValue;
 
     /**
      * @var int
@@ -51,10 +50,11 @@ class ContentTypeEntity
     private $userId;
 
     /**
-     * @var DateTime
+     * @var \DateTime
      *
      * @ORM\Column(name="timestamp", type="datetime", nullable=false, options={"default"="CURRENT_TIMESTAMP"})
      */
     private $timestamp = 'CURRENT_TIMESTAMP';
+
 
 }

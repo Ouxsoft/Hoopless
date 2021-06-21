@@ -5,35 +5,28 @@ namespace Ouxsoft\Hoopless\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * ContentTypeEntityValueRevision
+ * ContentTypeGroupAccess
  *
- * @ORM\Table(name="content_type_entity_value_revision")
+ * @ORM\Table(name="content_type_group_access")
  * @ORM\Entity
  */
-class ContentTypeEntityValueRevision
+class CustomPermission
 {
     /**
      * @var int
      *
-     * @ORM\Column(name="revision_id", type="integer", nullable=false)
+     * @ORM\Column(name="acl_id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $revisionId;
+    private $aclId;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Column(name="type", type="integer", nullable=false)
      */
-    private $id;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="value", type="integer", nullable=false)
-     */
-    private $value;
+    private $type;
 
     /**
      * @var string
@@ -51,3 +44,9 @@ class ContentTypeEntityValueRevision
 
 
 }
+
+/*
+ContentTypeACL
+ContentTypeId
+PermissionId
+*/

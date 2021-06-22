@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Custom
  * A custom content entity
  *
- * @ORM\Table(name="content_type_entity")
+ * @ORM\Table(name="custom")
  * @ORM\Entity
  */
 class Custom

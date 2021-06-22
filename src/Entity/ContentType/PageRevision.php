@@ -67,4 +67,15 @@ class PageRevision
      */
     private $updated;
 
+
+    public function setActive() : void
+    {
+        $this->status = self::ACTIVE_STATUS;
+    }
+
+    public function setHidden() : void
+    {
+        $this->status = self::HIDDEN_STATUS;
+    }
+
 }

@@ -8,7 +8,7 @@ use Exception;
 
 /**
  * EventMeta
- * Event meta data values
+ * Event meta data / beyond normal values
  *
  * @ORM\Table(name="event_meta")
  * @ORM\Entity

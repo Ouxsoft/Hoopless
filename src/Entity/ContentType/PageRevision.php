@@ -78,4 +78,117 @@ class PageRevision
         $this->status = self::HIDDEN_STATUS;
     }
 
+    /**
+     * @return int
+     */
+    public function getPageRevisionId(): int
+    {
+        return $this->pageRevisionId;
+    }
+
+    /**
+     * @param int $pageRevisionId
+     */
+    public function setPageRevisionId(int $pageRevisionId): void
+    {
+        $this->pageRevisionId = $pageRevisionId;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPageId(): int
+    {
+        return $this->pageId;
+    }
+
+    /**
+     * @param int $pageId
+     */
+    public function setPageId(int $pageId): void
+    {
+        $this->pageId = $pageId;
+    }
+
+    /**
+     * @return string
+     */
+    public function getBody(): string
+    {
+        return $this->body;
+    }
+
+    /**
+     * @param string $body
+     */
+    public function setBody(string $body): void
+    {
+        $this->body = $body;
+    }
+
+    /**
+     * @return int
+     */
+    public function getStatus(): int
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param int $status
+     */
+    public function setStatus(int $status): void
+    {
+        $this->status = $status;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUserId(): string
+    {
+        return $this->userId;
+    }
+
+    /**
+     * @param string $userId
+     */
+    public function setUserId(string $userId): void
+    {
+        $this->userId = $userId;
+    }
+
+    /**
+     * @return DateTime
+     */
+    public function getCreated(): DateTime
+    {
+        return $this->created;
+    }
+
+    /**
+     * @param DateTime $created
+     */
+    public function setCreated(DateTime $created): void
+    {
+        $this->created = $created;
+    }
+
+    /**
+     * @return DateTime
+     */
+    public function getUpdated(): DateTime
+    {
+        return $this->updated;
+    }
+
+    /**
+     * @param DateTime $updated
+     */
+    public function setUpdated(DateTime $updated): void
+    {
+        $this->updated = $updated;
+    }
+
+
 }

@@ -68,6 +68,22 @@ class News
      */
     private $body;
 
+
+    /**
+     * @var DateTime
+     *
+     * @ORM\Column(name="created", type="datetime", nullable=false, options={"default"="CURRENT_TIMESTAMP"})
+     */
+    private $created;
+
+    /**
+     * @var DateTime
+     *
+     * @ORM\Column(name="updated", type="datetime", nullable=false, options={"default"="CURRENT_TIMESTAMP"})
+     */
+    private $updated;
+
+
     /**
      * @return int
      */
@@ -75,7 +91,6 @@ class News
     {
         return $this->newsId;
     }
-
 
     /**
      * @return string
@@ -177,5 +192,37 @@ class News
     public function setBody(string $body) : void
     {
         $this->body = $body;
+    }
+
+    /**
+     * @return DateTime
+     */
+    public function getCreated(): DateTime
+    {
+        return $this->created;
+    }
+
+    /**
+     * @param DateTime $created
+     */
+    public function setCreated(DateTime $created): void
+    {
+        $this->created = $created;
+    }
+
+    /**
+     * @return DateTime
+     */
+    public function getUpdated(): DateTime
+    {
+        return $this->updated;
+    }
+
+    /**
+     * @param DateTime $updated
+     */
+    public function setUpdated(DateTime $updated): void
+    {
+        $this->updated = $updated;
     }
 }

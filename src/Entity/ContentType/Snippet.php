@@ -8,7 +8,7 @@ use Exception;
 
 /**
  * Snippet
- * A snippet is a short piece of reusable centrally maintained content
+ * A snippet is a short piece of reusable content. It is centrally maintained as to make multiple updates easier.
  *
  * @ORM\Table(name="snippet")
  * @ORM\Entity

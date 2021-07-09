@@ -17,6 +17,16 @@
 
             <partial name="News">
                 <arg name="limit" type="int">10</arg>
+                <arg name="format">
+                    <article class="mb-5">
+                        <h3>{{title}}</h3>
+                        <p>
+                            <i>Published: <date>{{date}}</date></i>
+                        </p>
+                        {{body}}
+                        <hr/>
+                    </article>
+                </arg>
             </partial>
 
         </main>

@@ -8,11 +8,9 @@ return [
         'executed_at_column_name' => 'executed_at',
         'execution_time_column_name' => 'execution_time',
     ],
-
     'migrations_paths' => [
-        'Ouxsoft\Hoopless\Migrations' => '/database/migrations',
+        'Ouxsoft\Hoopless\Migrations' => 'src/Migrations',
     ],
-
     'all_or_nothing' => true,
     'check_database_platform' => true,
     'organize_migrations' => 'none',

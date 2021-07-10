@@ -10,6 +10,8 @@
 
 namespace LHTML\Element\Custom\Header;
 
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\Tools\Setup;
 use Ouxsoft\PHPMarkup\Element\AbstractElement;
 use Mustache_Engine;
 use Mustache_Loader_FilesystemLoader;
@@ -21,6 +23,46 @@ use Mustache_Loader_FilesystemLoader;
 class Standard extends AbstractElement
 {
     public $separator = '/';
+
+    private $pages = [];
+
+    public function onLoad()
+    {
+
+        $doctrineConfig = Setup::createAnnotationMetadataConfiguration(
+            [ENTITY_DIR], true, null, null, false
+        );
+
+        $dbParams = [
+            'driver'   => 'pdo_mysql',
+            'user'     => 'root',
+            'password' => '',
+            'dbname'   => 'hoopless',
+            'host' => 'mysql'
+        ];
+
+        $em = EntityManager::create(
+            $dbParams,
+            $doctrineConfig
+        );
+
+        $stmt = $em->getConnection()->prepare("
+          SELECT `title`, `url`, IF(`url`=:url1, 1, 0) AS `active` 
+           FROM ( 
+           SELECT @r AS _id,
+            (SELECT @r := page_parent_id 
+            FROM page WHERE page_id = _id) AS page_parent_id, @l := @l + 1 AS lvl 
+           FROM (SELECT @r := (SELECT page_id FROM page WHERE url = :url2), @l := 0) vars, page h) T1 JOIN page T2 ON T1._id = T2.page_id 
+           ORDER BY T1.lvl DESC 
+           LIMIT 10
+           ");
+        // TODO improve by passing router
+        $stmt->execute([
+            'url1' => $_SERVER['REQUEST_URI'],
+            'url2' => $_SERVER['REQUEST_URI']
+        ]);
+        $this->pages = $stmt->fetchAll();
+    }
 
     /**
      * Renders a breadcrumb trail for the current page
@@ -38,17 +80,9 @@ class Standard extends AbstractElement
             'loader' => new Mustache_Loader_FilesystemLoader(ROOT_DIR . 'templates')
         ]);
 
-        // TODO: get current page
-
         return $view->render('elements/breadcrumb',
             [
-                'separator' => $this->separator,
-                'pages' => [
-                    [
-                        'title' => 'Home',
-                        'href' => '/'
-                    ]
-                ]
+                'pages' => $this->pages
             ]
         );
     }

@@ -1,15 +1,23 @@
 <!-- Breadcrumb -->
-<nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-        <div class="container">
+<nav aria-label="breadcrumb" class="bg-light">
+    <div class="container">
+        <small>
+        <ol class="breadcrumb bg-transparent">
             {{#pages}}
+            {{#active}}
             <li class="breadcrumb-item active" aria-current="page">
-                <a href="{{href}}" class="pl-1 pr-1">
+                {{title}}
+            </li>
+            {{/active}}
+            {{^active}}
+            <li class="breadcrumb-item active">
+                <a href="{{url}}" >
                     {{title}}
                 </a>
-                <span class="separator pl-1 pr-1">{{separator}}</span>
             </li>
+            {{/active}}
             {{/pages}}
-        </div>
-    </ol>
+        </ol>
+        </small>
+    </div>
 </nav>

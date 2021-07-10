@@ -15,12 +15,13 @@
 
 ## About
 
-A modular content management system using a markup abstraction layer.
+A modular content management system featuring a markup abstraction layer, object–relational mapping, and templating 
+language.
 
 ```
 <html lang="en">
 <head name="Standard">
-    <title>Title</title>
+    <title>News</title>
 </head>
 <body>
 
@@ -29,17 +30,41 @@ A modular content management system using a markup abstraction layer.
 <div class="container">
     <div class="row">
         <main name="Standard" class="editable">
-            <h2>Title</h2>
-            <p>
-                Placeholder paragraph
-            </p>
+            <h1>News</h1>
+
+            <alert type="info">
+                Check out the latest stories from Ouxsoft.
+            </alert>
+
+            <partial name="News">
+                <arg name="limit" type="int">10</arg>
+                <arg name="format">
+                    <article class="mb-5">
+                        <h3>{{title}}</h3>
+                        <p class="text-muted">
+                            <date>{{publish_date}}</date>
+                        </p>
+                        {{body}}
+                        <hr/>
+                    </article>
+                </arg>
+            </partial>
 
         </main>
 
         <nav name="SideMenu">
+            <arg name="menu" type="string">news</arg>
             <nav name="QuickLinks" class="editable">
-                <a href="#">Quicklink 1</a>
-                <a href="#">Quicklink 2</a>
+                <arg name="menu" type="string">help</arg>
+                <a href="https://github.com/Ouxsoft/hoopless">
+                    Hoopless
+                </a>
+                <a href="https://github.com/Ouxsoft/PHPMarkup">
+                    PHPMarkup
+                </a>
+                <a href="https://github.com/Ouxsoft/LHTML">
+                    LHTML Standard
+                </a>
             </nav>
         </nav>
     </div>
@@ -48,13 +73,9 @@ A modular content management system using a markup abstraction layer.
 <footer name="Standard"/>
 </body>
 </html>
+
 ```
 
 ## Installation
 
 For deployment, we recommend [Hoopless Stack](https://github.com/Ouxsoft/hoopless-stack).
-
-
-# Database
-
-./vendor/bin/doctrine-migrations --configuration="config/migrations.php" migrations:generate

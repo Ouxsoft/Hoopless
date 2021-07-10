@@ -25,7 +25,7 @@ class Page
     /**
      * @var int
      *
-     * @ORM\Column(name="page_parent_id", type="integer", nullable=false)
+     * @ORM\Column(name="page_parent_id", type="integer", nullable=true)
      */
     private $pageParentId;
 
@@ -42,7 +42,6 @@ class Page
      * @ORM\Column(name="url", type="string", length=255, nullable=true)
      */
     private $url;
-
 
     /**
      * @var DateTime

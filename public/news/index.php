@@ -11,9 +11,9 @@
         <main name="Standard" class="editable">
             <h1>News</h1>
 
-            <alert type="info">
+            <blockquote class="blockquote">
                 Check out the latest stories from Ouxsoft.
-            </alert>
+            </blockquote>
 
             <partial name="News">
                 <arg name="limit" type="int">10</arg>

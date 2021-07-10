@@ -7,43 +7,36 @@ use Doctrine\ORM\Mapping as ORM;
 use Exception;
 
 /**
- * EventMeta
- * Event meta data. Information related to an event that is beyond normal/standard values.
+ * Gallery Image
+ * A list of images belonging to an image
  *
- * @ORM\Table(name="event_meta")
+ * @ORM\Table(name="gallery_image")
  * @ORM\Entity
  */
-class EventMeta
+class GalleryImage
 {
     /**
      * @var int
      *
-     * @ORM\Column(name="event_meta_id", type="integer", nullable=false)
+     * @ORM\Column(name="gallery_image_id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $eventMetaId;
+    private $galleryImageId;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="event_id", type="interger", length=11, nullable=false)
+     * @ORM\Column(name="gallery_id", type="integer", length=11, nullable=false)
      */
-    private $eventId;
+    private $galleryId;
 
     /**
-     * @var string
+     * @var int
      *
-     * @ORM\Column(name="meta_key", type="string", length=255, nullable=false)
+     * @ORM\Column(name="image_id", type="integer", length=11, nullable=false)
      */
-    private $metaKey;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="meta_value", type="string", length=255, nullable=false)
-     */
-    private $metaValue;
+    private $imageId;
 
     /**
      * @var DateTime
@@ -62,57 +55,41 @@ class EventMeta
     /**
      * @return int
      */
-    public function getEventMetaId()
+    public function getGalleryImageId()
     {
-        return $this->eventMetaId;
+        return $this->galleryImageId;
     }
 
     /**
      * @return int
      */
-    public function getEventId(): int
+    public function getGalleryId(): int
     {
-        return $this->eventId;
+        return $this->galleryId;
     }
 
     /**
-     * @param $eventId
+     * @param $galleryId
      */
-    public function setEventId($eventId): void
+    public function setGalleryId($galleryId): void
     {
-        $this->eventId = $eventId;
-    }
-
-    /**
-     * @return string
-     */
-    public function getMetaKey(): string
-    {
-        return $this->metaKey;
-    }
-
-    /**
-     * @param $metaKey
-     */
-    public function setMetaKey($metaKey): void
-    {
-        $this->metaKey = $metaKey;
+        $this->galleryId = $galleryId;
     }
 
     /**
      * @return string
      */
-    public function getMetaValue(): string
+    public function getImageId(): string
     {
-        return $this->metaValue;
+        return $this->imageId;
     }
 
     /**
-     * @param $metaValue
+     * @param $imageId
      */
-    public function setMetaValue($metaValue): void
+    public function setImageId($imageId): void
     {
-        $this->metaValue = $metaValue;
+        $this->imageId = $imageId;
     }
 
     /**
@@ -146,5 +123,4 @@ class EventMeta
     {
         $this->updated = $updated;
     }
-
 }

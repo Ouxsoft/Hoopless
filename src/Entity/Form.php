@@ -7,32 +7,29 @@ use Doctrine\ORM\Mapping as ORM;
 use Exception;
 
 /**
- * Image
- * A image is an uploaded file containing an original image
+ * Form
+ * A form is collects user inputs
  *
- * @ORM\Table(name="image")
+ * @ORM\Table(name="form")
  * @ORM\Entity
  */
-class Image
+class Form
 {
-
     /**
      * @var int
      *
-     * @ORM\Column(name="image_id", type="integer", nullable=false)
+     * @ORM\Column(name="form_id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $imageId;
+    private $formId;
 
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\Column(name="file_id", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\Column(name="title", type="string", length=255, nullable=false)
      */
-    private $fileId;
+    private $title;
 
     /**
      * @var DateTime
@@ -51,33 +48,33 @@ class Image
     /**
      * @return int
      */
-    public function getImageId(): int
+    public function getFormId(): int
     {
-        return $this->imageId;
+        return $this->formId;
     }
 
     /**
-     * @param int $imageId
+     * @param int $formId
      */
-    public function setImageId(int $imageId): void
+    public function setFormId(int $formId): void
     {
-        $this->imageId = $imageId;
+        $this->formId = $formId;
     }
 
     /**
-     * @return int
+     * @return string
      */
-    public function getFileId(): int
+    public function getTitle(): string
     {
-        return $this->fileId;
+        return $this->title;
     }
 
     /**
-     * @param int $fileId
+     * @param string $title
      */
-    public function setFileId(int $fileId): void
+    public function setTitle(string $title): void
     {
-        $this->fileId = $fileId;
+        $this->title = $title;
     }
 
     /**

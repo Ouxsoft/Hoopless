@@ -10,6 +10,8 @@
 
 require_once '../vendor/autoload.php';
 
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\Tools\Setup;
 use Ouxsoft\PHPMarkup\Factory\ProcessorFactory;
 use Ouxsoft\Hoopless\Router;
 
@@ -19,6 +21,7 @@ define('PUBLIC_DIR', ROOT_DIR . 'public/');
 define('ASSET_DIR', ROOT_DIR . 'assets/');
 define('IMAGE_DIR', ASSET_DIR . 'images/');
 define('CONFIG_DIR', ROOT_DIR . 'config/');
+define('ENTITY_DIR', ROOT_DIR . 'src/Entity/');
 
 // set include path
 set_include_path(ROOT_DIR);

@@ -7,36 +7,29 @@ use Doctrine\ORM\Mapping as ORM;
 use Exception;
 
 /**
- * FormMeta
- * Form meta data values
+ * EventMeta
+ * Event meta data. Information related to an event that is beyond normal/standard values.
  *
- * @ORM\Table(name="form_meta")
+ * @ORM\Table(name="event_meta")
  * @ORM\Entity
  */
-class FormMeta
+class EventMeta
 {
     /**
      * @var int
      *
-     * @ORM\Column(name="form_meta_id", type="integer", nullable=false)
+     * @ORM\Column(name="event_meta_id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $formMetaId;
+    private $eventMetaId;
 
     /**
-     * @var int the parent form meta id, allows hierarchical form structures
+     * @var int
      *
-     * @ORM\Column(name="parent_form_meta_id", type="interger", length=11, nullable=false)
+     * @ORM\Column(name="event_id", type="integer", length=11, nullable=false)
      */
-    private $parentFormMetaId;
-
-    /**
-     * @var int the form the meta values are attached to
-     *
-     * @ORM\Column(name="form_id", type="interger", length=11, nullable=false)
-     */
-    private $formId;
+    private $eventId;
 
     /**
      * @var string
@@ -51,13 +44,6 @@ class FormMeta
      * @ORM\Column(name="meta_value", type="string", length=255, nullable=false)
      */
     private $metaValue;
-
-    /**
-     * @var int the order of the form element in relation to other elements
-     *
-     * @ORM\Column(name="order_id", type="interger", length=11, nullable=false)
-     */
-    private $order;
 
     /**
      * @var DateTime
@@ -76,25 +62,25 @@ class FormMeta
     /**
      * @return int
      */
-    public function getFormMetaId()
+    public function getEventMetaId()
     {
-        return $this->formMetaId;
+        return $this->eventMetaId;
     }
 
     /**
      * @return int
      */
-    public function getFormId(): int
+    public function getEventId(): int
     {
-        return $this->formId;
+        return $this->eventId;
     }
 
     /**
-     * @param $formId
+     * @param $eventId
      */
-    public function setFormId($formId): void
+    public function setEventId($eventId): void
     {
-        $this->formId = $formId;
+        $this->eventId = $eventId;
     }
 
     /**
@@ -127,38 +113,6 @@ class FormMeta
     public function setMetaValue($metaValue): void
     {
         $this->metaValue = $metaValue;
-    }
-
-    /**
-     * @return int
-     */
-    public function getParentFormMetaId(): int
-    {
-        return $this->parentFormMetaId;
-    }
-
-    /**
-     * @param int $parentFormMetaId
-     */
-    public function setParentFormMetaId(int $parentFormMetaId): void
-    {
-        $this->parentFormMetaId = $parentFormMetaId;
-    }
-
-    /**
-     * @return int
-     */
-    public function getOrder(): int
-    {
-        return $this->order;
-    }
-
-    /**
-     * @param int $order
-     */
-    public function setOrder(int $order): void
-    {
-        $this->order = $order;
     }
 
     /**

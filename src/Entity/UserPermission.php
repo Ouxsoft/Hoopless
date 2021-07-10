@@ -24,7 +24,7 @@ class UserPermission
     /**
      * @var int
      *
-     * @ORM\Column(name="user_id", type="int", length=11, nullable=false)
+     * @ORM\Column(name="user_id", type="integer", length=11, nullable=false)
      */
     private $userId;
 
@@ -32,7 +32,7 @@ class UserPermission
     /**
      * @var int
      *
-     * @ORM\Column(name="permission_id", type="int", length=11, nullable=false)
+     * @ORM\Column(name="permission_id", type="integer", length=11, nullable=false)
      */
     private $permissionId;
 

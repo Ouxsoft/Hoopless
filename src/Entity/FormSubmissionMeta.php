@@ -10,7 +10,7 @@ use Exception;
  * Form Submission Meta
  * Form submission meta data values
  *
- * @ORM\Table(name="form_submssion_meta")
+ * @ORM\Table(name="form_submission_meta")
  * @ORM\Entity
  */
 class FormSubmissionMeta
@@ -18,7 +18,7 @@ class FormSubmissionMeta
     /**
      * @var int
      *
-     * @ORM\Column(name="form_submssion_meta_id", type="integer", nullable=false)
+     * @ORM\Column(name="form_submission_meta_id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
@@ -27,14 +27,14 @@ class FormSubmissionMeta
     /**
      * @var int
      *
-     * @ORM\Column(name="form_submission_id", type="interger", length=11, nullable=false)
+     * @ORM\Column(name="form_submission_id", type="integer", length=11, nullable=false)
      */
     private $formSubmissionId;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="form_meta_id", type="interger", length=11, nullable=false)
+     * @ORM\Column(name="form_meta_id", type="integer", length=11, nullable=false)
      */
     private $formMetaId;
 

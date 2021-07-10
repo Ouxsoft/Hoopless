@@ -58,7 +58,8 @@
   "autoload": {
     "psr-4": {
       "Ouxsoft\\Hoopless\\" : "core/",
-      "Ouxsoft\\Hoopless\\Migrations\\" : "src/Migrations",
+      "Ouxsoft\\Hoopless\\Migrations\\" : "src/Migrations/",
+      "Ouxsoft\\Hoopless\\Entity\\" : "src/Entity/",
       "LHTML\\Element\\Core\\": "src/Element/Core/",
       "LHTML\\Element\\Custom\\": "src/Element/Custom/"
     }

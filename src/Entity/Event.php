@@ -35,21 +35,21 @@ class Event
     /**
      * @var DateTime
      *
-     * @ORM\Column(name="publish_date", type="datetime", nullable=true})
+     * @ORM\Column(name="publish_date", type="datetime", nullable=true)
      */
     private $publishDate;
 
     /**
      * @var DateTime
      *
-     * @ORM\Column(name="display_start_date", type="datetime", nullable=true})
+     * @ORM\Column(name="display_start_date", type="datetime", nullable=true)
      */
     private $displayStartDate;
 
     /**
      * @var DateTime
      *
-     * @ORM\Column(name="display_end_date", type="datetime", nullable=true})
+     * @ORM\Column(name="display_end_date", type="datetime", nullable=true)
      */
     private $displayEndDate;
 

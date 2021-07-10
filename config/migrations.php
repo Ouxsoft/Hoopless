@@ -9,7 +9,7 @@ return [
         'execution_time_column_name' => 'execution_time',
     ],
     'migrations_paths' => [
-        'Ouxsoft\Hoopless\Migrations' => 'src/Migrations',
+        'Ouxsoft\Hoopless\Migrations' => __DIR__ . '/../src/Migrations',
     ],
     'all_or_nothing' => true,
     'check_database_platform' => true,

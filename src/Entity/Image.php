@@ -7,74 +7,76 @@ use Doctrine\ORM\Mapping as ORM;
 use Exception;
 
 /**
- * FormSubmission
- * Form submission
+ * Image
+ * A image is an uploaded file containing an original image
  *
- * @ORM\Table(name="form_submission")
+ * @ORM\Table(name="image")
  * @ORM\Entity
  */
-class FormSubmission
+class Image
 {
+
     /**
      * @var int
      *
-     * @ORM\Column(name="form_submission_id", type="integer", nullable=false)
+     * @ORM\Column(name="image_id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $formSubmissionId;
+    private $imageId;
 
     /**
-     * @var int the form the meta values are attached to
+     * @var int
      *
-     * @ORM\Column(name="form_id", type="interger", length=11, nullable=false)
+     * @ORM\Column(name="file_id", type="integer", nullable=false)
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $formId;
+    private $fileId;
 
     /**
      * @var DateTime
      *
-     * @ORM\Column(name="created", type="datetime", nullable=false)
+     * @ORM\Column(name="created", type="datetime", nullable=false, options={"default"="CURRENT_TIMESTAMP"})
      */
     private $created;
 
     /**
      * @var DateTime
      *
-     * @ORM\Column(name="updated", type="datetime", nullable=false)
+     * @ORM\Column(name="updated", type="datetime", nullable=false, options={"default"="CURRENT_TIMESTAMP"})
      */
     private $updated;
 
     /**
      * @return int
      */
-    public function getFormSubmissionId(): int
+    public function getImageId(): int
     {
-        return $this->formSubmissionId;
+        return $this->imageId;
     }
 
     /**
-     * @param int $formSubmissionId
+     * @param int $imageId
      */
-    public function setFormSubmissionId(int $formSubmissionId): void
+    public function setImageId(int $imageId): void
     {
-        $this->formSubmissionId = $formSubmissionId;
+        $this->imageId = $imageId;
     }
 
     /**
      * @return int
      */
-    public function getFormId(): int
+    public function getFileId(): int
     {
-        return $this->formId;
+        return $this->fileId;
     }
 
     /**
-     * @param int $formId
+     * @param int $fileId
      */
-    public function setFormId(int $formId): void
+    public function setFileId(int $fileId): void
     {
-        $this->formId = $formId;
+        $this->fileId = $fileId;
     }
 
     /**
@@ -108,7 +110,4 @@ class FormSubmission
     {
         $this->updated = $updated;
     }
-
-
-
 }

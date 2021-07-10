@@ -7,43 +7,59 @@ use Doctrine\ORM\Mapping as ORM;
 use Exception;
 
 /**
- * Form
- * A form is collects user inputs
+ * FormSubmission
+ * Form submission
  *
- * @ORM\Table(name="gallery")
+ * @ORM\Table(name="form_submission")
  * @ORM\Entity
  */
-class Form
+class FormSubmission
 {
     /**
      * @var int
      *
-     * @ORM\Column(name="form_id", type="integer", nullable=false)
+     * @ORM\Column(name="form_submission_id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $formSubmissionId;
+
+    /**
+     * @var int the form the meta values are attached to
+     *
+     * @ORM\Column(name="form_id", type="integer", length=11, nullable=false)
      */
     private $formId;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="title", type="string", length=255, nullable=false)
-     */
-    private $title;
-
-    /**
      * @var DateTime
      *
-     * @ORM\Column(name="created", type="datetime", nullable=false, options={"default"="CURRENT_TIMESTAMP"})
+     * @ORM\Column(name="created", type="datetime", nullable=false)
      */
     private $created;
 
     /**
      * @var DateTime
      *
-     * @ORM\Column(name="updated", type="datetime", nullable=false, options={"default"="CURRENT_TIMESTAMP"})
+     * @ORM\Column(name="updated", type="datetime", nullable=false)
      */
     private $updated;
+
+    /**
+     * @return int
+     */
+    public function getFormSubmissionId(): int
+    {
+        return $this->formSubmissionId;
+    }
+
+    /**
+     * @param int $formSubmissionId
+     */
+    public function setFormSubmissionId(int $formSubmissionId): void
+    {
+        $this->formSubmissionId = $formSubmissionId;
+    }
 
     /**
      * @return int
@@ -59,22 +75,6 @@ class Form
     public function setFormId(int $formId): void
     {
         $this->formId = $formId;
-    }
-
-    /**
-     * @return string
-     */
-    public function getTitle(): string
-    {
-        return $this->title;
-    }
-
-    /**
-     * @param string $title
-     */
-    public function setTitle(string $title): void
-    {
-        $this->title = $title;
     }
 
     /**
@@ -108,4 +108,7 @@ class Form
     {
         $this->updated = $updated;
     }
+
+
+
 }

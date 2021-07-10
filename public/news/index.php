@@ -11,12 +11,22 @@
         <main name="Standard" class="editable">
             <h1>News</h1>
 
-            <alert type="info">
+            <blockquote class="blockquote">
                 Check out the latest stories from Ouxsoft.
-            </alert>
+            </blockquote>
 
             <partial name="News">
                 <arg name="limit" type="int">10</arg>
+                <arg name="format">
+                    <article class="mb-5">
+                        <h3>{{title}}</h3>
+                        <p class="text-muted">
+                            <date>{{publish_date}}</date>
+                        </p>
+                        {{body}}
+                        <hr/>
+                    </article>
+                </arg>
             </partial>
 
         </main>

@@ -24,7 +24,7 @@ return [
     ],
     [
       "name" => "Hyperlink",
-      "xpath" => "//a[not(ancestor::*[@process='false'])]",
+      "xpath" => "//a[not(ancestor::*[@process='false']|ancestor::arg)]",
       "class_name" => LHTML\Element\Core\Hyperlink::class
     ],
     [

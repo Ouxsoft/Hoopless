@@ -31,11 +31,14 @@
     "scssphp/scssphp": "v1.4.1",
     "codemirror/codemirror": "5.53.2",
     "twbs/bootstrap": "4.6.0",
-    "doctrine/orm": "^2.6.2"
+    "doctrine/orm": "^2.6.2",
+    "doctrine/migrations":"*"
   },
   "require-dev": {
     "phpunit/phpunit": "9.5.4",
-    "friendsofphp/php-cs-fixer": "v3.0.0"
+    "friendsofphp/php-cs-fixer": "v3.0.0",
+    "doctrine/cache": "^2.0",
+    "symfony/cache": "^5.3"
   },
   "repositories": [
     {
@@ -54,8 +57,10 @@
   "autoload": {
     "psr-4": {
       "Ouxsoft\\Hoopless\\" : "core/",
-      "LHTML\\Element\\Core\\": "element/core/",
-      "LHTML\\Element\\Custom\\": "element/custom/"
+      "Ouxsoft\\Hoopless\\Migrations\\" : "src/Migrations/",
+      "Ouxsoft\\Hoopless\\Entity\\" : "src/Entity/",
+      "LHTML\\Element\\Core\\": "src/Element/Core/",
+      "LHTML\\Element\\Custom\\": "src/Element/Custom/"
     }
   },
   "scripts": {

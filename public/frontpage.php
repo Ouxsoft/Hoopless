@@ -20,10 +20,18 @@
         </div>
     </div>
     <aside class="info-box bg-secondary p-4 editable">
-        <a class="text-white" href="/news">
-            <em>Latest News and Videos.
-            </em>
-        </a>
+        <partial name="News">
+            <arg name="limit" type="int">1</arg>
+            <arg name="format">
+                <a class="text-white" href="{{url}}">
+                    {{ title }}
+                    <br/>
+                    <small>
+                        <em>Learn more <span class="arrow-cta__icon" aria-hidden="true"></span></em>
+                    </small>
+                </a>
+            </arg>
+        </partial>
     </aside>
 </div>
 

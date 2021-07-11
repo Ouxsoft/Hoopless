@@ -13,9 +13,9 @@
         <div class="row h-100 align-items-center">
             <div class="col-12 text-left text-light">
                 <h1 class="font-weight-light">
-                    Empowering collaborators
+                    We make software for tomorrow by breaking the assumptions of today.
                 </h1>
-                <p class="lead"><i class="fas fa-code fa-1x"></i> Engineering Software </p>
+                <p class="lead"><i class="fas fa-code fa-1x"></i> Empowering collaborators through software engineering.</p>
             </div>
         </div>
     </div>

@@ -16,7 +16,7 @@ use Ouxsoft\PHPMarkup\Factory\ProcessorFactory;
 use Ouxsoft\Hoopless\Router;
 
 // define common directories
-define('ROOT_DIR', dirname(__DIR__, 1) . '/');
+define('ROOT_DIR', __DIR__ . '/../');
 define('PUBLIC_DIR', ROOT_DIR . 'public/');
 define('ASSET_DIR', ROOT_DIR . 'assets/');
 define('IMAGE_DIR', ASSET_DIR . 'images/');
@@ -30,11 +30,32 @@ set_include_path(ROOT_DIR);
 $appConfig = [];
 $appConfig['elements'] = require ROOT_DIR . 'config/elements.config.php';
 $appConfig['routines'] = require ROOT_DIR . 'config/routines.config.php';
+$appConfig['database'] = require ROOT_DIR . 'config/database.config.php';
+
+// setup doctrine for database access
+$doctrineConfig = Setup::createAnnotationMetadataConfiguration(
+    [ENTITY_DIR], true, null, null, false
+);
+$entityManager = EntityManager::create(
+    $appConfig['database'],
+    $doctrineConfig
+);
+
+// setup mustache for templating engine
+$mustacheEngine = new Mustache_Engine([
+    'entity_flags' => ENT_QUOTES,
+    'escape' => function($value) {
+        return $value;
+    },
+    //'loader' => new Mustache_Loader_FilesystemLoader(ROOT_DIR . 'templates')
+]);
 
 // instantiate processor with configuration and set to parse buffer
 $processor = ProcessorFactory::getInstance();
 $processor->addRoutines($appConfig['routines']);
 $processor->addElements($appConfig['elements']);
+$processor->addProperty('view', $mustacheEngine);
+$processor->addProperty('em', $entityManager);
 $processor->parseBuffer();
 
 // Route traffic to a specific file

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "daaeae32e8b6a5d421d672f18713bfa9",
+    "content-hash": "7d492c3fd962406b44b34529c5ae576a",
     "packages": [
         {
             "name": "codemirror/codemirror",
@@ -1771,16 +1771,16 @@
         },
         {
             "name": "ouxsoft/phpmarkup",
-            "version": "v4.2.1",
+            "version": "v4.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Ouxsoft/phpmarkup.git",
-                "reference": "e977a79cdd1fa6121d9543ea3c869f97f544c765"
+                "reference": "00c4a008f50fd3eacd0e689b8e04a7bdc0148b9a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Ouxsoft/phpmarkup/zipball/e977a79cdd1fa6121d9543ea3c869f97f544c765",
-                "reference": "e977a79cdd1fa6121d9543ea3c869f97f544c765",
+                "url": "https://api.github.com/repos/Ouxsoft/phpmarkup/zipball/00c4a008f50fd3eacd0e689b8e04a7bdc0148b9a",
+                "reference": "00c4a008f50fd3eacd0e689b8e04a7bdc0148b9a",
                 "shasum": ""
             },
             "require": {
@@ -1834,7 +1834,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-07-11T07:30:48+00:00"
+            "time": "2021-07-11T18:54:43+00:00"
         },
         {
             "name": "pimple/pimple",

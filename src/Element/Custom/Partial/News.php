@@ -11,24 +11,24 @@
 namespace LHTML\Element\Custom\Partial;
 
 use Ouxsoft\PHPMarkup\Element\AbstractElement;
-use Mustache_Engine;
-use Doctrine\ORM\Tools\Setup;
-use Doctrine\ORM\EntityManager;
 
 class News extends AbstractElement
 {
     private $news = [];
+    private $limit = 10;
 
     public function onLoad()
     {
+       $limit = is_int($this->getArgByName('limit')) ? $this->getArgByName('limit') : self::$limit;
+
         $this->news = $this->em->getRepository(\Ouxsoft\Hoopless\Entity\News::class)->findBy(
-            [],null, $this->getArgByName('limit'), null
+            [],null, $limit, null
         );
     }
 
     public function onRender()
     {
-        $out = '';
+        $out = '<!-- News -->';
         foreach ($this->news as $news) {
             $out .= $this->view->render(
                 $this->getArgByName('format'),

@@ -23,7 +23,7 @@
         <partial name="News">
             <arg name="limit" type="int">1</arg>
             <arg name="format">
-                <a class="text-white" href="{{url}}">
+                <a class="text-white" href="/news/">
                     {{ title }}
                     <br/>
                     <small>

@@ -47,7 +47,9 @@ $mustacheEngine = new Mustache_Engine([
     'escape' => function($value) {
         return $value;
     },
-    //'loader' => new Mustache_Loader_FilesystemLoader(ROOT_DIR . 'templates')
+    //    'template_class_prefix' => '__MyTemplates_',
+    //    'cache' => dirname(__FILE__).'/tmp/cache/mustache',
+    //    'loader' => new Mustache_Loader_FilesystemLoader(ROOT_DIR . 'templates')
 ]);
 
 // instantiate processor with configuration and set to parse buffer

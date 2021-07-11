@@ -62,11 +62,9 @@ class Standard extends AbstractElement
             'loader' => new Mustache_Loader_FilesystemLoader(ROOT_DIR . 'templates')
         ]);
 
-        return $view->render('elements/breadcrumb',
-            [
+        return $view->render('elements/breadcrumb',[
                 'pages' => $this->pages
-            ]
-        );
+        ]);
     }
 
 

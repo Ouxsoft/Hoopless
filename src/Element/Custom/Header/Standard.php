@@ -28,25 +28,7 @@ class Standard extends AbstractElement
 
     public function onLoad()
     {
-
-        $doctrineConfig = Setup::createAnnotationMetadataConfiguration(
-            [ENTITY_DIR], true, null, null, false
-        );
-
-        $dbParams = [
-            'driver'   => 'pdo_mysql',
-            'user'     => 'root',
-            'password' => '',
-            'dbname'   => 'hoopless',
-            'host' => 'mysql'
-        ];
-
-        $em = EntityManager::create(
-            $dbParams,
-            $doctrineConfig
-        );
-
-        $stmt = $em->getConnection()->prepare("
+        $stmt = $this->em->getConnection()->prepare("
           SELECT `title`, `url`, IF(`url`=:url1, 1, 0) AS `active` 
            FROM ( 
            SELECT @r AS _id,
@@ -80,11 +62,9 @@ class Standard extends AbstractElement
             'loader' => new Mustache_Loader_FilesystemLoader(ROOT_DIR . 'templates')
         ]);
 
-        return $view->render('elements/breadcrumb',
-            [
+        return $view->render('elements/breadcrumb',[
                 'pages' => $this->pages
-            ]
-        );
+        ]);
     }
 
 

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5e65a77a1f5ec3f9e094d140707a9a7c",
+    "content-hash": "daaeae32e8b6a5d421d672f18713bfa9",
     "packages": [
         {
             "name": "codemirror/codemirror",
@@ -1771,16 +1771,16 @@
         },
         {
             "name": "ouxsoft/phpmarkup",
-            "version": "v4.0.2",
+            "version": "v4.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Ouxsoft/phpmarkup.git",
-                "reference": "bdb782d14fafadeeefc714e47c1c13a695de2a20"
+                "reference": "e977a79cdd1fa6121d9543ea3c869f97f544c765"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Ouxsoft/phpmarkup/zipball/bdb782d14fafadeeefc714e47c1c13a695de2a20",
-                "reference": "bdb782d14fafadeeefc714e47c1c13a695de2a20",
+                "url": "https://api.github.com/repos/Ouxsoft/phpmarkup/zipball/e977a79cdd1fa6121d9543ea3c869f97f544c765",
+                "reference": "e977a79cdd1fa6121d9543ea3c869f97f544c765",
                 "shasum": ""
             },
             "require": {
@@ -1790,7 +1790,7 @@
                 "laminas/laminas-config": "3.4.0",
                 "laminas/laminas-validator": "2.14.4",
                 "php": "^7.3 || ~8.0.0",
-                "pimple/pimple": "v3.4.0"
+                "pimple/pimple": "v3.3.1"
             },
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "^v2.18.6",
@@ -1807,7 +1807,7 @@
                 "MIT"
             ],
             "description": "A Processor for Markup written in PHP. Allows extraction of Markup into a data structure, orchestrated nested manipulation of said structure, and output as (optimized) Markup. ",
-            "homepage": "https://github.com/ouxsoft/PHPMarkup",
+            "homepage": "https://github.com/Ouxsoft/phpmarkup",
             "keywords": [
                 "PHPMarkup",
                 "lhtml",
@@ -1817,8 +1817,8 @@
             ],
             "support": {
                 "docs": "https://phpmarkup.readthedocs.io",
-                "issues": "https://github.com/ouxsoft/PHPMarkup/issues",
-                "source": "https://github.com/ouxsoft/PHPMarkup"
+                "issues": "https://github.com/Ouxsoft/phpmarkup/issues",
+                "source": "https://github.com/Ouxsoft/phpmarkup"
             },
             "funding": [
                 {
@@ -1834,25 +1834,25 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-04-25T02:09:12+00:00"
+            "time": "2021-07-11T07:30:48+00:00"
         },
         {
             "name": "pimple/pimple",
-            "version": "v3.4.0",
+            "version": "v3.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silexphp/Pimple.git",
-                "reference": "86406047271859ffc13424a048541f4531f53601"
+                "reference": "21e45061c3429b1e06233475cc0e1f6fc774d5b0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silexphp/Pimple/zipball/86406047271859ffc13424a048541f4531f53601",
-                "reference": "86406047271859ffc13424a048541f4531f53601",
+                "url": "https://api.github.com/repos/silexphp/Pimple/zipball/21e45061c3429b1e06233475cc0e1f6fc774d5b0",
+                "reference": "21e45061c3429b1e06233475cc0e1f6fc774d5b0",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.2.5",
-                "psr/container": "^1.1"
+                "psr/container": "^1.0"
             },
             "require-dev": {
                 "symfony/phpunit-bridge": "^5.0"
@@ -1860,7 +1860,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.4.x-dev"
+                    "dev-master": "3.3.x-dev"
                 }
             },
             "autoload": {
@@ -1885,9 +1885,9 @@
                 "dependency injection"
             ],
             "support": {
-                "source": "https://github.com/silexphp/Pimple/tree/v3.4.0"
+                "source": "https://github.com/silexphp/Pimple/tree/v3.3.1"
             },
-            "time": "2021-03-06T08:28:00+00:00"
+            "time": "2020-11-24T20:35:42+00:00"
         },
         {
             "name": "psr/cache",

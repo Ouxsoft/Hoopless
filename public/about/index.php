@@ -11,28 +11,24 @@
         <main name="Standard" class="editable">
             <h1>About</h1>
             <p class="lead">
-                We make software that breaks assumptions.
-            </p>
-            <p>
-                At Ouxsoft, we specialize in making scalable cloud-based software solutions.
+                We make software for tomorrow by breaking the assumptions of today.
             </p>
 
-            <h2>Ouxsoft Meaning</h2>
+            <h2>Why Ouxsoft?</h2>
             <p>
-                Ouxsoft is made of both the words “oux” and “soft.” The first word, “oux”, chosen because “Oux” is short
-                for Ourococcus, which is a green genus of algae. The fundamental idea being that that small things
-                coalescing over time have a big impact. The second word, “soft”, is short for the word “software”
-                as that is what we make.
+                Ouxsoft stems from the words “oux” and “soft.” “Oux” is short for Ourococcus, which is a green genus of
+                algae. Why algae? Because small things coalescing over time have a big impact. “Soft” is short for
+                "software” as that is what we make.
             </p>
 
             <h2>Logo Meaning</h2>
+            <img src="/assets/images/ouxsoft/logo/color-black-bg.png" class="rounded float-right ml-5" width="120" alt="Ouxsoft"/>
             <p>
-                Each of the larger ellipses that form a circle in the logo are designed to be ourococcus. The eye-like
-                structure is dual purpose, it is both the ourococcus nucleus and shaped like an eye to represent the eye
-                and the evolution of perception. The eight ellipses are coalescing to form multicellular life. The
-                number eight symbolizes balance, luck, and the ultimate form of achievement.
+                Each of the larger ellipses that form a circle in the logo are designed after ourococcus. The eye-like
+                structure is dual purpose, it is both the ourococcus nucleus and shaped like an eye to represent an eye
+                of course, and the evolution of perception. The eight ellipses are coalescing to form multicellular life.
+                The number eight symbolizes balance, luck, and the ultimate form of achievement.
             </p>
-
         </main>
 
         <nav name="SideMenu">

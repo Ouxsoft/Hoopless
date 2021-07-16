@@ -25,7 +25,8 @@ class Standard extends AbstractElement
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <meta name="author" content="Ouxsoft"/>    
-    <meta name="keywords" content="Ouxsoft, Web Design"/>
+    <meta name="keywords" content="Ouxsoft"/>
+    <link rel="shortcut icon" type="image/jpg" href="/assets/favicon.ico"/>
     <link href="/assets/css/main.min.css" rel="stylesheet"/>    
     {$this->innerText()}
 </head>

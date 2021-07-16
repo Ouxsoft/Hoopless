@@ -90,7 +90,7 @@ class Variable extends AbstractElement
      * @param string $tag
      * @return mixed|null
      */
-    private function getVariable(string $name, ?string $tag = '*'): ?string
+    private function getVariableFromAncestor(string $name, ?string $tag = '*'): ?string
     {
         foreach ($this->ancestors as $ancestor) {
             if (array_key_exists($name, $ancestor['properties']) && (($tag == '*') || ($tag == $ancestor['tag']))) {
@@ -108,10 +108,27 @@ class Variable extends AbstractElement
     public function onRender(): string
     {
         $name = $this->getArgByName('name') ?? '';
-        $tag = $this->getArgByName('tag') ?? '*';
+        $source = $this->getArgByName('source') ?? '';
 
         // get variable
-        $variable = $this->getVariable($name, $tag);
+        switch($source){
+            case 'get':
+                $variable = array_key_exists($name, $_GET) ? (string) $_GET[$name] : '';
+                $variable = htmlspecialchars($variable);
+                break;
+            case 'post':
+                $variable = array_key_exists($name, $_POST) ? (string) $_POST[$name] : '';
+                $variable = htmlspecialchars($variable);
+                break;
+            case 'parent':
+            case 'ancestor':
+            default:
+                $tag = $this->getArgByName('tag') ?? '*';
+                $variable = $this->getVariableFromAncestor($name, $tag);
+                break;
+        }
+
+        // TODO for some reason first get variable name contains a "?" fix.
 
         if ($variable === null) {
             return '<!-- Variable "' . $this->getArgByName('name') . '" Not Found -->';

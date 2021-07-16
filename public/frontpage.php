@@ -36,14 +36,46 @@
 </div>
 
 <div class="container">
-    <p>
-        We are building <a href="https://github.com/Ouxsoft/Hoopless">Hoopless</a> the content management system
-        powering this site.
-        The goal of Hoopless is to create a more expressive markup language to empower web teams and communicate design.
-    </p>
-    <a href="/help/phpmarkup" class="btn btn-primary" >
-        Learn More <span class="arrow-cta__icon" aria-hidden="true"></span>
-    </a>
+
+    <h2>Latest <abbr title="Open-Source Software">OSS</abbr> Projects:</h2>
+    <div class="card mb-3">
+        <div class="row no-gutters">
+            <div class="col-12 col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">A CMS Built For the Team</h5>
+                    <p class="card-text">
+                        We wanted to make a content management system built around using a more expressive collaboration
+                        language to empower web teams and communicate design.
+                    </p>
+                    <a href="/help/phpmarkup" class="btn btn-primary mb-4">
+                        Learn More <span class="arrow-cta__icon" aria-hidden="true"></span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4 d-none d-lg-inline-block">
+                <img src="/assets/images/hoopless/logo.png" alt="LuckByDice" class="m-2"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mb-3">
+        <div class="row no-gutters">
+            <div class="col-12 col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">Feeling Lucky?</h5>
+                    <p class="card-text">
+                        Check out our library for simulating luck based dice rolls from dice notations written in PHP.
+                    </p>
+                    <a href="https://github.com/Ouxsoft/LuckByDice" class="btn btn-primary">
+                        Learn More <span class="arrow-cta__icon" aria-hidden="true"></span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4 d-none d-lg-inline-block">
+                <img src="/assets/images/luckbydice/logo.png" alt="LuckByDice" class="m-3"/>
+            </div>
+        </div>
+    </div>
 </div>
 
 

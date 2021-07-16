@@ -19,11 +19,16 @@ class News extends AbstractElement
 
     public function onLoad()
     {
+       $news_id = is_int($this->getArgByName('id')) ? $this->getArgByName('id') : null;
        $limit = is_int($this->getArgByName('limit')) ? $this->getArgByName('limit') : self::$limit;
 
-        $this->news = $this->em->getRepository(\Ouxsoft\Hoopless\Entity\News::class)->findBy(
-            [],null, $limit, null
-        );
+       if($news_id !== null){
+           $this->news = $this->em->getRepository(\Ouxsoft\Hoopless\Entity\News::class)->find($news_id);
+       } else {
+           $this->news = $this->em->getRepository(\Ouxsoft\Hoopless\Entity\News::class)->findBy(
+               [],null, $limit, null
+           );
+       }
     }
 
     public function onRender()
@@ -33,7 +38,7 @@ class News extends AbstractElement
             $out .= $this->view->render(
                 $this->getArgByName('format'),
                 [
-                    'title' => $news->getTitle(),
+                    'title' => $this->getArgByName('id') . $news->getTitle(),
                     'body' => $news->getBody(),
                     'publish_date' => $news->getPublishDate()->format('F d, Y')
                 ]

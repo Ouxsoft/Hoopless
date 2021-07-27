@@ -45,7 +45,7 @@ return [
     [
       "name" => "Widget",
       "xpath" => "//widget[not(ancestor::*[@process='false'])]",
-      "class_name" => "LHTML\Element\Custom\Widgets\{name}",
+      "class_name" => "LHTML\Element\Custom\Widget\{name}",
       "cache_duration" => "1 hour",
       "search_index" => false
     ],

@@ -25,6 +25,7 @@
     "ext-gd": "*",
     "ext-simplexml": "*",
     "ouxsoft/phpmarkup" : "v4.2.2",
+    "ouxsoft/luckbydice": "v1.0.0",
     "laminas/laminas-validator": "2.14.4",
     "mustache/mustache": "2.13.0",
     "components/jquery": "3.5.1",

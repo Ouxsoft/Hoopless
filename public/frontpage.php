@@ -53,7 +53,7 @@
                 </div>
             </div>
             <div class="col-md-4 d-none d-lg-inline-block">
-                <img src="/assets/images/hoopless/logo.png" alt="LuckByDice" class="m-2"/>
+                <img src="/assets/images/hoopless/logo.png" alt="PHPMarkup" class="m-2"/>
             </div>
         </div>
     </div>

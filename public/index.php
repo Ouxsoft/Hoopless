@@ -13,7 +13,7 @@ require_once '../vendor/autoload.php';
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Tools\Setup;
 use Ouxsoft\PHPMarkup\Factory\ProcessorFactory;
-use Ouxsoft\Hoopless\Router;
+use Ouxsoft\Hoopless\Models\Router;
 
 // define common directories
 define('ROOT_DIR', __DIR__ . '/../');

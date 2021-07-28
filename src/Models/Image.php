@@ -8,8 +8,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Ouxsoft\Hoopless;
+namespace Ouxsoft\Hoopless\Models;
 
+use Ouxsoft\Hoopless\Models\Path;
 use Laminas\Validator\File\Exists;
 
 /**
@@ -53,7 +54,7 @@ class Image
     public function __construct()
     {
         // declare directories
-        $this->root_dir = dirname(__DIR__, 1) . '/';
+        $this->root_dir = __DIR__ . '/../../';
         $this->assets_dir = $this->root_dir . 'assets/images/';
         $this->cache_dir = $this->root_dir . 'var/cache/images/';
     }

@@ -13,8 +13,7 @@ define('LHTML_OFF', 0);
 
 require __DIR__ . '/../../../vendor/autoload.php';
 
-use Ouxsoft\Hoopless\Image;
-use Ouxsoft\Hoopless\Path;
+use Ouxsoft\Hoopless\Models\Image;
 
 $request = array_key_exists('q', $_GET) ? $_GET['q'] : '';
 

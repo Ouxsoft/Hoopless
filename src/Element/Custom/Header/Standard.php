@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace LHTML\Element\Custom\Header;
+namespace App\Element\Custom\Header;
 
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Tools\Setup;

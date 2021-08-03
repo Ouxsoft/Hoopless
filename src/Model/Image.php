@@ -8,18 +8,17 @@
  * file that was distributed with this source code.
  */
 
-namespace Ouxsoft\Hoopless;
+namespace App\Model;
 
+use App\Model\Path;
 use Laminas\Validator\File\Exists;
 
 /**
  * Class Image
  * checks if the requested image exists in cache using a hash
  * if it is not cached, it checks to see if the image exists as an assets
- * if the image exists, than it generates a resized image and stores it in cache
- * and then serves that image
- *
- * @package PHPMarkup
+ * if the image exists, then it generates a resized image, stores it in cache,
+ * and serves that image
  */
 class Image
 {
@@ -28,7 +27,10 @@ class Image
     const PNG = 2;
     const GIF = 3;
 
-    private $root_dir;
+    private $cache_dir = __DIR__ . '/../../var/cache/images/';
+    private $assets_dir = __DIR__ . '/../../assets/images/';
+
+    public $image;
 
     private $filename;
     private $file_extension;
@@ -36,11 +38,9 @@ class Image
     private $height;
     private $focal_point_x;
     private $focal_point_y;
-    private $image;
-    private $cache_dir;
+
     private $cache_filename;
     private $cache_filepath;
-    private $assets_dir;
 
     private $image_original;
     private $height_original;
@@ -48,25 +48,14 @@ class Image
     private $ratio_original;
 
     /**
-     * Image constructor.
-     */
-    public function __construct()
-    {
-        // declare directories
-        $this->root_dir = dirname(__DIR__, 1) . '/';
-        $this->assets_dir = $this->root_dir . 'assets/images/';
-        $this->cache_dir = $this->root_dir . 'var/cache/images/';
-    }
-
-    /**
      * load by URL
      * @param string|null $request
      * @return bool
      */
-    public function loadByURL(string $request = null): bool
+    public function loadByURL(string $request = null)
     {
         if ($request === null) {
-            return false;
+            throw Exception('Invalid request');
         }
 
         // set cache url
@@ -99,8 +88,6 @@ class Image
         if (array_key_exists('offset_y', $parameters)) {
             $this->setFocalPointY($parameters['offset_y']);
         }
-
-        return true;
     }
 
     /**
@@ -176,7 +163,7 @@ class Image
      * Loads image for resizing
      * @return bool
      */
-    private function load(): bool
+    public function load(): bool
     {
         // assets
         $assets_filename = $this->filename;
@@ -210,7 +197,7 @@ class Image
     /**
      * @return bool
      */
-    private function resize()
+    public function resize()
     {
         // get original width and height
         list($this->width_original, $this->height_original) = getimagesize($this->assets_dir . $this->filename);
@@ -218,7 +205,7 @@ class Image
         // determine original ratio and desired draw image size
         $this->ratio_original = $this->width_original / $this->height_original;
 
-        // TODO: Algorithum not perfect
+        // TODO: Algorithm not perfect
         if (is_numeric($this->width) || is_numeric($this->height)) {
             // if desired width and height set
             if (is_numeric($this->width) && is_numeric($this->height)) {
@@ -265,7 +252,7 @@ class Image
             // no width or height specified, use original file heights
             $this->width = $this->width_original;
             $this->height = $this->height_original;
-            $draw_image_height = $this->width_height;
+            $draw_image_height = $this->height_original;
             $draw_image_width = $this->width_original;
             $offset_x = 0;
             $offset_y = 0;
@@ -369,6 +356,14 @@ class Image
         }
 
         return true;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFileExtension() : string
+    {
+        return $this->file_extension;
     }
 
     /**

@@ -8,13 +8,8 @@
  * file that was distributed with this source code.
  */
 
-namespace Ouxsoft\Hoopless;
+namespace App\Model;
 
-/**
- * Class Path
- *
- * @package Hoopless
- */
 class Path
 {
 
@@ -36,7 +31,7 @@ class Path
             }
 
             // start by building out filepath
-            if (is_dir(dirname(__DIR__, 1) . $filepath . '/' . $value)) {
+            if (is_dir(dirname(__DIR__, 2) . $filepath . '/' . $value)) {
                 $filepath .= '/' . $value;
                 continue;
             }

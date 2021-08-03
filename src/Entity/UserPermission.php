@@ -1,6 +1,6 @@
 <?php
 
-namespace Ouxsoft\Hoopless\Entity;
+namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -28,14 +28,12 @@ class UserPermission
      */
     private $userId;
 
-
     /**
      * @var int
      *
      * @ORM\Column(name="permission_id", type="integer", length=11, nullable=false)
      */
     private $permissionId;
-
 
     /**
      * @return int

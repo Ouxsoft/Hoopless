@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace LHTML\Element\Custom\Nav;
+namespace App\Element\Custom\Nav;
 
 use Ouxsoft\PHPMarkup\Element\AbstractElement;
 
@@ -33,6 +33,10 @@ class SideMenu extends AbstractElement
     public function onRender()
     {
         $menu = $this->getArgByName('menu');
+        if(!array_key_exists($menu, $this->menus)){
+            return '';
+        }
+
         $out = '';
         foreach ($this->menus[$menu] as $url => $title) {
             $out .= '<a href="' . $url . '" class="nav-item nav-link">' . $title . '</a>';

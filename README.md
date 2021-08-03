@@ -10,13 +10,20 @@
     <a href="https://app.codacy.com/gh/Ouxsoft/Hoopless?utm_source=github.com&utm_medium=referral&utm_content=Ouxsoft/Hoopless&utm_campaign=Badge_Grade_Dashboard">
         <img alt="Codacy grade" src="https://api.codacy.com/project/badge/Grade/af61c01e07894689b9be009591e6b3b1">
     </a>
-    <img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/y/Ouxsoft/hoopless">
+    <a href="https://github.com/Ouxsoft/Hoopless/issues">
+        <img alt="GitHub Help Wanted" src="https://img.shields.io/github/issues/ouxsoft/hoopless/help%20wanted.svg?color=%23DDDD00">
+    </a>
 </p>
 
 ## About
 
-A modular content management system featuring a markup abstraction layer, object–relational mapping, and templating 
-language.
+Hoopless is a modular content management system build on the following open source packages:
+*  **Symfony**: Annotated auto routing, dependency injection, etc.
+*  **PHPMarkup**: A markup abstraction layer to empower curators with pages.
+*  **Doctrine ORM**: A object–relational mapping to help manage database Entities.
+*  **Doctrine Migrations**: To manage database changes.
+*  **Mustache**: Templating engine. 
+ 
 
 ```
 <html lang="en">

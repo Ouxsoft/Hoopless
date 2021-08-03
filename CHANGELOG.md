@@ -10,6 +10,9 @@ All releases must adhere to [SemVer 2](https://semver.org/) naming convention an
 
 ## Hoopless [Unreleased]
 Released: TBD. Notable changes:
+
+## Hoopless v2.0.0
+* Added: Symfony framework for auto routing based off annotations
 * Added: Prod deploy
 
 ## Hoopless v1.3.0

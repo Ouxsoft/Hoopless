@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1b5d1a071d6d89fac2d8768974b336a4",
+    "content-hash": "a9972c818c3bd44f0129b1a156f3f754",
     "packages": [
         {
             "name": "codemirror/codemirror",

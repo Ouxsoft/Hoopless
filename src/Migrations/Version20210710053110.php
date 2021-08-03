@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Ouxsoft\Hoopless\Migrations;
+namespace App\Migrations;
 
 use Doctrine\DBAL\Schema\Schema;
 use Doctrine\Migrations\AbstractMigration;
@@ -39,7 +39,7 @@ final class Version20210710053110 extends AbstractMigration
                 'page_id' => 2,
                 'page_parent_id' => 1,
                 'title' => 'About',
-                'url' => '/about/',
+                'url' => '/about',
             ]
         );
         $this->connection->insert('page',
@@ -47,7 +47,7 @@ final class Version20210710053110 extends AbstractMigration
                 'page_id' => 3,
                 'page_parent_id' => 1,
                 'title' => 'Editing Guide',
-                'url' => '/help/',
+                'url' => '/help',
             ]
         );
         $this->connection->insert('page',
@@ -55,7 +55,7 @@ final class Version20210710053110 extends AbstractMigration
                 'page_id' => 4,
                 'page_parent_id' => 3,
                 'title' => 'PHPMarkup',
-                'url' => '/help/phpmarkup/',
+                'url' => '/help/phpmarkup',
             ]
         );
         $this->connection->insert('page',
@@ -171,7 +171,7 @@ final class Version20210710053110 extends AbstractMigration
                 'page_id' => 17,
                 'page_parent_id' => 1,
                 'title' => 'News',
-                'url' => '/news/',
+                'url' => '/news',
             ]
         );
 
@@ -180,7 +180,7 @@ final class Version20210710053110 extends AbstractMigration
                 'page_id' => 18,
                 'page_parent_id' => 1,
                 'title' => 'Projects',
-                'url' => '/projects/',
+                'url' => '/projects',
             ]
         );
         $this->connection->insert('page',

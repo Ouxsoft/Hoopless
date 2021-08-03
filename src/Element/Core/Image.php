@@ -8,8 +8,7 @@
  * file that was distributed with this source code.
  */
 
-
-namespace LHTML\Element\Core;
+namespace App\Element\Core;
 
 use Ouxsoft\PHPMarkup\Element\AbstractElement;
 use Ouxsoft\PHPMarkup\Path;

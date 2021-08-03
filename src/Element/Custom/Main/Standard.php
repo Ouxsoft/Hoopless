@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace LHTML\Element\Custom\Main;
+namespace App\Element\Custom\Main;
 
 use Ouxsoft\PHPMarkup\Element\AbstractElement;
 

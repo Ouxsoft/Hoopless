@@ -1,10 +1,8 @@
 <?php
 
-namespace Ouxsoft\Hoopless\Controller;
+namespace App\Controller;
 
-use Ouxsoft\Hoopless\Models\Response;
-
-class Auth extends AbstractController
+class Auth
 {
     public function login(Request $request) : Response
     {

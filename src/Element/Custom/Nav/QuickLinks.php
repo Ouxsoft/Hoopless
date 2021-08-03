@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace LHTML\Element\Custom\Nav;
+namespace App\Element\Custom\Nav;
 
 use Ouxsoft\PHPMarkup\Element\AbstractElement;
 use \SimpleXMLElement;
@@ -26,8 +26,6 @@ class QuickLinks extends AbstractElement
         $links = '';
         foreach ($xml->nav->a as $link) {
             $links .= $link->addAttribute('class', 'nav-item nav-link');
-
-            $link->addAttribute('class', 'nav-item nav-link');
         }
 
         if (ctype_space($this->innerText())) {

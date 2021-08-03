@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace LHTML\Element\Custom\Widget;
+namespace App\Element\Custom\Widget;
 
 use Ouxsoft\PHPMarkup\Element\AbstractElement;
 use Ouxsoft\LuckByDice\Factory\TurnFactory;

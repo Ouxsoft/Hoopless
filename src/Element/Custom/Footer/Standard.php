@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace LHTML\Element\Custom\Footer;
+namespace App\Element\Custom\Footer;
 
 use Ouxsoft\PHPMarkup\Element\AbstractElement;
 use Mustache_Engine;

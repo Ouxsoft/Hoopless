@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace LHTML\Element\Custom\Partial;
+namespace App\Element\Custom\Partial;
 
 use Ouxsoft\PHPMarkup\Element\AbstractElement;
 
@@ -23,9 +23,9 @@ class News extends AbstractElement
        $limit = is_int($this->getArgByName('limit')) ? $this->getArgByName('limit') : self::$limit;
 
        if($news_id !== null){
-           $this->news = $this->em->getRepository(\Ouxsoft\Hoopless\Entity\News::class)->find($news_id);
+           $this->news = $this->em->getRepository(\App\Entity\News::class)->find($news_id);
        } else {
-           $this->news = $this->em->getRepository(\Ouxsoft\Hoopless\Entity\News::class)->findBy(
+           $this->news = $this->em->getRepository(\App\Entity\News::class)->findBy(
                [],null, $limit, null
            );
        }

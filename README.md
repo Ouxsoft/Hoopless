@@ -11,7 +11,7 @@
         <img alt="Codacy grade" src="https://api.codacy.com/project/badge/Grade/af61c01e07894689b9be009591e6b3b1">
     </a>
     <a href="https://github.com/Ouxsoft/Hoopless/issues">
-        <img alt="GitHub Help Wanted" src="https://img.shields.io/github/issues/ouxsoft/hoopless/help%20wanted.svg?color=%23DDDD00">
+        <img alt="GitHub Help Wanted" src="https://img.shields.io/github/issues/ouxsoft/hoopless/help%20wanted.svg">
     </a>
 </p>
 

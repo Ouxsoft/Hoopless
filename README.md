@@ -18,12 +18,11 @@
 ## About
 
 Hoopless is a modular content management system build on the following open source packages:
-*  **Symfony**: Annotated auto routing, dependency injection, etc.
-*  **PHPMarkup**: A markup abstraction layer to empower curators with pages.
-*  **Doctrine ORM**: A object–relational mapping to help manage database Entities.
-*  **Doctrine Migrations**: To manage database changes.
-*  **Mustache**: Templating engine. 
- 
+*  **[Symfony](https://symfony.com/doc/current/)**: Annotated auto routing, dependency injection, etc.
+*  **[PHPMarkup](https://github.com/ouxsoft/PHPMarkup)**: A markup abstraction layer to empower curators with pages.
+*  **[Doctrine ORM](https://www.doctrine-project.org/projects/doctrine-orm/en/2.9/index.html)**: A object–relational mapping to help manage database Entities.
+*  **[Doctrine Migrations](https://www.doctrine-project.org/projects/doctrine-migrations/en/3.0/index.html)**: To manage database changes.
+*  **[Mustache](https://github.com/bobthecow/mustache.php/wiki)**: Templating engine. 
 
 ```
 <html lang="en">

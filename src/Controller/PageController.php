@@ -59,7 +59,7 @@ class PageController
     }
 
     /**
-     * @Route("/", methods={"GET"})
+     * @Route("/", priority=5, name="frontpageRoute", methods={"GET"})
      */
     public function frontpage(): Response
     {
@@ -68,7 +68,7 @@ class PageController
     }
 
     /**
-     * @Route("/{page}", name="indexAction", requirements={"page"=".+"})
+     * @Route("/{page}", priority=1, name="subpageRoute", requirements={"page"=".+"})
      */
     public function indexAction($page): Response
     {

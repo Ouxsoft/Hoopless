@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\BinaryFileResponse;
 class ImageController
 {
     /**
-     * @Route("/assets/images/{url}", name="indexAction", requirements={"url"=".+"})
+     * @Route("/assets/images/{url}", priority=10, name="imageRoute", requirements={"url"=".+"})
      */
     public function indexAction($url) : Response
     {

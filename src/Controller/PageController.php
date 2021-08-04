@@ -77,10 +77,11 @@ class PageController
 
         $filepath = $this->resolveRoute($page);
 
-        $validator = new Exists(self::PAGE_DIR);
+        $real_path = realpath(self::PAGE_DIR .$filepath);
 
-        if (!$validator->isValid(self::PAGE_DIR . $filepath)) {
-            return new Response(
+        // TODO improve traversing check
+        if(!file_exists($real_path)){
+             return new Response(
                 $this->processor->parseFile(self::PAGE_DIR . '404.php')
             );
         }

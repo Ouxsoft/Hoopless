@@ -8,30 +8,29 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Tools\Setup;
 use Ouxsoft\PHPMarkup\Factory\ProcessorFactory;
+use Laminas\Validator\File\Exists;
 use Mustache_Engine;
 
 class PageController
 {
+    const PAGE_DIR = __DIR__ . '/../../public/';
+    const CONFIG_DIR = __DIR__ . '/../../config/';
+    const ENTITY_DIR = __DIR__ . '/../../src/Entity/';
+    const ASSET_DIR = __DIR__ . '/../../public/assets/';
+    const TEMPLATE_DIR = __DIR__ . '/../../templates/';
+
     private $processor;
 
     public function __construct(){
-        // define common directories
-        define('ROOT_DIR', __DIR__ . '/../../');
-        define('PUBLIC_DIR', ROOT_DIR . 'public/');
-        define('ASSET_DIR', ROOT_DIR . 'assets/');
-        define('IMAGE_DIR', ASSET_DIR . 'images/');
-        define('CONFIG_DIR', ROOT_DIR . 'config/');
-        define('ENTITY_DIR', ROOT_DIR . 'src/Entity/');
-
         // load config
         $appConfig = [];
-        $appConfig['elements'] = require ROOT_DIR . 'config/elements.php';
-        $appConfig['routines'] = require ROOT_DIR . 'config/routines.php';
-        $appConfig['database'] = require ROOT_DIR . 'config/database.php';
+        $appConfig['elements'] = require self::CONFIG_DIR . 'elements.php';
+        $appConfig['routines'] = require self::CONFIG_DIR . 'routines.php';
+        $appConfig['database'] = require self::CONFIG_DIR . 'database.php';
 
         // setup doctrine for database access
         $doctrineConfig = Setup::createAnnotationMetadataConfiguration(
-            [ENTITY_DIR], true, null, null, false
+            [self::ENTITY_DIR], true, null, null, false
         );
         $entityManager = EntityManager::create(
             $appConfig['database'],
@@ -63,7 +62,7 @@ class PageController
      */
     public function frontpage(): Response
     {
-        $html = $this->processor->parseFile(__DIR__ . '/../../public/frontpage.php');
+        $html = $this->processor->parseFile(self::PAGE_DIR . 'frontpage.php');
         return new Response($html);
     }
 
@@ -78,8 +77,18 @@ class PageController
 
         $filepath = $this->resolveRoute($page);
 
-        $html = $this->processor->parseFile(__DIR__ . '/../../public/' . $filepath);
-        return new Response($html);
+        $validator = new Exists(self::PAGE_DIR);
+
+        if (!$validator->isValid(self::PAGE_DIR . $filepath)) {
+            return new Response(
+                $this->processor->parseFile(self::PAGE_DIR . '404.php')
+            );
+        }
+
+        return new Response(
+            $this->processor->parseFile(self::PAGE_DIR . $filepath)
+        );
+
     }
 
     private function resolveRoute($route)
@@ -91,10 +100,9 @@ class PageController
             $route = 'frontpage';
         }
 
-        if(is_dir(__DIR__ . '/../../public/' . $route)){
+        if(is_dir(self::PAGE_DIR . $route)){
             $route .= '/index.php';
         }
-
 
         // check for file as php file if a extension not provided in request
         $path_info = pathinfo($route);
@@ -103,21 +111,6 @@ class PageController
             $route .= '.php';
         }
 
-        /*
-        // check for directory traversal or if file does not exist
-        $real_base = realpath(PUBLIC_DIR);
-        $user_path = PUBLIC_DIR . $route;
-
-        $real_user_path = realpath($user_path);
-
-        if (($real_user_path === false)
-            || (strpos($real_user_path, $real_base) !== 0)
-            || (is_file($route) === false)
-        ) {
-            // return 404 page
-            $route = '404.php';
-        }
-        */
         return $route;
     }
 }

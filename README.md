@@ -17,13 +17,19 @@
 
 ## About
 
-Hoopless is a modular content management system build on the following open source packages:
-*  **[Symfony](https://symfony.com/doc/current/)**: Annotated auto routing, dependency injection, etc.
-*  **[PHPMarkup](https://github.com/ouxsoft/PHPMarkup)**: A markup abstraction layer to empower curators with pages.
-*  **[Doctrine ORM](https://www.doctrine-project.org/projects/doctrine-orm/en/2.9/index.html)**: A object–relational mapping to help manage database Entities.
-*  **[Doctrine Migrations](https://www.doctrine-project.org/projects/doctrine-migrations/en/3.0/index.html)**: To manage database changes.
-*  **[Mustache](https://github.com/bobthecow/mustache.php/wiki)**: Templating engine. 
-*  **[Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/)**: CSS Framework.
+Hoopless is a modular content management system build on the shoulders of the amazing open-source software:
+*  **[Symfony](https://symfony.com/doc/current/)**: Performs annotated auto routing, dependency injection, and more.
+*  **[PHPMarkup](https://github.com/ouxsoft/PHPMarkup)**: A markup abstraction layer to super curators editing page, reduce technical debt, and create dialect for the team to communicate design. 
+*  **[Doctrine ORM](https://www.doctrine-project.org/projects/doctrine-orm/en/2.9/index.html)**: A object–relational mapping for converting data between the application and data layer.
+*  **[Doctrine Migrations](https://www.doctrine-project.org/projects/doctrine-migrations/en/3.0/index.html)**: Syncs entity changes with data layer and manages data layer changes.
+*  **[Mustache](https://github.com/bobthecow/mustache.php/wiki)**: Logic-less templating engine. 
+*  **[Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/)**: CSS framework for responsive mobile-first sites.
+*  **[TinyMCE](https://www.tiny.cloud/docs/)**: TinyMCE for page editing.
+
+It also features:
+*  **Dynamic Images**: Automatically resize images based on the request.
+*  **SCSS Generation**: Automatically rebuild changes to SCSS sheets.
+*  **LHTML Elements**: Build in server side rendered XML based if statements, variables, partials, and more.
 ```
 <html lang="en">
 <head name="Standard">

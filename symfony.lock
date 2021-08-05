@@ -241,6 +241,9 @@
     "symfony/yaml": {
         "version": "v5.3.6"
     },
+    "tinymce/tinymce": {
+        "version": "5.8.2"
+    },
     "twbs/bootstrap": {
         "version": "v4.6.0"
     }

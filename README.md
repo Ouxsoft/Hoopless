@@ -29,7 +29,7 @@ Hoopless is a modular content management system build on the shoulders of the am
 It also features:
 *  **Dynamic Images**: Automatically resize images based on the request.
 *  **SCSS Generation**: Automatically rebuild changes to SCSS sheets.
-*  **LHTML Elements**: Build in server side rendered XML based if statements, variables, partials, and more.
+*  **Custom Elements**: Custom server side rendered elements.
 ```
 <html lang="en">
 <head name="Standard">

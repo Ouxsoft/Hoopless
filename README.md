@@ -25,6 +25,7 @@ Hoopless is a modular content management system build on the shoulders of stable
 *  **[Mustache](https://github.com/bobthecow/mustache.php/wiki)**: Logic-less templating engine. 
 *  **[Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/)**: CSS framework for responsive mobile-first sites.
 *  **[TinyMCE](https://www.tiny.cloud/docs/)**: TinyMCE for page editing.
+*  **[Monolog](https://symfony.com/doc/current/logging.html)**: Logger.
 
 It also features:
 *  **Dynamic Images**: Automatically resize images based on the request.

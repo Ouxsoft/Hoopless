@@ -50,7 +50,6 @@ class Image
     /**
      * load by URL
      * @param string|null $request
-     * @return bool
      */
     public function loadByURL(string $request = null)
     {

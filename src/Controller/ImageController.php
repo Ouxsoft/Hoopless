@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Model\Image;
+use Psr\Log\LoggerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
@@ -11,10 +12,11 @@ class ImageController
 {
     /**
      * @Route("/assets/images/{url}", priority=10, name="imageRoute", requirements={"url"=".+"})
+     * @param $url
+     * @return Response
      */
     public function indexAction($url) : Response
     {
-
         $response = new Response();
 
         $image = new Image();
@@ -30,7 +32,6 @@ class ImageController
         // load and resize file
         if (! $image->load() || ! $image->resize()) {
             // catch throws instead
-            // if cannot load file send empty
             $response->setStatusCode(404);
             return $response;
         }

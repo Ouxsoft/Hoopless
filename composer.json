@@ -35,7 +35,7 @@
         "doctrine/orm": "^2.6.2",
         "laminas/laminas-validator": "2.14.4",
         "mustache/mustache": "2.13.0",
-        "ouxsoft/luckbydice": "v1.0.0",
+        "ouxsoft/luckbydice": "^2.0.1",
         "ouxsoft/phpmarkup": "v4.2.2",
         "scssphp/scssphp": "v1.4.1",
         "symfony/console": "5.3.*",

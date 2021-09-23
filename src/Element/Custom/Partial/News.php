@@ -19,11 +19,10 @@ class News extends AbstractElement
 
     public function onLoad()
     {
-       $news_id = is_int($this->getArgByName('id')) ? $this->getArgByName('id') : null;
        $limit = is_int($this->getArgByName('limit')) ? $this->getArgByName('limit') : self::$limit;
 
-       if($news_id !== null){
-           $this->news = $this->em->getRepository(\App\Entity\News::class)->find($news_id);
+       if(isset($this->newsId)){
+           $this->news[] = $this->em->getRepository(\App\Entity\News::class)->find($this->newsId);
        } else {
            $this->news = $this->em->getRepository(\App\Entity\News::class)->findBy(
                [],null, $limit, null
@@ -38,7 +37,8 @@ class News extends AbstractElement
             $out .= $this->view->render(
                 $this->getArgByName('format'),
                 [
-                    'title' => $this->getArgByName('id') . $news->getTitle(),
+                    'news_id' => $news->getNewsId(),
+                    'title' => $news->getTitle(),
                     'body' => $news->getBody(),
                     'publish_date' => $news->getPublishDate()->format('F d, Y')
                 ]

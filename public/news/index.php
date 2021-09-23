@@ -15,19 +15,19 @@
                 Check out the latest stories from Ouxsoft.
             </blockquote>
 
-            <partial name="News">
-                <arg name="limit" type="int">10</arg>
-                <arg name="format">
-                    <article class="mb-5">
-                        <h3>{{title}}</h3>
-                        <p class="text-muted">
-                            <date>{{publish_date}}</date>
-                        </p>
-                        {{body}}
-                        <hr/>
-                    </article>
-                </arg>
-            </partial>
+            <div class="list-group">
+                <partial name="News">
+                    <arg name="limit" type="int">10</arg>
+                    <arg name="format">
+                        <a href="/news/{{news_id}}" class="list-group-item list-group-item-action flex-column align-items-start">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">{{title}}</h5>
+                                <small>{{publish_date}}</small>
+                            </div>
+                        </a>
+                    </arg>
+                </partial>
+            </div>
 
         </main>
 

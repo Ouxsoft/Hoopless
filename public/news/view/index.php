@@ -10,7 +10,6 @@
     <div class="row">
         <main name="Standard" class="editable">
 
-
             <partial name="News">
                 <arg name="id" type="int"><var name="id" source="get"/></arg>
                 <arg name="limit" type="int">1</arg>

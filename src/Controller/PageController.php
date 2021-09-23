@@ -68,8 +68,10 @@ class PageController
 
     /**
      * @Route("/{page}", priority=1, name="subpageRoute", requirements={"page"=".+"})
+     * @param string $page
+     * @return Response
      */
-    public function indexAction($page): Response
+    public function indexAction(string $page): Response
     {
         if(substr($page,-1) == '/'){
             return new RedirectResponse('/' . rtrim($page, '/'));
@@ -89,7 +91,19 @@ class PageController
         return new Response(
             $this->processor->parseFile(self::PAGE_DIR . $filepath)
         );
+    }
 
+    /**
+     * @Route("/news/{newsId}", priority=2, name="newsRoute")
+     * @param string $newsId
+     * @return Response
+     */
+    public function newsAction(string $newsId): Response
+    {
+        $this->processor->addProperty('newsId', $newsId);
+        return new Response(
+            $this->processor->parseFile(self::PAGE_DIR . 'news/view/index.php')
+        );
     }
 
     private function resolveRoute($route)

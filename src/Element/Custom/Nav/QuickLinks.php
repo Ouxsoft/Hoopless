@@ -21,7 +21,11 @@ class QuickLinks extends AbstractElement
 {
     public function onRender()
     {
-        $xml = new SimpleXMLElement('<root><nav class="nav nav-pills flex-column border">' . $this->innerText() . '</nav></root>');
+        $xml = new SimpleXMLElement(
+            '<root><nav class="nav nav-pills flex-column border">' .
+            $this->innerText() .
+            '</nav></root>'
+        );
 
         $links = '';
         foreach ($xml->nav->a as $link) {

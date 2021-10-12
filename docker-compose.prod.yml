@@ -1,0 +1,73 @@
+version: "3.4"
+
+services:
+
+  proxy:
+    image: nginxproxy/nginx-proxy
+    container_name: ocms-nginx-proxy
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - letsencrypt-certs:/etc/nginx/certs
+      - letsencrypt-vhost-d:/etc/nginx/vhost.d
+      - letsencrypt-html:/usr/share/nginx/html
+    restart: unless-stopped
+    networks:
+      - proxynet
+
+  letsencrypt-proxy:
+    image: jrcs/letsencrypt-nginx-proxy-companion
+    container_name: ocms-letsencrypt-proxy
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - letsencrypt-certs:/etc/nginx/certs
+      - letsencrypt-vhost-d:/etc/nginx/vhost.d
+      - letsencrypt-html:/usr/share/nginx/html
+    restart: unless-stopped
+    environment:
+      - DEFAULT_EMAIL=admin@ouxsoft.com
+      - NGINX_PROXY_CONTAINER=nginx-proxy
+
+  webserver:
+    container_name: ocms-nginx-server
+    environment:
+      - VIRTUAL_HOST=ouxsoft.com
+      - LETSENCRYPT_HOST=ouxsoft.com
+    expose:
+      - 80
+    restart: unless-stopped
+    networks:
+      - proxynet
+
+  php-fpm:
+    container_name: ocms-php-fpm
+    build:
+      target: standard
+    restart: unless-stopped
+    networks:
+      - proxynet
+
+  mysql:
+    container_name: ocms-mysql
+    image: mysql:8.0
+    volumes:
+      - ./docker/mysql:/docker-entrypoint-initdb.d
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+    restart: unless-stopped
+    networks:
+      - proxynet
+
+networks:
+  proxynet:
+    external: false
+
+volumes:
+  letsencrypt-certs:
+  letsencrypt-vhost-d:
+  letsencrypt-html:

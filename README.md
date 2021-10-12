@@ -88,7 +88,3 @@ It also features:
 </html>
 
 ```
-
-## Installation
-
-For deployment, we recommend [Hoopless Stack](https://github.com/Ouxsoft/hoopless-stack).

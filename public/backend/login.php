@@ -14,7 +14,7 @@
                     <h3>Sign In</h3>
                 </div>
                 <div class="card-body">
-                    <form method="post">
+                    <form method="post" action="/auth/login">
                         <div class="input-group form-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>

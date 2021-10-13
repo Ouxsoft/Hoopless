@@ -27,7 +27,7 @@ services:
     restart: unless-stopped
     environment:
       - DEFAULT_EMAIL=admin@ouxsoft.com
-      - NGINX_PROXY_CONTAINER=nginx-proxy
+      - NGINX_PROXY_CONTAINER=proxy
 
   webserver:
     environment:

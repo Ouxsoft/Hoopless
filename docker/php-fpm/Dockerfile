@@ -33,11 +33,13 @@ RUN apt-get update \
   libicu-dev \
   vim \
   dos2unix \
-  php-mysql \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/* \
  && docker-php-ext-configure gd --with-freetype --with-jpeg \
  && docker-php-ext-install \
+  mysqli \
+  pdo \
+  pdo_mysql \
   gd \
   intl \
   opcache \
@@ -46,7 +48,10 @@ RUN apt-get update \
  && dpkg-reconfigure -f noninteractive tzdata \
  && docker-php-source extract \
   pecl install opcache apcu \
-  docker-php-ext-enable opcache apcu \
+  docker-php-ext-enable \
+  opcache \
+  apcu \
+  pdo_mysql \
   docker-php-source delete \
   rm -rf /tmp/*
 
@@ -71,10 +76,10 @@ RUN mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini" \
  && docker-php-ext-enable xdebug \
  && rm -rf /tmp/*
 
-USER $user
-
 COPY composer.json /application
 COPY composer.lock /application
+
+USER $user
 
 #######################################
 # Standard (Production Environment)
@@ -87,9 +92,7 @@ COPY . /application
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 ENV PATH="~/.composer/vendor/bin:./vendor/bin:${PATH}"
 
-USER $user
-
-COPY composer.json /application
-COPY composer.lock /application
 RUN composer install --no-dev --no-interaction
+
+USER $user
 

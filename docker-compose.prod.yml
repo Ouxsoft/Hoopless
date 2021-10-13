@@ -31,7 +31,6 @@ services:
       - NGINX_PROXY_CONTAINER=nginx-proxy
 
   webserver:
-    container_name: ocms-nginx-server
     environment:
       - VIRTUAL_HOST=ouxsoft.com
       - LETSENCRYPT_HOST=ouxsoft.com
@@ -42,7 +41,6 @@ services:
       - proxynet
 
   php-fpm:
-    container_name: ocms-php-fpm
     build:
       target: standard
     restart: unless-stopped

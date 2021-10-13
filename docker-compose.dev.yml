@@ -4,7 +4,6 @@ services:
 
   proxy:
     image: nginxproxy/nginx-proxy
-    container_name: ocms-nginx-proxy
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
     ports:
@@ -22,7 +21,6 @@ services:
     restart: unless-stopped
 
   php-fpm:
-    container_name: ocms-php-fpm
     build:
       target: test
     networks:

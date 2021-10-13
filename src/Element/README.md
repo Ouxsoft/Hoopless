@@ -1,8 +1,8 @@
 # Elements
-Elements are modular are parts designed to be swapped in and out of the Builder using a Configuration. 
+Elements are modular parts designed to be swapped in and out. 
 These elements are for demonstration purposes. 
 You're not locked into using any of them. 
-Build your own Custom Elements and share back reusable ones back for consideration as a Core Element.
+Build your own and share back reusable ones.
 
 ## Atomic Design
 It is recommended to think of atomic design when developing custom elements. 

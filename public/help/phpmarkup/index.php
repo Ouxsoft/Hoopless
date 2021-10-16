@@ -17,69 +17,56 @@
 
             <table class="table table-striped">
                 <tr>
-                    <th>Name</th>
+                    <th>Element</th>
                     <th>Tag</th>
-                    <th>Type</th>
                 </tr>
                 <tr>
                     <td><a href="/help/phpmarkup/elements/code">Code</a></td>
                     <td>&lt;code&gt;</td>
-                    <td>Core</td>
                 </tr>
                 <tr>
                     <td><a href="/help/phpmarkup/elements/examples">Examples</a></td>
                     <td>&lt;example&gt;</td>
-                    <td>Custom</td>
                 </tr>
                 <tr>
                     <td><a href="/help/phpmarkup/elements/footer">Footer</a></td>
                     <td>&lt;footer&gt;</td>
-                    <td>Custom</td>
                 </tr>
                 <tr>
                     <td><a href="/help/phpmarkup/elements/head">Head</a></td>
                     <td>&lt;head&gt;</td>
-                    <td>Custom</td>
                 </tr>
                 <tr>
                     <td><a href="/help/phpmarkup/elements/header">Header</a></td>
                     <td>&lt;header&gt;</td>
-                    <td>Custom</td>
                 </tr>
                 <tr>
                     <td><a href="/help/phpmarkup/elements/if-statement">If Statement</a></td>
                     <td>&lt;if&gt;</td>
-                    <td>Core</td>
                 </tr>
                 <tr>
                     <td><a href="/help/phpmarkup/elements/images">Images</a></td>
                     <td>&lt;img&gt;</td>
-                    <td>Core</td>
                 </tr>
                 <tr>
                     <td><a href="/help/phpmarkup/elements/main">Main</a></td>
                     <td>&lt;main&gt;</td>
-                    <td>Custom</td>
                 </tr>
                 <tr>
                     <td><a href="/help/phpmarkup/elements/nav">Navigation</a></td>
                     <td>&lt;nav&gt;</td>
-                    <td>Custom</td>
                 </tr>
                 <tr>
                     <td><a href="/help/phpmarkup/elements/partial">Partial</a></td>
                     <td>&lt;partial&gt;</td>
-                    <td>Custom</td>
                 </tr>
                 <tr>
                     <td><a href="/help/phpmarkup/elements/redact">Redact</a></td>
                     <td>&lt;redact&gt;</td>
-                    <td>Core</td>
                 </tr>
                 <tr>
                     <td><a href="/help/phpmarkup/elements/variables">Variables</a></td>
                     <td>&lt;var&gt;</td>
-                    <td>Core</td>
                 </tr>
             </table>
             <p>

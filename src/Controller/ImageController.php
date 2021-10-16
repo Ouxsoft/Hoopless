@@ -56,7 +56,7 @@ class ImageController
             case 'jpeg':
             case 'jpg':
                 $response->headers->set('Content-Type', 'image/jpeg');
-            $response->sendHeaders();
+                $response->sendHeaders();
                 $response->setContent(
                     imagejpeg($image->image, null, 100)
                 );

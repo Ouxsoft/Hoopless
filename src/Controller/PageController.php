@@ -2,6 +2,9 @@
 
 namespace App\Controller;
 
+use App\Service\PHPMarkup;
+
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -11,67 +14,39 @@ use Ouxsoft\PHPMarkup\Factory\ProcessorFactory;
 use Laminas\Validator\File\Exists;
 use Mustache_Engine;
 
-class PageController
+class PageController extends AbstractController
 {
-    const PAGE_DIR = __DIR__ . '/../../public/';
-    const CONFIG_DIR = __DIR__ . '/../../config/';
-    const ENTITY_DIR = __DIR__ . '/../../src/Entity/';
-    const ASSET_DIR = __DIR__ . '/../../public/assets/';
-    const TEMPLATE_DIR = __DIR__ . '/../../templates/';
-
-    private $processor;
-
-    public function __construct(){
-        // load config
-        $appConfig = [];
-        $appConfig['elements'] = require self::CONFIG_DIR . 'elements.php';
-        $appConfig['routines'] = require self::CONFIG_DIR . 'routines.php';
-        $appConfig['database'] = require self::CONFIG_DIR . 'database.php';
-
-        // setup doctrine for database access
-        $doctrineConfig = Setup::createAnnotationMetadataConfiguration(
-            [self::ENTITY_DIR], true, null, null, false
+    /**
+     * @Route("/", priority=5, name="frontpageRoute", methods={"GET"})
+     * @param PHPMarkup $phpmarkup
+     * @return Response
+     */
+    public function frontpage(PHPMarkup $phpmarkup): Response
+    {
+        return new Response(
+            $phpmarkup->parseFile('frontpage.php')
         );
-        $entityManager = EntityManager::create(
-            $appConfig['database'],
-            $doctrineConfig
-        );
-
-        // TODO switch over to twig?
-        // setup mustache for templating engine
-        $mustacheEngine = new Mustache_Engine([
-            'entity_flags' => ENT_QUOTES,
-            'escape' => function($value) {
-                return $value;
-            },
-            //    'template_class_prefix' => '__MyTemplates_',
-            //    'cache' => dirname(__FILE__).'/tmp/cache/mustache',
-            //    'loader' => new Mustache_Loader_FilesystemLoader(ROOT_DIR . 'templates')
-        ]);
-
-        // instantiate processor with configuration and set to parse buffer
-        $this->processor = ProcessorFactory::getInstance();
-        $this->processor->addRoutines($appConfig['routines']);
-        $this->processor->addElements($appConfig['elements']);
-        $this->processor->addProperty('view', $mustacheEngine);
-        $this->processor->addProperty('em', $entityManager);
     }
 
     /**
-     * @Route("/", priority=5, name="frontpageRoute", methods={"GET"})
+     * @Route("/backend/login", priority=5, name="loginRoute", methods={"GET"})
+     * @param PHPMarkup $phpmarkup
+     * @return Response
      */
-    public function frontpage(): Response
+    public function loginpage(PHPMarkup $phpmarkup): Response
     {
-        $html = $this->processor->parseFile(self::PAGE_DIR . 'frontpage.php');
-        return new Response($html);
+        return new Response(
+            $phpmarkup->parseFile('backend/login.php')
+        );
     }
 
     /**
      * @Route("/{page}", priority=1, name="subpageRoute", requirements={"page"=".+"})
+     * @param PHPMarkup $phpmarkup
      * @param string $page
      * @return Response
      */
-    public function indexAction(string $page): Response
+    public function indexAction(PHPMarkup $phpmarkup, string $page): Response
     {
         if(substr($page,-1) == '/'){
             return new RedirectResponse('/' . rtrim($page, '/'));
@@ -79,17 +54,17 @@ class PageController
 
         $filepath = $this->resolveRoute($page);
 
-        $real_path = realpath(self::PAGE_DIR .$filepath);
+        $real_path = realpath(__DIR__ . '/../../public/' .$filepath);
 
         // TODO improve traversing check
         if(!file_exists($real_path)){
-             return new Response(
-                $this->processor->parseFile(self::PAGE_DIR . '404.php')
+            return new Response(
+                $phpmarkup->parseFile('404.php')
             );
         }
 
         return new Response(
-            $this->processor->parseFile(self::PAGE_DIR . $filepath)
+            $phpmarkup->parseFile($filepath)
         );
     }
 
@@ -98,11 +73,11 @@ class PageController
      * @param string $newsId
      * @return Response
      */
-    public function newsAction(string $newsId): Response
+    public function newsAction(PHPMarkup $phpmarkup, string $newsId): Response
     {
-        $this->processor->addProperty('newsId', $newsId);
+        $phpmarkup->addProperty('newsId', $newsId);
         return new Response(
-            $this->processor->parseFile(self::PAGE_DIR . 'news/view/index.php')
+            $phpmarkup->parseFile('news/view/index.php')
         );
     }
 
@@ -115,7 +90,7 @@ class PageController
             $route = 'frontpage';
         }
 
-        if(is_dir(self::PAGE_DIR . $route)){
+        if(is_dir(__DIR__ . '/../../public/' . $route)){
             $route .= '/index.php';
         }
 

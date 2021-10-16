@@ -12,7 +12,7 @@ class StylesheetController
 {
     const SCSS_DIR = __DIR__ . '/../../assets/scss/';
     const BS_FRAMEWORK_DIR = __DIR__ . '/../../vendor/twbs/bootstrap/scss/';
-    const MAIN_CSS_DIR = __DIR__ . '/../../public/assets/css/main.min.css';
+    const MAIN_CSS_FILEPATH = __DIR__ . '/../../public/assets/css/main.min.css';
 
     public function __construct()
     {
@@ -34,7 +34,7 @@ class StylesheetController
 
             $output = $scss->compile('@import "main.scss";');
 
-            file_put_contents(self::MAIN_CSS_DIR, $output);
+            file_put_contents(self::MAIN_CSS_FILEPATH, $output);
 
             return new Response('Successfully compile stylesheets.');
 

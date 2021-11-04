@@ -17,7 +17,7 @@
 
 ## About
 
-Hoopless is a modular content management system build on the shoulders of stable open-source software:
+Hoopless is a modular content management system built on the shoulders of stable open-source software:
 *  **[Symfony](https://symfony.com/doc/current/)**: Performs annotated auto routing, dependency injection, and more.
 *  **[PHPMarkup](https://github.com/ouxsoft/PHPMarkup)**: A markup abstraction layer to super power page editing, reduce technical debt, and create dialect for the team to communicate design. 
 *  **[Doctrine ORM](https://www.doctrine-project.org/projects/doctrine-orm/en/2.9/index.html)**: A object–relational mapping for converting data between the application and data layer.

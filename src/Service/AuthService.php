@@ -20,6 +20,7 @@ class AuthService
             ($username == $_ENV['ADMIN_USERNAME'])
             && ($password == $_ENV['ADMIN_PASSWORD'])
         ) {
+            session_start();
             $_SESSION['username'] = $_ENV['ADMIN_USERNAME'];
             return true;
         }

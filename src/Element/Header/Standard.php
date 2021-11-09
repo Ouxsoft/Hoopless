@@ -40,23 +40,23 @@ class Standard extends AbstractElement
             return;
         }
 
-        $stmt = $this->em->getConnection()->prepare("
-          SELECT `title`, `url`, IF(`url`=:url1, 1, 0) AS `active` 
+        // TODO improve by passing router
+        $this->pages = $this->em->getConnection()->fetchAllAssociative('
+            SELECT `title`, `url`, IF(`url`=?, 1, 0) AS `active` 
            FROM ( 
            SELECT @r AS _id,
             (SELECT @r := page_parent_id 
             FROM page WHERE page_id = _id) AS page_parent_id, @l := @l + 1 AS lvl 
-           FROM (SELECT @r := (SELECT page_id FROM page WHERE url = :url2), @l := 0) vars, page h) T1 JOIN page T2 ON T1._id = T2.page_id 
+           FROM (
+            SELECT @r := (SELECT page_id FROM page WHERE url = ?), @l := 0) vars, page h) T1 
+            JOIN page T2 ON T1._id = T2.page_id 
            ORDER BY T1.lvl DESC 
-           LIMIT 10
-           ");
-
-        // TODO improve by passing router
-        $stmt->execute([
-            'url1' => $_SERVER['REQUEST_URI'],
-            'url2' => $_SERVER['REQUEST_URI']
-        ]);
-        $this->pages = $stmt->fetchAll();
+           LIMIT 10',
+            [
+                $_SERVER['REQUEST_URI'],
+                $_SERVER['REQUEST_URI']
+            ]
+        );
     }
 
     /**
@@ -87,10 +87,9 @@ class Standard extends AbstractElement
             'loader' => new Mustache_Loader_FilesystemLoader(ROOT_DIR . 'templates')
         ]);
 
-        return $view->render('elements/top-navbar',
-            [
-            ]
-        );
+        return $view->render('elements/top-navbar', [
+            'username' => $_SESSION['username'] ?? null
+        ]);
     }
 
     public function onRender()

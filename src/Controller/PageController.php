@@ -8,11 +8,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\RedirectResponse;
-use Doctrine\ORM\EntityManager;
-use Doctrine\ORM\Tools\Setup;
-use Ouxsoft\PHPMarkup\Factory\ProcessorFactory;
-use Laminas\Validator\File\Exists;
-use Mustache_Engine;
 
 class PageController extends AbstractController
 {

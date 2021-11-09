@@ -13,6 +13,7 @@ namespace App\Element\Header;
 use App\Entity\News;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Tools\Setup;
+use Doctrine\DBAL\DriverManager;
 use Ouxsoft\PHPMarkup\Element\AbstractElement;
 use Mustache_Engine;
 use Mustache_Loader_FilesystemLoader;

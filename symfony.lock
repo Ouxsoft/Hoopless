@@ -83,6 +83,9 @@
     "mustache/mustache": {
         "version": "v2.13.0"
     },
+    "ouxsoft/dynamoimage": {
+        "version": "dev-main"
+    },
     "ouxsoft/luckbydice": {
         "version": "v1.0.0"
     },

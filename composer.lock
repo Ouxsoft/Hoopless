@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fd51fb43c09ebaa8b924cda650a4ae44",
+    "content-hash": "e85a60138ce77410a02f46ad5598a187",
     "packages": [
         {
             "name": "codemirror/codemirror",
@@ -1501,16 +1501,16 @@
         },
         {
             "name": "laminas/laminas-stdlib",
-            "version": "3.6.0",
+            "version": "3.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laminas/laminas-stdlib.git",
-                "reference": "c53d8537f108fac3fae652677a19735db730ba46"
+                "reference": "db581851a092246ad99e12d4fddf105184924c71"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laminas/laminas-stdlib/zipball/c53d8537f108fac3fae652677a19735db730ba46",
-                "reference": "c53d8537f108fac3fae652677a19735db730ba46",
+                "url": "https://api.github.com/repos/laminas/laminas-stdlib/zipball/db581851a092246ad99e12d4fddf105184924c71",
+                "reference": "db581851a092246ad99e12d4fddf105184924c71",
                 "shasum": ""
             },
             "require": {
@@ -1556,7 +1556,7 @@
                     "type": "community_bridge"
                 }
             ],
-            "time": "2021-09-02T16:11:32+00:00"
+            "time": "2021-11-10T11:33:52+00:00"
         },
         {
             "name": "laminas/laminas-validator",
@@ -1860,6 +1860,65 @@
                 "source": "https://github.com/bobthecow/mustache.php/tree/master"
             },
             "time": "2019-11-23T21:40:31+00:00"
+        },
+        {
+            "name": "ouxsoft/dynamoimage",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Ouxsoft/DynamoImage.git",
+                "reference": "1b8bdf945eabeeaa81049f0591fbf640cba5ae9c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Ouxsoft/DynamoImage/zipball/1b8bdf945eabeeaa81049f0591fbf640cba5ae9c",
+                "reference": "1b8bdf945eabeeaa81049f0591fbf640cba5ae9c",
+                "shasum": ""
+            },
+            "require": {
+                "ext-gd": "*",
+                "laminas/laminas-validator": "2.14.4",
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^v3.1.0",
+                "phpbench/phpbench": "^1.1",
+                "phpstan/phpstan": "^0.12.99",
+                "phpunit/phpunit": "^9"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Ouxsoft\\DynamoImage\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "mit"
+            ],
+            "authors": [
+                {
+                    "name": "Ouxsoft",
+                    "homepage": "http://ouxsoft.com",
+                    "role": "Organization"
+                }
+            ],
+            "description": "A PHP library for sizing, offseting, cropping images for the web. ",
+            "homepage": "https://github.com/Ouxsoft/DynamoImage",
+            "keywords": [
+                "cropping",
+                "image",
+                "offset",
+                "picture",
+                "resize",
+                "srcset"
+            ],
+            "support": {
+                "issues": "https://github.com/Ouxsoft/DynamoImage/issues",
+                "source": "https://github.com/Ouxsoft/DynamoImage/tree/v.0.0.2"
+            },
+            "time": "2021-11-11T06:12:46+00:00"
         },
         {
             "name": "ouxsoft/luckbydice",
@@ -5118,7 +5177,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "ouxsoft/dynamoimage": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

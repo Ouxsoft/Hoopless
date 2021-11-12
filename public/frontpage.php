@@ -13,7 +13,7 @@
         <div class="row h-100 align-items-center">
             <div class="col-12 text-left text-light">
                 <h1 class="font-weight-light">
-                    <span class="fs-1">PHPMarkup</span> <i class="fas fa-code fa-1x"></i> <br/>
+                    <span class="fs-1">Collaborating Design</span> <i class="fas fa-code fa-1x"></i> <br/>
                     Made To Empowering Teams
                 </h1>
                 <p class="lead">Extending features to the web team.</p>

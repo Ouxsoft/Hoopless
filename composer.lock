@@ -992,16 +992,16 @@
         },
         {
             "name": "doctrine/migrations",
-            "version": "3.3.0",
+            "version": "3.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/migrations.git",
-                "reference": "1967775546df997eb97057911d80184c91c92b9a"
+                "reference": "b4654e4de5c85d7c3ae2464c20e63b945d490928"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/migrations/zipball/1967775546df997eb97057911d80184c91c92b9a",
-                "reference": "1967775546df997eb97057911d80184c91c92b9a",
+                "url": "https://api.github.com/repos/doctrine/migrations/zipball/b4654e4de5c85d7c3ae2464c20e63b945d490928",
+                "reference": "b4654e4de5c85d7c3ae2464c20e63b945d490928",
                 "shasum": ""
             },
             "require": {
@@ -1012,8 +1012,8 @@
                 "friendsofphp/proxy-manager-lts": "^1.0",
                 "php": "^7.2 || ^8.0",
                 "psr/log": "^1.1.3 || ^2 || ^3",
-                "symfony/console": "^3.4 || ^4.4.16 || ^5.0",
-                "symfony/stopwatch": "^3.4 || ^4.0 || ^5.0"
+                "symfony/console": "^3.4 || ^4.4.16 || ^5.0 || ^6.0",
+                "symfony/stopwatch": "^3.4 || ^4.0 || ^5.0 || ^6.0"
             },
             "require-dev": {
                 "doctrine/coding-standard": "^8.0",
@@ -1028,9 +1028,9 @@
                 "phpstan/phpstan-strict-rules": "^0.12",
                 "phpstan/phpstan-symfony": "^0.12",
                 "phpunit/phpunit": "^8.5 || ^9.4",
-                "symfony/cache": "^3.4 || ^4.0 || ^5.0",
-                "symfony/process": "^3.4 || ^4.0 || ^5.0",
-                "symfony/yaml": "^3.4 || ^4.0 || ^5.0"
+                "symfony/cache": "^3.4.26 || ~4.1.12 || ^4.2.7 || ^5.0 || ^6.0",
+                "symfony/process": "^3.4 || ^4.0 || ^5.0 || ^6.0",
+                "symfony/yaml": "^3.4 || ^4.0 || ^5.0 || ^6.0"
             },
             "suggest": {
                 "doctrine/sql-formatter": "Allows to generate formatted SQL with the diff command.",
@@ -1078,7 +1078,7 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/migrations/issues",
-                "source": "https://github.com/doctrine/migrations/tree/3.3.0"
+                "source": "https://github.com/doctrine/migrations/tree/3.3.1"
             },
             "funding": [
                 {
@@ -1094,7 +1094,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-10-15T16:53:47+00:00"
+            "time": "2021-11-11T22:52:29+00:00"
         },
         {
             "name": "doctrine/orm",
@@ -1867,12 +1867,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Ouxsoft/DynamoImage.git",
-                "reference": "1b8bdf945eabeeaa81049f0591fbf640cba5ae9c"
+                "reference": "5e7b7c73272c73e6271d4af5becbd9510c2f975e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Ouxsoft/DynamoImage/zipball/1b8bdf945eabeeaa81049f0591fbf640cba5ae9c",
-                "reference": "1b8bdf945eabeeaa81049f0591fbf640cba5ae9c",
+                "url": "https://api.github.com/repos/Ouxsoft/DynamoImage/zipball/5e7b7c73272c73e6271d4af5becbd9510c2f975e",
+                "reference": "5e7b7c73272c73e6271d4af5becbd9510c2f975e",
                 "shasum": ""
             },
             "require": {
@@ -1916,9 +1916,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Ouxsoft/DynamoImage/issues",
-                "source": "https://github.com/Ouxsoft/DynamoImage/tree/v.0.0.2"
+                "source": "https://github.com/Ouxsoft/DynamoImage/tree/main"
             },
-            "time": "2021-11-11T06:12:46+00:00"
+            "time": "2021-11-11T06:52:09+00:00"
         },
         {
             "name": "ouxsoft/luckbydice",

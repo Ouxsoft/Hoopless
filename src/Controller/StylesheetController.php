@@ -10,7 +10,7 @@ use ScssPhp\ScssPhp\Formatter\Compressed;
 
 class StylesheetController
 {
-    const SCSS_DIR = __DIR__ . '/../../assets/scss/';
+    const SCSS_DIR = __DIR__ . '/../../public/assets/scss/';
     const BS_FRAMEWORK_DIR = __DIR__ . '/../../vendor/twbs/bootstrap/scss/';
     const MAIN_CSS_FILEPATH = __DIR__ . '/../../public/assets/css/main.min.css';
 

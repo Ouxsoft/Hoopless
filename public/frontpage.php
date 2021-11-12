@@ -8,27 +8,28 @@
     <arg type="bool" name="frontpage">true</arg>
 </header>
 
-<div class="hero-image w-100 mb-5" style="background-image:url('/assets/images/dimension/1260x630/offset/0,-20/hero/pattern-bg.jpg');">
+<div class="hero-image w-100 mb-5" style="background-image:url('/assets/images/dimension/1260x630/offset/0,-20/hero/code.jpg');">
     <div class="container h-100">
         <div class="row h-100 align-items-center">
             <div class="col-12 text-left text-light">
                 <h1 class="font-weight-light">
-                    We make software for tomorrow by breaking the assumptions of today.
+                    <span class="fs-1">PHPMarkup</span> <i class="fas fa-code fa-1x"></i> <br/>
+                    Made To Empowering Teams
                 </h1>
-                <p class="lead"><i class="fas fa-code fa-1x"></i> Empowering collaborators through software engineering.</p>
+                <p class="lead">Extending features to the web team.</p>
             </div>
         </div>
     </div>
-    <aside class="info-box bg-secondary p-4 editable">
+    <aside class="info-box bg-secondary shadow p-4 editable">
         <partial name="News">
             <arg name="limit" type="int">1</arg>
             <arg name="format">
-                <a class="text-white" href="/news/">
+                <span class="text-white text-decoration-none fs-4">
                     {{ title }}
-                    <br/>
-                    <small>
-                        <em>Learn more <span class="arrow-cta__icon" aria-hidden="true"></span></em>
-                    </small>
+                </span>
+                <br/>
+                <a class="text-white text-decoration-none" href="/news/">
+                    <em>Learn more <span class="arrow-cta__icon" aria-hidden="true"></span></em>
                 </a>
             </arg>
         </partial>
@@ -38,43 +39,43 @@
 <div class="container">
 
     <h2>Latest <abbr title="Open-Source Software">OSS</abbr> Projects:</h2>
-    <div class="card mb-3">
-        <div class="row no-gutters">
-            <div class="col-12 col-md-8">
+
+    <div class="row gx-5">
+        <div class="p-3 col-12 col-md-6">
+            <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">A CMS Built For the Team</h5>
                     <p class="card-text">
                         We wanted to make a content management system built around using a more expressive collaboration
                         language to empower web teams and communicate design.
                     </p>
+                    <img src="/assets/images/hoopless/logo.png" alt="PHPMarkup"/>
+                    <br/>
+                    <br/>
                     <a href="/help/phpmarkup" class="btn btn-primary mb-4">
                         Learn More <span class="arrow-cta__icon" aria-hidden="true"></span>
                     </a>
                 </div>
             </div>
-            <div class="col-md-4 d-none d-lg-inline-block">
-                <img src="/assets/images/hoopless/logo.png" alt="PHPMarkup" class="m-2"/>
-            </div>
         </div>
-    </div>
 
-    <div class="card mb-3">
-        <div class="row no-gutters">
-            <div class="col-12 col-md-8">
+        <div class="p-3 col-12 col-md-6">
+            <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Feeling Lucky?</h5>
                     <p class="card-text">
                         Check out our library for simulating luck based dice rolls from dice notations written in PHP.
                     </p>
+                    <img src="/assets/images/luckbydice/logo.png" alt="LuckByDice"/>
+                    <br/>
+                    <br/>
                     <a href="https://github.com/Ouxsoft/LuckByDice" class="btn btn-primary">
                         Learn More <span class="arrow-cta__icon" aria-hidden="true"></span>
                     </a>
                 </div>
             </div>
-            <div class="col-md-4 d-none d-lg-inline-block">
-                <img src="/assets/images/luckbydice/logo.png" alt="LuckByDice" class="m-3"/>
-            </div>
         </div>
+
     </div>
 </div>
 

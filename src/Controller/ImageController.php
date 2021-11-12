@@ -24,6 +24,7 @@ class ImageController
         $image->setAssetDir(__DIR__ . '/../../public/assets/images/');
         $image->setURL($url);
 
+        /*
         // send cache file if exists
         if ($image->isCached()) {
             $response = new BinaryFileResponse($image->getCacheFilepath());
@@ -31,11 +32,12 @@ class ImageController
             $response->headers->set('Content-Type', $image->getContentType());
             return $response;
         }
+        */
 
         // try to generate cache and send
         try {
             $image->resize();
-            $image->saveCache();
+            //$image->saveCache();
 
             $response = new Response();
             $response->headers->set('Cache-Control', 'private');
@@ -45,7 +47,7 @@ class ImageController
             return $response;
 
         } catch (Exception $e) {
-            return new Response('Resizing image failed');
+            return new Response('Resizing image failed' . $e);
         }
     }
 }

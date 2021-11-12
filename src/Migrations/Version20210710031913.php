@@ -51,7 +51,7 @@ final class Version20210710031913 extends AbstractMigration
     {
         $this->connection->insert('news', [
             'publish_date' => '2021-04-29',
-            'title' => 'Introducing PHPMarkup',
+            'title' => 'PHPMarkup',
             'body' => '<p>We have decided to rename LivingMarkup to PHPMarkup to better reflect the purpose of the library.
             To be honest, this is the third time we have had to renamed the library (formally LivingMarkup was known as PXP).</p>
             <p>We hope PHPMarkup better conveys the purpose of the library. In the same way that PHP is interpreted into C to 

@@ -13,7 +13,7 @@
 
             <h1>About</h1>
             <p class="lead">
-                At Ouxsoft, we make software for clients on a primarily on a referral bases. Apart from paying the bills
+                At Ouxsoft, we make software for clients primarily on a referral bases. Apart from paying the bills
                 we try to open source as many high quality packages as we can. We believe building on top of open source
                 software and in turn sharing back what we can.
             </p>

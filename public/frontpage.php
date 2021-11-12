@@ -38,7 +38,7 @@
 
 <div class="container">
 
-    <h2>Latest <abbr title="Open-Source Software">OSS</abbr> Projects:</h2>
+    <h2 class="fw-bold">The <b>Latest</b> <abbr title="Open-Source Software">OSS</abbr> Projects:</h2>
 
     <div class="row gx-5">
         <div class="p-3 col-12 col-md-6">
@@ -76,6 +76,19 @@
             </div>
         </div>
 
+    </div>
+</div>
+
+<div class="p-5 mt-5 bg-light rounded-3">
+    <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">The world needs empowering software that works.</h1>
+        <p class="col-md-8 fs-4">
+            We're bringing it to life.
+        </p>
+        <a class="btn btn-primary btn-lg" href="https://github.com/Ouxsoft" role="button">
+            <i class="fab fa-github fa"></i>
+            BECOME A OUXSOFTER.
+        </a>
     </div>
 </div>
 

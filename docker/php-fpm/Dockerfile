@@ -86,11 +86,11 @@ USER $user
 #######################################
 FROM build AS standard
 
-COPY . /application
-
 # Install composer and vendor packages
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 ENV PATH="~/.composer/vendor/bin:./vendor/bin:${PATH}"
+
+COPY . /application
 
 RUN composer install --no-dev --no-interaction
 

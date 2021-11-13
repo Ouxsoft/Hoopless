@@ -18,7 +18,7 @@
                         You Are <br/>Welcome Here
                     </h1>
 
-                    <p class="lead text-white">
+                    <p class="lead text-white fw-bold ">
                         It began with a batman commit now it's a cinch. <i class="fas fa-code fa-1x"></i>
                     </p>
 

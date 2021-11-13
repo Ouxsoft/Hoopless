@@ -8,19 +8,25 @@
     <arg type="bool" name="frontpage">true</arg>
 </header>
 
-<div class="hero-image w-100 mb-5" style="background-image:url('/assets/images/dimension/1260x630/offset/0,-20/hero/code.jpg');">
-    <div class="container h-100">
-        <div class="row h-100 align-items-center">
-            <div class="col-12 text-left text-light">
-                <h1 class="font-weight-light">
-                    <span class="fs-1">Collaborating Design</span> <i class="fas fa-code fa-1x"></i> <br/>
-                    Made To Empowering Teams
-                </h1>
-                <p class="lead">Extending features to the web team.</p>
+
+<div class="hero-feature w-100" style="background-image:url('/assets/images/dimension/1260x630/offset/0,-20/gallery/teamwork.jpg');">
+
+        <div class="container-fluid" style="max-width: 1276px;">
+            <div class="hero-feature-outline">
+                <div class="hero-feature-outline-left">
+                    <h1 class="hero-feature-title display-5 fw-bold text-white">
+                        You Are <br/>Welcome Here
+                    </h1>
+
+                    <p class="lead text-white">
+                        It began with a batman commit now it's a cinch. <i class="fas fa-code fa-1x"></i>
+                    </p>
+
+                </div>
             </div>
         </div>
-    </div>
-    <aside class="info-box bg-secondary shadow p-4 editable">
+
+    <aside class="info-box bg-secondary shadow p-4 d-none d-lg-block editable">
         <partial name="News">
             <arg name="limit" type="int">1</arg>
             <arg name="format">
@@ -29,16 +35,18 @@
                 </span>
                 <br/>
                 <a class="text-white text-decoration-none" href="/news/">
-                    <em>Learn more <span class="arrow-cta__icon" aria-hidden="true"></span></em>
+                    <em><b>Learn</b> more <span class="arrow-cta__icon" aria-hidden="true"></span></em>
                 </a>
             </arg>
         </partial>
     </aside>
 </div>
 
-<div class="container">
 
-    <h2 class="fw-bold">The <b>Latest</b> <abbr title="Open-Source Software">OSS</abbr> Projects:</h2>
+<div class="container mt-5">
+
+    <h2 class="fw-bold">The <b>Latest</b> Products</h2>
+
 
     <div class="row gx-5">
         <div class="p-3 col-12 col-md-6">
@@ -79,9 +87,9 @@
     </div>
 </div>
 
-<div class="p-5 mt-5 bg-light rounded-3">
-    <div class="container-fluid py-5">
-        <h1 class="display-5 fw-bold">The world needs empowering software that works.</h1>
+<div class="jumbotron p-5 mt-5 bg-light rounded-3"  style="background-image:url('/assets/images/dimension/1260x630/offset/0,-20/hero/code.jpg');">
+    <div class="container py-5 text-white">
+        <h1 class="display-5 fw-bold">The world needs empowering software.</h1>
         <p class="col-md-8 fs-4">
             We're bringing it to life.
         </p>

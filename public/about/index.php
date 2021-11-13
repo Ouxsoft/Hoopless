@@ -9,7 +9,7 @@
 <div class="container">
     <div class="row">
         <main name="Standard" class="editable">
-            <img src="/assets/images/dimension/680x400/offset/0,-20/gallery/developer.jpg" class="img-fluid" alt="decorative"/>
+            <img src="/assets/images/dimension/800x300/offset/0,-20/gallery/developer.jpg" class="img-fluid" alt="decorative"/>
 
             <h1>About</h1>
             <p class="lead">
@@ -18,13 +18,11 @@
                 software and in turn sharing back what we can.
             </p>
 
-            <p>
+            <p class="lead">
                 Our packages range from MVP to well supported and proven packages.
             </p>
 
-            <span class="fs-4 border border-5 border-start-0 border-right-0 border-end-0 border-top-0 border-secondary">
-                WHY WE CHOSE <b>OUXSOFT?</b>
-            </span>
+            <p class="lead-meta">Why we chose <b>Ouxsoft</b></p>
             <p class="mt-3">
                 Ouxsoft stems from the words “oux” and “soft.” “Oux” is short for Ourococcus. What is ourococcus you might
                 ask? Well it's a green genus of algae. Why algae? Well, because we believe small things coalescing over
@@ -32,9 +30,7 @@
                 produce.
             </p>
 
-            <span class="fs-4 border border-5 border-start-0 border-right-0 border-end-0 border-top-0 border-secondary">
-                WHAT DOES OUR <b>LOGO</b> REPRESENT?
-            </span>
+            <p class="lead-meta">What does our <b>logo</b> represent?</p>
             <p>
                 Each of the larger ellipses that form a circle in the logo are designed after ourococcus. The eye-like
                 structure is dual purpose, it is both the ourococcus nucleus and shaped like an eye to represent an eye
@@ -42,7 +38,7 @@
                 The number eight symbolizes balance, luck, and the ultimate form of achievement. Clearly it also means
                 we like to explain things too!
             </p>
-            <img src="/assets/images/ouxsoft/logo/color-black-bg.png" class="rounded float-right ml-5" width="120" alt="Ouxsoft"/>
+            <img src="/assets/images/ouxsoft/logo/color-black-bg.png" class="rounded float-right mb-4" width="120" alt="Ouxsoft"/>
         </main>
 
         <nav name="SideMenu">

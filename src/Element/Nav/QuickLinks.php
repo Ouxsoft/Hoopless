@@ -37,12 +37,12 @@ class QuickLinks extends AbstractElement
         }
 
         return <<<HTML
-<!-- QuickLinks -->
-<section id="quick-links">
-<h4 class="mt-4">Quick Links</h4>
-{$xml->nav->saveXML()}
-{$links}
-</section>
-HTML;
+        <!-- QuickLinks -->
+        <section id="quick-links" class="mb-5">
+        <h4 class="mt-4">Quick Links</h4>
+        {$xml->nav->saveXML()}
+        {$links}
+        </section>
+        HTML;
     }
 }

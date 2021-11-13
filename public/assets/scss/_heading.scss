@@ -7,10 +7,18 @@
  * file that was distributed with this source code.
  */
 
-h1 {
-  font-family: 'Maven Pro', sans-serif;
+.lead-meta {
+    font-weight: normal;
+    font-style: normal;
+    color: $gray-900;
+    font-size: 1.6rem;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 1.1px;
+    margin-top: 0;
+    margin-bottom: 4px;
+    padding-bottom: 4px;
+    margin-bottom: 12px;
+    border-bottom: 2px solid $teal;
 }
 
-body {
-  font-family: 'Asap Condensed', sans-serif;
-}

@@ -19,7 +19,7 @@
                     </h1>
 
                     <p class="lead text-white fw-bold ">
-                        It began with a batman commit now it's a cinch. <i class="fas fa-code fa-1x"></i>
+                        Opening a PR is a cinch. <i class="fas fa-code fa-1x"></i>
                     </p>
 
                 </div>
@@ -45,8 +45,7 @@
 
 <div class="container mt-5">
 
-    <h2 class="fw-bold">The <b>Latest</b> Products</h2>
-
+    <h2 class="fw-bold"><b>Latest</b> Products</h2>
 
     <div class="row gx-5">
         <div class="p-3 col-12 col-md-6">
@@ -54,8 +53,16 @@
                 <div class="card-body">
                     <h5 class="card-title">A CMS Built For the Team</h5>
                     <p class="card-text">
-                        We wanted to make a content management system built around using a more expressive collaboration
-                        language to empower web teams and communicate design.
+                        Websites are not designed around empowering those with the story.
+                        Too much content never get published because of hoops curators have to go through to put content
+                        online.
+                        We needed a content management system built around backend developers empowering
+                        web curators; not the other way around.
+                        We started with designing an expressive collaboration language to allow web teams to
+                        communicate design.
+                        Then make processor capable of rending it.
+                        Then added it to some of the best open source projects around.
+                        And Hoopless was born.
                     </p>
                     <img src="/assets/images/hoopless/logo.png" alt="PHPMarkup"/>
                     <br/>

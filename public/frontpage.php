@@ -60,9 +60,9 @@
                         web curators; not the other way around.
                         We started with designing an expressive collaboration language to allow web teams to
                         communicate design.
-                        Then make processor capable of rending it.
+                        Then made processor capable of rending it.
                         Then added it to some of the best open source projects around.
-                        And Hoopless was born.
+                        Hoopless was born.
                     </p>
                     <img src="/assets/images/hoopless/logo.png" alt="PHPMarkup"/>
                     <br/>

@@ -11,8 +11,6 @@
 namespace App\Element\Footer;
 
 use Ouxsoft\PHPMarkup\Element\AbstractElement;
-use Mustache_Engine;
-use Mustache_Loader_FilesystemLoader;
 
 /**
  * Class Standard
@@ -22,12 +20,9 @@ class Standard extends AbstractElement
 {
     public function onRender()
     {
-        $view = new Mustache_Engine([
-            'loader' => new Mustache_Loader_FilesystemLoader(ROOT_DIR . 'templates')
-        ]);
-
-        return $view->render('elements/footer',[
-            'year' => date('Y')
+        return $this->view->render('/footer.html.twig', [
+            'year' => date('Y'),
+            'margin' => $this->getArgByName('margin')
         ]);
     }
 }

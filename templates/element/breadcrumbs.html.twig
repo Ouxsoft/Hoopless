@@ -1,23 +1,24 @@
+{% if frontpage == false %}
 <!-- Breadcrumb -->
 <nav  aria-label="breadcrumb" class="bg-light text-white pt-3 pb-1 mb-4">
     <div class="container">
         <small>
             <ol class="breadcrumb bg-transparent pl-1">
-            {{#pages}}
-                {{^active}}
+                {% for page in pages %}
+                {% if page.active == false %}
                 <li class="breadcrumb-item active">
-                    <a href="{{url}}" class="text-decoration-none">
-                        {{title}}
+                    <a href="{{ page.url }}" class="text-decoration-none">
+                        {{ page.title }}
                     </a>
                 </li>
-                {{/active}}
-                {{#active}}
+                {% else %}
                 <li class="breadcrumb-item active" aria-current="page">
-                    {{title}}
+                    {{ page.title }}
                 </li>
-                {{/active}}
-            {{/pages}}
+                {% endif %}
+                {% endfor %}
             </ol>
         </small>
     </div>
 </nav>
+{% endif %}

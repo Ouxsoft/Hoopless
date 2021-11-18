@@ -11,12 +11,11 @@
 namespace App\Element\Header;
 
 use App\Entity\News;
+use App\Entity\Blog;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\DBAL\DriverManager;
 use Ouxsoft\PHPMarkup\Element\AbstractElement;
-use Mustache_Engine;
-use Mustache_Loader_FilesystemLoader;
 
 /**
  * Class Standard
@@ -31,7 +30,7 @@ class Standard extends AbstractElement
     public function onLoad()
     {
         // dynamic news
-        if(isset($this->newsId)){
+        if (isset($this->newsId)) {
             /** @var News $news */
             $news = $this->em->getRepository(News::class)->find($this->newsId);
 
@@ -40,6 +39,18 @@ class Standard extends AbstractElement
             $this->pages[] = ['title' => $news->getTitle(), 'url' => '/news/' . $news->getNewsId(), 'active' => 1];
             return;
         }
+
+        // dynamic news
+        if (isset($this->blogId)) {
+            /** @var News $news */
+            $blog = $this->em->getRepository(Blog::class)->find($this->blogId);
+
+            $this->pages[] = ['title' => 'Home', 'url' => '/', 'active' => 0];
+            $this->pages[] = ['title' => 'Blog', 'url' => '/blog', 'active' => 0];
+            $this->pages[] = ['title' => $blog->getTitle(), 'url' => '/blog/' . $blog->getBlogId(), 'active' => 1];
+            return;
+        }
+
 
         // TODO improve by passing router
         $this->pages = $this->em->getConnection()->fetchAllAssociative('
@@ -60,47 +71,17 @@ class Standard extends AbstractElement
         );
     }
 
-    /**
-     * Renders a breadcrumb trail for the current page
-     *
-     * @return mixed|string
-     */
-    public function getBreadcrumbs()
-    {
-        // skip breadcrumb on front page
-        if ($this->getArgByName('frontpage')) {
-            return '';
-        }
-
-        $view = new Mustache_Engine([
-            'loader' => new Mustache_Loader_FilesystemLoader(ROOT_DIR . 'templates')
-        ]);
-
-        return $view->render('elements/breadcrumb',[
-                'pages' => $this->pages
-        ]);
-    }
-
-
-    public function getNavbar()
-    {
-        $view = new Mustache_Engine([
-            'loader' => new Mustache_Loader_FilesystemLoader(ROOT_DIR . 'templates')
-        ]);
-
-        return $view->render('elements/top-navbar', [
-            'username' => $_SESSION['username'] ?? null
-        ]);
-    }
-
     public function onRender()
     {
-        return <<<HTML
-        <!-- Header -->
-        <header>
-            {$this->getNavbar()}
-            {$this->getBreadcrumbs()}
-        </header>
-HTML;
+        return $this->view->render('/header.html.twig', [
+            'top_navbar' => [
+                'username' => $_SESSION['username'] ?? null
+            ],
+            'breadcrumbs' => [
+                'pages' => $this->pages,
+                'frontpage' => $this->getArgByName('frontpage')
+            ]
+        ]);
+
     }
 }

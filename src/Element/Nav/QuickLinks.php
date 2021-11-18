@@ -36,13 +36,9 @@ class QuickLinks extends AbstractElement
             return '';
         }
 
-        return <<<HTML
-        <!-- QuickLinks -->
-        <section id="quick-links" class="mb-5">
-        <h4 class="mt-4">Quick Links</h4>
-        {$xml->nav->saveXML()}
-        {$links}
-        </section>
-        HTML;
+        return $this->view->render('quick-links.html.twig', [
+            'html' => $xml->nav->saveXML(),
+            'links' => $links
+        ]);
     }
 }

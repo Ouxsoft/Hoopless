@@ -5,7 +5,9 @@ namespace App\Service;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Tools\Setup;
 use Ouxsoft\PHPMarkup\Factory\ProcessorFactory;
-use Mustache_Engine;
+use Twig\Environment;
+use Twig\Extension\StringLoaderExtension;
+use Twig\Loader\FilesystemLoader;
 
 /**
  * Class AuthService
@@ -13,6 +15,7 @@ use Mustache_Engine;
  */
 class PHPMarkup
 {
+    // TODO remove trailing slash
     const PAGE_DIR = __DIR__ . '/../../public/';
     const CONFIG_DIR = __DIR__ . '/../../config/';
     const ENTITY_DIR = __DIR__ . '/../../src/Entity/';
@@ -38,23 +41,16 @@ class PHPMarkup
             $doctrineConfig
         );
 
-        // TODO switch over to twig?
-        // setup mustache for templating engine
-        $mustacheEngine = new Mustache_Engine([
-            'entity_flags' => ENT_QUOTES,
-            'escape' => function($value) {
-                return $value;
-            },
-            //    'template_class_prefix' => '__MyTemplates_',
-            //    'cache' => dirname(__FILE__).'/tmp/cache/mustache',
-            //    'loader' => new Mustache_Loader_FilesystemLoader(ROOT_DIR . 'templates')
-        ]);
+        // setup twig
+        $loader = new FilesystemLoader(ROOT_DIR . 'templates/element');
+        $twig = new Environment($loader);
+        $twig->addExtension(new StringLoaderExtension());
 
         // instantiate processor with configuration and set to parse buffer
         $this->processor = ProcessorFactory::getInstance();
         $this->processor->addRoutines($appConfig['routines']);
         $this->processor->addElements($appConfig['elements']);
-        $this->processor->addProperty('view', $mustacheEngine);
+        $this->processor->addProperty('view', $twig);
         $this->processor->addProperty('em', $entityManager);
     }
 

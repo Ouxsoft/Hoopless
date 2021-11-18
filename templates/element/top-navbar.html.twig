@@ -58,7 +58,7 @@
 
             <ul class="navbar-nav pull-sm-right">
                 <li class="nav-item">
-                    <a class="nav-link" href="/news">News  &amp;  Events</a>
+                    <a class="nav-link" href="/news">News &amp; Events</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/blog">Blog</a>
@@ -66,17 +66,17 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/news">Contact</a>
                 </li>
-                {{#user}}
+                {% if user %}
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-user"></i>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/user/profile">Signed in as {{ username }}</a>
+                        <a class="dropdown-item" href="/user/profile">Signed in as {{ user.username }}</a>
                         <a class="dropdown-item" href="/projects/luckbydice">Sign Out</a>
                     </div>
                 </li>
-                {{/user}}
+                {% endif %}
             </ul>
         </div>
     </div>

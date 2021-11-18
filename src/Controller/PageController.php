@@ -30,10 +30,19 @@ class PageController extends AbstractController
      */
     public function loginpage(PHPMarkup $phpmarkup): Response
     {
+
+        $slug = "Sdsd";
+
+        return $this->render('question/show.html.twig', [
+            'question' => ucwords(str_replace('-', ' ', $slug))
+        ]);
+
         return new Response(
             $phpmarkup->parseFile('backend/login.php')
         );
     }
+
+
 
     /**
      * @Route("/{page}", priority=1, name="subpageRoute", requirements={"page"=".+"})
@@ -60,6 +69,19 @@ class PageController extends AbstractController
 
         return new Response(
             $phpmarkup->parseFile($filepath)
+        );
+    }
+
+    /**
+     * @Route("/blog/{blogId}", priority=2, name="blogRoute")
+     * @param string $blogId
+     * @return Response
+     */
+    public function blogAction(PHPMarkup $phpmarkup, string $blogId): Response
+    {
+        $phpmarkup->addProperty('blogId', $blogId);
+        return new Response(
+            $phpmarkup->parseFile('blog/view/index.php')
         );
     }
 

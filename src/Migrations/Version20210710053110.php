@@ -191,6 +191,14 @@ final class Version20210710053110 extends AbstractMigration
                 'url' => '/projects/luckbydice',
             ]
         );
+        $this->connection->insert('page',
+            [
+                'page_id' => 21,
+                'page_parent_id' => 1,
+                'title' => 'Blog',
+                'url' => '/blog',
+            ]
+        );
     }
 
     public function down(Schema $schema): void

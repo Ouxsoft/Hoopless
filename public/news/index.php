@@ -19,10 +19,10 @@
                 <partial name="News">
                     <arg name="limit" type="int">10</arg>
                     <arg name="format">
-                        <a href="/news/{{news_id}}" class="list-group-item list-group-item-action flex-column align-items-start">
+                        <a href="/news/{{ story.news_id }}" class="list-group-item list-group-item-action flex-column align-items-start">
                             <div class="d-flex w-100 justify-content-between">
-                                <h5 class="mb-1">{{title}}</h5>
-                                <small>{{publish_date}}</small>
+                                <h5 class="mb-1">{{ story.title }}</h5>
+                                <small>{{ story.publish_date }}</small>
                             </div>
                         </a>
                     </arg>

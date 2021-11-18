@@ -1,0 +1,4 @@
+<!-- Stories -->
+{% for story in stories %}
+{{ include(template_from_string(story.format)) }}
+{% endfor %}

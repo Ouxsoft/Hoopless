@@ -31,7 +31,7 @@
             <arg name="limit" type="int">1</arg>
             <arg name="format">
                 <span class="text-white text-decoration-none fs-4">
-                    {{ title }}
+                    {{ story.title }}
                 </span>
                 <br/>
                 <a class="text-white text-decoration-none" href="/news/">
@@ -108,6 +108,9 @@
 </div>
 
 
-<footer name="Standard"/>
+<footer name="Standard">
+    <arg name="margin" type="bool">false</arg>
+</footer>
+
 </body>
 </html>

@@ -1,6 +1,6 @@
 <html lang="en">
 <head name="Standard">
-    <title>News</title>
+    <title>Blog</title>
 </head>
 <body>
 
@@ -10,16 +10,16 @@
     <div class="row">
         <main name="Standard" class="editable">
 
-            <partial name="News">
+            <partial name="Blog">
                 <arg name="id" type="int"><var name="id" source="get"/></arg>
                 <arg name="limit" type="int">1</arg>
                 <arg name="format">
                     <article class="mb-5">
-                        <h1>{{story.title}}</h1>
+                        <h1>{{blog.title}}</h1>
                         <p class="text-muted">
-                            <date>{{story.publish_date}}</date>
+                            <date>{{blog.publish_date}}</date>
                         </p>
-                        {{story.body|raw}}
+                        {{blog.body|raw}}
                     </article>
                 </arg>
             </partial>

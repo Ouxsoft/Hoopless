@@ -20,11 +20,8 @@ class Standard extends AbstractElement
 {
     public function onRender()
     {
-        return <<<HTML
-<!-- Main Content -->
-<main id="main-content" class="order-md-2 col-md-8 pl-md-3 col-lg-9 pl-lg-5 ">
-{$this->innerText()}
-</main>
-HTML;
+        return $this->view->render('main.html.twig', [
+            'html' => $this->innerText()
+        ]);
     }
 }

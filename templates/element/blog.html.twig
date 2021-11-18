@@ -1,4 +1,6 @@
 <!-- Blogs -->
 {% for blog in blogs %}
-{{ include(template_from_string(blog.format)) }}
+<article>
+    {{ include(template_from_string(blog.format)) }}
+</article>
 {% endfor %}

@@ -17,7 +17,7 @@ return [
     [
         "name" => "Code",
         "xpath" => "//code[not(ancestor::*[@process='false'])]",
-        "class_name" => App\Element\Code::class
+        "class_name" => App\Element\Widget\Code::class
     ],
 
     /**

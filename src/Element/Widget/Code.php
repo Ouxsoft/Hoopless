@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace App\Element;
+namespace App\Element\Widget;
 
 use Ouxsoft\PHPMarkup\Element\AbstractElement;
 
@@ -57,10 +57,9 @@ class Code extends AbstractElement
 
         $this->code = htmlspecialchars($this->code, ENT_QUOTES);
 
-        return <<<HTML
-<textarea class="codemirror-textarea mb-3">
-{$this->code}
-</textarea>
-HTML;
+
+        return $this->view->render('code.html.twig', [
+            'code' => $this->code
+        ]);
     }
 }

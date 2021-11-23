@@ -74,7 +74,8 @@ class Standard extends AbstractElement
     public function onRender()
     {
         return $this->view->render('/header.html.twig', [
-            'top_navbar' => [
+            'top_navbar' => [],
+            'main_navbar' => [
                 'username' => $_SESSION['username'] ?? null
             ],
             'breadcrumbs' => [

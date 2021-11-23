@@ -199,6 +199,14 @@ final class Version20210710053110 extends AbstractMigration
                 'url' => '/blog',
             ]
         );
+        $this->connection->insert('page',
+            [
+                'page_id' => 22,
+                'page_parent_id' => 1,
+                'title' => 'Contact',
+                'url' => '/contact',
+            ]
+        );
     }
 
     public function down(Schema $schema): void

@@ -1,11 +1,11 @@
 <html lang="en">
 <head name="Standard">
-    <title>Contact Information</title>
+    <title>Services</title>
 </head>
 <body>
 
 <header name="Standard">
-    <arg name="title">Contact</arg>
+    <arg name="title">Services</arg>
     <arg name="tier" type="int">2</arg>
     <arg name="image">/assets/images/dimension/800x300/offset/0,-20/gallery/developer.jpg</arg>
 </header>
@@ -13,21 +13,15 @@
 <div class="container">
     <div class="row">
         <main name="Standard" class="editable">
-            <h2>Contact Information</h2>
-            <p>Lingering questions? Please ask! Below you will find our contact info.</p>
-
-            <blockquote class="blockquote">
-                <b>Sales</b>
-                802-275-4533
-            </blockquote>
-
+            <p>We are not accepting new clients currently.</p>
         </main>
 
+        <nav name="SideMenu">
+            <arg name="menu" type="string">contact</arg>
+        </nav>
     </div>
 </div>
 
 <footer name="Standard"/>
 </body>
 </html>
-
-

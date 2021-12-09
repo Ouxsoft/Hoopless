@@ -74,6 +74,11 @@ class Standard extends AbstractElement
     public function onRender()
     {
         return $this->view->render('/header.html.twig', [
+            'page' => [
+                'tier' => $this->getArgByName('tier'),
+                'title' => $this->getArgByName('title'),
+                'image' => $this->getArgByName('image'),
+            ],
             'top_navbar' => [],
             'main_navbar' => [
                 'username' => $_SESSION['username'] ?? null
@@ -83,6 +88,5 @@ class Standard extends AbstractElement
                 'frontpage' => $this->getArgByName('frontpage')
             ]
         ]);
-
     }
 }

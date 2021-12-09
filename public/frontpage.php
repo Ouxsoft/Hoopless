@@ -5,7 +5,7 @@
 <body>
 
 <header name="Standard">
-    <arg type="bool" name="frontpage">true</arg>
+    <arg name="tier" type="int">1</arg>
 </header>
 
 

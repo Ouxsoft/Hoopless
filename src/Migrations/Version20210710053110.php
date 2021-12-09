@@ -179,8 +179,8 @@ final class Version20210710053110 extends AbstractMigration
             [
                 'page_id' => 18,
                 'page_parent_id' => 1,
-                'title' => 'Projects',
-                'url' => '/projects',
+                'title' => 'Products',
+                'url' => '/products',
             ]
         );
         $this->connection->insert('page',
@@ -188,7 +188,7 @@ final class Version20210710053110 extends AbstractMigration
                 'page_id' => 19,
                 'page_parent_id' => 1,
                 'title' => 'LuckByDice',
-                'url' => '/projects/luckbydice',
+                'url' => '/products/luckbydice',
             ]
         );
         $this->connection->insert('page',

@@ -1,0 +1,22 @@
+<div class="hero-feature w-100 bg-dark mb-5">
+    <div class="container-fluid pt-5 pb-5" style="background-size: cover; background-image:url('{{  image  }}');">
+        <div class="container">
+            <div class="row">
+                <div class="narrow-col mt-5 pt-3 pb-3 mt-md-0 order-md-1 col-md-4 col-lg-3 bg-secondary p-0 mt-5">
+                    <h1 class="display-6 side-nav-title text-center">
+                        <a class="text-white fw-bold" href="#">{{ title }}</a>
+                    </h1>
+                    <div class="bg-gradient pt-0">
+                        <ul class="nav flex-column">
+                            {% for link in links %}
+                            <li class="nav-item">
+                                <a class="nav-link text-center border-bottom text-white" href="{{ link.url }}">{{ link.url|e }}</a>
+                            </li>
+                           {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

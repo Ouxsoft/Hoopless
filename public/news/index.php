@@ -1,15 +1,18 @@
 <html lang="en">
 <head name="Standard">
-    <title>News</title>
+    <title>News and Events</title>
 </head>
 <body>
 
-<header name="Standard"/>
+<header name="Standard">
+    <arg name="title">News</arg>
+    <arg name="tier" type="int">2</arg>
+    <arg name="image">/assets/images/dimension/800x300/offset/0,-20/gallery/developer.jpg</arg>
+</header>
 
 <div class="container">
     <div class="row">
         <main name="Standard" class="editable">
-            <h1>News</h1>
 
             <blockquote class="blockquote">
                 Check out the latest stories from Ouxsoft.
@@ -32,7 +35,6 @@
         </main>
 
         <nav name="SideMenu">
-            <arg name="menu" type="string">news</arg>
             <nav name="QuickLinks" class="editable">
                 <arg name="menu" type="string">help</arg>
                 <a href="https://github.com/Ouxsoft/hoopless">

@@ -30,19 +30,10 @@ class PageController extends AbstractController
      */
     public function loginpage(PHPMarkup $phpmarkup): Response
     {
-
-        $slug = "Sdsd";
-
-        return $this->render('question/show.html.twig', [
-            'question' => ucwords(str_replace('-', ' ', $slug))
-        ]);
-
         return new Response(
             $phpmarkup->parseFile('backend/login.php')
         );
     }
-
-
 
     /**
      * @Route("/{page}", priority=1, name="subpageRoute", requirements={"page"=".+"})

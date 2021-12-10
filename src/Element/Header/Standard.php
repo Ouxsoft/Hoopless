@@ -26,9 +26,12 @@ class Standard extends AbstractElement
     public $separator = '/';
 
     private $pages = [];
+    private $menu = [];
 
     public function onLoad()
     {
+        // TODO move
+
         // dynamic news
         if (isset($this->newsId)) {
             /** @var News $news */
@@ -40,7 +43,7 @@ class Standard extends AbstractElement
             return;
         }
 
-        // dynamic news
+        // dynamic blogs
         if (isset($this->blogId)) {
             /** @var News $news */
             $blog = $this->em->getRepository(Blog::class)->find($this->blogId);
@@ -51,6 +54,16 @@ class Standard extends AbstractElement
             return;
         }
 
+        $menu_id = $this->getArgByName('menu_id');
+        if($menu_id){
+            $this->menu = $this->em->getConnection()->fetchAllAssociative('
+                SELECT `title`, IF(`menu_item`.`page_id` IS NULL, `menu_item`.`url`, `page`.`url`) AS `url`
+                FROM `menu_item`
+                LEFT JOIN `page` ON `menu_item`.`page_id` = `page`.`page_id`
+                WHERE `menu_id` = ?
+                ORDER BY `order`', [$menu_id]
+            );
+        }
 
         // TODO improve by passing router
         $this->pages = $this->em->getConnection()->fetchAllAssociative('
@@ -79,6 +92,7 @@ class Standard extends AbstractElement
                 'title' => $this->getArgByName('title'),
                 'image' => $this->getArgByName('image'),
             ],
+            'menu' => $this->menu,
             'top_navbar' => [],
             'main_navbar' => [
                 'username' => $_SESSION['username'] ?? null

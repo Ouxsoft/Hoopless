@@ -8,6 +8,7 @@
     <arg name="title">Help</arg>
     <arg name="tier" type="int">2</arg>
     <arg name="image">/assets/images/dimension/800x300/offset/0,-20/gallery/developer.jpg</arg>
+    <arg name="menu_id">1</arg>
 </header>
 
 <div class="container">
@@ -34,7 +35,6 @@
         </main>
 
         <nav name="SideMenu">
-            <arg name="menu" type="string">help</arg>
             <nav name="QuickLinks" class="editable">
                 <arg name="menu" type="string">help</arg>
                 <a href="https://github.com/Ouxsoft/hoopless">

@@ -18,7 +18,6 @@ class ImageController
      */
     public function indexAction($url) : Response
     {
-
         $image = new DynamoImage();
         $image->setCacheDir(__DIR__ . '/../../var/cache/images/');
         $image->setAssetDir(__DIR__ . '/../../public/assets/images/');
@@ -45,7 +44,6 @@ class ImageController
             $response->sendHeaders();
             $response->setContent($image->getContent());
             return $response;
-
         } catch (Exception $e) {
             return new Response('Resizing image failed' . $e);
         }

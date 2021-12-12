@@ -26,7 +26,8 @@ final class Version20210710053110 extends AbstractMigration
 
     public function postUp(Schema $schema): void
     {
-        $this->connection->insert('page',
+        $this->connection->insert(
+            'page',
             [
                 'page_id' => 1,
                 'page_parent_id' => null,
@@ -34,7 +35,8 @@ final class Version20210710053110 extends AbstractMigration
                 'url' => '/',
             ]
         );
-        $this->connection->insert('page',
+        $this->connection->insert(
+            'page',
             [
                 'page_id' => 2,
                 'page_parent_id' => 1,
@@ -42,7 +44,8 @@ final class Version20210710053110 extends AbstractMigration
                 'url' => '/about',
             ]
         );
-        $this->connection->insert('page',
+        $this->connection->insert(
+            'page',
             [
                 'page_id' => 3,
                 'page_parent_id' => 1,
@@ -50,7 +53,8 @@ final class Version20210710053110 extends AbstractMigration
                 'url' => '/help',
             ]
         );
-        $this->connection->insert('page',
+        $this->connection->insert(
+            'page',
             [
                 'page_id' => 4,
                 'page_parent_id' => 3,
@@ -58,7 +62,8 @@ final class Version20210710053110 extends AbstractMigration
                 'url' => '/help/phpmarkup',
             ]
         );
-        $this->connection->insert('page',
+        $this->connection->insert(
+            'page',
             [
                 'page_id' => 5,
                 'page_parent_id' => 4,
@@ -66,7 +71,8 @@ final class Version20210710053110 extends AbstractMigration
                 'url' => '/help/phpmarkup/elements/code',
             ]
         );
-        $this->connection->insert('page',
+        $this->connection->insert(
+            'page',
             [
                 'page_id' => 6,
                 'page_parent_id' => 4,
@@ -75,7 +81,8 @@ final class Version20210710053110 extends AbstractMigration
             ]
         );
 
-        $this->connection->insert('page',
+        $this->connection->insert(
+            'page',
             [
                 'page_id' => 7,
                 'page_parent_id' => 4,
@@ -85,7 +92,8 @@ final class Version20210710053110 extends AbstractMigration
         );
 
 
-        $this->connection->insert('page',
+        $this->connection->insert(
+            'page',
             [
                 'page_id' => 8,
                 'page_parent_id' => 4,
@@ -94,7 +102,8 @@ final class Version20210710053110 extends AbstractMigration
             ]
         );
 
-        $this->connection->insert('page',
+        $this->connection->insert(
+            'page',
             [
                 'page_id' => 9,
                 'page_parent_id' => 4,
@@ -103,7 +112,8 @@ final class Version20210710053110 extends AbstractMigration
             ]
         );
 
-        $this->connection->insert('page',
+        $this->connection->insert(
+            'page',
             [
                 'page_id' => 10,
                 'page_parent_id' => 4,
@@ -112,7 +122,8 @@ final class Version20210710053110 extends AbstractMigration
             ]
         );
 
-        $this->connection->insert('page',
+        $this->connection->insert(
+            'page',
             [
                 'page_id' => 11,
                 'page_parent_id' => 4,
@@ -121,7 +132,8 @@ final class Version20210710053110 extends AbstractMigration
             ]
         );
 
-        $this->connection->insert('page',
+        $this->connection->insert(
+            'page',
             [
                 'page_id' => 12,
                 'page_parent_id' => 4,
@@ -130,7 +142,8 @@ final class Version20210710053110 extends AbstractMigration
             ]
         );
 
-        $this->connection->insert('page',
+        $this->connection->insert(
+            'page',
             [
                 'page_id' => 13,
                 'page_parent_id' => 4,
@@ -139,7 +152,8 @@ final class Version20210710053110 extends AbstractMigration
             ]
         );
 
-        $this->connection->insert('page',
+        $this->connection->insert(
+            'page',
             [
                 'page_id' => 14,
                 'page_parent_id' => 4,
@@ -148,7 +162,8 @@ final class Version20210710053110 extends AbstractMigration
             ]
         );
 
-        $this->connection->insert('page',
+        $this->connection->insert(
+            'page',
             [
                 'page_id' => 15,
                 'page_parent_id' => 4,
@@ -157,7 +172,8 @@ final class Version20210710053110 extends AbstractMigration
             ]
         );
 
-        $this->connection->insert('page',
+        $this->connection->insert(
+            'page',
             [
                 'page_id' => 16,
                 'page_parent_id' => 4,
@@ -166,7 +182,8 @@ final class Version20210710053110 extends AbstractMigration
             ]
         );
 
-        $this->connection->insert('page',
+        $this->connection->insert(
+            'page',
             [
                 'page_id' => 17,
                 'page_parent_id' => 1,
@@ -175,7 +192,8 @@ final class Version20210710053110 extends AbstractMigration
             ]
         );
 
-        $this->connection->insert('page',
+        $this->connection->insert(
+            'page',
             [
                 'page_id' => 18,
                 'page_parent_id' => 1,
@@ -183,7 +201,8 @@ final class Version20210710053110 extends AbstractMigration
                 'url' => '/products',
             ]
         );
-        $this->connection->insert('page',
+        $this->connection->insert(
+            'page',
             [
                 'page_id' => 19,
                 'page_parent_id' => 1,
@@ -191,7 +210,8 @@ final class Version20210710053110 extends AbstractMigration
                 'url' => '/products/luckbydice',
             ]
         );
-        $this->connection->insert('page',
+        $this->connection->insert(
+            'page',
             [
                 'page_id' => 21,
                 'page_parent_id' => 1,
@@ -199,7 +219,8 @@ final class Version20210710053110 extends AbstractMigration
                 'url' => '/blog',
             ]
         );
-        $this->connection->insert('page',
+        $this->connection->insert(
+            'page',
             [
                 'page_id' => 22,
                 'page_parent_id' => 1,

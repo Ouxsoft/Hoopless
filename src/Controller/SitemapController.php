@@ -35,7 +35,7 @@ class SitemapController extends AbstractController
         $xmlUrlSet->setAttribute('xsi:schemaLocation', 'http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd');
         $xml->appendChild($xmlUrlSet);
 
-        foreach($this->sitemaps as $sitemap){
+        foreach ($this->sitemaps as $sitemap) {
             $sitemap = <<<XML
             <sitemap>
                 <loc>{$this->siteURL}/{$sitemap}</loc>
@@ -61,7 +61,6 @@ class SitemapController extends AbstractController
      */
     public function pagesUrlSet() : Response
     {
-
         $xml = new DOMDocument("1.0", "UTF-8");
         $xml->formatOutput = true;
         $xml->preserveWhiteSpace = false;
@@ -75,7 +74,7 @@ class SitemapController extends AbstractController
         $pages = [
             ""
         ];
-        foreach($pages as $page){
+        foreach ($pages as $page) {
             $url = <<<XML
             <url>
                 <loc>{$this->siteURL}/{$page}</loc>

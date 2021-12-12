@@ -70,5 +70,4 @@ class MenuItem
      * @ORM\Column(name="updated", type="datetime", nullable=false, options={"default"="CURRENT_TIMESTAMP"})
      */
     private $updated;
-
 }

@@ -19,15 +19,18 @@ class News extends AbstractElement
 
     public function onLoad()
     {
-       $limit = is_int($this->getArgByName('limit')) ? $this->getArgByName('limit') : self::$limit;
+        $limit = is_int($this->getArgByName('limit')) ? $this->getArgByName('limit') : self::$limit;
 
-       if(isset($this->newsId)){
-           $this->news[] = $this->em->getRepository(\App\Entity\News::class)->find($this->newsId);
-       } else {
-           $this->news = $this->em->getRepository(\App\Entity\News::class)->findBy(
-               [],null, $limit, null
-           );
-       }
+        if (isset($this->newsId)) {
+            $this->news[] = $this->em->getRepository(\App\Entity\News::class)->find($this->newsId);
+        } else {
+            $this->news = $this->em->getRepository(\App\Entity\News::class)->findBy(
+                [],
+                null,
+                $limit,
+                null
+            );
+        }
     }
 
     public function onRender()

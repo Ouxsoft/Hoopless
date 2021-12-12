@@ -23,11 +23,10 @@ class AuthController extends AbstractController
         $username = $request->get('username') ?? '';
         $password = $request->get('password') ?? '';
 
-        if($authService->authenticate($username, $password)){
-           return $this->redirectToRoute('frontpageRoute');
+        if ($authService->authenticate($username, $password)) {
+            return $this->redirectToRoute('frontpageRoute');
         }
 
         return $this->redirectToRoute('loginRoute');
-
     }
 }

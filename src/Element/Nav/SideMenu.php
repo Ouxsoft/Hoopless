@@ -34,7 +34,7 @@ class SideMenu extends AbstractElement
     {
         $menu = $this->getArgByName('menu');
 
-        if(array_key_exists($menu, $this->menus)){
+        if (array_key_exists($menu, $this->menus)) {
             $links = $this->menus[$menu];
         }
 

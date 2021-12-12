@@ -8,6 +8,15 @@
     "composer/package-versions-deprecated": {
         "version": "1.11.99.2"
     },
+    "composer/pcre": {
+        "version": "1.0.0"
+    },
+    "composer/semver": {
+        "version": "3.2.6"
+    },
+    "composer/xdebug-handler": {
+        "version": "2.0.3"
+    },
     "container-interop/container-interop": {
         "version": "1.2.0"
     },
@@ -59,6 +68,18 @@
     "doctrine/persistence": {
         "version": "2.2.1"
     },
+    "friendsofphp/php-cs-fixer": {
+        "version": "3.4",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "3.0",
+            "ref": "be2103eb4a20942e28a6dd87736669b757132435"
+        },
+        "files": [
+            ".php-cs-fixer.dist.php"
+        ]
+    },
     "friendsofphp/proxy-manager-lts": {
         "version": "v1.0.5"
     },
@@ -91,6 +112,9 @@
     },
     "ouxsoft/phpmarkup": {
         "version": "v4.2.2"
+    },
+    "php-cs-fixer/diff": {
+        "version": "v2.0.2"
     },
     "pimple/pimple": {
         "version": "v3.3.1"
@@ -213,6 +237,9 @@
             "config/packages/test/monolog.yaml"
         ]
     },
+    "symfony/options-resolver": {
+        "version": "v5.3.7"
+    },
     "symfony/polyfill-intl-grapheme": {
         "version": "v1.23.1"
     },
@@ -230,6 +257,9 @@
     },
     "symfony/polyfill-php81": {
         "version": "v1.23.0"
+    },
+    "symfony/process": {
+        "version": "v5.3.12"
     },
     "symfony/routing": {
         "version": "5.3",

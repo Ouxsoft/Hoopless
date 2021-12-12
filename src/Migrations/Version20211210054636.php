@@ -30,7 +30,6 @@ final class Version20211210054636 extends AbstractMigration
 
         $this->addSql("UPDATE `menu_item` SET `parent_menu_item_id` = NULL, `page_id` = '3' WHERE `menu_item`.`menu_item_id` = 2");
         $this->addSql("UPDATE `menu_item` SET `parent_menu_item_id` = NULL, `page_id` = '4' WHERE `menu_item`.`menu_item_id` = 3");
-
     }
 
     public function down(Schema $schema): void

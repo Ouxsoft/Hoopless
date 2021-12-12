@@ -74,7 +74,8 @@ class Tag
      */
     public function getCreated() : DateTime
     {
-        return $this->created;;
+        return $this->created;
+        ;
     }
 
     public function setCreated() : void
@@ -87,7 +88,8 @@ class Tag
      */
     public function getUpdated() : DateTime
     {
-        return $this->updated;;
+        return $this->updated;
+        ;
     }
 
     public function setUpdated() : void

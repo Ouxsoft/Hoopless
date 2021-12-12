@@ -189,6 +189,4 @@ class PageRevision
     {
         $this->updated = $updated;
     }
-
-
 }

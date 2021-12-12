@@ -146,5 +146,4 @@ class EventMeta
     {
         $this->updated = $updated;
     }
-
 }

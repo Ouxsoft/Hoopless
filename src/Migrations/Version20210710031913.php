@@ -60,14 +60,14 @@ final class Version20210710031913 extends AbstractMigration
             <p>Other than that, PHPMarkup has become a relatively stable library. It is actually amazing how well it
              helps us run sites and minimize the code we need to maintain.</p>'
         ]);
-        $this->connection->insert('news',[
+        $this->connection->insert('news', [
             'publish_date' => '2020-08-08',
             'title' => 'LHTML Elements Behind Hoopless',
             'body' => '<p>We take a quick look at the if statment, variable, and redacted LHTML elements used in Hoopless.</p>
            <iframe width="560" height="315" src="https://www.youtube.com/embed/2w9vNNlsSRg" frameborder="0" 
            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>'
         ]);
-        $this->connection->insert('news',[
+        $this->connection->insert('news', [
             'publish_date' => '2020-08-07',
             'title' => 'LHTML Add Custom Element',
             'body' => '<p>See how easy it is to create your own custom LHTML elements using Hoopless. In this example we create 
@@ -75,7 +75,7 @@ final class Version20210710031913 extends AbstractMigration
        <iframe width="560" height="315" src="https://www.youtube.com/embed/HxZ2qitsUUs" frameborder="0"
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>'
         ]);
-        $this->connection->insert('news',[
+        $this->connection->insert('news', [
             'publish_date' => '2020-08-07',
             'title' => 'LHTML Under the Hood',
             'body' => '<p>LHTML works to make communicate the elements of design between team members while still delivering top 
@@ -83,7 +83,7 @@ final class Version20210710031913 extends AbstractMigration
            <iframe width="560" height="315" src="https://www.youtube.com/embed/L4u2qh5Elco" frameborder="0" 
            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>'
         ]);
-        $this->connection->insert('news',[
+        $this->connection->insert('news', [
             'publish_date' => '2019-01-28',
             'title' => 'Reworking The Language of the Web',
             'body' => '<p>There is something fundamentally wrong about the way web teams work together to build websites.

@@ -16,7 +16,7 @@ class AuthService
     public function authenticate(string $username, string $password) : bool
     {
         // check for admin credentials
-        if(
+        if (
             ($username == $_ENV['ADMIN_USERNAME'])
             && ($password == $_ENV['ADMIN_PASSWORD'])
         ) {

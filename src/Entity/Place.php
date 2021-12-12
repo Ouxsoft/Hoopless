@@ -50,7 +50,7 @@ class Place
      */
     private $streetAddress2;
 
-        /**
+    /**
      * @var string Locality / City / Town
      *
      * @ORM\Column(name="locality", type="string", length=255, nullable=true)

@@ -43,7 +43,7 @@ class PageController extends AbstractController
      */
     public function indexAction(PHPMarkup $phpmarkup, string $page): Response
     {
-        if(substr($page,-1) == '/'){
+        if (substr($page, -1) == '/') {
             return new RedirectResponse('/' . rtrim($page, '/'));
         }
 
@@ -52,7 +52,7 @@ class PageController extends AbstractController
         $real_path = realpath(__DIR__ . '/../../public/' .$filepath);
 
         // TODO improve traversing check
-        if(!file_exists($real_path)){
+        if (!file_exists($real_path)) {
             return new Response(
                 $phpmarkup->parseFile('404.php')
             );
@@ -98,7 +98,7 @@ class PageController extends AbstractController
             $route = 'frontpage';
         }
 
-        if(is_dir(__DIR__ . '/../../public/' . $route)){
+        if (is_dir(__DIR__ . '/../../public/' . $route)) {
             $route .= '/index.php';
         }
 

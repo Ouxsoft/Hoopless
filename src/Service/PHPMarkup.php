@@ -34,7 +34,11 @@ class PHPMarkup
 
         // setup doctrine for database access
         $doctrineConfig = Setup::createAnnotationMetadataConfiguration(
-            [self::ENTITY_DIR], true, null, null, false
+            [self::ENTITY_DIR],
+            true,
+            null,
+            null,
+            false
         );
         $entityManager = EntityManager::create(
             $appConfig['database'],

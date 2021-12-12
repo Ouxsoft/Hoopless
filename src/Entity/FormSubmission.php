@@ -108,7 +108,4 @@ class FormSubmission
     {
         $this->updated = $updated;
     }
-
-
-
 }

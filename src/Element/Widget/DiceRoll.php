@@ -84,4 +84,3 @@ class DiceRoll extends AbstractElement
 HTML;
     }
 }
-

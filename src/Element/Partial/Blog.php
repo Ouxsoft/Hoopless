@@ -19,15 +19,18 @@ class Blog extends AbstractElement
 
     public function onLoad()
     {
-       $limit = is_int($this->getArgByName('limit')) ? $this->getArgByName('limit') : self::$limit;
+        $limit = is_int($this->getArgByName('limit')) ? $this->getArgByName('limit') : self::$limit;
 
-       if(isset($this->blogId)){
-           $this->blogs[] = $this->em->getRepository(\App\Entity\Blog::class)->find($this->blogId);
-       } else {
-           $this->blogs = $this->em->getRepository(\App\Entity\Blog::class)->findBy(
-               [],null, $limit, null
-           );
-       }
+        if (isset($this->blogId)) {
+            $this->blogs[] = $this->em->getRepository(\App\Entity\Blog::class)->find($this->blogId);
+        } else {
+            $this->blogs = $this->em->getRepository(\App\Entity\Blog::class)->findBy(
+                [],
+                null,
+                $limit,
+                null
+            );
+        }
     }
 
     public function onRender()

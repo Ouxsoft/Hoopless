@@ -37,7 +37,6 @@ class StylesheetController
             file_put_contents(self::MAIN_CSS_FILEPATH, $output);
 
             return new Response('Successfully compile stylesheets.');
-
         } catch (Exception $e) {
             return new Response('Unable to compile stylesheets.');
         }

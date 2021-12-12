@@ -110,7 +110,7 @@ class Variable extends AbstractElement
         $source = $this->getArgByName('source') ?? '';
 
         // get variable
-        switch($source){
+        switch ($source) {
             case 'get':
                 $variable = array_key_exists($name, $_GET) ? (string) $_GET[$name] : '';
                 $variable = htmlspecialchars($variable);

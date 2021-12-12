@@ -52,5 +52,4 @@ class Group
     {
         $this->name = $name;
     }
-
 }

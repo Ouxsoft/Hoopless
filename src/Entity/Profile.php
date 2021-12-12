@@ -146,8 +146,8 @@ class Profile
         $fullName = '';
         $parts = [$this->firstName, $this->middleName, $this->lastName];
 
-        foreach($parts as $key => $value){
-            if($value === null){
+        foreach ($parts as $key => $value) {
+            if ($value === null) {
                 continue;
             }
             $fullName .= (($fullName !== '') ? ' ' : '') . $value;
@@ -219,5 +219,4 @@ class Profile
     {
         $this->updated = $updated;
     }
-
 }

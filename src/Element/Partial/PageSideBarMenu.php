@@ -17,11 +17,7 @@ use Doctrine\ORM\Tools\Setup;
 use Doctrine\DBAL\DriverManager;
 use Ouxsoft\PHPMarkup\Element\AbstractElement;
 
-/**
- * Class Menu
- * @package LHTML\Element\Partial\Menu
- */
-class Menu extends AbstractElement
+class PageSideBarMenu extends AbstractElement
 {
     private $menu = [];
 
@@ -42,7 +38,7 @@ class Menu extends AbstractElement
 
     public function onRender()
     {
-        return $this->view->render('/menu.html.twig', [
+        return $this->view->render('/page-side-bar-menu.html.twig', [
             'menu' => $this->menu,
         ]);
     }

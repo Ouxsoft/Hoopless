@@ -14,7 +14,8 @@
 
 <div class="container">
     <div class="row">
-        <main name="Standard" class="editable">
+        <partial name="PageMainContent" class="editable">
+
             <h1>Redacted Element</h1>
             Whole paragraphs can be redacted:
 
@@ -49,15 +50,14 @@
                 </div>
             </div>
 
+        </partial>
 
-        </main>
-
-        <nav name="SideMenu">
-            <arg name="menu" type="string">help</arg>
+        <partial name="PageSideBar">
+            <partial name="PageSideBarMenu" menu_id="2"/>
+            
             <nav name="QuickLinks" class="editable">
-
             </nav>
-        </nav>
+        </partial>
     </div>
 </div>
 

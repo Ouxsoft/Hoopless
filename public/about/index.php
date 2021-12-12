@@ -12,7 +12,7 @@
 
         <div class="container">
             <div class="row">
-                <main name="Standard" class="editable">
+                <partial name="PageMainContent" class="editable">
                     <h2>About Us</h2>
                     <p class="lead">
                     At Ouxsoft, we make software for clients primarily on a referral bases. Apart from paying the bills
@@ -36,16 +36,15 @@
                         we like to explain things too!
                     </p>
                     <img src="/assets/images/ouxsoft/logo/color-black-bg.png" class="rounded float-right mb-4" width="120" alt="Ouxsoft"/>
-                </main>
+                </partial>
 
-                <nav name="SideMenu">
+                <partial name="PageSideBar">
                     <nav name="QuickLinks" class="editable">
                         <a href="https://www.algaebase.org/browse/taxonomy/?tc=accept&amp;id=6986">
                             Ourococcus
                         </a>
                     </nav>
-
-                </nav>
+                </partial>
 
             </div>
         </div>

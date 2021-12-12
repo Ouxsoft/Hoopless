@@ -14,7 +14,7 @@
 
 <div class="container">
     <div class="row">
-        <main name="Standard" class="editable">
+         <partial name="PageMainContent" class="editable">
 
             <h1>Example Element</h1>
             <p>The examples element is provided to demonstrate how to build custom elements.</p>
@@ -86,8 +86,6 @@
                 </div>
             </div>
 
-
-
             <h2>WebView</h2>
             <p>React web view example.</p>
 
@@ -114,14 +112,14 @@
                 </div>
             </div>
 
-        </main>
+        </partial>
 
-        <nav name="SideMenu">
-            <arg name="menu" type="string">help</arg>
+        <partial name="PageSideBar">
+            <partial name="PageSideBarMenu" menu_id="2"/>
+            
             <nav name="QuickLinks" class="editable">
-
             </nav>
-        </nav>
+        </partial>
     </div>
 </div>
 

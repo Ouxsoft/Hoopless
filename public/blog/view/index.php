@@ -8,8 +8,7 @@
 
 <div class="container">
     <div class="row">
-        <main name="Standard" class="editable">
-
+        <partial name="PageMainContent">
             <partial name="Blog">
                 <arg name="id" type="int"><var name="id" source="get"/></arg>
                 <arg name="limit" type="int">1</arg>
@@ -23,8 +22,7 @@
                     </article>
                 </arg>
             </partial>
-
-        </main>
+        </partial>
     </div>
 </div>
 

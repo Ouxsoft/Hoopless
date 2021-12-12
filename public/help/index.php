@@ -13,7 +13,7 @@
 
 <div class="container">
     <div class="row">
-        <main name="Standard" class="editable">
+        <partial name="PageMainContent">
             <h2>Editing Guide</h2>
             <p class="lead">
                 Hoopless is the content management system (CMS) used manage this website.
@@ -32,12 +32,14 @@
             </p>
 
             <h3>Accessibility Guidelines</h3>
-            <p>Editors must adhere to the <a href="https://www.w3.org/WAI/WCAG20/glance/">WCAG 2.0 Accessibility
-                    standards</a> when editing this website to help ensure the information presented remains
-                perceivable, operable, and understandable to all.</p>
-        </main>
+            <p>
+                Editors must adhere to the <a href="https://www.w3.org/WAI/WCAG20/glance/">WCAG 2.0 Accessibility
+                standards</a> when editing this website to help ensure the information presented remains
+                perceivable, operable, and understandable to all.
+            </p>
+        </partial>
 
-        <nav name="SideMenu">
+        <partial name="PageSideBar">
             <nav name="QuickLinks" class="editable">
                 <arg name="menu" type="string">help</arg>
                 <a href="https://github.com/Ouxsoft/hoopless">
@@ -50,7 +52,7 @@
                     LHTML Standard
                 </a>
             </nav>
-        </nav>
+        </partial>
     </div>
 </div>
 

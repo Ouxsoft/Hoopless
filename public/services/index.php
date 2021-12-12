@@ -12,14 +12,15 @@
 
 <div class="container">
     <div class="row">
-        <main name="Standard" class="editable">
+        <partial name="PageMainContent" class="editable">
             <h2>Consulting</h2>
             <p>We are not accepting new clients currently.</p>
-        </main>
+        </partial>
 
-        <nav name="SideMenu">
-            <arg name="menu" type="string">contact</arg>
-        </nav>
+        <partial name="PageSideBar">
+            <nav name="QuickLinks" class="editable">
+            </nav>
+        </partial>
     </div>
 </div>
 

@@ -9,7 +9,7 @@
 
 <div class="container">
     <div class="row">
-        <main name="Standard" class="editable">
+        <partial name="PageMainContent" class="editable">
             <h1>LuckByDice</h1>
             <blockquote class="blockquote">
                 <p class="mb-0">
@@ -30,17 +30,12 @@
             <widget name="DiceRoll">
                 <arg name="notation"></arg>
             </widget>
+        </partial>
 
-        </main>
-
-        <nav name="SideMenu">
+        <partial name="PageSideBar">
             <nav name="QuickLinks" class="editable">
-                <arg name="menu" type="string">help</arg>
-                <a href="https://github.com/Ouxsoft/LuckByDice">
-                    LuckByDice
-                </a>
             </nav>
-        </nav>
+        </partial>
     </div>
 </div>
 

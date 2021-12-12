@@ -12,7 +12,7 @@
 
 <div class="container">
     <div class="row">
-        <main name="Standard" class="editable">
+        <partial name="PageMainContent" class="editable">
             <p class="lead">
                 We believe building on top of open source software and in turn sharing back what we can.
             </p>
@@ -35,12 +35,12 @@
                     <a class="nav-link active" href="https://github.com/Ouxsoft/Hoopless">Hoopless</a>
                 </li>
             </ul>
-        </main>
+        </partial>
 
-        <nav name="SideMenu">
+        <partial name="PageSideBar">
             <nav name="QuickLinks" class="editable">
             </nav>
-        </nav>
+        </partial>
     </div>
 </div>
 

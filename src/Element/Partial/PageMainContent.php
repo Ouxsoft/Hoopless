@@ -8,19 +8,18 @@
  * file that was distributed with this source code.
  */
 
-namespace App\Element\Main;
+namespace App\Element\Partial;
 
 use Ouxsoft\PHPMarkup\Element\AbstractElement;
 
 /**
- * Class HeaderDefault
- * @package PHPMarkup\Modules\Custom\Partials
+ * Class PageMainContent
  */
-class Standard extends AbstractElement
+class PageMainContent extends AbstractElement
 {
     public function onRender()
     {
-        return $this->view->render('main.html.twig', [
+        return $this->view->render('page-main-content.html.twig', [
             'html' => $this->innerText()
         ]);
     }

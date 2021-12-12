@@ -12,7 +12,7 @@
 
 <div class="container">
     <div class="row">
-        <main name="Standard" class="editable">
+         <partial name="PageMainContent">
             <h2>Contact Information</h2>
             <p>Lingering questions? Please ask! Below you will find our contact info.</p>
 
@@ -20,9 +20,7 @@
                 <b>Sales</b>
                 802-275-4533
             </blockquote>
-
-        </main>
-
+        </partial>
     </div>
 </div>
 

@@ -14,7 +14,7 @@
 
 <div class="container">
     <div class="row">
-        <main name="Standard" class="editable">
+        <partial name="PageMainContent" class="editable">
 
             <h1>Nav Element</h1>
             <p>
@@ -43,14 +43,14 @@
                 </div>
             </div>
 
-        </main>
+        </partial>
 
-        <nav name="SideMenu">
-            <arg name="menu" type="string">help</arg>
+        <partial name="PageSideBar">
+            <partial name="PageSideBarMenu" menu_id="2"/>
+            
             <nav name="QuickLinks" class="editable">
-
             </nav>
-        </nav>
+        </partial>
     </div>
 </div>
 

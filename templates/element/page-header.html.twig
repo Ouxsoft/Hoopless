@@ -1,3 +1,4 @@
+<!-- page header -->
 <header>
     {{ include('top-navbar.html.twig', top_navbar) }}
     {{ include('main-navbar.html.twig', main_navbar) }}
@@ -21,18 +22,18 @@
                 <div class="container">
                     <div class="row">
                         <div class="narrow-col mt-5 mt-md-0 order-md-1 col-md-4 col-lg-3 bg-secondary p-0">
-                        <div class="bg-dark bg-opacity-25 pt-3 pb-3">
-                            <h1 class="display-6 side-nav-title text-center">
-                                <a class="text-white fw-bold" href="#">{{ page.title }}</a>
-                            </h1>
-                        </div>
+                            <div class="bg-dark bg-opacity-25 pt-3 pb-3">
+                                <h1 class="display-6 side-nav-title text-center">
+                                    <a class="text-white fw-bold" href="#">{{ page.title }}</a>
+                                </h1>
+                            </div>
                             <div class="pt-0">
                                 <ul class="nav flex-column">
                                     {% for item in menu %}
                                     <li class="nav-item">
                                         <a class="nav-link text-center border-bottom text-white" href="{{ item.url }}">{{ item.title|e }}</a>
                                     </li>
-                                {% endfor %}
+                                    {% endfor %}
                                 </ul>
                             </div>
                         </div>

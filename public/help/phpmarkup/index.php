@@ -8,7 +8,7 @@
 
 <div class="container">
     <div class="row">
-        <main name="Standard" class="editable">
+        <partial name="PageMainContent" class="editable">
             <h1>PHPMarkup</h1>
 
             <p>Editors can use dynamic markup in maintaining pages. This is due to pages being written in an HTML templating engine language called <a href="https://github.com/Ouxsoft/LHTML">LHTML</a>, which is processed via the <a href="https://github.com/Ouxsoft/PHPMarkup">PHPMarkup</a> engine.</p>
@@ -45,10 +45,6 @@
                     <td>&lt;img&gt;</td>
                 </tr>
                 <tr>
-                    <td><a href="/help/phpmarkup/elements/main">Main</a></td>
-                    <td>&lt;main&gt;</td>
-                </tr>
-                <tr>
                     <td><a href="/help/phpmarkup/elements/nav">Navigation</a></td>
                     <td>&lt;nav&gt;</td>
                 </tr>
@@ -77,13 +73,15 @@
             <h2>Turn off</h2>
             <p>LHTML is not processed when an ancestor features an attribute process="false".</p>
 
-        </main>
+        </partial>
 
-        <nav name="SideMenu">
-            <arg name="menu" type="string">help</arg>
+
+        <partial name="PageSideBar">
+            <partial name="PageSideBarMenu" menu_id="2"/>
+
             <nav name="QuickLinks" class="editable">
             </nav>
-        </nav>
+        </partial>
     </div>
 </div>
 

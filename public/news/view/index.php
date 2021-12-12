@@ -10,7 +10,7 @@
 
 <div class="container">
     <div class="row">
-        <main name="Standard" class="editable">
+        <partial name="PageMainContent">
 
             <partial name="News">
                 <arg name="id" type="int"><var name="id" source="get"/></arg>
@@ -25,8 +25,8 @@
                     </article>
                 </arg>
             </partial>
-
-        </main>
+            
+        </partial>
     </div>
 </div>
 

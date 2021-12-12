@@ -12,7 +12,7 @@
 
 <div class="container">
     <div class="row">
-        <main name="Standard" class="editable">
+        <partial name="PageMainContent" class="editable">
 
             <blockquote class="blockquote">
                 Check out the latest stories from Ouxsoft.
@@ -31,10 +31,9 @@
                     </arg>
                 </partial>
             </div>
+        </partial>
 
-        </main>
-
-        <nav name="SideMenu">
+        <partial name="PageSideBar">
             <nav name="QuickLinks" class="editable">
                 <arg name="menu" type="string">help</arg>
                 <a href="https://github.com/Ouxsoft/hoopless">
@@ -47,7 +46,7 @@
                     LHTML Standard
                 </a>
             </nav>
-        </nav>
+        </partial>
     </div>
 </div>
 

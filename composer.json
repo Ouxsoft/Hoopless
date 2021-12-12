@@ -94,7 +94,8 @@
             "assets:install %PUBLIC_DIR%": "symfony-cmd"
         },
         "post-install-cmd": [
-            "@auto-scripts"
+            "@auto-scripts",
+            "@migration-up"
         ],
         "post-update-cmd": [
             "@auto-scripts"
@@ -118,6 +119,9 @@
         ],
         "migration-diff" : [
             "vendor/bin/doctrine-migrations diff"
+        ],
+        "migration-up" : [
+            "vendor/bin/doctrine-migrations migrate"
         ],
         "clear-cache" : [
             "find var/cache/images/ -type f -not -name '.gitignore' -delete"

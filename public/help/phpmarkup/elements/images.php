@@ -14,14 +14,16 @@
 
 <div class="container">
     <div class="row">
-        <main name="Standard" class="editable">
+        <partial name="PageMainContent" class="editable">
 
             <h1>Images Element</h1>
             <p>
                 Images can be automatically resized for your need. Simply upload large images and have them resized on the fly.
             </p>
+            
             <h2>Parameters</h2>
             <p>Local images with parameters inside the request are automatically adjusted and cached.</p>
+            
             <h3>Resizing Image</h3>
             <p>Images can be resized on the fly using parameterized requests</p>
 
@@ -92,15 +94,14 @@
                 </div>
             </div>
 
+        </partial>
 
-        </main>
-
-        <nav name="SideMenu">
-            <arg name="menu" type="string">help</arg>
+        <partial name="PageSideBar">
+            <partial name="PageSideBarMenu" menu_id="2"/>
+            
             <nav name="QuickLinks" class="editable">
-
             </nav>
-        </nav>
+        </partial>
     </div>
 </div>
 

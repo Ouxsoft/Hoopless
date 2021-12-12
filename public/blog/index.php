@@ -12,7 +12,7 @@
 
 <div class="container">
     <div class="row">
-        <main name="Standard" class="editable">
+        <partial name="PageMainContent" class="editable">
 
             <blockquote class="blockquote">
                 Check out the latest stories from Ouxsoft.
@@ -32,17 +32,16 @@
                 </partial>
             </div>
 
-        </main>
+        </partial>
 
-        <nav name="SideMenu">
-            <arg name="menu" type="string">blog</arg>
+        <partial name="PageSideBar">
             <nav name="QuickLinks" class="editable">
                 <arg name="menu" type="string">help</arg>
                 <a href="https://www.scrumalliance.org/">
                     ScrumAlliance
                 </a>
             </nav>
-        </nav>
+        </partial>
     </div>
 </div>
 

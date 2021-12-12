@@ -31,6 +31,7 @@
         "codemirror/codemirror": "5.53.2",
         "components/jquery": "3.5.1",
         "doctrine/annotations": "^1.13",
+        "doctrine/doctrine-bundle": "^2.5",
         "doctrine/migrations": "*",
         "doctrine/orm": "^2.6.2",
         "laminas/laminas-validator": "2.14.4",

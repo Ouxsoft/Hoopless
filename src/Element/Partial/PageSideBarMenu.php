@@ -25,7 +25,8 @@ class PageSideBarMenu extends AbstractElement
     {
         $menu_id = $this->getArgByName('menu_id');
         if ($menu_id) {
-            $this->menu = $this->em->getConnection()->fetchAllAssociative('
+            $this->menu = $this->em->getConnection()->fetchAllAssociative(
+                '
                 SELECT `title`, IF(`menu_item`.`page_id` IS NULL, `menu_item`.`url`, `page`.`url`) AS `url`
                 FROM `menu_item`
                 LEFT JOIN `page` ON `menu_item`.`page_id` = `page`.`page_id`

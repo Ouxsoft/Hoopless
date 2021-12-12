@@ -42,4 +42,14 @@ class Menu
      * @ORM\Column(name="updated", type="datetime", nullable=false, options={"default"="CURRENT_TIMESTAMP"})
      */
     private $updated;
+
+    public function getName() : ?string
+    {
+        return $this->name;
+    }
+
+    public function getMenuId() : int
+    {
+        return $this->menuId;
+    }
 }

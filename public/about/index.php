@@ -3,27 +3,20 @@
         <title>About</title>
     </head>
     <body>
-        <header name="Standard">
-            <arg name="title" type="string">About</arg>
+        <partial name="PageHeader">
             <arg name="tier" type="int">2</arg>
+            <arg name="title" type="string">About</arg>
             <arg name="image" type="string">/assets/images/dimension/800x300/offset/0,-20/gallery/developer.jpg</arg>
             <arg name="page_id" type="int">2</arg>
-        </header>
+        </partial>
 
         <div class="container">
             <div class="row">
                 <main name="Standard" class="editable">
                     <h2>About Us</h2>
                     <p class="lead">
-                        At Ouxsoft, we make software for clients primarily on a referral bases. Apart from paying the bills
-                        we try to open source high quality packages.
-
-                        We believe building on top of open source
-                        software and in turn sharing back what we can.
-                    </p>
-
-                    <p class="lead">
-                        Our packages range from MVP to well supported and proven packages.
+                    At Ouxsoft, we make software for clients primarily on a referral bases. Apart from paying the bills
+                    we try to open source high quality packages.
                     </p>
 
                     <p class="lead-meta">Why we chose <b>Ouxsoft</b></p>

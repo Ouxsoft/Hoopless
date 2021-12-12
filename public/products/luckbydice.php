@@ -4,7 +4,8 @@
 </head>
 <body>
 
-<header name="Standard"/>
+<partial name="PageHeader">
+</partial>
 
 <div class="container">
     <div class="row">

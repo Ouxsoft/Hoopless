@@ -1818,12 +1818,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Ouxsoft/DynamoImage.git",
-                "reference": "5e7b7c73272c73e6271d4af5becbd9510c2f975e"
+                "reference": "6adda013999579c09463ceef07273e45cb3aada4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Ouxsoft/DynamoImage/zipball/5e7b7c73272c73e6271d4af5becbd9510c2f975e",
-                "reference": "5e7b7c73272c73e6271d4af5becbd9510c2f975e",
+                "url": "https://api.github.com/repos/Ouxsoft/DynamoImage/zipball/6adda013999579c09463ceef07273e45cb3aada4",
+                "reference": "6adda013999579c09463ceef07273e45cb3aada4",
                 "shasum": ""
             },
             "require": {
@@ -1846,7 +1846,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "mit"
+                "Apache License 2.0"
             ],
             "authors": [
                 {
@@ -1869,7 +1869,7 @@
                 "issues": "https://github.com/Ouxsoft/DynamoImage/issues",
                 "source": "https://github.com/Ouxsoft/DynamoImage/tree/main"
             },
-            "time": "2021-11-11T06:52:09+00:00"
+            "time": "2021-11-11T06:57:08+00:00"
         },
         {
             "name": "ouxsoft/luckbydice",

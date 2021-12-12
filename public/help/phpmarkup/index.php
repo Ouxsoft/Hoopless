@@ -4,7 +4,7 @@
 </head>
 <body>
 
-<header name="Standard"/>
+<partial name="PageHeader"/>
 
 <div class="container">
     <div class="row">
@@ -35,10 +35,6 @@
                 <tr>
                     <td><a href="/help/phpmarkup/elements/head">Head</a></td>
                     <td>&lt;head&gt;</td>
-                </tr>
-                <tr>
-                    <td><a href="/help/phpmarkup/elements/header">Header</a></td>
-                    <td>&lt;header&gt;</td>
                 </tr>
                 <tr>
                     <td><a href="/help/phpmarkup/elements/if-statement">If Statement</a></td>

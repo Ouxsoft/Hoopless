@@ -8,9 +8,10 @@
     <link href="/assets/css/codemirror/dracula.css" rel="stylesheet"/>
 
 </head>
+
 <body>
 
-<header name="Standard"/>
+<partial name="PageHeader"/>
 
 <div class="container">
     <div class="row">

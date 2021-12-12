@@ -4,9 +4,9 @@
 </head>
 <body>
 
-<header name="Standard">
+<partial name="PageHeader">
     <arg name="tier" type="int">1</arg>
-</header>
+</partial>
 
 
 <div class="hero-feature w-100" style="background-image:url('/assets/images/dimension/1260x630/offset/0,-20/gallery/teamwork.jpg');">

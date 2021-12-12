@@ -4,11 +4,11 @@
 </head>
 <body>
 
-<header name="Standard">
+<partial name="PageHeader">
     <arg name="title">Blogs</arg>
     <arg name="tier" type="int">2</arg>
     <arg name="image">/assets/images/dimension/800x300/offset/0,-20/gallery/developer.jpg</arg>
-</header>
+</partial>
 
 <div class="container">
     <div class="row">

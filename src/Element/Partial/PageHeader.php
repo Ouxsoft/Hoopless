@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace App\Element\Header;
+namespace App\Element\Partial;
 
 use App\Entity\News;
 use App\Entity\Blog;
@@ -18,19 +18,22 @@ use Doctrine\DBAL\DriverManager;
 use Ouxsoft\PHPMarkup\Element\AbstractElement;
 
 /**
- * Class Standard
- * @package LHTML\Element\Custom\Header
+ * Class PageHeader
+ * @package LHTML\Element\Partial\PageHeader
  */
-class Standard extends AbstractElement
+class PageHeader extends AbstractElement
 {
     public $separator = '/';
 
     private $pages = [];
+
     private $menu = [];
 
     public function onLoad()
     {
         // TODO move
+
+        // breadcrumbs
 
         // dynamic news
         if (isset($this->newsId)) {
@@ -86,7 +89,7 @@ class Standard extends AbstractElement
 
     public function onRender()
     {
-        return $this->view->render('/header.html.twig', [
+        return $this->view->render('/page-header.html.twig', [
             'page' => [
                 'tier' => $this->getArgByName('tier'),
                 'title' => $this->getArgByName('title'),

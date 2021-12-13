@@ -8,14 +8,14 @@
 
 <div class="container">
     <div class="row">
-        <main name="Standard" class="editable">
+        <partial name="PageMainContent" class="editable">
             <h1>Page Not Found</h1>
 
             <blockquote class="blockquote">
                 Oops! An Error Occurred.
             </blockquote>
 
-        </main>
+        </partial>
 
     </div>
 </div>

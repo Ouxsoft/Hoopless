@@ -1,0 +1,18 @@
+* text text=auto eol=lf
+*.sh eol=lf
+
+*.php diff=php
+
+# Denote all files that are truly binary and should not be modified.
+*.png binary
+*.jpg binary
+*.gif binary
+*.jpeg binary
+*.zip binary
+*.ttf binary
+*.woff binary
+*.woff2 binary
+*.eot binary
+*.ico binary
+*.mo binary
+*.pdf binary

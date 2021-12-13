@@ -18,6 +18,7 @@ class StylesheetController
     public function __construct()
     {
         // TODO: Add ACL
+        ini_set('max_execution_time', 120);
     }
 
     /**

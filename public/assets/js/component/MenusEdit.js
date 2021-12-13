@@ -8,6 +8,10 @@ class MenusList extends React.Component {
         };
     }
 
+    getMenuItemUrl(menuId) {
+        return "/backend/edit/menu-item/" + menuId;
+    }
+
     componentDidMount() {
         fetch("/api/menu")
             .then(res => res.json())
@@ -44,7 +48,7 @@ class MenusList extends React.Component {
                 <ul class="list-group">
                     {items.map(item => (
                         <li class="list-group-item" key={item.menuId}>
-                            {item.name}
+                            <a href={this.getMenuItemUrl(item.menuId)}>{item.name}</a>
                         </li>
                     ))}
                 </ul>

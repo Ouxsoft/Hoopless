@@ -6,8 +6,8 @@
     <script src="/assets/js/reactjs/react.development.js"></script>
     <script src="/assets/js/reactjs/react-dom.development.js"></script>
     <script src="/assets/js/reactjs/babel.min.js"></script>
-    <script type="text/babel" src="/assets/js/component/MenuEdit.js"></script>
-</head>
+    <script type="text/babel" src="/assets/js/component/MenusEdit.js"></script>
+</head> 
 <body>
 
 <partial name="PageHeader"/>

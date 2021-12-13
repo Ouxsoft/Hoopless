@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use ScssPhp\ScssPhp\Compiler;
 use ScssPhp\ScssPhp\Formatter\Compressed;
+use Exception;
 
 class StylesheetController
 {

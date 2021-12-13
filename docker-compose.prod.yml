@@ -45,6 +45,8 @@ services:
     restart: unless-stopped
     networks:
       - proxynet
+    depends_on:
+      - mysql
 
   mysql:
     container_name: ocms-mysql
@@ -59,6 +61,11 @@ services:
     restart: unless-stopped
     networks:
       - proxynet
+    healthcheck:
+        test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+        interval: 30s
+        timeout: 10s
+        retries: 5
 
 networks:
   proxynet:

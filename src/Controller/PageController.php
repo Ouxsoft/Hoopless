@@ -18,6 +18,7 @@ class PageController extends AbstractController
      */
     public function frontpage(PHPMarkup $phpmarkup): Response
     {
+        $phpmarkup->addProperty('url', '/');
         return new Response(
             $phpmarkup->parseFile('frontpage.php')
         );
@@ -30,6 +31,8 @@ class PageController extends AbstractController
      */
     public function loginpage(PHPMarkup $phpmarkup): Response
     {
+        $phpmarkup->addProperty('url', '/backend/login');
+
         return new Response(
             $phpmarkup->parseFile('backend/login.php')
         );
@@ -43,6 +46,8 @@ class PageController extends AbstractController
      */
     public function indexAction(PHPMarkup $phpmarkup, string $page): Response
     {
+        $phpmarkup->addProperty('url', '/' . $page);
+
         if (substr($page, -1) == '/') {
             return new RedirectResponse('/' . rtrim($page, '/'));
         }
@@ -71,6 +76,8 @@ class PageController extends AbstractController
     public function blogAction(PHPMarkup $phpmarkup, string $blogId): Response
     {
         $phpmarkup->addProperty('blogId', $blogId);
+        $phpmarkup->addProperty('url', '/blogs');
+
         return new Response(
             $phpmarkup->parseFile('blog/view/index.php')
         );
@@ -84,6 +91,8 @@ class PageController extends AbstractController
     public function newsAction(PHPMarkup $phpmarkup, string $newsId): Response
     {
         $phpmarkup->addProperty('newsId', $newsId);
+        $phpmarkup->addProperty('url', '/news');
+
         return new Response(
             $phpmarkup->parseFile('news/view/index.php')
         );

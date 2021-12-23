@@ -1,21 +1,12 @@
-<html lang="en">
-<head name="Standard">
-    <title>News and Events</title>
-</head>
-<body>
+<partial name="Page">
 
-<partial name="PageHeader">
-    <arg name="title">News</arg>
-    <arg name="tier" type="int">2</arg>
-    <arg name="image">/assets/images/dimension/800x300/offset/0,-20/gallery/developer.jpg</arg>
-</partial>
+    <partial name="PageHeader" title="News &amp; Events" tier="2" image="/assets/images/dimension/800x300/offset/0,-20/gallery/developer.jpg"/>
 
-<div class="container">
-    <div class="row">
+    <partial name="PageContent">
         <partial name="PageMainContent" class="editable">
 
             <blockquote class="blockquote">
-                Check out the latest stories from Ouxsoft.
+                Here is the latest from Ouxsoft.
             </blockquote>
 
             <div class="list-group">
@@ -31,25 +22,14 @@
                     </arg>
                 </partial>
             </div>
+
         </partial>
 
         <partial name="PageSideBar">
-            <nav name="QuickLinks" class="editable">
-                <arg name="menu" type="string">help</arg>
-                <a href="https://github.com/Ouxsoft/hoopless">
-                    Hoopless
-                </a>
-                <a href="https://github.com/Ouxsoft/PHPMarkup">
-                    PHPMarkup
-                </a>
-                <a href="https://github.com/Ouxsoft/LHTML">
-                    LHTML Standard
-                </a>
-            </nav>
+            <partial name="QuickLinks" class="editable">
+            </partial>
         </partial>
-    </div>
-</div>
+    </partial>
 
-<footer name="Standard"/>
-</body>
-</html>
+    <partial name="PageFooter" />
+</partial>

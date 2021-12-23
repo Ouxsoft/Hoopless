@@ -205,7 +205,7 @@ final class Version20210710053110 extends AbstractMigration
             'page',
             [
                 'page_id' => 19,
-                'page_parent_id' => 1,
+                'page_parent_id' => 18,
                 'title' => 'LuckByDice',
                 'url' => '/products/luckbydice',
             ]

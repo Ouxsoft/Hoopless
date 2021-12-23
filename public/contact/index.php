@@ -1,18 +1,9 @@
-<html lang="en">
-<head name="Standard">
-    <title>Contact Information</title>
-</head>
-<body>
+<partial name="Page">
 
-<partial name="PageHeader">
-    <arg name="title">Contact</arg>
-    <arg name="tier" type="int">2</arg>
-    <arg name="image">/assets/images/dimension/800x300/offset/0,-20/gallery/developer.jpg</arg>
-</partial>
+    <partial name="PageHeader" tier="2" title="Contact" image="/assets/images/dimension/800x300/offset/0,-20/gallery/developer.jpg" />
 
-<div class="container">
-    <div class="row">
-         <partial name="PageMainContent">
+    <partial name="PageContent">
+        <partial name="PageMainContent" class="editable">
             <h2>Contact Information</h2>
             <p>Lingering questions? Please ask! Below you will find our contact info.</p>
 
@@ -21,11 +12,13 @@
                 802-275-4533
             </blockquote>
         </partial>
-    </div>
-</div>
 
-<footer name="Standard"/>
-</body>
-</html>
+        <partial name="PageSideBar">
+            <partial name="QuickLinks" class="editable">
+            </partial>
+        </partial>
 
+    </partial>
 
+    <partial name="PageFooter" />
+</partial>

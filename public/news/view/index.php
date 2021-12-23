@@ -1,19 +1,11 @@
-<html lang="en">
-<head name="Standard">
-    <title>News</title>
-</head>
-<body>
+<partial name="Page">
 
+    <partial name="PageHeader" />
 
-<partial name="PageHeader"/>
-
-
-<div class="container">
-    <div class="row">
-        <partial name="PageMainContent">
-
+    <partial name="PageContent">
+        <partial name="PageMainContent" class="editable">
             <partial name="News">
-                <arg name="id" type="int"><var name="id" source="get"/></arg>
+                <arg name="id" type="int"><var name="id" source="get" /></arg>
                 <arg name="limit" type="int">1</arg>
                 <arg name="format">
                     <article class="mb-5">
@@ -25,11 +17,14 @@
                     </article>
                 </arg>
             </partial>
-            
-        </partial>
-    </div>
-</div>
 
-<footer name="Standard"/>
-</body>
-</html>
+        </partial>
+
+        <partial name="PageSideBar">
+            <partial name="QuickLinks" class="editable">
+            </partial>
+        </partial>
+    </partial>
+
+    <partial name="PageFooter" />
+</partial>

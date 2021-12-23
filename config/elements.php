@@ -114,19 +114,6 @@ return [
     ],
 
     /**
-     * Navigation
-     *
-     * skip elements with ancestors with the attribute process="false"
-     * e.g.
-     *  skip: <html process="false><nav></nav></html>
-     */
-    [
-        "name" => "Nav",
-        "xpath" => "//nav[not(ancestor::*[@process='false']|ancestor::main)]",
-        "class_name" => "App\Element\Nav\{name}"
-    ],
-
-    /**
      * Head
      *
      * only process head custom elements with a name attribute set

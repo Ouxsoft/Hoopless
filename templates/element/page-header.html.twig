@@ -1,6 +1,8 @@
-<!-- page header -->
-<header>
+<!-- page-header -->
+<header data-template="{{ page.tier }}">
+    
     {{ include('top-navbar.html.twig', top_navbar) }}
+
     {{ include('main-navbar.html.twig', main_navbar) }}
 
     {% if page.tier == 1 %}
@@ -17,7 +19,7 @@
             </aside>
         </div>
     {% elseif page.tier == 2 %}
-        <div class="hero-feature w-100 bg-dark mb-5">
+        <div class="hero-feature w-100 bg-dark">
             <div class="container-fluid pt-5 pb-5" style="background-size: cover; background-image:url('{{  page.image  }}');">
                 <div class="container">
                     <div class="row">

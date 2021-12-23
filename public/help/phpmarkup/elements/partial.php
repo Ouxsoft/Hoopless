@@ -21,8 +21,8 @@
         <partial name="PageSideBar">
             <partial name="PageSideBarMenu" menu_id="2"/>
             
-            <nav name="QuickLinks" class="editable">
-            </nav>
+            <partial name="QuickLinks" class="editable">
+            </partial>
         </partial>
     </div>
 </div>

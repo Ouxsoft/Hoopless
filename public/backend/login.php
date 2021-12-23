@@ -1,43 +1,41 @@
-<html lang="en">
-<head name="Standard">
-    <title>Sign In</title>
-</head>
-<body>
+<partial name="Page">
 
-<partial name="PageHeader"/>
+    <partial name="PageHeader" tier="2" title="My Account"
+             image="/assets/images/dimension/800x300/offset/0,-20/gallery/developer.jpg"/>
 
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-12 col-md-6 col-lg-4">
-            <div class="card">
-                <div class="card-header">
-                    <h3>Sign In</h3>
-                </div>
-                <div class="card-body">
+    <partial name="PageContent">
+        <partial name="PageMainContent">
+
+            <div class="row">
+                <div class="col-sm-12 col-md-6 align-self-center">
                     <form method="post" action="/auth/login">
-                        <div class="input-group form-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-user"></i></span>
-                            </div>
-                            <input type="text" class="form-control" placeholder="username" name="username"/>
+                        <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+
+                        <div class="form-floating">
+                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"/>
+                            <label for="floatingInput" autocomplete="false">Email address</label>
                         </div>
-                        <div class="input-group form-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-key"></i></span>
-                            </div>
-                            <input type="password" class="form-control" placeholder="password" name="password"/>
+                        <div class="form-floating">
+                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password"/>
+                            <label for="floatingPassword" autocomplete="false">Password</label>
                         </div>
-                        <div class="form-group">
-                            <input type="submit" value="Login" class="btn btn-primary float-right"/>
+
+                        <div class="checkbox mb-3">
+                            <label>
+                                <input type="checkbox" value="remember-me"/> Remember me
+                            </label>
                         </div>
+
+                        <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+
                     </form>
+
                 </div>
             </div>
-        </div>
-    </div>
-</div>
 
-<footer name="Standard"/>
-</body>
-</html>
+        </partial>
 
+    </partial>
+
+    <partial name="PageFooter"/>
+</partial>

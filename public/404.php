@@ -1,25 +1,14 @@
-<html lang="en">
-<head name="Standard">
-    <title>Page Not Found</title>
-</head>
-<body>
+<partial name="Page">
 
-<partial name="PageHeader"/>
+    <partial name="PageHeader" tier="2" title="Page Not Found"
+             image="/assets/images/dimension/800x300/offset/0,-20/gallery/developer.jpg"/>
 
-<div class="container">
-    <div class="row">
-        <partial name="PageMainContent" class="editable">
-            <h1>Page Not Found</h1>
+    <partial name="PageContent">
+        <blockquote class="blockquote">
+            Oops! We couldn't find the page you were looking for.
+        </blockquote>
 
-            <blockquote class="blockquote">
-                Oops! An Error Occurred.
-            </blockquote>
+    </partial>
 
-        </partial>
-
-    </div>
-</div>
-
-<footer name="Standard"/>
-</body>
-</html>
+    <partial name="PageFooter"/>
+</partial>

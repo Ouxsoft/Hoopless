@@ -1,21 +1,12 @@
-<html lang="en">
-<head name="Standard">
-    <title>Blogs</title>
-</head>
-<body>
+<partial name="Page">
 
-<partial name="PageHeader">
-    <arg name="title">Blogs</arg>
-    <arg name="tier" type="int">2</arg>
-    <arg name="image">/assets/images/dimension/800x300/offset/0,-20/gallery/developer.jpg</arg>
-</partial>
+    <partial name="PageHeader" tier="2" title="Blogs" image="/assets/images/dimension/800x300/offset/0,-20/gallery/developer.jpg" />
 
-<div class="container">
-    <div class="row">
+    <partial name="PageContent">
         <partial name="PageMainContent" class="editable">
 
             <blockquote class="blockquote">
-                Check out the latest stories from Ouxsoft.
+                Here are the latest blogs from our staff.
             </blockquote>
 
             <div class="list-group">
@@ -35,16 +26,14 @@
         </partial>
 
         <partial name="PageSideBar">
-            <nav name="QuickLinks" class="editable">
+            <partial name="QuickLinks" class="editable">
                 <arg name="menu" type="string">help</arg>
                 <a href="https://www.scrumalliance.org/">
                     ScrumAlliance
                 </a>
-            </nav>
+            </partial>
         </partial>
-    </div>
-</div>
+    </partial>
 
-<footer name="Standard"/>
-</body>
-</html>
+    <partial name="PageFooter" />
+</partial>

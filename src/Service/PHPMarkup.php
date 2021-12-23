@@ -8,6 +8,7 @@ use Ouxsoft\PHPMarkup\Factory\ProcessorFactory;
 use Twig\Environment;
 use Twig\Extension\StringLoaderExtension;
 use Twig\Loader\FilesystemLoader;
+use App\Model\UniqueArray;
 
 /**
  * Class AuthService
@@ -32,6 +33,18 @@ class PHPMarkup
         $appConfig['routines'] = require self::CONFIG_DIR . 'routines.php';
         $appConfig['database'] = require self::CONFIG_DIR . 'database.php';
 
+        // instantiate processor with configuration and set to parse buffer
+        $this->processor = ProcessorFactory::getInstance();
+
+        $this->processor->addRoutines($appConfig['routines']);
+        $this->processor->addElements($appConfig['elements']);
+
+        // setup twig
+        $loader = new FilesystemLoader(ROOT_DIR . 'templates/element');
+        $twig = new Environment($loader);
+        $twig->addExtension(new StringLoaderExtension());
+        $this->processor->addProperty('view', $twig);
+        
         // setup doctrine for database access
         $doctrineConfig = Setup::createAnnotationMetadataConfiguration(
             [self::ENTITY_DIR],
@@ -44,18 +57,21 @@ class PHPMarkup
             $appConfig['database'],
             $doctrineConfig
         );
-
-        // setup twig
-        $loader = new FilesystemLoader(ROOT_DIR . 'templates/element');
-        $twig = new Environment($loader);
-        $twig->addExtension(new StringLoaderExtension());
-
-        // instantiate processor with configuration and set to parse buffer
-        $this->processor = ProcessorFactory::getInstance();
-        $this->processor->addRoutines($appConfig['routines']);
-        $this->processor->addElements($appConfig['elements']);
-        $this->processor->addProperty('view', $twig);
         $this->processor->addProperty('em', $entityManager);
+
+        // stylesheets
+        $stylesheets = new UniqueArray();
+        $this->processor->addProperty('stylesheets', $stylesheets);
+
+        // include javascript
+        $javascripts = new UniqueArray();
+        $this->processor->addProperty('javascripts', $javascripts);
+
+        // inline scripts
+        $scripts = new UniqueArray();
+        $this->processor->addProperty('scripts', $scripts);
+
+
     }
 
     public function parseFile($filepath)

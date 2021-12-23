@@ -8,19 +8,18 @@
  * file that was distributed with this source code.
  */
 
-namespace App\Element\Footer;
+namespace App\Element\Partial;
 
 use Ouxsoft\PHPMarkup\Element\AbstractElement;
 
 /**
- * Class Standard
- * @package LHTML\Element\Custom\Footer
+ * Class PageFooter
  */
-class Standard extends AbstractElement
+class PageFooter extends AbstractElement
 {
     public function onRender()
     {
-        return $this->view->render('/footer.html.twig', [
+        return $this->view->render('/page-footer.html.twig', [
             'year' => date('Y'),
             'margin' => $this->getArgByName('margin')
         ]);

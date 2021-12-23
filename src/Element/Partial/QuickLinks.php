@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace App\Element\Nav;
+namespace App\Element\Partial;
 
 use Ouxsoft\PHPMarkup\Element\AbstractElement;
 use \SimpleXMLElement;

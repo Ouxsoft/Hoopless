@@ -1,29 +1,19 @@
-<html lang="en">
-<head name="Standard">
-    <title>Services</title>
-</head>
-<body>
+<partial name="Page">
 
-<partial name="PageHeader">
-    <arg name="title">Services</arg>
-    <arg name="tier" type="int">2</arg>
-    <arg name="image">/assets/images/dimension/800x300/offset/0,-20/gallery/developer.jpg</arg>
-</partial>
+    <partial name="PageHeader" tier="2" title="Services" 
+        image="/assets/images/dimension/800x300/offset/0,-20/gallery/developer.jpg"/>
 
-<div class="container">
-    <div class="row">
+    <partial name="PageContent">
         <partial name="PageMainContent" class="editable">
             <h2>Consulting</h2>
             <p>We are not accepting new clients currently.</p>
         </partial>
 
         <partial name="PageSideBar">
-            <nav name="QuickLinks" class="editable">
-            </nav>
-        </partial>
-    </div>
-</div>
+            <partial name="QuickLinks" class="editable">
+            </partial>
+        </partial> 
+    </partial>
 
-<footer name="Standard"/>
-</body>
-</html>
+    <partial name="PageFooter"/>
+</partial>

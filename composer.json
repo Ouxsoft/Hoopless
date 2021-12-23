@@ -98,11 +98,9 @@
             "@auto-scripts"
         ],
         "post-update-cmd": [
-            "@auto-scripts"
-        ],
-        "build": [
-            "@fix-code",
+            "@auto-scripts",
             "@build-packages",
+            "@fix-code",
             "@clear-cache"
         ],
         "build-packages" : [
@@ -127,9 +125,9 @@
             "find var/cache/images/ -type f -not -name '.gitignore' -delete"
         ],
         "fix-code": [
-            "php-cs-fixer fix --rules=@PSR2 --using-cache=no public/",
-            "php-cs-fixer fix --rules=@PSR2 --using-cache=no src/",
-            "php-cs-fixer fix --rules=@PSR2 --using-cache=no test/"
+            "php-cs-fixer fix --using-cache=no public/",
+            "php-cs-fixer fix --using-cache=no src/",
+            "php-cs-fixer fix --using-cache=no test/"
         ],
         "test": [
             "phpunit --colors=always"

@@ -16,6 +16,11 @@ class PageRevision
     const HIDDEN_STATUS = 0;
     const ACTIVE_STATUS = 1;
 
+    const STATUSES = [
+        self::HIDDEN_STATUS,
+        self::ACTIVE_STATUS
+    ];
+
     /**
      * @var int
      *
@@ -47,7 +52,7 @@ class PageRevision
     private $status;
 
     /**
-     * @var string
+     * @var string used to generate meta authors
      *
      * @ORM\Column(name="user_id", type="integer", length=11, nullable=false)
      */

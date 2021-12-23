@@ -1,13 +1,8 @@
-<html lang="en">
-<head name="Standard">
-    <title>PHPMarkup</title>
-</head>
-<body>
+<partial name="Page">
 
-<partial name="PageHeader"/>
+    <partial name="PageHeader"/>
 
-<div class="container">
-    <div class="row">
+    <partial name="PageContent">
         <partial name="PageMainContent" class="editable">
             <h1>PHPMarkup</h1>
 
@@ -25,28 +20,12 @@
                     <td>&lt;code&gt;</td>
                 </tr>
                 <tr>
-                    <td><a href="/help/phpmarkup/elements/examples">Examples</a></td>
-                    <td>&lt;example&gt;</td>
-                </tr>
-                <tr>
-                    <td><a href="/help/phpmarkup/elements/footer">Footer</a></td>
-                    <td>&lt;footer&gt;</td>
-                </tr>
-                <tr>
-                    <td><a href="/help/phpmarkup/elements/head">Head</a></td>
-                    <td>&lt;head&gt;</td>
-                </tr>
-                <tr>
                     <td><a href="/help/phpmarkup/elements/if-statement">If Statement</a></td>
                     <td>&lt;if&gt;</td>
                 </tr>
                 <tr>
                     <td><a href="/help/phpmarkup/elements/images">Images</a></td>
                     <td>&lt;img&gt;</td>
-                </tr>
-                <tr>
-                    <td><a href="/help/phpmarkup/elements/nav">Navigation</a></td>
-                    <td>&lt;nav&gt;</td>
                 </tr>
                 <tr>
                     <td><a href="/help/phpmarkup/elements/partial">Partial</a></td>
@@ -75,16 +54,24 @@
 
         </partial>
 
-
         <partial name="PageSideBar">
-            <partial name="PageSideBarMenu" menu_id="2"/>
-
-            <nav name="QuickLinks" class="editable">
-            </nav>
+            <partial name="QuickLinks" class="editable">
+                <arg name="menu" type="string">help</arg>
+                <a href="https://github.com/Ouxsoft/hoopless">
+                    Hoopless
+                </a>
+                <a href="https://github.com/Ouxsoft/PHPMarkup">
+                    PHPMarkup
+                </a>
+                <a href="https://getbootstrap.com/docs/5.0/getting-started/introduction">
+                    Bootstrap CSS
+                </a>
+                <a href="https://github.com/Ouxsoft/LHTML">
+                    LHTML Standard
+                </a>
+            </partial>
         </partial>
-    </div>
-</div>
+    </partial>
 
-<footer name="Standard"/>
-</body>
-</html>
+    <partial name="PageFooter" />
+</partial>

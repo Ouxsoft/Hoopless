@@ -44,6 +44,20 @@ class Page
     private $url;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="keywords", type="string", length=255, nullable=true)
+     */
+    private $keywords;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="template", type="string", length=255, nullable=true)
+     */
+    private $template;
+    
+    /**
      * @var DateTime
      *
      * @ORM\Column(name="created", type="datetime", nullable=false, options={"default"="CURRENT_TIMESTAMP"})

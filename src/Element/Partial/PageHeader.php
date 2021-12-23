@@ -60,8 +60,7 @@ class PageHeader extends AbstractElement
         $menu_id = $this->getArgByName('menu_id');
         if ($menu_id) {
             $this->menu = $this->em->getConnection()->fetchAllAssociative(
-                '
-                SELECT `title`, IF(`menu_item`.`page_id` IS NULL, `menu_item`.`url`, `page`.`url`) AS `url`
+                'SELECT `title`, IF(`menu_item`.`page_id` IS NULL, `menu_item`.`url`, `page`.`url`) AS `url`
                 FROM `menu_item`
                 LEFT JOIN `page` ON `menu_item`.`page_id` = `page`.`page_id`
                 WHERE `menu_id` = ?
@@ -72,8 +71,7 @@ class PageHeader extends AbstractElement
 
         // TODO improve by passing router
         $this->pages = $this->em->getConnection()->fetchAllAssociative(
-            '
-           SELECT `title`, `url`, IF(`url`=?, 1, 0) AS `active` 
+            'SELECT `title`, `url`, IF(`url`=?, 1, 0) AS `active` 
            FROM ( 
            SELECT @r AS _id,
             (SELECT @r := page_parent_id 
@@ -83,10 +81,7 @@ class PageHeader extends AbstractElement
             JOIN page T2 ON T1._id = T2.page_id 
            ORDER BY T1.lvl DESC 
            LIMIT 10',
-            [
-                $_SERVER['REQUEST_URI'],
-                $_SERVER['REQUEST_URI']
-            ]
+            [$this->url, $this->url]
         );
     }
 
@@ -94,8 +89,8 @@ class PageHeader extends AbstractElement
     {
         return $this->view->render('/page-header.html.twig', [
             'page' => [
+                'title' => $this->getArgByName('title'), 
                 'tier' => $this->getArgByName('tier'),
-                'title' => $this->getArgByName('title'),
                 'image' => $this->getArgByName('image'),
             ],
             'menu' => $this->menu,

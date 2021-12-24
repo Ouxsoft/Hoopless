@@ -1,9 +1,9 @@
 <!-- page-side-bar-menu -->
 <nav class="nav flex-column" style="border-left: 5px solid #343a40">
     <ul class="nav flex-column">
-        {% for item in menu %}
+        {% for link in menu %}
         <li class="nav-item">
-            <a href="{{ item.url }}" class="nav-item nav-link">{{ item.title|e }}</a>
+            <a href="{{ link.url }}" class="nav-item nav-link">{{ link.title|e }}</a>
         </li>
         {% endfor %}
     </ul>

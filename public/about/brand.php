@@ -2,7 +2,7 @@
 <partial name="Page">
 
     <partial name="PageHeader"/>
-    
+
     <partial name="PageContent">
         <partial name="PageMainContent" class="editable">
             <h1>Branding</h1>

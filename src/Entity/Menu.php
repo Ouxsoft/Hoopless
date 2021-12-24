@@ -2,7 +2,10 @@
 
 namespace App\Entity;
 
+use App\Entity\MenuItem;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use DateTime;
 
 /**
  * Menu
@@ -30,6 +33,12 @@ class Menu
     private $name;
 
     /**
+     * @ORM\OneToMany(targetEntity="MenuItem", mappedBy="menu")
+     * @ORM\JoinColumn(name="menu_id", referencedColumnName="menu_id")
+     */
+    private $items;
+
+    /**
      * @var DateTime
      *
      * @ORM\Column(name="created", type="datetime", nullable=false, options={"default"="CURRENT_TIMESTAMP"})
@@ -43,6 +52,16 @@ class Menu
      */
     private $updated;
 
+    public function __construct()
+    {
+        $this->items = new ArrayCollection();
+    }
+
+    public function getItems()
+    {
+        return $this->items;
+    }
+
     public function getName() : ?string
     {
         return $this->name;
@@ -52,4 +71,5 @@ class Menu
     {
         return $this->menuId;
     }
+
 }

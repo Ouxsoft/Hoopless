@@ -1,13 +1,8 @@
-<html lang="en">
-<head name="Standard">
-    <title>PHPMarkup</title>
-</head>
-<body>
+<partial name="Page">
 
-<partial name="PageHeader"/>
+    <partial name="PageHeader"/>
 
-<div class="container">
-    <div class="row">
+    <partial name="PageContent">
         <partial name="PageMainContent" class="editable">
 
             <h1>Partial Element</h1>
@@ -19,14 +14,8 @@
         </partial>
 
         <partial name="PageSideBar">
-            <partial name="PageSideBarMenu" menu_id="2"/>
-            
-            <partial name="QuickLinks" class="editable">
-            </partial>
         </partial>
-    </div>
-</div>
+    </partial>
 
-<footer name="Standard"/>
-</body>
-</html>
+    <partial name="PageFooter" />
+</partial>

@@ -1,32 +1,22 @@
 
-<html lang="en">
-<head name="Standard">
-    <title>Menu Editor</title>
-        
+<partial name="Page">
+
     <script src="/assets/js/reactjs/react.development.js"></script>
     <script src="/assets/js/reactjs/react-dom.development.js"></script>
     <script src="/assets/js/reactjs/babel.min.js"></script>
     <script type="text/babel" src="/assets/js/component/MenusEdit.js"></script>
-</head> 
-<body>
 
-<partial name="PageHeader"/>
+    <partial name="PageHeader"/>
 
-<div class="container">
-    <div class="row">
+    <partial name="PageContent">
         <partial name="PageMainContent">
-            <h1>Menu Editor</h1>
+            <h1 class="mb-5">Menu Editor</h1>
 
             <div id="menuList"></div>
 
         </partial>
 
-    </div>
-</div>
+    </partial>
 
-<footer name="Standard"/>
-
-</body>
-</html>
-
-
+    <partial name="PageFooter"/>
+</partial>

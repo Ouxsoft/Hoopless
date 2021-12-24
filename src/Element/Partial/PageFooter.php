@@ -20,8 +20,8 @@ class PageFooter extends AbstractElement
     public function onRender()
     {
         return $this->view->render('/page-footer.html.twig', [
-            'year' => date('Y'),
-            'margin' => $this->getArgByName('margin')
+            'site_name' =>  $_ENV['SITE_NAME'],
+            'year' => date('Y')
         ]);
     }
 }

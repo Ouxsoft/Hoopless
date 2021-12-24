@@ -96,6 +96,7 @@ class PageHeader extends AbstractElement
             'menu' => $this->menu,
             'top_navbar' => [],
             'main_navbar' => [
+                'site_name' => $_ENV['SITE_NAME'],
                 'username' => $_SESSION['username'] ?? null
             ],
             'breadcrumbs' => [

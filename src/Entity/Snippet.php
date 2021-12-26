@@ -4,7 +4,6 @@ namespace App\Entity;
 
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
-use Exception;
 
 /**
  * Snippet
@@ -45,53 +44,37 @@ class Snippet
      */
     private $updated;
 
-    /**
-     * @return int
-     */
-    public function getSnippetId() : int
+    public function getSnippetId(): int
     {
         return $this->snippetId;
     }
 
-    /**
-     * @return string
-     */
-    public function getBody() : string
+    public function getBody(): string
     {
         return $this->body;
     }
 
-    /**
-     * @param string $body
-     */
-    public function setBody(string $body) : void
+    public function setBody(string $body): void
     {
         $this->body = $body;
     }
 
-    /**
-     * @return DateTime
-     */
-    public function getCreated() : DateTime
+    public function getCreated(): DateTime
     {
         return $this->created;
-        ;
     }
-    public function setCreated() : void
+
+    public function setCreated(): void
     {
         $this->created = new DateTime('now');
     }
 
-    /**
-     * @return DateTime
-     */
-    public function getUpdated() : DateTime
+    public function getUpdated(): DateTime
     {
         return $this->updated;
-        ;
     }
 
-    public function setUpdated() : void
+    public function setUpdated(): void
     {
         $this->updated = new DateTime('now');
     }

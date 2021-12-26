@@ -17,6 +17,7 @@ class Footer extends AbstractElement
     public function onRender()
     {
         $year = date('Y');
+
         return <<<HTML
 <footer>
     <hr/>

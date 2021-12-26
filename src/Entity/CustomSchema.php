@@ -6,7 +6,7 @@ use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * ContentTypeSchema
+ * ContentTypeSchema.
  *
  * @ORM\Table(name="content_type_schema")
  * @ORM\Entity

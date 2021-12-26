@@ -13,21 +13,17 @@ namespace App\Element;
 use Ouxsoft\PHPMarkup\Element\AbstractElement;
 
 /**
- * Class Variable
- * @package PHPMarkup\Modules
+ * Class Variable.
  */
 class Variable extends AbstractElement
 {
-
     /**
-     * Parses and calls other specialized format methods
+     * Parses and calls other specialized format methods.
      *
-     * @param string $format
      * @return mixed
      */
     public function format(string $format)
     {
-
         // set format function and parameters
         preg_match('/(?<function>\w+)\((?<parameters>[^)]+)/', $format, $matches);
         $function = $matches['function'];
@@ -59,11 +55,7 @@ class Variable extends AbstractElement
     }
 
     /**
-     * Sub string replace
-     *
-     * @param string $string
-     * @param array $parameters
-     * @return string
+     * Sub string replace.
      */
     private function substr(string $string, array $parameters): string
     {
@@ -71,11 +63,7 @@ class Variable extends AbstractElement
     }
 
     /**
-     * String replace
-     *
-     * @param string $string
-     * @param array $parameters
-     * @return string
+     * String replace.
      */
     private function str_replace(string $string, array $parameters): string
     {
@@ -83,26 +71,25 @@ class Variable extends AbstractElement
     }
 
     /**
-     * Get variable named
+     * Get variable named.
      *
-     * @param string $name
      * @param string $tag
+     *
      * @return mixed|null
      */
     private function getVariableFromAncestor(string $name, ?string $tag = '*'): ?string
     {
         foreach ($this->ancestors as $ancestor) {
-            if (array_key_exists($name, $ancestor['properties']) && (($tag == '*') || ($tag == $ancestor['tag']))) {
+            if (array_key_exists($name, $ancestor['properties']) && (('*' == $tag) || ($tag == $ancestor['tag']))) {
                 return $ancestor['properties'][$name];
             }
         }
+
         return null;
     }
 
     /**
-     * on render call
-     *
-     * @return string
+     * on render call.
      */
     public function onRender(): string
     {
@@ -129,8 +116,8 @@ class Variable extends AbstractElement
 
         // TODO for some reason first get variable name contains a "?" fix.
 
-        if ($variable === null) {
-            return '<!-- Variable "' . $this->getArgByName('name') . '" Not Found -->';
+        if (null === $variable) {
+            return '<!-- Variable "'.$this->getArgByName('name').'" Not Found -->';
         }
 
         if (isset($this->format)) {

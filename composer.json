@@ -100,7 +100,6 @@
         "post-update-cmd": [
             "@auto-scripts",
             "@build-packages",
-            "@fix-code",
             "@clear-cache"
         ],
         "build-packages" : [

@@ -68,7 +68,6 @@ class News
      */
     private $body;
 
-
     /**
      * @var DateTime
      *
@@ -83,144 +82,107 @@ class News
      */
     private $updated;
 
-
-    /**
-     * @return int
-     */
-    public function getNewsId() : int
+    public function getNewsId(): int
     {
         return $this->newsId;
     }
 
-    /**
-     * @return string
-     */
-    public function getTitle() : string
+    public function getTitle(): string
     {
         return $this->title;
     }
 
-    /**
-     * @param string $title
-     */
-    public function setTitle(string $title) : void
+    public function setTitle(string $title): void
     {
         $this->title = $title;
     }
 
-    /**
-     * @return DateTime
-     */
-    public function getPublishDate() : DateTime
+    public function getPublishDate(): DateTime
     {
         return $this->publishDate;
     }
 
     /**
-     * @param string $publishDate A date/time string.
+     * @param string $publishDate a date/time string
+     *
      * @throws Exception
-     * @link https://www.php.net/manual/en/datetime.formats.php
+     *
+     * @see https://www.php.net/manual/en/datetime.formats.php
      */
-    public function setPublishDate(string $publishDate) : void
+    public function setPublishDate(string $publishDate): void
     {
         $this->publishDate = new DateTime($publishDate);
     }
 
-    /**
-     * @return DateTime
-     */
-    public function getDisplayStartDate() : DateTime
+    public function getDisplayStartDate(): DateTime
     {
         return $this->displayStartDate;
     }
 
     /**
-     * @param string $displayStartDate A date/time string.
+     * @param string $displayStartDate a date/time string
+     *
      * @throws Exception
-     * @link https://www.php.net/manual/en/datetime.formats.php
+     *
+     * @see https://www.php.net/manual/en/datetime.formats.php
      */
-    public function setDisplayStartDate(string $displayStartDate) : void
+    public function setDisplayStartDate(string $displayStartDate): void
     {
         $this->displayStartDate = new DateTime($displayStartDate);
     }
 
-    /**
-     * @return DateTime
-     */
-    public function getDisplayEndDate() : DateTime
+    public function getDisplayEndDate(): DateTime
     {
         return $this->displayEndDate;
     }
 
     /**
-     * @param string $displayEndDate A date/time string.
+     * @param string $displayEndDate a date/time string
+     *
      * @throws Exception
-     * @link https://www.php.net/manual/en/datetime.formats.php
+     *
+     * @see https://www.php.net/manual/en/datetime.formats.php
      */
-    public function setDisplayEndDate(string $displayEndDate) : void
+    public function setDisplayEndDate(string $displayEndDate): void
     {
         $this->displayEndDate = new DateTime($displayEndDate);
     }
 
-    /**
-     * @return string
-     */
-    public function getSummary() : string
+    public function getSummary(): string
     {
         return $this->summary;
     }
 
-    /**
-     * @param string $summary
-     */
-    public function setSummary(string $summary) : void
+    public function setSummary(string $summary): void
     {
         $this->summary = $summary;
     }
 
-    /**
-     * @return string
-     */
-    public function getBody() : string
+    public function getBody(): string
     {
         return $this->body;
     }
 
-    /**
-     * @param string $body
-     */
-    public function setBody(string $body) : void
+    public function setBody(string $body): void
     {
         $this->body = $body;
     }
 
-    /**
-     * @return DateTime
-     */
     public function getCreated(): DateTime
     {
         return $this->created;
     }
 
-    /**
-     * @param DateTime $created
-     */
     public function setCreated(DateTime $created): void
     {
         $this->created = $created;
     }
 
-    /**
-     * @return DateTime
-     */
     public function getUpdated(): DateTime
     {
         return $this->updated;
     }
 
-    /**
-     * @param DateTime $updated
-     */
     public function setUpdated(DateTime $updated): void
     {
         $this->updated = $updated;

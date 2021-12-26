@@ -2,14 +2,13 @@
 
 namespace App\Entity;
 
-use App\Entity\MenuItem;
+use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-use DateTime;
 
 /**
  * Menu
- * A individual menu
+ * A individual menu.
  *
  * @ORM\Table(name="menu")
  * @ORM\Entity
@@ -62,14 +61,13 @@ class Menu
         return $this->items;
     }
 
-    public function getName() : ?string
+    public function getName(): ?string
     {
         return $this->name;
     }
 
-    public function getMenuId() : int
+    public function getMenuId(): int
     {
         return $this->menuId;
     }
-
 }

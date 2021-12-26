@@ -57,97 +57,61 @@ class Country
      */
     private $updated;
 
-    /**
-     * @return int
-     */
     public function getCountryId(): int
     {
         return $this->countryId;
     }
 
-    /**
-     * @param int $countryId
-     */
     public function setCountryId(int $countryId): void
     {
         $this->countryId = $countryId;
     }
 
-    /**
-     * @return string
-     */
     public function getName(): string
     {
         return $this->name;
     }
 
-    /**
-     * @param string $name
-     */
     public function setName(string $name): void
     {
         $this->name = $name;
     }
 
-    /**
-     * @return string
-     */
     public function getTwoLetterCode(): string
     {
         return $this->twoLetterCode;
     }
 
-    /**
-     * @param string $twoLetterCode
-     */
     public function setTwoLetterCode(string $twoLetterCode): void
     {
         $this->twoLetterCode = $twoLetterCode;
     }
 
-    /**
-     * @return string
-     */
     public function getThreeLetterCode(): string
     {
         return $this->threeLetterCode;
     }
 
-    /**
-     * @param string $threeLetterCode
-     */
     public function setThreeLetterCode(string $threeLetterCode): void
     {
         $this->threeLetterCode = $threeLetterCode;
     }
 
-    /**
-     * @return DateTime
-     */
     public function getCreated(): DateTime
     {
         return $this->created;
     }
 
-    /**
-     * @param DateTime $created
-     */
     public function setCreated(DateTime $created): void
     {
         $this->created = $created;
     }
 
-    /**
-     * @return DateTime
-     */
     public function getUpdated(): DateTime
     {
         return $this->updated;
     }
 
-    /**
-     * @param DateTime $updated
-     */
     public function setUpdated(DateTime $updated): void
     {
         $this->updated = $updated;

@@ -19,7 +19,7 @@
             </div>
         </div>
 
-        <aside class="info-box bg-secondary shadow p-4 d-none d-lg-block editable">
+        <aside class="info-box bg-primary shadow p-4 d-none d-lg-block editable">
             <partial name="News">
                 <arg name="limit" type="int">1</arg>
                 <arg name="format">
@@ -61,7 +61,7 @@
                             <img src="/assets/images/hoopless/logo.png" alt="PHPMarkup"/>
                             <br/>
                             <br/>
-                            <a href="/help/phpmarkup" class="btn btn-primary mb-4">
+                            <a href="/help/phpmarkup" class="btn btn-secondary mb-4">
                                 Learn More <span class="arrow-cta__icon" aria-hidden="true"></span>
                             </a>
                         </div>
@@ -78,7 +78,7 @@
                             <img src="/assets/images/luckbydice/logo.png" alt="LuckByDice"/>
                             <br/>
                             <br/>
-                            <a href="https://github.com/Ouxsoft/LuckByDice" class="btn btn-primary">
+                            <a href="https://github.com/Ouxsoft/LuckByDice" class="btn btn-secondary">
                                 Learn More <span class="arrow-cta__icon" aria-hidden="true"></span>
                             </a>
                         </div>

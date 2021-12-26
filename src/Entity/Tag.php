@@ -4,11 +4,10 @@ namespace App\Entity;
 
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
-use Laminas\Validator\Date;
 
 /**
  * Tag
- * A tag is used to label/identify content
+ * A tag is used to label/identify content.
  *
  * @ORM\Table(name="tag")
  * @ORM\Entity
@@ -45,54 +44,37 @@ class Tag
      */
     private $updated;
 
-    /**
-     * @return int
-     */
-    public function getTagId() : int
+    public function getTagId(): int
     {
         return $this->tagId;
     }
 
-    /**
-     * @return string
-     */
-    public function getTitle() : string
+    public function getTitle(): string
     {
         return $this->title;
     }
 
-    /**
-     * @param string $title
-     */
-    public function setTitle(string $title) : void
+    public function setTitle(string $title): void
     {
         $this->title = $title;
     }
 
-    /**
-     * @return DateTime
-     */
-    public function getCreated() : DateTime
+    public function getCreated(): DateTime
     {
         return $this->created;
-        ;
     }
 
-    public function setCreated() : void
+    public function setCreated(): void
     {
         $this->created = new DateTime('now');
     }
 
-    /**
-     * @return DateTime
-     */
-    public function getUpdated() : DateTime
+    public function getUpdated(): DateTime
     {
         return $this->updated;
-        ;
     }
 
-    public function setUpdated() : void
+    public function setUpdated(): void
     {
         $this->updated = new DateTime('now');
     }

@@ -23,7 +23,6 @@ final class Version20210710053110 extends AbstractMigration
         $this->addSql('ALTER TABLE page CHANGE page_parent_id page_parent_id INT DEFAULT NULL');
     }
 
-
     public function postUp(Schema $schema): void
     {
         $this->connection->insert(
@@ -90,7 +89,6 @@ final class Version20210710053110 extends AbstractMigration
                 'url' => '/help/phpmarkup/elements/footer',
             ]
         );
-
 
         $this->connection->insert(
             'page',

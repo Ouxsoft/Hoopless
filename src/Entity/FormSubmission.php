@@ -4,11 +4,10 @@ namespace App\Entity;
 
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
-use Exception;
 
 /**
  * FormSubmission
- * Form submission
+ * Form submission.
  *
  * @ORM\Table(name="form_submission")
  * @ORM\Entity
@@ -45,65 +44,41 @@ class FormSubmission
      */
     private $updated;
 
-    /**
-     * @return int
-     */
     public function getFormSubmissionId(): int
     {
         return $this->formSubmissionId;
     }
 
-    /**
-     * @param int $formSubmissionId
-     */
     public function setFormSubmissionId(int $formSubmissionId): void
     {
         $this->formSubmissionId = $formSubmissionId;
     }
 
-    /**
-     * @return int
-     */
     public function getFormId(): int
     {
         return $this->formId;
     }
 
-    /**
-     * @param int $formId
-     */
     public function setFormId(int $formId): void
     {
         $this->formId = $formId;
     }
 
-    /**
-     * @return DateTime
-     */
     public function getCreated(): DateTime
     {
         return $this->created;
     }
 
-    /**
-     * @param DateTime $created
-     */
     public function setCreated(DateTime $created): void
     {
         $this->created = $created;
     }
 
-    /**
-     * @return DateTime
-     */
     public function getUpdated(): DateTime
     {
         return $this->updated;
     }
 
-    /**
-     * @param DateTime $updated
-     */
     public function setUpdated(DateTime $updated): void
     {
         $this->updated = $updated;

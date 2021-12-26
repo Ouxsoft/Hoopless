@@ -13,7 +13,7 @@ namespace App\Element\Partial;
 use Ouxsoft\PHPMarkup\Element\AbstractElement;
 
 /**
- * Class PageSideBar
+ * Class PageSideBar.
  */
 class PageSideBar extends AbstractElement
 {
@@ -21,7 +21,7 @@ class PageSideBar extends AbstractElement
     {
         return $this->view->render('/page-side-bar.html.twig', [
             'html' => $this->innerText(),
-            'links' => $links ?? []
+            'links' => $links ?? [],
         ]);
     }
 }

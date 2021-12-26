@@ -13,15 +13,14 @@ namespace App\Element\Head;
 use Ouxsoft\PHPMarkup\Element\AbstractElement;
 
 /**
- * Class Standard
- * @package LHTML\Element\Custom\Head
+ * Class Standard.
  */
 class Standard extends AbstractElement
 {
     public function onRender()
     {
         return $this->view->render('head.html.twig', [
-            'html' => $this->innerText()
+            'html' => $this->innerText(),
         ]);
     }
 }

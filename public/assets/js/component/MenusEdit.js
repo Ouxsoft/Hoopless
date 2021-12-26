@@ -7,7 +7,8 @@ class MenusList extends React.Component {
             menus: [],
             menuId: null,
             menuName: null,
-            menuItems: null
+            menuItems: null,
+            editItemId: 2
         };
 
     }
@@ -23,6 +24,7 @@ class MenusList extends React.Component {
                         menuId: null,
                         menuName: null,
                         menuItems: null,
+                        editItemId: 2
                     });
                 },
                 (error) => {
@@ -64,6 +66,12 @@ class MenusList extends React.Component {
             )
     }
 
+    removeMenuItem(menuItemId){
+        this.setState({menuItems: this.state.menuItems.filter(function(item) {
+            return item.menuItemId !== menuItemId
+        })});
+    }
+
     renderBrowseMenus() {
         const { menus, menuId } = this.state;
 
@@ -81,17 +89,42 @@ class MenusList extends React.Component {
     }
 
     renderMenuItems(){
-        const { menuItems } = this.state;
+        const { menuItems, editItemId } = this.state;
 
-        return menuItems.map(item => (
-            <a href="#" class="list-group-item list-group-item-action" aria-current="true" key={item.menuItemId}>
-                <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">{item.displayTitle}</h5>
-                    <small>{item.daysAgo} days ago <i class="far fa-calendar"></i></small>
-                </div>
-                <p class="mb-1"><a href={item.displayUrl}>{item.displayUrl}</a></p>
-            </a>
-        ));
+        return menuItems.map(item => {
+            if (item.menuItemId === editItemId) {
+                return (
+                    <div class="list-group-item list-group-item-action" aria-current="true" key={item.menuItemId}>
+                        <div class="form-floating">
+                            <input id="displayTitle" class="form-control form-control-lg" type="text" value={item.displayTitle}/>
+                            <label for="displayTitle" class="form-label">Title</label>
+                        </div>
+                        <div class="form-floating">
+                            <input id="displayUrl" class="form-control form-control-lg" type="text" name="displayUrl" value={item.displayUrl} />
+
+                            <label for="displayUrl" class="form-label">Url</label>
+                        </div>
+                    </div>
+                );
+            } else {
+                return (
+                    <a href="#" class="list-group-item list-group-item-action" aria-current="true" onClick={() => this.setState({editItemId: item.menuItemId})} key={item.menuItemId}>
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">{item.displayTitle}</h5>
+                            <small>{item.daysAgo} days ago <i class="far fa-calendar"></i></small>
+                        </div>
+                        <div class="d-flex w-100 justify-content-between">
+                            <a href={item.displayUrl}>{item.displayUrl}</a>
+                            <small>
+                                <button class="btn btn-link text-danger pull-end" onClick={ () => this.removeMenuItem(item.menuItemId) }>
+                                    Remove
+                                </button>
+                            </small>
+                        </div>
+                    </a>
+                );
+            }
+        });
     }
 
     renderEditMenu(){
@@ -125,17 +158,7 @@ class MenusList extends React.Component {
         if(menuId !== null){
             return (
                 <div>
-
-                    <div class="row">
-                        <div class="col">
-                            <h2>Edit menu</h2>
-                        </div>
-                        <div class="col text-end">
-                            <button class="btn btn-link text-danger pull-end" onClick={() => this.setState({menuId: null})}>
-                                Cancel <i class="fas fa-times"></i>
-                            </button>
-                        </div>
-                    </div>
+                    <h2>Edit menu</h2>
 
                     {this.renderEditMenu()}
 
@@ -150,13 +173,11 @@ class MenusList extends React.Component {
                     <nav class="navbar navbar-light bg-light border mt-4 mb-4">
                         <div class="container-fluid">
                             <form class="d-flex">
+                                <button type="button" class="btn btn-secondary me-2" onClick={() => this.setState({menuId: null})}>Cancel</button>
                                 <button type="button" class="btn btn-primary">Save Changes</button>
                             </form>
                         </div>
                     </nav>
-
-
-
                 </div>
             );
         }

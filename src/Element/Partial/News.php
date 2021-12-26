@@ -42,12 +42,12 @@ class News extends AbstractElement
                 'news_id' => $news->getNewsId(),
                 'title' => $news->getTitle(),
                 'body' => $news->getBody(),
-                'publish_date' => $news->getPublishDate()->format('F d, Y')
+                'publish_date' => $news->getPublishDate()->format('F d, Y'),
             ];
         }
 
         return $this->view->render('news.html.twig', [
-            'stories' => $stories
+            'stories' => $stories,
         ]);
     }
 }

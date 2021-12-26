@@ -2,8 +2,6 @@
 
 namespace App\Controller;
 
-use App\Service\PHPMarkup;
-
 use DOMDocument;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,13 +14,13 @@ class SitemapController extends AbstractController
     private $sitemaps = [
         'sitemap.pages.xml',
         'sitemap.blogs.xml',
-        'sitemap.news.xml'
+        'sitemap.news.xml',
     ];
 
     /**
-     * Generates the root sitemap which contains links to sub urlset sitemaps
+     * Generates the root sitemap which contains links to sub urlset sitemaps.
+     *
      * @Route("/sitemap.xml", priority=5, name="sitemap", methods={"GET"})
-     * @return Response
      */
     public function sitemapIndex(): Response
     {
@@ -57,11 +55,10 @@ class SitemapController extends AbstractController
 
     /**
      * @Route("/sitemap.pages.xml", priority=5, name="pagesUrlSet", methods={"GET"})
-     * @return Response
      */
-    public function pagesUrlSet() : Response
+    public function pagesUrlSet(): Response
     {
-        $xml = new DOMDocument("1.0", "UTF-8");
+        $xml = new DOMDocument('1.0', 'UTF-8');
         $xml->formatOutput = true;
         $xml->preserveWhiteSpace = false;
         $xmlUrlSet = $xml->createElement('urlset');
@@ -72,7 +69,7 @@ class SitemapController extends AbstractController
 
         // todo get all pages
         $pages = [
-            ""
+            '',
         ];
         foreach ($pages as $page) {
             $url = <<<XML

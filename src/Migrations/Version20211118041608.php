@@ -23,7 +23,7 @@ final class Version20211118041608 extends AbstractMigration
         $this->addSql('CREATE TABLE blog (blog_id INT AUTO_INCREMENT NOT NULL, title VARCHAR(255) DEFAULT NULL, publish_date DATETIME DEFAULT NULL, display_start_date DATETIME DEFAULT NULL, display_end_date DATETIME DEFAULT NULL, summary VARCHAR(255) DEFAULT NULL, body TEXT NOT NULL, created DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL, updated DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL, PRIMARY KEY(blog_id)) DEFAULT CHARACTER SET utf8 COLLATE `utf8_unicode_ci` ENGINE = InnoDB');
     }
 
-    public function postUp(Schema $schema) : void
+    public function postUp(Schema $schema): void
     {
         $this->connection->insert('blog', [
             'publish_date' => '2021-11-17',
@@ -85,9 +85,7 @@ final class Version20211118041608 extends AbstractMigration
                 Use the information provided to help your team and software improve.
                 </p>
             HTML
-
         ]);
-
 
         $this->connection->insert('blog', [
             'publish_date' => '2021-11-17',
@@ -100,7 +98,6 @@ final class Version20211118041608 extends AbstractMigration
                 if all current occurrences of the variable feature the slash, the future is unknown.
                 </p>
             HTML
-
         ]);
     }
 

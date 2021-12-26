@@ -47,7 +47,7 @@ final class Version20210710031913 extends AbstractMigration
         $this->addSql('CREATE TABLE user_permission (user_permission_id INT AUTO_INCREMENT NOT NULL, user_id INT NOT NULL, permission_id INT NOT NULL, PRIMARY KEY(user_permission_id)) DEFAULT CHARACTER SET utf8 COLLATE `utf8_unicode_ci` ENGINE = InnoDB');
     }
 
-    public function postUp(Schema $schema) : void
+    public function postUp(Schema $schema): void
     {
         $this->connection->insert('news', [
             'publish_date' => '2021-04-29',
@@ -58,14 +58,14 @@ final class Version20210710031913 extends AbstractMigration
             allow developers to write powerful applications, PHPMarkup is a library that allows 
             curators to use markup to safely instantiate PHP classes and invoke methods.</p>
             <p>Other than that, PHPMarkup has become a relatively stable library. It is actually amazing how well it
-             helps us run sites and minimize the code we need to maintain.</p>'
+             helps us run sites and minimize the code we need to maintain.</p>',
         ]);
         $this->connection->insert('news', [
             'publish_date' => '2020-08-08',
             'title' => 'LHTML Elements Behind Hoopless',
             'body' => '<p>We take a quick look at the if statment, variable, and redacted LHTML elements used in Hoopless.</p>
            <iframe width="560" height="315" src="https://www.youtube.com/embed/2w9vNNlsSRg" frameborder="0" 
-           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>'
+           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>',
         ]);
         $this->connection->insert('news', [
             'publish_date' => '2020-08-07',
@@ -73,7 +73,7 @@ final class Version20210710031913 extends AbstractMigration
             'body' => '<p>See how easy it is to create your own custom LHTML elements using Hoopless. In this example we create 
         our own custom Alert elements that acts as a CSS abstraction layer to generate Bootstrap 4 alerts.</p>
        <iframe width="560" height="315" src="https://www.youtube.com/embed/HxZ2qitsUUs" frameborder="0"
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>'
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>',
         ]);
         $this->connection->insert('news', [
             'publish_date' => '2020-08-07',
@@ -81,7 +81,7 @@ final class Version20210710031913 extends AbstractMigration
             'body' => '<p>LHTML works to make communicate the elements of design between team members while still delivering top 
             notch HTML to the web browser</p>
            <iframe width="560" height="315" src="https://www.youtube.com/embed/L4u2qh5Elco" frameborder="0" 
-           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>'
+           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen"></iframe>',
         ]);
         $this->connection->insert('news', [
             'publish_date' => '2019-01-28',
@@ -93,7 +93,7 @@ final class Version20210710031913 extends AbstractMigration
            <p>Watch what we intend to do about it.</p>
            <iframe width="560" height="315" src="https://www.youtube.com/embed/6zEXsQKPL_M" frameborder="0" 
            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-           allowfullscreen="allowfullscreen"></iframe>'
+           allowfullscreen="allowfullscreen"></iframe>',
         ]);
     }
 

@@ -13,7 +13,7 @@
             <h2>Open Source Software</h2>
             <p>We try to open source as many high quality packages as we can.</p>
 
-            <p>Thank you JetBrains for granting Ouxsoft free product licenses for our open source software.</p>
+            <p>Thank you JetBrains for granting us free product licenses for our open source software.</p>
             <img src="https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.png" height="100" width="100" alt="JetBrains Logo (Main) logo."/>
 
             <h2>Clientele</h2>

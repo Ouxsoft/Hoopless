@@ -10,16 +10,12 @@
 
 namespace App\Element\Partial;
 
-use App\Entity\News;
 use App\Entity\Blog;
-use Doctrine\ORM\EntityManager;
-use Doctrine\ORM\Tools\Setup;
-use Doctrine\DBAL\DriverManager;
+use App\Entity\News;
 use Ouxsoft\PHPMarkup\Element\AbstractElement;
 
 /**
- * Class PageHeader
- * @package LHTML\Element\Partial\PageHeader
+ * Class PageHeader.
  */
 class PageHeader extends AbstractElement
 {
@@ -42,7 +38,8 @@ class PageHeader extends AbstractElement
 
             $this->pages[] = ['title' => 'Home', 'url' => '/', 'active' => 0];
             $this->pages[] = ['title' => 'News', 'url' => '/news', 'active' => 0];
-            $this->pages[] = ['title' => $news->getTitle(), 'url' => '/news/' . $news->getNewsId(), 'active' => 1];
+            $this->pages[] = ['title' => $news->getTitle(), 'url' => '/news/'.$news->getNewsId(), 'active' => 1];
+
             return;
         }
 
@@ -53,7 +50,8 @@ class PageHeader extends AbstractElement
 
             $this->pages[] = ['title' => 'Home', 'url' => '/', 'active' => 0];
             $this->pages[] = ['title' => 'Blog', 'url' => '/blog', 'active' => 0];
-            $this->pages[] = ['title' => $blog->getTitle(), 'url' => '/blog/' . $blog->getBlogId(), 'active' => 1];
+            $this->pages[] = ['title' => $blog->getTitle(), 'url' => '/blog/'.$blog->getBlogId(), 'active' => 1];
+
             return;
         }
 
@@ -89,7 +87,7 @@ class PageHeader extends AbstractElement
     {
         return $this->view->render('/page-header.html.twig', [
             'page' => [
-                'title' => $this->getArgByName('title'), 
+                'title' => $this->getArgByName('title'),
                 'tier' => $this->getArgByName('tier'),
                 'image' => $this->getArgByName('image'),
             ],
@@ -97,12 +95,12 @@ class PageHeader extends AbstractElement
             'top_navbar' => [],
             'main_navbar' => [
                 'site_name' => $_ENV['SITE_NAME'],
-                'username' => $_SESSION['username'] ?? null
+                'username' => $_SESSION['username'] ?? null,
             ],
             'breadcrumbs' => [
                 'pages' => $this->pages,
-                'frontpage' => $this->getArgByName('frontpage')
-            ]
+                'frontpage' => $this->getArgByName('frontpage'),
+            ],
         ]);
     }
 }

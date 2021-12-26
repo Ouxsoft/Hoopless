@@ -10,11 +10,6 @@
 
 namespace App\Element\Partial;
 
-use App\Entity\News;
-use App\Entity\Blog;
-use Doctrine\ORM\EntityManager;
-use Doctrine\ORM\Tools\Setup;
-use Doctrine\DBAL\DriverManager;
 use Ouxsoft\PHPMarkup\Element\AbstractElement;
 
 class PageSideBarMenu extends AbstractElement

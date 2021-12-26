@@ -4,12 +4,11 @@ namespace App\Entity;
 
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
-use Exception;
 
 /**
  * Event
  * A event a thing that happens, especially one of importance.
- * Additional values such as placeId, YouTube URL, reoccurrence/repeat, are stored in EventMeta
+ * Additional values such as placeId, YouTube URL, reoccurrence/repeat, are stored in EventMeta.
  *
  * @ORM\Table(name="event")
  * @ORM\Entity

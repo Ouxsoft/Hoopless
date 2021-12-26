@@ -13,17 +13,16 @@ namespace App\Element\Example;
 use Ouxsoft\PHPMarkup\Element\AbstractElement;
 
 /**
- * Class MarkupInjection
- * @package LHTML\Element\Custom\Example
+ * Class MarkupInjection.
  */
 class MarkupInjection extends AbstractElement
 {
     public function onRender()
     {
-        if ($this->xml == 'Example Domain') {
+        if ('Example Domain' == $this->xml) {
             return '<h1 style="color:#F00">Spoofed :-)</h1>';
         }
 
-        return '<h1>' . $this->xml . '</h1>';
+        return '<h1>'.$this->xml.'</h1>';
     }
 }

@@ -5,7 +5,7 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * ContentTypeGroupAccess
+ * ContentTypeGroupAccess.
  *
  * @ORM\Table(name="content_type_group_access")
  * @ORM\Entity

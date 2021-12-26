@@ -13,8 +13,7 @@ namespace App\Element\Example;
 use Ouxsoft\PHPMarkup\Element\AbstractElement;
 
 /**
- * Class UserProfile
- * @package LHTML\Element\Custom\Example
+ * Class UserProfile.
  */
 class UserProfile extends AbstractElement
 {
@@ -22,8 +21,8 @@ class UserProfile extends AbstractElement
     public $first_name = 'Jane';
     public $last_name = 'Doe';
 
-    public function onRender() : string
+    public function onRender(): string
     {
-        return '<div class="user_profile">' . $this->xml . '</div>';
+        return '<div class="user_profile">'.$this->xml.'</div>';
     }
 }

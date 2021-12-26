@@ -42,12 +42,12 @@ class Blog extends AbstractElement
                 'blog_id' => $blog->getBlogId(),
                 'title' => $blog->getTitle(),
                 'body' => $blog->getBody(),
-                'publish_date' => $blog->getPublishDate()->format('F d, Y')
+                'publish_date' => $blog->getPublishDate()->format('F d, Y'),
             ];
         }
 
         return $this->view->render('blog.html.twig', [
-            'blogs' => $blogs
+            'blogs' => $blogs,
         ]);
     }
 }

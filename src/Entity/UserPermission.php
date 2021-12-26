@@ -5,7 +5,7 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * ContentTypeEntity
+ * ContentTypeEntity.
  *
  * @ORM\Table(name="user_permission")
  * @ORM\Entity
@@ -43,34 +43,22 @@ class UserPermission
         return $this->userPermissionId;
     }
 
-    /**
-     * @return int
-     */
-    public function getUserId() : int
+    public function getUserId(): int
     {
         return $this->userId;
     }
 
-    /**
-     * @param int $userId
-     */
-    public function setUserId(int $userId) : void
+    public function setUserId(int $userId): void
     {
         $this->userId = $userId;
     }
 
-    /**
-     * @return int
-     */
-    public function getPermissionId() : int
+    public function getPermissionId(): int
     {
         return $this->permissionId;
     }
 
-    /**
-     * @param int $permissionId
-     */
-    public function setPermissionId(int $permissionId) : void
+    public function setPermissionId(int $permissionId): void
     {
         $this->permissionId = $permissionId;
     }

@@ -13,10 +13,9 @@ namespace App\Element;
 use Ouxsoft\PHPMarkup\Element\AbstractElement;
 
 /**
- * Class Hyperlink
+ * Class Hyperlink.
  *
  * Replaces <a> tag links on website
- *
  */
 class Hyperlink extends AbstractElement
 {
@@ -24,7 +23,7 @@ class Hyperlink extends AbstractElement
     private $alt;
 
     /**
-     * Returns an Hyperlink tag with HREF attribute similar to original DomElement
+     * Returns an Hyperlink tag with HREF attribute similar to original DomElement.
      *
      * TODO: look up href_id to allows for pages to be moved without updating link
      *

@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * User
- * A user is a Person who can login to the system
+ * A user is a Person who can login to the system.
  *
  * @ORM\Table(name="user")
  * @ORM\Entity
@@ -66,10 +66,7 @@ class User
         return $this->password;
     }
 
-    /**
-     * @param string $password
-     */
-    public function setPassword(string $password) : void
+    public function setPassword(string $password): void
     {
         $this->password = $password;
     }
@@ -82,10 +79,7 @@ class User
         return $this->firstName;
     }
 
-    /**
-     * @param string $firstName
-     */
-    public function setFirstName(string $firstName) : void
+    public function setFirstName(string $firstName): void
     {
         $this->firstName = $firstName;
     }
@@ -98,14 +92,10 @@ class User
         return $this->lasttName;
     }
 
-    /**
-     * @param string $lastName
-     */
-    public function setLastName(string $lastName) : void
+    public function setLastName(string $lastName): void
     {
         $this->firstName = $lastName;
     }
-
 
     /**
      * @return string
@@ -115,10 +105,7 @@ class User
         return $this->emailAddress;
     }
 
-    /**
-     * @param string $emailAddress
-     */
-    public function setEmailAddress(string $emailAddress) : void
+    public function setEmailAddress(string $emailAddress): void
     {
         $this->emailAddress = $emailAddress;
     }

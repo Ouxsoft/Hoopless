@@ -4,11 +4,10 @@ namespace App\Entity;
 
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
-use Exception;
 
 /**
  * FormMeta
- * Form meta data values
+ * Form meta data values.
  *
  * @ORM\Table(name="form_meta")
  * @ORM\Entity
@@ -81,9 +80,6 @@ class FormMeta
         return $this->formMetaId;
     }
 
-    /**
-     * @return int
-     */
     public function getFormId(): int
     {
         return $this->formId;
@@ -97,9 +93,6 @@ class FormMeta
         $this->formId = $formId;
     }
 
-    /**
-     * @return string
-     */
     public function getMetaKey(): string
     {
         return $this->metaKey;
@@ -113,9 +106,6 @@ class FormMeta
         $this->metaKey = $metaKey;
     }
 
-    /**
-     * @return string
-     */
     public function getMetaValue(): string
     {
         return $this->metaValue;
@@ -129,65 +119,41 @@ class FormMeta
         $this->metaValue = $metaValue;
     }
 
-    /**
-     * @return int
-     */
     public function getParentFormMetaId(): int
     {
         return $this->parentFormMetaId;
     }
 
-    /**
-     * @param int $parentFormMetaId
-     */
     public function setParentFormMetaId(int $parentFormMetaId): void
     {
         $this->parentFormMetaId = $parentFormMetaId;
     }
 
-    /**
-     * @return int
-     */
     public function getOrder(): int
     {
         return $this->order;
     }
 
-    /**
-     * @param int $order
-     */
     public function setOrder(int $order): void
     {
         $this->order = $order;
     }
 
-    /**
-     * @return DateTime
-     */
     public function getCreated(): DateTime
     {
         return $this->created;
     }
 
-    /**
-     * @param DateTime $created
-     */
     public function setCreated(DateTime $created): void
     {
         $this->created = $created;
     }
 
-    /**
-     * @return DateTime
-     */
     public function getUpdated(): DateTime
     {
         return $this->updated;
     }
 
-    /**
-     * @param DateTime $updated
-     */
     public function setUpdated(DateTime $updated): void
     {
         $this->updated = $updated;

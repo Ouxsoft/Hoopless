@@ -2,25 +2,26 @@
 
 namespace App\Controller;
 
-use Ouxsoft\DynamoImage\DynamoImage;
 use Exception;
+use Ouxsoft\DynamoImage\DynamoImage;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 class ImageController
 {
     /**
      * @Route("/assets/images/{url}", priority=10, name="imageRoute", requirements={"url"=".+"})
+     *
      * @param $url
-     * @return Response
+     *
      * @throws Exception
      */
-    public function indexAction($url) : Response
+    public function indexAction($url): Response
     {
         $image = new DynamoImage();
-        $image->setCacheDir(__DIR__ . '/../../var/cache/images/');
-        $image->setAssetDir(__DIR__ . '/../../public/assets/images/');
+        $image->setCacheDir(__DIR__.'/../../var/cache/images/');
+        $image->setAssetDir(__DIR__.'/../../public/assets/images/');
         $image->setURL($url);
 
         /*
@@ -43,9 +44,10 @@ class ImageController
             $response->headers->set('Content-Type', $image->getContentType());
             $response->sendHeaders();
             $response->setContent($image->getContent());
+
             return $response;
         } catch (Exception $e) {
-            return new Response('Resizing image failed' . $e);
+            return new Response('Resizing image failed'.$e);
         }
     }
 }

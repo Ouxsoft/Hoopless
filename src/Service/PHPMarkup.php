@@ -2,26 +2,25 @@
 
 namespace App\Service;
 
+use App\Model\UniqueArray;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Tools\Setup;
 use Ouxsoft\PHPMarkup\Factory\ProcessorFactory;
 use Twig\Environment;
 use Twig\Extension\StringLoaderExtension;
 use Twig\Loader\FilesystemLoader;
-use App\Model\UniqueArray;
 
 /**
- * Class AuthService
- * @package App\Service
+ * Class AuthService.
  */
 class PHPMarkup
 {
     // TODO remove trailing slash
-    const PAGE_DIR = __DIR__ . '/../../public/';
-    const CONFIG_DIR = __DIR__ . '/../../config/';
-    const ENTITY_DIR = __DIR__ . '/../../src/Entity/';
-    const ASSET_DIR = __DIR__ . '/../../public/assets/';
-    const TEMPLATE_DIR = __DIR__ . '/../../templates/';
+    public const PAGE_DIR = __DIR__.'/../../public/';
+    public const CONFIG_DIR = __DIR__.'/../../config/';
+    public const ENTITY_DIR = __DIR__.'/../../src/Entity/';
+    public const ASSET_DIR = __DIR__.'/../../public/assets/';
+    public const TEMPLATE_DIR = __DIR__.'/../../templates/';
 
     private $processor;
 
@@ -29,9 +28,9 @@ class PHPMarkup
     {
         // load config
         $appConfig = [];
-        $appConfig['elements'] = require self::CONFIG_DIR . 'elements.php';
-        $appConfig['routines'] = require self::CONFIG_DIR . 'routines.php';
-        $appConfig['database'] = require self::CONFIG_DIR . 'database.php';
+        $appConfig['elements'] = require self::CONFIG_DIR.'elements.php';
+        $appConfig['routines'] = require self::CONFIG_DIR.'routines.php';
+        $appConfig['database'] = require self::CONFIG_DIR.'database.php';
 
         // instantiate processor with configuration and set to parse buffer
         $this->processor = ProcessorFactory::getInstance();
@@ -40,11 +39,11 @@ class PHPMarkup
         $this->processor->addElements($appConfig['elements']);
 
         // setup twig
-        $loader = new FilesystemLoader(ROOT_DIR . 'templates/element');
+        $loader = new FilesystemLoader(ROOT_DIR.'templates/element');
         $twig = new Environment($loader);
         $twig->addExtension(new StringLoaderExtension());
         $this->processor->addProperty('view', $twig);
-        
+
         // setup doctrine for database access
         $doctrineConfig = Setup::createAnnotationMetadataConfiguration(
             [self::ENTITY_DIR],
@@ -70,13 +69,11 @@ class PHPMarkup
         // inline scripts
         $scripts = new UniqueArray();
         $this->processor->addProperty('scripts', $scripts);
-
-
     }
 
     public function parseFile($filepath)
     {
-        return $this->processor->parseFile(self::PAGE_DIR . $filepath);
+        return $this->processor->parseFile(self::PAGE_DIR.$filepath);
     }
 
     public function addProperty($propertyName, $propertyValue)

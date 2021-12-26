@@ -13,9 +13,7 @@ namespace App\Element\Example;
 use Ouxsoft\PHPMarkup\Element\AbstractElement;
 
 /**
- * Class UserProfile
- *
- * @package PHPMarkup\Modules\Widgets
+ * Class UserProfile.
  */
 class GroupProfile extends AbstractElement
 {
@@ -28,6 +26,6 @@ class GroupProfile extends AbstractElement
      */
     public function onRender()
     {
-        return '<div class="group_profile">' . $this->xml . '</div>';
+        return '<div class="group_profile">'.$this->xml.'</div>';
     }
 }

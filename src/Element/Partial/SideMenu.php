@@ -13,8 +13,7 @@ namespace App\Element\Partial;
 use Ouxsoft\PHPMarkup\Element\AbstractElement;
 
 /**
- * Class HeaderDefault
- * @package PHPMarkup\Modules\Custom\Partials
+ * Class HeaderDefault.
  */
 class SideMenu extends AbstractElement
 {
@@ -30,6 +29,7 @@ class SideMenu extends AbstractElement
             '/help/phpmarkup/' => 'PHPMarkup',
         ],
     ];
+
     public function onRender()
     {
         $menu = $this->getArgByName('menu');
@@ -40,7 +40,7 @@ class SideMenu extends AbstractElement
 
         return $this->view->render('/sidemenu.html.twig', [
             'html' => $this->innerText(),
-            'links' => $links ?? []
+            'links' => $links ?? [],
         ]);
     }
 }

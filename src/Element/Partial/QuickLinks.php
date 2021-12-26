@@ -11,19 +11,18 @@
 namespace App\Element\Partial;
 
 use Ouxsoft\PHPMarkup\Element\AbstractElement;
-use \SimpleXMLElement;
+use SimpleXMLElement;
 
 /**
- * Class QuickLinks
- * @package LHTML\Element\Custom\Nav
+ * Class QuickLinks.
  */
 class QuickLinks extends AbstractElement
 {
     public function onRender()
     {
         $xml = new SimpleXMLElement(
-            '<root><nav class="nav nav-pills flex-column border">' .
-            $this->innerText() .
+            '<root><nav class="nav nav-pills flex-column border">'.
+            $this->innerText().
             '</nav></root>'
         );
 
@@ -38,7 +37,7 @@ class QuickLinks extends AbstractElement
 
         return $this->view->render('quick-links.html.twig', [
             'html' => $xml->nav->saveXML(),
-            'links' => $links
+            'links' => $links,
         ]);
     }
 }

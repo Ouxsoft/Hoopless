@@ -13,8 +13,7 @@ namespace App\Element\Partial;
 use Ouxsoft\PHPMarkup\Element\AbstractElement;
 
 /**
- * Class Page
- * @package LHTML\Element\Partial\Page
+ * Class Page.
  */
 class Page extends AbstractElement
 {
@@ -40,17 +39,17 @@ class Page extends AbstractElement
     public function onRender()
     {
         return $this->view->render('/page.html.twig', [
-            'title' => $this->info['title'] ?? NULL,
-            'page_id' => $this->info['page_id'] ?? NULL,
-            'template' => $this->info['template'] ?? NULL,
+            'title' => $this->info['title'] ?? null,
+            'page_id' => $this->info['page_id'] ?? null,
+            'template' => $this->info['template'] ?? null,
             'meta' => [
-                'keywords' => $this->info['keywords'] ?? NULL,
-                'author' => $this->info['author'] ?? NULL,        
+                'keywords' => $this->info['keywords'] ?? null,
+                'author' => $this->info['author'] ?? null,
             ],
-            'stylesheets' => $this->stylesheets->get() ?? NULL,
-            'javascripts' => $this->javascripts->get() ?? NULL,
-            'scripts' => $this->scripts->get() ?? NULL,
-            'html' => $this->innerText()
+            'stylesheets' => $this->stylesheets->get() ?? null,
+            'javascripts' => $this->javascripts->get() ?? null,
+            'scripts' => $this->scripts->get() ?? null,
+            'html' => $this->innerText(),
         ]);
     }
 }

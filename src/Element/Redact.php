@@ -19,14 +19,12 @@ class Redact extends AbstractElement
     // TODO: same sort of class would be useful for a search / highlighter function.
 
     /**
-     * Renders with chars not between tag replaced with $char
+     * Renders with chars not between tag replaced with $char.
      *
      * a black and white list of tags must consider redact element may be between tags
-     *
-     * @return string
      */
     public function onRender(): string
     {
-        return preg_replace("/<[^>]+>(*SKIP)(*F)|./", $this->char. '<wbr/>', $this->xml);
+        return preg_replace('/<[^>]+>(*SKIP)(*F)|./', $this->char.'<wbr/>', $this->xml);
     }
 }

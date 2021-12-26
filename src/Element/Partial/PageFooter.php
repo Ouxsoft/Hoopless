@@ -13,7 +13,7 @@ namespace App\Element\Partial;
 use Ouxsoft\PHPMarkup\Element\AbstractElement;
 
 /**
- * Class PageFooter
+ * Class PageFooter.
  */
 class PageFooter extends AbstractElement
 {
@@ -38,9 +38,9 @@ class PageFooter extends AbstractElement
     public function onRender()
     {
         return $this->view->render('/page-footer.html.twig', [
-            'site_name' =>  $_ENV['SITE_NAME'],
+            'site_name' => $_ENV['SITE_NAME'],
             'year' => date('Y'),
-            'menu' => $this->menu
+            'menu' => $this->menu,
         ]);
     }
 }

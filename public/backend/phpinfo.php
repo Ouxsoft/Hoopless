@@ -1,6 +1,6 @@
 <?php
 
-die(); // temp until ACLs added
+exit(); // temp until ACLs added
 
 ob_end_clean();
 echo phpinfo();

@@ -13,17 +13,16 @@ namespace App\Element\Example;
 use Ouxsoft\PHPMarkup\Element\AbstractElement;
 
 /**
- * Class HelloWorld
- * @package LHTML\Element\Custom\Example
+ * Class HelloWorld.
  */
 class HelloWorld extends AbstractElement
 {
     /**
-     * Prints Hello, World
+     * Prints Hello, World.
      *
      * @return mixed|string
      */
-    public function onRender() : string
+    public function onRender(): string
     {
         return 'Hello, World';
     }

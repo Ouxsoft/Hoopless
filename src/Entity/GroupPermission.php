@@ -5,7 +5,7 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * ContentTypeEntity
+ * ContentTypeEntity.
  *
  * @ORM\Table(name="group_permission")
  * @ORM\Entity
@@ -43,34 +43,22 @@ class GroupPermission
         return $this->groupPermissionId;
     }
 
-    /**
-     * @return int
-     */
-    public function getGroupId() : int
+    public function getGroupId(): int
     {
         return $this->groupId;
     }
 
-    /**
-     * @param int $groupId
-     */
-    public function setGroupId(int $groupId) : void
+    public function setGroupId(int $groupId): void
     {
         $this->groupId = $groupId;
     }
 
-    /**
-     * @return int
-     */
-    public function getPermissionId() : int
+    public function getPermissionId(): int
     {
         return $this->permissionId;
     }
 
-    /**
-     * @param int $permissionId
-     */
-    public function setPermissionId(int $permissionId) : void
+    public function setPermissionId(int $permissionId): void
     {
         $this->permissionId = $permissionId;
     }

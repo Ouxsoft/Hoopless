@@ -15,7 +15,7 @@
             <h2>Conditions</h2>
             <p>An if statement toggle is based on one or more conditional checks that are supplied as arguments.</p>
 
-            <p>The example conditions are based on the server's current time <?php echo date('F j, Y, g:i a');?></p>
+            <p>The example conditions are based on the server's current time <?php echo date('F j, Y, g:i a'); ?></p>
 
             <h3>Time</h3>
             <p>A condition based on the time of day.</p>

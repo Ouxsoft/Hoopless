@@ -27,6 +27,7 @@ class Alert extends AbstractElement
                 $class = 'alert-info';
                 break;
         }
+
         return <<<HTML
 <!-- Alert -->
 <div class="alert {$class}" role="alert">

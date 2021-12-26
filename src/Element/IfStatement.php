@@ -10,13 +10,12 @@
 
 namespace App\Element;
 
-use Ouxsoft\PHPMarkup\Element\AbstractElement;
-
 use DateTime;
 use Exception;
+use Ouxsoft\PHPMarkup\Element\AbstractElement;
 
 /**
- * Class IfStatement
+ * Class IfStatement.
  *
  * Used to determine whether innerHTML is omitted from rendered output
  *
@@ -27,9 +26,7 @@ use Exception;
 class IfStatement extends AbstractElement
 {
     /**
-     * Allow NOW to be define by constant for unit testing and debugging purposes
-     *
-     * @return string
+     * Allow NOW to be define by constant for unit testing and debugging purposes.
      */
     public function now(): string
     {
@@ -37,14 +34,12 @@ class IfStatement extends AbstractElement
     }
 
     /**
-     * Renders output if condition toggle is true
+     * Renders output if condition toggle is true.
      *
-     * @return string
      * @throws Exception
      */
     public function onRender(): string
     {
-
         /*
          * To allow for modular conditions this section contains conditional checks based on optional arguments.
          * If optional arguments are passed, the check is ran and if any check fails an empty string is returned.
@@ -62,28 +57,28 @@ class IfStatement extends AbstractElement
         $else = $this->getArgByName('else');
 
         // allow a condition based on time_start and time_end
-        if (($time_start !== null) && ($time_end !== null)) {
+        if ((null !== $time_start) && (null !== $time_end)) {
             if (!$this->isTimeNowBetween($time_start, $time_end)) {
                 $pass = false;
             }
         }
 
         // allow a condition based on date_start and date_end
-        if (($date_start !== null) && ($date_end !== null)) {
+        if ((null !== $date_start) && (null !== $date_end)) {
             if (!$this->isDateNowBetween($date_start, $date_end)) {
                 $pass = false;
             }
         }
 
         // allow a condition based on day_of_week
-        if ($day_of_week !== null) {
+        if (null !== $day_of_week) {
             if (!$this->isNowSameDayOfWeek($day_of_week)) {
                 $pass = false;
             }
         }
 
         // allow a condition based on datetime
-        if (($datetime_start !== null) && ($datetime_end !== null)) {
+        if ((null !== $datetime_start) && (null !== $datetime_end)) {
             if (!$this->isDatetimeNowBetween($datetime_start, $datetime_end)) {
                 $pass = false;
             }
@@ -103,7 +98,7 @@ class IfStatement extends AbstractElement
         }
 
         // return else xml child
-        if ($else !== null) {
+        if (null !== $else) {
             return $else;
         }
 
@@ -112,16 +107,14 @@ class IfStatement extends AbstractElement
     }
 
     /**
-     * Check if now is between start and end time
+     * Check if now is between start and end time.
      *
-     * @param string $time_start
-     * @param string $time_end
      * @return bool
+     *
      * @throws Exception
      */
     public function isTimeNowBetween(string $time_start, string $time_end)
     {
-
         // start
         $start = date_parse($time_start);
         $start_datetime = new DateTime($this->now());
@@ -144,16 +137,14 @@ class IfStatement extends AbstractElement
     }
 
     /**
-     * Checks if date is between start and end date
+     * Checks if date is between start and end date.
      *
-     * @param string $date_start
-     * @param string $date_end
      * @return bool
+     *
      * @throws Exception
      */
     public function isDateNowBetween(string $date_start, string $date_end)
     {
-
         // start
         $start = date_parse($date_start);
         $start_datetime = new DateTime();
@@ -184,11 +175,10 @@ class IfStatement extends AbstractElement
     }
 
     /**
-     * Checks if NOW is between to start and end datetime
+     * Checks if NOW is between to start and end datetime.
      *
-     * @param string $date_start
-     * @param string $date_end
      * @return bool
+     *
      * @throws Exception
      */
     public function isDatetimeNowBetween(string $date_start, string $date_end)
@@ -262,9 +252,10 @@ class IfStatement extends AbstractElement
     }
 
     /**
-     * Checks if NOW is the same day of week
+     * Checks if NOW is the same day of week.
      *
      * @param $day_of_week
+     *
      * @return bool
      */
     public function isNowSameDayOfWeek($day_of_week)

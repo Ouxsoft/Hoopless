@@ -10,25 +10,25 @@
 
 namespace App\Element\Widget;
 
-use Ouxsoft\PHPMarkup\Element\AbstractElement;
 use Ouxsoft\LuckByDice\Factory\TurnFactory;
+use Ouxsoft\PHPMarkup\Element\AbstractElement;
 
 class DiceRoll extends AbstractElement
 {
-    const DEFAULT_NOTATION = '1d4+2*2,3d6';
+    public const DEFAULT_NOTATION = '1d4+2*2,3d6';
 
     public function onRender()
-    {       
+    {
         $notation = array_key_exists('dice-notation', $_POST) ? $_POST['dice-notation'] : self::DEFAULT_NOTATION;
         $luck = array_key_exists('luck', $_POST) ? (int) $_POST['luck'] : 0;
         $turn = TurnFactory::getInstance($notation);
         $turn->setLuck($luck);
 
         $turns = [];
-        for($i = 1; $i < 5; $i++){
+        for ($i = 1; $i < 5; ++$i) {
             $turns[] = [
                 'roll' => $turn->roll(),
-                'luck' => $turn->getLuck()
+                'luck' => $turn->getLuck(),
             ];
         }
 
@@ -37,6 +37,5 @@ class DiceRoll extends AbstractElement
             'luck' => $turn->getLuck(),
             'turns' => $turns,
         ]);
-
     }
 }

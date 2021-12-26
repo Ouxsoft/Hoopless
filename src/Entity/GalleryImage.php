@@ -4,11 +4,10 @@ namespace App\Entity;
 
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
-use Exception;
 
 /**
  * Gallery Image
- * A list of images belonging to an image
+ * A list of images belonging to an image.
  *
  * @ORM\Table(name="gallery_image")
  * @ORM\Entity
@@ -60,9 +59,6 @@ class GalleryImage
         return $this->galleryImageId;
     }
 
-    /**
-     * @return int
-     */
     public function getGalleryId(): int
     {
         return $this->galleryId;
@@ -76,9 +72,6 @@ class GalleryImage
         $this->galleryId = $galleryId;
     }
 
-    /**
-     * @return string
-     */
     public function getImageId(): string
     {
         return $this->imageId;
@@ -92,33 +85,21 @@ class GalleryImage
         $this->imageId = $imageId;
     }
 
-    /**
-     * @return DateTime
-     */
     public function getCreated(): DateTime
     {
         return $this->created;
     }
 
-    /**
-     * @param DateTime $created
-     */
     public function setCreated(DateTime $created): void
     {
         $this->created = $created;
     }
 
-    /**
-     * @return DateTime
-     */
     public function getUpdated(): DateTime
     {
         return $this->updated;
     }
 
-    /**
-     * @param DateTime $updated
-     */
     public function setUpdated(DateTime $updated): void
     {
         $this->updated = $updated;

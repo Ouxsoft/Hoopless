@@ -16,11 +16,11 @@ use Ouxsoft\PHPMarkup\Path;
 class Image extends AbstractElement
 {
     // configurations
-    const NUMBER_OF_STEPS = 4; // used to determine granularity of image sizes
-    const MAX_WIDTH = 200; // the largest image width supported
-    const MIN_WIDTH = 0; // the smallest image width supported
-    const MAX_HEIGHT = 200; // max largest image height supported
-    const MIN_HEIGHT = 0; // the smallest image height supported
+    public const NUMBER_OF_STEPS = 4; // used to determine granularity of image sizes
+    public const MAX_WIDTH = 200; // the largest image width supported
+    public const MIN_WIDTH = 0; // the smallest image width supported
+    public const MAX_HEIGHT = 200; // max largest image height supported
+    public const MIN_HEIGHT = 0; // the smallest image height supported
 
     // output defaults
     private $src = 'blank.jpg';
@@ -29,7 +29,7 @@ class Image extends AbstractElement
     private $height = null;
     private $offset = [
         'x' => 0,
-        'y' => 0
+        'y' => 0,
     ];
 
     // source
@@ -39,7 +39,7 @@ class Image extends AbstractElement
     private $source_attr;
 
     /**
-     * Executed during load
+     * Executed during load.
      */
     public function onLoad()
     {
@@ -66,7 +66,7 @@ class Image extends AbstractElement
     }
 
     /**
-     * Rendered output
+     * Rendered output.
      *
      * @return mixed|string
      */
@@ -75,10 +75,10 @@ class Image extends AbstractElement
         $out = '<img';
 
         // src
-        $out .= ' src="' . $this->src . '"';
+        $out .= ' src="'.$this->src.'"';
 
         // alt
-        $out .= ' alt="' . $this->alt . '"';
+        $out .= ' alt="'.$this->alt.'"';
 
         // sizes
         $width = $this->width;
@@ -90,20 +90,20 @@ class Image extends AbstractElement
         $last_key = array_key_last($sizes);
         $out .= ' srcset="';
         foreach ($sizes as $key => $size) {
-            $out .= $this->getCacheURL($this->src, $size['width'], $size['height']) .
-                ' ' . $size['width'] . 'w' . (($key !== $last_key) ? ',' : '');
+            $out .= $this->getCacheURL($this->src, $size['width'], $size['height']).
+                ' '.$size['width'].'w'.(($key !== $last_key) ? ',' : '');
         }
         $out .= '"';
 
         // sizes
         $sizes = [
             '(max-width: 600px) 480px',
-            '100vw'
+            '100vw',
         ];
         $last_key = array_key_last($sizes);
         $out .= ' sizes="';
         foreach ($sizes as $key => $size) {
-            $out .= $size . (($key !== $last_key) ? ',' : '');
+            $out .= $size.(($key !== $last_key) ? ',' : '');
         }
         $out .= '"';
 
@@ -114,9 +114,8 @@ class Image extends AbstractElement
 
     public function fetchSourceInfo($source)
     {
-
         // TODO: add traversing prevention
-        $filepath = IMAGE_DIR . $source;
+        $filepath = IMAGE_DIR.$source;
 
         // get dimensions from original image file
         [$this->source_width, $this->source_height, $this->source_type, $this->source_attr] = getimagesize($filepath);
@@ -125,50 +124,53 @@ class Image extends AbstractElement
     }
 
     /**
-     * Set dimension (width x height) of output
+     * Set dimension (width x height) of output.
      *
      * @param $width
      * @param $height
+     *
      * @return bool
      */
     public function setDimensions($width, $height)
     {
-
         // if width provided as attribute set
         if (is_numeric($width)) {
-            $this->width = (int)$width;
+            $this->width = (int) $width;
         }
 
         // if height provided as attribute set
         if (is_numeric($height)) {
-            $this->height = (int)$height;
+            $this->height = (int) $height;
         }
 
         // return as both height and width are set
-        if (($this->width !== null) && ($this->height !== null)) {
+        if ((null !== $this->width) && (null !== $this->height)) {
             return true;
         }
 
         // determine height if height provided based on original image ratio
-        if (($this->width !== null) && ($this->height === null)) {
+        if ((null !== $this->width) && (null === $this->height)) {
             $this->height = round($this->width * ($this->source_height / $this->source_width));
+
             return true;
         }
 
         // determine width if height provided based on original image ratio
-        if (($this->width === null) && ($this->height !== null)) {
+        if ((null === $this->width) && (null !== $this->height)) {
             $this->width = round($this->height * ($this->source_width / $this->source_height));
+
             return true;
         }
 
         // nether width or height provided use original image size
         $this->width = $this->source_width;
         $this->height = $this->source_height;
+
         return true;
     }
 
     /**
-     * Set offset from 10,-10
+     * Set offset from 10,-10.
      *
      * @param $offset
      */
@@ -180,7 +182,7 @@ class Image extends AbstractElement
     }
 
     /**
-     * Set alt attribute
+     * Set alt attribute.
      *
      * @param $alt
      */
@@ -188,6 +190,7 @@ class Image extends AbstractElement
     {
         if (empty($alt)) {
             $this->alt = 'decorative';
+
             return;
         }
 
@@ -195,10 +198,11 @@ class Image extends AbstractElement
     }
 
     /**
-     * Get sizes
+     * Get sizes.
      *
      * @param $width
      * @param $height
+     *
      * @return array
      */
     private function getSizes($width, $height)
@@ -225,7 +229,7 @@ class Image extends AbstractElement
             // add current sizes to array
             $sizes[] = [
                 'height' => $current_height,
-                'width' => $current_width
+                'width' => $current_width,
             ];
 
             // increment width
@@ -241,10 +245,12 @@ class Image extends AbstractElement
     }
 
     /**
-     * Gets an URL for where image cache is or will stored
+     * Gets an URL for where image cache is or will stored.
+     *
      * @param null $src
      * @param null $width
      * @param null $height
+     *
      * @return string
      */
     public function getCacheURL($src = null, $width = null, $height = null)
@@ -255,41 +261,42 @@ class Image extends AbstractElement
         }
 
         // set width and height if not provided
-        $width = ($width === null) ? $width : $this->width;
-        $height = ($height === null) ? $height : $this->height;
+        $width = (null === $width) ? $width : $this->width;
+        $height = (null === $height) ? $height : $this->height;
 
         // put parameters after directory and before filename
         // e.g. "/assets/images/logo/original.jpg" => "/assets/images/logo/dimension/434x100/offset/0,0/original.jpg"
         $filename = basename($this->src);
         $filepath = substr($this->src, 0, -strlen($filename));
+
         return Path::encode([
             $filepath,
             'dimension' => [
                 $width,
-                $height
+                $height,
             ],
             'offset' => [
                 $this->offset['x'],
-                $this->offset['y']
+                $this->offset['y'],
             ],
-            'filename' => $filename
+            'filename' => $filename,
         ]);
     }
 
     /**
-     * Checks if is asset image
-     * @return bool
+     * Checks if is asset image.
      */
     public function isAssetImage(): bool
     {
-        if (substr($this->src, 0, strlen(IMAGE_DIR)) === IMAGE_DIR) {
+        if (IMAGE_DIR === substr($this->src, 0, strlen(IMAGE_DIR))) {
             return true;
         }
+
         return false;
     }
 
     /**
-     * var_dump return
+     * var_dump return.
      *
      * @return array
      */
@@ -302,8 +309,8 @@ class Image extends AbstractElement
             'height' => $this->height,
             'offset' => [
                 'x' => $this->offset['x'],
-                'y' => $this->offset['y']
-            ]
+                'y' => $this->offset['y'],
+            ],
         ];
     }
 

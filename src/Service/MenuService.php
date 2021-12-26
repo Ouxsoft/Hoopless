@@ -2,9 +2,8 @@
 
 namespace App\Service;
 
-use Doctrine\ORM\EntityManager;
 use App\Entity\Menu;
-use App\Entity\MenuItem;
+use Doctrine\ORM\EntityManager;
 
 class MenuService
 {
@@ -18,12 +17,14 @@ class MenuService
     public function getMenus()
     {
         $menus = $this->em->getRepository(Menu::class)->findBy([]);
+
         return $menus ?? [];
     }
 
     public function getMenu(int $menuId)
     {
         $menu = $this->em->getRepository(Menu::class)->find($menuId);
+
         return $menu ?? [];
     }
 }

@@ -19,7 +19,7 @@ class Code extends AbstractElement
         // todo handle multiple
         $this->javascripts->add('/assets/js/codemirror/codemirror.js');
         $this->javascripts->add('/assets/js/codemirror/xml.js');
-        
+
         $this->stylesheets->add('/assets/css/codemirror/codemirror.css');
         $this->stylesheets->add('/assets/css/codemirror/dracula.css');
 
@@ -51,7 +51,7 @@ class Code extends AbstractElement
             $indent_count = count(str_split($matches[0])) - 1;
             $new_code = '';
             foreach (preg_split("/((\r?\n)|(\r\n?))/", $html) as $line) {
-                $new_code .= substr_replace($line, '', 0, $indent_count) . PHP_EOL;
+                $new_code .= substr_replace($line, '', 0, $indent_count).PHP_EOL;
             }
             $html = $new_code;
         }
@@ -61,7 +61,7 @@ class Code extends AbstractElement
 
         return $this->view->render('code.html.twig', [
             'code' => $html,
-            'demo' => $this->getArgByName('demo') ?? false
+            'demo' => $this->getArgByName('demo') ?? false,
         ]);
     }
 }

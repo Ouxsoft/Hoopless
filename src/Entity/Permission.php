@@ -5,7 +5,7 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * User
+ * User.
  *
  * @ORM\Table(name="permission")
  * @ORM\Entity

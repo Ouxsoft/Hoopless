@@ -13,14 +13,14 @@ namespace App\Element\Partial;
 use Ouxsoft\PHPMarkup\Element\AbstractElement;
 
 /**
- * Class PageContent
+ * Class PageContent.
  */
 class PageContent extends AbstractElement
 {
     public function onRender()
     {
         return $this->view->render('page-content.html.twig', [
-            'html' => $this->innerText()
+            'html' => $this->innerText(),
         ]);
     }
 }

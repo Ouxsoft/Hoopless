@@ -13,22 +13,21 @@ namespace App\Element\Example;
 use Ouxsoft\PHPMarkup\Element\AbstractElement;
 
 /**
- * Class ReactNativeWebView
- * @package LHTML\Element\Custom\Example
+ * Class ReactNativeWebView.
  */
 class ReactNativeWebView extends AbstractElement
 {
     public function onRender()
     {
         if (
-            $this->getArgByName('initiate') == "true"
+            'true' == $this->getArgByName('initiate')
             && !empty($this->getArgByName('object'))
         ) {
             $object = $this->getArgByName('object'); // escape JSON
 
             return "<script>
                 window.ReactNativeWebView.postMesage({$object}, '*');
-            </script>" . $this->xml;
+            </script>".$this->xml;
         }
 
         return $this->xml;

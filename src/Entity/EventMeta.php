@@ -4,7 +4,6 @@ namespace App\Entity;
 
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
-use Exception;
 
 /**
  * EventMeta
@@ -67,9 +66,6 @@ class EventMeta
         return $this->eventMetaId;
     }
 
-    /**
-     * @return int
-     */
     public function getEventId(): int
     {
         return $this->eventId;
@@ -83,9 +79,6 @@ class EventMeta
         $this->eventId = $eventId;
     }
 
-    /**
-     * @return string
-     */
     public function getMetaKey(): string
     {
         return $this->metaKey;
@@ -99,9 +92,6 @@ class EventMeta
         $this->metaKey = $metaKey;
     }
 
-    /**
-     * @return string
-     */
     public function getMetaValue(): string
     {
         return $this->metaValue;
@@ -115,33 +105,21 @@ class EventMeta
         $this->metaValue = $metaValue;
     }
 
-    /**
-     * @return DateTime
-     */
     public function getCreated(): DateTime
     {
         return $this->created;
     }
 
-    /**
-     * @param DateTime $created
-     */
     public function setCreated(DateTime $created): void
     {
         $this->created = $created;
     }
 
-    /**
-     * @return DateTime
-     */
     public function getUpdated(): DateTime
     {
         return $this->updated;
     }
 
-    /**
-     * @param DateTime $updated
-     */
     public function setUpdated(DateTime $updated): void
     {
         $this->updated = $updated;

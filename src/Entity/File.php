@@ -4,11 +4,10 @@ namespace App\Entity;
 
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
-use Exception;
 
 /**
  * File
- * A file is a collection of data stored in one unit
+ * A file is a collection of data stored in one unit.
  *
  * @ORM\Table(name="file")
  * @ORM\Entity
@@ -66,113 +65,71 @@ class File
      */
     private $updated;
 
-    /**
-     * @return int
-     */
     public function getFileId(): int
     {
         return $this->fileId;
     }
 
-    /**
-     * @param int $fileId
-     */
     public function setFileId(int $fileId): void
     {
         $this->fileId = $fileId;
     }
 
-    /**
-     * @return string
-     */
     public function getTitle(): string
     {
         return $this->title;
     }
 
-    /**
-     * @param string $title
-     */
     public function setTitle(string $title): void
     {
         $this->title = $title;
     }
 
-    /**
-     * @return string
-     */
     public function getFilename(): string
     {
         return $this->filename;
     }
 
-    /**
-     * @param string $filename
-     */
     public function setFilename(string $filename): void
     {
         $this->filename = $filename;
     }
 
-    /**
-     * @return string
-     */
     public function getMimeType(): string
     {
         return $this->mimeType;
     }
 
-    /**
-     * @param string $mimeType
-     */
     public function setMimeType(string $mimeType): void
     {
         $this->mimeType = $mimeType;
     }
 
-    /**
-     * @return string
-     */
     public function getPath(): string
     {
         return $this->path;
     }
 
-    /**
-     * @param string $path
-     */
     public function setPath(string $path): void
     {
         $this->path = $path;
     }
 
-    /**
-     * @return DateTime
-     */
     public function getCreated(): DateTime
     {
         return $this->created;
     }
 
-    /**
-     * @param DateTime $created
-     */
     public function setCreated(DateTime $created): void
     {
         $this->created = $created;
     }
 
-    /**
-     * @return DateTime
-     */
     public function getUpdated(): DateTime
     {
         return $this->updated;
     }
 
-    /**
-     * @param DateTime $updated
-     */
     public function setUpdated(DateTime $updated): void
     {
         $this->updated = $updated;

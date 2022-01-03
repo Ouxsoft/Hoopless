@@ -5,11 +5,7 @@
     <partial name="PageContent">
         <partial name="PageMainContent" class="editable">
             <p class="lead">
-                We believe building on top of open source software and in turn sharing back what we can.
-            </p>
-
-            <p class="lead">
-                Our packages range from MVP to well supported and proven packages.
+                Coming soon!
             </p>
 
             <ul class="nav flex-column">

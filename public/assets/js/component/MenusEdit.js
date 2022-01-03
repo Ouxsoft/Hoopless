@@ -24,7 +24,7 @@ class MenusList extends React.Component {
                         menuId: null,
                         menuName: null,
                         menuItems: null,
-                        editItemId: 2
+                        editItemId: null
                     });
                 },
                 (error) => {

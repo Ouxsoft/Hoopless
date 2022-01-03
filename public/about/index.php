@@ -1,37 +1,39 @@
 <partial name="Page">
 
-    <partial name="PageHeader" title="About" tier="2" image="/assets/images/dimension/800x300/offset/0,-20/gallery/developer.jpg"/>
+    <partial name="PageHeader" title="About" tier="2" image="/assets/images/dimension/800x300/offset/0,-20/jumbo/green-mountains.jpg"/>
 
     <partial name="PageContent">
         <partial name="PageMainContent" class="editable">
-            <h2>About Us</h2>
             <p class="lead">
-                At Ouxsoft, we make software for the web. It doesn't all happen at once, but through the coalescing of
-                small efforts over time.
+                We create structure for Environmental, Health, &amp; Safety success within companies.
+                We help mold it into processes at all levels within an organization.
+                Our expertise and skills combined with our passion for improvement
+                helps us guide our clients to make lasting impact.
             </p>
 
-            <h2>Open Source Software</h2>
-            <p>We try to open source as many high quality packages as we can.</p>
+            <p>
+                There are failures with every success.
+                As a team we discuss both internal and external failures.
+                We use them to gain insights and make informed discussion.
+                They help us guide our clients as they trek onto bigger challenges and lead them to a better tomorrow.
+            </p>
 
-            <p>Thank you JetBrains for granting us free product licenses for our open source software.</p>
-            <img src="https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.png" height="100" width="100" alt="JetBrains Logo (Main) logo."/>
 
-            <h2>Clientele</h2>
-            <p>Our client come primarily on a referral bases.</p>
-            <ul>
-                <li>EHS Mountaintop</li>
-            </ul>
+            <img src="/assets/images/dimension/900x200/offset/0,600/hero/windmill-farm.jpg" class="img-fluid" alt=""/>
+            <figure class="text-end">
+                <blockquote class="blockquote">
+                    <p>"Failure isn’t fatal, but failure to change might be."</p>
+                </blockquote>
+                <figcaption class="blockquote-footer">
+                    John Wooden
+                </figcaption>
+            </figure>
 
         </partial>
 
         <partial name="PageSideBar">
             <partial name="QuickLinks" class="editable">
-                <a href="/about/brand">
-                    Branding
-                </a>
-                <a href="https://www.algaebase.org/browse/taxonomy/?tc=accept&amp;id=6986">
-                    Ourococcus
-                </a>
+
             </partial>
         </partial>
     </partial>

@@ -20,7 +20,7 @@ class PHPMarkup
     public const CONFIG_DIR = __DIR__.'/../../config/';
     public const ENTITY_DIR = __DIR__.'/../../src/Entity/';
     public const ASSET_DIR = __DIR__.'/../../public/assets/';
-    public const TEMPLATE_DIR = __DIR__.'/../../templates/';
+    public const TEMPLATE_DIR = __DIR__.'/../../public/assets/templates/';
 
     private $processor;
 
@@ -39,7 +39,7 @@ class PHPMarkup
         $this->processor->addElements($appConfig['elements']);
 
         // setup twig
-        $loader = new FilesystemLoader(ROOT_DIR.'templates/element');
+        $loader = new FilesystemLoader(self::TEMPLATE_DIR);
         $twig = new Environment($loader);
         $twig->addExtension(new StringLoaderExtension());
         $this->processor->addProperty('view', $twig);

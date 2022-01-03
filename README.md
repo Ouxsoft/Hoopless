@@ -1,9 +1,5 @@
 # Hoopless
 
-<img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/Ouxsoft/hoopless">
-<a href="#tada-php-support" title="PHP Versions Supported">
-        <img alt="PHP Versions Supported" src="https://img.shields.io/badge/php-7.3%20to%208.0-777bb3.svg?logo=php&logoColor=white&labelColor=555555">
-    </a>      
 <a href="https://app.codacy.com/gh/Ouxsoft/Hoopless?utm_source=github.com&utm_medium=referral&utm_content=Ouxsoft/Hoopless&utm_campaign=Badge_Grade_Dashboard">
     <img alt="Codacy grade" src="https://api.codacy.com/project/badge/Grade/af61c01e07894689b9be009591e6b3b1">
 </a>
@@ -13,7 +9,35 @@
 
 ## About
 
-Hoopless is a modular content management that is built on shoulders of these open-source packages:
+Hoopless is a content management system. 
+
+It a web curator's super power.
+
+It aims to make static and dynamic content easy to build and maintain.
+
+```
+<partial name="Page">
+    <partial name="PageHeader" title="About" tier="2" image="/assets/images/dimension/800x300/offset/0,-20/gallery/developer.jpg"/>
+
+    <partial name="PageContent">
+        <partial name="PageMainContent" class="editable">
+           Hello, World!
+        </partial>
+
+        <partial name="PageSideBar">
+            <partial name="QuickLinks" class="editable">
+                <a href="/hello-world">
+                    Learn More
+                </a>
+            </partial>
+        </partial>
+    </partial>
+
+    <partial name="PageFooter" />
+</partial>
+```
+
+Hoopless is modular and built on shoulders of these open-source packages:
 
 *  **[Symfony](https://symfony.com/doc/current/)**: Performs annotated auto routing, dependency injection, and more.
 *  **[React](https://reactjs.org/)**: A JavaScript library for building user interfaces. 
@@ -25,39 +49,4 @@ Hoopless is a modular content management that is built on shoulders of these ope
 *  **[Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/)**: CSS framework for responsive mobile-first sites.
 *  **[TinyMCE](https://www.tiny.cloud/docs/)**: TinyMCE for page editing.
 *  **[Monolog](https://symfony.com/doc/current/logging.html)**: Logger.
-
-It also features:
-*  **SCSS Generation**: Automatically rebuild changes to SCSS sheets.
-*  **Custom Elements**: Custom server side rendered elements.
-
-```
-<html lang="en">
-<head name="Standard">
-    <title>Services</title>
-</head>
-<body>
-
-<partial name="PageHeader">
-    <arg name="title">Services</arg>
-    <arg name="tier" type="int">2</arg>
-    <arg name="image">/assets/images/dimension/800x300/offset/0,-20/gallery/developer.jpg</arg>
-</partial>
-
-<div class="container">
-    <div class="row">
-        <main name="Standard" class="editable">
-            <h2>Consulting</h2>
-            <p>We are not accepting new clients currently.</p>
-        </main>
-
-        <nav name="SideMenu">
-            <arg name="menu" type="string">contact</arg>
-        </nav>
-    </div>
-</div>
-
-<footer name="Standard"/>
-</body>
-</html>
-
-```
+*  **[SCSSPHP](https://scssphp.github.io/scssphp/)**: Rebuild SCSS changes on the fly.

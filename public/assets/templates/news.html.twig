@@ -1,0 +1,6 @@
+<!-- news -->
+{% for story in stories %}
+<article>
+{{ include(template_from_string(story.format)) }}
+</article>
+{% endfor %}

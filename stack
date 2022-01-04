@@ -196,7 +196,7 @@ function clear_cache {
 
 function composer_update {
   # must be ran outside of Dockerfile due to mount
-  # echo "Update composer"
+  echo "Update composer"
   docker exec --user root ocms-php-fpm composer update -d .
   docker exec --user root ocms-php-fpm composer dump-autoload --optimize -d .
 }

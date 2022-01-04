@@ -46,13 +46,11 @@ class Variable extends AbstractElement
         switch ($function) {
             case 'substr':
                 return $this->substr($value, $parameters);
-                break;
             case 'str_replace':
                 return $this->str_replace($value, $parameters);
-                break;
+            default:
+                return false;
         }
-
-        return false;
     }
 
     /**

@@ -114,48 +114,6 @@ return [
     ],
 
     /**
-     * Head
-     *
-     * only process head custom elements with a name attribute set
-     * skip elements with ancestors with the attribute process="false"
-     * e.g.
-     *  process: <head name="Standard">
-     *  skip: <html process="false><head name="Standard"></head></html>
-     *  skip: <head>
-     */
-    [
-        "name" => "Head",
-        "xpath" => "//head[@name and not(ancestor::*[@process='false'])]",
-        "class_name" => 'App\Element\Head\{name}'
-    ],
-
-    /**
-     * Header
-     *
-     * skip elements with ancestors with the attribute process="false"
-     * e.g.
-     *  skip: <html process="false><header></header></html>
-     */
-    [
-        "name" => "Header",
-        "xpath" => "//header[not(ancestor::*[@process='false'])]",
-        "class_name" => "App\Element\Header\{name}"
-    ],
-
-    /**
-     * Main
-     *
-     * skip elements with ancestors with the attribute process="false"
-     * e.g.
-     *  skip: <html process="false><main></main></html>
-     */
-    [
-        "name" => "Main",
-        "xpath" => "//main[not(ancestor::*[@process='false'])]",
-        "class_name" => "App\Element\Main\{name}"
-    ],
-
-    /**
      * Alert
      *
      * skip elements with ancestors with the attribute process="false"
@@ -168,29 +126,4 @@ return [
         "class_name" => App\Element\Partial\Alert::class
     ],
 
-    /**
-     * Footer
-     *
-     * skip elements with ancestors with the attribute process="false"
-     * e.g.
-     *  skip: <html process="false><footer></footer></html>
-     */
-    [
-        "name" => "Footer",
-        "xpath" => "//footer[not(ancestor::*[@process='false'])]",
-        "class_name" => "App\Element\Footer\{name}"
-    ],
-
-    /**
-     * Example
-     *
-     * skip elements with ancestors with the attribute process="false"
-     * e.g.
-     *  skip: <html process="false><example></example></html>
-     */
-    [
-        "name" => "Example",
-        "xpath" => "//example[not(ancestor::*[@process='false'])]",
-        "class_name" => "App\Element\Example\{name}"
-    ]
 ];

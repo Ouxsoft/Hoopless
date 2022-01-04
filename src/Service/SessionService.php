@@ -5,9 +5,9 @@ namespace App\Service;
 /**
  * Class AuthService.
  */
-class AuthService
+class SessionService
 {
-    public function authenticate(string $username, string $password): bool
+    public function signin(string $username, string $password): bool
     {
         // check for admin credentials
         if (
@@ -24,4 +24,11 @@ class AuthService
 
         return false;
     }
+
+    public function signout()
+    {
+        session_start();
+        unset($_SESSION['username']);
+    }
+
 }

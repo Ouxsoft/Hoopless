@@ -51,16 +51,21 @@ services:
   mysql:
     container_name: ocms-mysql
     image: mysql:8.0
+    command: --init-file /docker-entrypoint-initdb.d/01-init.sql
     volumes:
-      - ./docker/mysql:/docker-entrypoint-initdb.d
+      # copy and rename to ensure execute in lexicographical (sorted, alphabetical) order
+      - ./sql/hoopless.sql:/docker-entrypoint-initdb.d/01-init.sql
+      # store database inside volume mount
+      - dbdata:/var/lib/mysql
     ports:
       - "3306:3306"
     environment:
       - MYSQL_ROOT_PASSWORD=
       - MYSQL_ALLOW_EMPTY_PASSWORD=yes
-    restart: unless-stopped
+      - MYSQL_DATABASE=hoopless
     networks:
       - proxynet
+    restart: unless-stopped
     healthcheck:
         test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
         interval: 30s

@@ -1,13 +1,10 @@
-CREATE DATABASE IF NOT EXISTS hoopless;
-USE hoopless;
-
 -- phpMyAdmin SQL Dump
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: mysql
--- Generation Time: Jan 03, 2022 at 08:20 PM
--- Server version: 8.0.26
+-- Generation Time: Jan 04, 2022 at 06:30 AM
+-- Server version: 8.0.27
 -- PHP Version: 7.4.20
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -23,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `hoopless`
 --
+CREATE DATABASE IF NOT EXISTS `hoopless` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+USE `hoopless`;
 
 -- --------------------------------------------------------
 
@@ -32,12 +31,12 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `blog` (
   `blog_id` int NOT NULL,
-  `title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `publish_date` datetime DEFAULT NULL,
   `display_start_date` datetime DEFAULT NULL,
   `display_end_date` datetime DEFAULT NULL,
-  `summary` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `body` text COLLATE utf8_unicode_ci NOT NULL,
+  `summary` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `body` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
@@ -87,9 +86,9 @@ CREATE TABLE `content_type_schema` (
 
 CREATE TABLE `country` (
   `country_id` int NOT NULL,
-  `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `two_letter_code` varchar(2) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `three_letter_code` varchar(3) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `two_letter_code` varchar(2) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `three_letter_code` varchar(3) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
@@ -133,7 +132,7 @@ CREATE TABLE `custom_meta` (
 --
 
 CREATE TABLE `doctrine_migration_versions` (
-  `version` varchar(1024) COLLATE utf8_unicode_ci NOT NULL,
+  `version` varchar(1024) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `executed_at` datetime DEFAULT NULL,
   `execution_time` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
@@ -159,7 +158,7 @@ INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_
 
 CREATE TABLE `event` (
   `event_id` int NOT NULL,
-  `title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `publish_date` datetime DEFAULT NULL,
   `display_start_date` datetime DEFAULT NULL,
   `display_end_date` datetime DEFAULT NULL,
@@ -175,8 +174,8 @@ CREATE TABLE `event` (
 CREATE TABLE `event_meta` (
   `event_meta_id` int NOT NULL,
   `event_id` int NOT NULL,
-  `meta_key` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `meta_value` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `meta_key` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `meta_value` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
@@ -189,10 +188,10 @@ CREATE TABLE `event_meta` (
 
 CREATE TABLE `file` (
   `event_id` int NOT NULL,
-  `title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `filename` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `mime_type` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `path` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `filename` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `mime_type` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `path` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
@@ -205,7 +204,7 @@ CREATE TABLE `file` (
 
 CREATE TABLE `form` (
   `form_id` int NOT NULL,
-  `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
@@ -220,8 +219,8 @@ CREATE TABLE `form_meta` (
   `form_meta_id` int NOT NULL,
   `parent_form_meta_id` int NOT NULL,
   `form_id` int NOT NULL,
-  `meta_key` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `meta_value` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `meta_key` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `meta_value` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `order_id` int NOT NULL,
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
@@ -250,7 +249,7 @@ CREATE TABLE `form_submission_meta` (
   `form_submission_meta_id` int NOT NULL,
   `form_submission_id` int NOT NULL,
   `form_meta_id` int NOT NULL,
-  `value` varchar(280) COLLATE utf8_unicode_ci NOT NULL,
+  `value` varchar(280) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
@@ -263,7 +262,7 @@ CREATE TABLE `form_submission_meta` (
 
 CREATE TABLE `gallery` (
   `gallery_id` int NOT NULL,
-  `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
@@ -290,7 +289,7 @@ CREATE TABLE `gallery_image` (
 
 CREATE TABLE `group` (
   `group_id` int NOT NULL,
-  `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
+  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -326,7 +325,7 @@ CREATE TABLE `image` (
 
 CREATE TABLE `menu` (
   `menu_id` int NOT NULL,
-  `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
@@ -352,11 +351,11 @@ CREATE TABLE `menu_item` (
   `menu_id` int NOT NULL,
   `parent_menu_item_id` int DEFAULT NULL,
   `page_id` int DEFAULT NULL,
-  `url` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `url` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `order` int DEFAULT NULL,
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
+  `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
 
 --
@@ -388,12 +387,12 @@ INSERT INTO `menu_item` (`menu_item_id`, `menu_id`, `parent_menu_item_id`, `page
 
 CREATE TABLE `news` (
   `news_id` int NOT NULL,
-  `title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `publish_date` datetime DEFAULT NULL,
   `display_start_date` datetime DEFAULT NULL,
   `display_end_date` datetime DEFAULT NULL,
-  `summary` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `body` text COLLATE utf8_unicode_ci NOT NULL,
+  `summary` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `body` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
@@ -447,8 +446,9 @@ INSERT INTO `page` (`page_id`, `page_parent_id`, `title`, `url`, `keywords`, `te
 (21, 1, 'Blog', '/blog', NULL, NULL, '2022-01-03 16:28:03', '2022-01-03 16:28:03'),
 (22, 1, 'Contact', '/contact', NULL, NULL, '2022-01-03 16:28:03', '2022-01-03 16:28:03'),
 (23, 1, 'Backend', '/backend', NULL, NULL, '2022-01-03 16:28:04', '2022-01-03 16:28:04'),
-(24, 23, 'Login', '/backend/login', NULL, NULL, '2022-01-03 16:28:04', '2022-01-03 16:28:04'),
-(25, 2, 'Brand', '/about/brand', NULL, NULL, '2022-01-03 20:13:17', '2022-01-03 20:13:17');
+(24, 23, 'Sign In', '/login', NULL, NULL, '2022-01-03 16:28:04', '2022-01-03 16:28:04'),
+(25, 2, 'Brand', '/about/brand', NULL, NULL, '2022-01-03 20:13:17', '2022-01-03 20:13:17'),
+(26, 1, 'Services', '/services', NULL, NULL, '2022-01-04 05:56:00', '2022-01-04 05:56:00');
 
 -- --------------------------------------------------------
 
@@ -459,7 +459,7 @@ INSERT INTO `page` (`page_id`, `page_parent_id`, `title`, `url`, `keywords`, `te
 CREATE TABLE `page_revision` (
   `page_revision_id` int NOT NULL,
   `page_id` int NOT NULL,
-  `body` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `body` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `status` int NOT NULL,
   `user_id` int NOT NULL,
   `created` datetime NOT NULL,
@@ -474,8 +474,8 @@ CREATE TABLE `page_revision` (
 
 CREATE TABLE `permission` (
   `permission_id` int NOT NULL,
-  `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `description` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
+  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `description` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -486,13 +486,13 @@ CREATE TABLE `permission` (
 
 CREATE TABLE `place` (
   `place_id` int NOT NULL,
-  `title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `description` blob NOT NULL,
-  `streetAddress1` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `streetAddress2` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `locality` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `region` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `postal_code` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `streetAddress1` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `streetAddress2` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `locality` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `region` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `postal_code` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `country_id` int NOT NULL,
   `latitude` decimal(20,16) NOT NULL,
   `longitude` decimal(20,16) NOT NULL,
@@ -508,10 +508,10 @@ CREATE TABLE `place` (
 
 CREATE TABLE `profile` (
   `profile_id` int NOT NULL,
-  `first_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `middle_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `last_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `preferred_prounouns` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `first_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `middle_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `last_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `preferred_prounouns` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `description` blob NOT NULL,
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
@@ -538,7 +538,7 @@ CREATE TABLE `snippet` (
 
 CREATE TABLE `tag` (
   `tag_id` int NOT NULL,
-  `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
@@ -551,10 +551,10 @@ CREATE TABLE `tag` (
 
 CREATE TABLE `user` (
   `user_id` int NOT NULL,
-  `password` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `first_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `last_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `email_address` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+  `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `first_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `last_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `email_address` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -893,7 +893,7 @@ ALTER TABLE `news`
 -- AUTO_INCREMENT for table `page`
 --
 ALTER TABLE `page`
-  MODIFY `page_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `page_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `page_revision`

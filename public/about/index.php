@@ -1,6 +1,6 @@
 <partial name="Page">
 
-    <partial name="PageHeader" title="About" tier="2" image="/assets/images/dimension/800x300/offset/0,-20/gallery/developer.jpg"/>
+    <partial name="PageHeader" title="About" menu_id="4" tier="2" image="/assets/images/dimension/800x300/offset/0,-20/gallery/developer.jpg"/>
 
     <partial name="PageContent">
         <partial name="PageMainContent" class="editable">
@@ -26,9 +26,6 @@
 
         <partial name="PageSideBar">
             <partial name="QuickLinks" class="editable">
-                <a href="/about/brand">
-                    Branding
-                </a>
                 <a href="https://www.algaebase.org/browse/taxonomy/?tc=accept&amp;id=6986">
                     Ourococcus
                 </a>

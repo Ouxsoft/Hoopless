@@ -59,7 +59,7 @@ class Code extends AbstractElement
 
         $html = htmlspecialchars($html, ENT_QUOTES);
 
-        return $this->view->render('code.html.twig', [
+        return $this->view->render('/widget/code.html.twig', [
             'code' => $html,
             'demo' => $this->getArgByName('demo') ?? false,
         ]);

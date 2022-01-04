@@ -58,6 +58,19 @@ function docker_wipe {
   docker system prune -a
 }
 
+function docker_volume_wipe {
+  local env=$1
+  if [ -f "./docker-compose.$env.yml" ]; then
+      docker-compose \
+      -f docker-compose.yml \
+      -f docker-compose.$env.yml \
+      down -v
+  else
+    echo "A valid stack environment required, e.g.:"
+    echo "./stack sql-wipe dev"
+  fi
+}
+
 function docker_exec {
   local container=$1
   if [ "$container" = "" ]; then
@@ -202,6 +215,8 @@ elif [ "$arg_1" == "errors" ]; then
   docker_errors
 elif [ "$arg_1" == "wipe" ]; then
   docker_wipe
+elif [ "$arg_1" == "volume-wipe" ]; then
+  docker_volume_wipe $arg_2
 elif [ "$arg_1" == "top" ]; then
   docker_top
 elif [ "$arg_1" == "ps" ]; then

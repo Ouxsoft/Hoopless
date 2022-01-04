@@ -20,7 +20,7 @@
         </div>
 
         <aside class="info-box bg-primary shadow p-4 d-none d-lg-block editable">
-            <partial name="News">
+            <widget name="News">
                 <arg name="limit" type="int">1</arg>
                 <arg name="format">
                 <span class="text-white text-decoration-none fs-4">
@@ -31,7 +31,7 @@
                         <em><b>Learn</b> more <span class="arrow-cta__icon" aria-hidden="true"></span></em>
                     </a>
                 </arg>
-            </partial>
+            </widget>
         </aside>
     </div>
 

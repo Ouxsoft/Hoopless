@@ -19,7 +19,7 @@ class PageSideBar extends AbstractElement
 {
     public function onRender()
     {
-        return $this->view->render('/page-side-bar.html.twig', [
+        return $this->view->render('/partial/page-side-bar.html.twig', [
             'html' => $this->innerText(),
             'links' => $links ?? [],
         ]);

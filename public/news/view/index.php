@@ -4,7 +4,7 @@
 
     <partial name="PageContent">
         <partial name="PageMainContent" class="editable">
-            <partial name="News">
+            <widget name="News">
                 <arg name="id" type="int"><var name="id" source="get" /></arg>
                 <arg name="limit" type="int">1</arg>
                 <arg name="format">
@@ -16,7 +16,7 @@
                         {{story.body|raw}}
                     </article>
                 </arg>
-            </partial>
+            </widget>
 
         </partial>
 

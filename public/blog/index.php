@@ -10,7 +10,7 @@
             </blockquote>
 
             <div class="list-group">
-                <partial name="Blog">
+                <widget name="Blog">
                     <arg name="limit" type="int">10</arg>
                     <arg name="format">
                         <a href="/blog/{{blog.blog_id}}" class="list-group-item list-group-item-action flex-column align-items-start">
@@ -20,7 +20,7 @@
                             </div>
                         </a>
                     </arg>
-                </partial>
+                </widget>
             </div>
 
         </partial>

@@ -38,7 +38,7 @@ class SideMenu extends AbstractElement
             $links = $this->menus[$menu];
         }
 
-        return $this->view->render('/sidemenu.html.twig', [
+        return $this->view->render('/partial/sidemenu.html.twig', [
             'html' => $this->innerText(),
             'links' => $links ?? [],
         ]);

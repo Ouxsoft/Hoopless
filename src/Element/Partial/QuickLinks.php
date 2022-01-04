@@ -35,7 +35,7 @@ class QuickLinks extends AbstractElement
             return '';
         }
 
-        return $this->view->render('quick-links.html.twig', [
+        return $this->view->render('/partial/quick-links.html.twig', [
             'html' => $xml->nav->saveXML(),
             'links' => $links,
         ]);

@@ -37,7 +37,7 @@ class PageFooter extends AbstractElement
 
     public function onRender()
     {
-        return $this->view->render('/page-footer.html.twig', [
+        return $this->view->render('/partial/page-footer.html.twig', [
             'site_name' => $_ENV['SITE_NAME'],
             'year' => date('Y'),
             'menu' => $this->menu,

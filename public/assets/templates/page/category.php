@@ -1,0 +1,19 @@
+<partial name="Page">
+
+    <partial name="PageHeader" tier="2" menu_id="2" title="Services"
+             image="/assets/images/dimension/800x300/offset/0,-20/gallery/developer.jpg"/>
+
+    <partial name="PageContent">
+        <partial name="PageMainContent" class="editable">
+            <h2>Category Heading</h2>
+            <p>Category content</p>
+        </partial>
+
+        <partial name="PageSideBar">
+            <partial name="QuickLinks" class="editable">
+            </partial>
+        </partial>
+    </partial>
+
+    <partial name="PageFooter"/>
+</partial>

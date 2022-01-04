@@ -27,6 +27,7 @@ class PageHeader extends AbstractElement
 
     public function onLoad()
     {
+
         // TODO move
 
         // breadcrumbs
@@ -58,7 +59,9 @@ class PageHeader extends AbstractElement
         $menu_id = $this->getArgByName('menu_id');
         if ($menu_id) {
             $this->menu = $this->em->getConnection()->fetchAllAssociative(
-                'SELECT `title`, IF(`menu_item`.`page_id` IS NULL, `menu_item`.`url`, `page`.`url`) AS `url`
+                'SELECT 
+                    COALESCE(`menu_item`.`title`,`page`.`title`) AS `title`, 
+                    COALESCE(`page`.`url`, `menu_item`.`url`) AS `url`
                 FROM `menu_item`
                 LEFT JOIN `page` ON `menu_item`.`page_id` = `page`.`page_id`
                 WHERE `menu_id` = ?
@@ -85,18 +88,19 @@ class PageHeader extends AbstractElement
 
     public function onRender()
     {
-        return $this->view->render('/page-header.html.twig', [
+
+        session_start();
+        return $this->view->render('/partial/page-header.html.twig', [
             'page' => [
                 'title' => $this->getArgByName('title'),
                 'tier' => $this->getArgByName('tier'),
                 'image' => $this->getArgByName('image'),
             ],
             'menu' => $this->menu,
-            'top_navbar' => [],
-            'main_navbar' => [
-                'site_name' => $_ENV['SITE_NAME'],
+            'user' => [
                 'username' => $_SESSION['username'] ?? null,
             ],
+            'site_name' => $_ENV['SITE_NAME'] ?? 'Site Name',
             'breadcrumbs' => [
                 'pages' => $this->pages,
                 'frontpage' => $this->getArgByName('frontpage'),

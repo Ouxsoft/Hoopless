@@ -34,7 +34,7 @@ class PageSideBarMenu extends AbstractElement
 
     public function onRender()
     {
-        return $this->view->render('/page-side-bar-menu.html.twig', [
+        return $this->view->render('/partial/page-side-bar-menu.html.twig', [
             'menu' => $this->menu,
         ]);
     }

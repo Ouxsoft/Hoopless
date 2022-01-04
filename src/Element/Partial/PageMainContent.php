@@ -19,7 +19,7 @@ class PageMainContent extends AbstractElement
 {
     public function onRender()
     {
-        return $this->view->render('page-main-content.html.twig', [
+        return $this->view->render('/partial/page-main-content.html.twig', [
             'html' => $this->innerText(),
         ]);
     }

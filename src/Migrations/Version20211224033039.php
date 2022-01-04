@@ -25,6 +25,9 @@ final class Version20211224033039 extends AbstractMigration
         $this->addSql("INSERT INTO `page` (`page_id`, `page_parent_id`, `title`, `url`, `keywords`, `template`, `created`, `updated`) VALUES (NULL, '1', 'Backend', '/backend', NULL, NULL, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)");
         $this->addSql("INSERT INTO `page` (`page_id`, `page_parent_id`, `title`, `url`, `keywords`, `template`, `created`, `updated`) VALUES (NULL, '23', 'Login', '/backend/login', NULL, NULL, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)");
         $this->addSql("INSERT INTO `menu_item` (`menu_item_id`, `menu_id`, `parent_menu_item_id`, `page_id`, `url`, `order`, `created`, `updated`, `title`) VALUES (NULL, '3', NULL, '3', NULL, NULL, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL), (NULL, '3', NULL, '24', NULL, NULL, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL)");
+
+        // about menu
+        $this->addSQL("INSERT INTO `menu` (`menu_id`, `name`, `created`, `updated`) VALUES (NULL, 'About', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);");
     }
 
     public function down(Schema $schema): void

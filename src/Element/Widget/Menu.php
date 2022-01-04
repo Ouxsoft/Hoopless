@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace App\Element\Partial;
+namespace App\Element\Widget;
 
 use Ouxsoft\PHPMarkup\Element\AbstractElement;
 
@@ -37,7 +37,7 @@ class Menu extends AbstractElement
 
     public function onRender()
     {
-        return $this->view->render('/menu.html.twig', [
+        return $this->view->render('/widget/menu.html.twig', [
             'menu' => $this->menu,
         ]);
     }

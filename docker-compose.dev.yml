@@ -39,13 +39,19 @@ services:
   mysql:
     container_name: ocms-mysql
     image: mysql:8.0
+    # seed database on start
+    command: --init-file /docker-entrypoint-initdb.d/01-init.sql
     volumes:
-      - ./docker/mysql:/docker-entrypoint-initdb.d
+      # copy and rename to ensure execute in lexicographical (sorted, alphabetical) order
+      - ./sql/hoopless.sql:/docker-entrypoint-initdb.d/01-init.sql
+      # store database inside volume mount
+      - dbdata:/var/lib/mysql
     ports:
       - "3306:3306"
     environment:
       - MYSQL_ROOT_PASSWORD=
       - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+      - MYSQL_DATABASE=hoopless
     networks:
       - proxynet
     restart: unless-stopped
@@ -67,27 +73,9 @@ services:
       - mysql
     restart: unless-stopped
 
-#  solr:
-#    image: solr:8.9.0
-#    container_name: ocms-solr
-#    ports:
-#      - "8983:8983"
-#    volumes:
-#      - search-data:/var/solr
-#    command:
-#      - solr-precreate
-#      - gettingstarted
-#    environment:
-#      - VIRTUAL_HOST=search.localhost
-#    networks:
-#      - proxynet
-#    depends_on:
-#      - proxy
-
-
 networks:
   proxynet:
     external: false
 
 volumes:
-  search-data:
+  dbdata:

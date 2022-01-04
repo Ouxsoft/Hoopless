@@ -8,23 +8,23 @@
  * file that was distributed with this source code.
  */
 
-namespace App\Element\Partial;
+namespace App\Element\Widget;
 
 use Ouxsoft\PHPMarkup\Element\AbstractElement;
 
-class Blog extends AbstractElement
+class News extends AbstractElement
 {
-    private $blogs = [];
+    private $news = [];
     private $limit = 10;
 
     public function onLoad()
     {
         $limit = is_int($this->getArgByName('limit')) ? $this->getArgByName('limit') : self::$limit;
 
-        if (isset($this->blogId)) {
-            $this->blogs[] = $this->em->getRepository(\App\Entity\Blog::class)->find($this->blogId);
+        if (isset($this->newsId)) {
+            $this->news[] = $this->em->getRepository(\App\Entity\News::class)->find($this->newsId);
         } else {
-            $this->blogs = $this->em->getRepository(\App\Entity\Blog::class)->findBy(
+            $this->news = $this->em->getRepository(\App\Entity\News::class)->findBy(
                 [],
                 null,
                 $limit,
@@ -35,19 +35,19 @@ class Blog extends AbstractElement
 
     public function onRender()
     {
-        $blogs = [];
-        foreach ($this->blogs as $blog) {
-            $blogs[] = [
+        $stories = [];
+        foreach ($this->news as $news) {
+            $stories[] = [
                 'format' => $this->getArgByName('format'),
-                'blog_id' => $blog->getBlogId(),
-                'title' => $blog->getTitle(),
-                'body' => $blog->getBody(),
-                'publish_date' => $blog->getPublishDate()->format('F d, Y'),
+                'news_id' => $news->getNewsId(),
+                'title' => $news->getTitle(),
+                'body' => $news->getBody(),
+                'publish_date' => $news->getPublishDate()->format('F d, Y'),
             ];
         }
 
-        return $this->view->render('blog.html.twig', [
-            'blogs' => $blogs,
+        return $this->view->render('/widget/story.html.twig', [
+            'stories' => $stories,
         ]);
     }
 }

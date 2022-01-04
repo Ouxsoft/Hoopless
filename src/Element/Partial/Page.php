@@ -38,7 +38,7 @@ class Page extends AbstractElement
 
     public function onRender()
     {
-        return $this->view->render('/page.html.twig', [
+        return $this->view->render('/partial/page.html.twig', [
             'title' => $this->info['title'] ?? null,
             'page_id' => $this->info['page_id'] ?? null,
             'template' => $this->info['template'] ?? null,

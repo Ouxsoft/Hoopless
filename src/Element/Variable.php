@@ -20,6 +20,7 @@ class Variable extends AbstractElement
     /**
      * Parses and calls other specialized format methods.
      *
+     * @param string $format
      * @return mixed
      */
     public function format(string $format)
@@ -56,6 +57,9 @@ class Variable extends AbstractElement
 
     /**
      * Sub string replace.
+     * @param string $string
+     * @param array $parameters
+     * @return string
      */
     private function substr(string $string, array $parameters): string
     {
@@ -64,6 +68,9 @@ class Variable extends AbstractElement
 
     /**
      * String replace.
+     * @param string $string
+     * @param array $parameters
+     * @return string
      */
     private function str_replace(string $string, array $parameters): string
     {
@@ -73,7 +80,8 @@ class Variable extends AbstractElement
     /**
      * Get variable named.
      *
-     * @param string $tag
+     * @param string $name
+     * @param string|null $tag
      *
      * @return mixed|null
      */
@@ -88,6 +96,18 @@ class Variable extends AbstractElement
         return null;
     }
 
+    private function getGlobal($name)
+    {
+        switch($name){
+            case 'site_name':
+                return $_ENV['SITE_NAME'] ?? 'Site Name';
+            case 'app_env':
+                return $_ENV['APP_ENV'] ?? 'Unknown';
+            default:
+                return null;
+        }
+    }
+
     /**
      * on render call.
      */
@@ -95,10 +115,15 @@ class Variable extends AbstractElement
     {
         $name = $this->getArgByName('name') ?? '';
         $source = $this->getArgByName('source') ?? '';
+        $variable = null;
 
         // get variable
         switch ($source) {
+            case 'global':
+                $variable = $this->getGlobal($name);
+                break;
             case 'get':
+                // TODO for some reason first get variable name contains a "?" fix.
                 $variable = array_key_exists($name, $_GET) ? (string) $_GET[$name] : '';
                 $variable = htmlspecialchars($variable);
                 break;
@@ -114,9 +139,7 @@ class Variable extends AbstractElement
                 break;
         }
 
-        // TODO for some reason first get variable name contains a "?" fix.
-
-        if (null === $variable) {
+        if ($variable === null) {
             return '<!-- Variable "'.$this->getArgByName('name').'" Not Found -->';
         }
 

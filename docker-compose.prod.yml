@@ -80,3 +80,4 @@ volumes:
   letsencrypt-certs:
   letsencrypt-vhost-d:
   letsencrypt-html:
+  dbdata:

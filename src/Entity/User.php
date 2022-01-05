@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * User
- * A user is a Person who can login to the system.
+ * A User is a Person who can login
  *
  * @ORM\Table(name="user")
  * @ORM\Entity
@@ -23,25 +23,24 @@ class User
     private $userId;
 
     /**
-     * @var string
+     * @var string a hash containing user password
      *
      * @ORM\Column(name="password", type="string", length=255, nullable=true)
      */
     private $password;
 
     /**
-     * @var string
+     * @var int
      *
-     * @ORM\Column(name="first_name", type="string", length=255, nullable=true)
+     * @ORM\Column(name="person_id", type="integer", nullable=false)
      */
-    private $firstName;
+    private $personId;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="last_name", type="string", length=255, nullable=true)
+     * @ORM\OneToOne(targetEntity="Person", mappedBy="user")
+     * @ORM\JoinColumn(name="person_id", referencedColumnName="person_id")
      */
-    private $lastName;
+    private $person;
 
     /**
      * @var string
@@ -69,32 +68,6 @@ class User
     public function setPassword(string $password): void
     {
         $this->password = $password;
-    }
-
-    /**
-     * @return string
-     */
-    public function getFirstName()
-    {
-        return $this->firstName;
-    }
-
-    public function setFirstName(string $firstName): void
-    {
-        $this->firstName = $firstName;
-    }
-
-    /**
-     * @return string
-     */
-    public function getLastName()
-    {
-        return $this->lasttName;
-    }
-
-    public function setLastName(string $lastName): void
-    {
-        $this->firstName = $lastName;
     }
 
     /**

@@ -2,7 +2,9 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+
 
 /**
  * Place
@@ -37,46 +39,19 @@ class Place
     private $description;
 
     /**
-     * @var string Street address line 1
-     *
-     * @ORM\Column(name="streetAddress1", type="string", length=255, nullable=true)
-     */
-    private $streetAddress1;
-
-    /**
-     * @var string street address line 2, Apartment, Suite, Box number, etc
-     *
-     * @ORM\Column(name="streetAddress2", type="string", length=255, nullable=true)
-     */
-    private $streetAddress2;
-
-    /**
-     * @var string Locality / City / Town
-     *
-     * @ORM\Column(name="locality", type="string", length=255, nullable=true)
-     */
-    private $locality;
-
-    /**
-     * @var string State / Province / Region
-     *
-     * @ORM\Column(name="region", type="string", length=255, nullable=true)
-     */
-    private $region;
-
-    /**
-     * @var string Postal code / ZIP Code
-     *
-     * @ORM\Column(name="postal_code", type="string", length=255, nullable=true)
-     */
-    private $postalCode;
-
-    /**
      * @var int
      *
-     * @ORM\Column(name="country_id", type="integer", nullable=false)
+     * @ORM\Column(name="address_id", type="integer", nullable=false)
+    */
+    private $addressId;
+
+    /**
+     * @var ArrayCollection address
+     *
+     * @ORM\ManyToOne(targetEntity="Address")
+     * @ORM\JoinColumn(name="address_id", referencedColumnName="address_id")
      */
-    private $countryId;
+    private $address;
 
     /**
      * @var string
@@ -105,6 +80,11 @@ class Place
      * @ORM\Column(name="updated", type="datetime", nullable=false, options={"default"="CURRENT_TIMESTAMP"})
      */
     private $updated;
+
+    public function __construct()
+    {
+        $this->address = new ArrayCollection();
+    }
 
     public function getPlaceId(): int
     {
@@ -136,65 +116,6 @@ class Place
         $this->description = $description;
     }
 
-    public function getStreetAddress1(): string
-    {
-        return $this->streetAddress1;
-    }
-
-    public function setStreetAddress1(string $streetAddress1): void
-    {
-        $this->streetAddress1 = $streetAddress1;
-    }
-
-    public function getStreetAddress2(): string
-    {
-        return $this->streetAddress2;
-    }
-
-    public function setStreetAddress2(string $streetAddress2): void
-    {
-        $this->streetAddress2 = $streetAddress2;
-    }
-
-    public function getLocality(): string
-    {
-        return $this->locality;
-    }
-
-    public function setLocality(string $locality): void
-    {
-        $this->locality = $locality;
-    }
-
-    public function getRegion(): string
-    {
-        return $this->region;
-    }
-
-    public function setRegion(string $region): void
-    {
-        $this->region = $region;
-    }
-
-    public function getPostalCode(): string
-    {
-        return $this->postalCode;
-    }
-
-    public function setPostalCode(string $postalCode): void
-    {
-        $this->postalCode = $postalCode;
-    }
-
-    public function getCountryId(): int
-    {
-        return $this->countryId;
-    }
-
-    public function setCountryId(int $countryId): void
-    {
-        $this->countryId = $countryId;
-    }
 
     public function getLatitude(): string
     {

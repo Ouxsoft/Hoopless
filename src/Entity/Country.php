@@ -22,6 +22,7 @@ class Country
      */
     private $countryId;
 
+
     /**
      * @var string
      *
@@ -42,6 +43,27 @@ class Country
      * @ORM\Column(name="three_letter_code", type="string", length=3, nullable=true)
      */
     private $threeLetterCode;
+
+    /**
+     * @var int numeric code
+     *
+     * @ORM\Column(name="numeric_code", type="integer", nullable=true)
+     */
+    private $numericCode;
+
+    /**
+     * @var string Latitude average
+     *
+     * @ORM\Column(name="latitude", type="decimal", precision=11, scale=8, nullable=true)
+     */
+    private $latitude;
+
+    /**
+     * @var string Longitude average
+     *
+     * @ORM\Column(name="longitude", type="decimal", precision=11, scale=8, nullable=true)
+     */
+    private $longitude;
 
     /**
      * @var DateTime

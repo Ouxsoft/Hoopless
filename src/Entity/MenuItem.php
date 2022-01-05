@@ -60,7 +60,7 @@ class MenuItem
 
     /**
      * @var Page|null
-     * @ORM\OneToOne(targetEntity="Page")
+     * @ORM\ManyToOne(targetEntity="Page")
      * @ORM\JoinColumn(name="page_id", referencedColumnName="page_id")
      */
     private $page;

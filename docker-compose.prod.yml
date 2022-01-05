@@ -53,7 +53,7 @@ services:
     image: mysql:8.0
     command: --init-file /docker-entrypoint-initdb.d/01-init.sql
     volumes:
-      # copy and rename to ensure execute in lexicographical (sorted, alphabetical) order
+      # copy and rename to execute in lexicographical (sorted, alphabetical) order
       - ./sql/hoopless.sql:/docker-entrypoint-initdb.d/01-init.sql
       # store database inside volume mount
       - dbdata:/var/lib/mysql

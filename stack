@@ -160,6 +160,10 @@ function docker_config {
   fi
 }
 
+function docker_db_backup {
+  docker exec ocms-mysql bash -c "mysqldump --databases hoopless > /docker-entrypoint-initdb.d/01-init.sql"
+}
+
 function docker_build {
   local param_1=$1
   echo "Build web server container"
@@ -238,6 +242,8 @@ elif [ "$arg_1" == "clear" ]; then
 elif [ "$arg_1" == "db" ]; then
   if [ "$arg_2" == "diff" ]; then
     docker_db_diff
+  elif [ "$arg_2" == "backup" ]; then
+    docker_db_backup
   elif [ "$arg_2" == "migrate" ]; then
     docker_db_migrate
   fi

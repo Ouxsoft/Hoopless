@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: mysql
--- Generation Time: Jan 05, 2022 at 07:08 AM
+-- Generation Time: Jan 06, 2022 at 03:03 AM
 -- Server version: 8.0.27
 -- PHP Version: 7.4.20
 
@@ -433,7 +433,10 @@ INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_
 ('App\\Migrations\\Version20220105052430', '2022-01-05 06:53:20', 1469),
 ('App\\Migrations\\Version20220105062638', '2022-01-05 07:03:22', NULL),
 ('App\\Migrations\\Version20220105065220', '2022-01-05 06:55:43', 2158),
-('App\\Migrations\\Version20220105070113', '2022-01-05 07:07:54', 1816);
+('App\\Migrations\\Version20220105070113', '2022-01-05 07:07:54', 1816),
+('App\\Migrations\\Version20220105071520', '2022-01-05 07:15:47', 2263),
+('App\\Migrations\\Version20220105072801', '2022-01-05 07:28:19', 1585),
+('App\\Migrations\\Version20220106025745', '2022-01-06 02:57:58', 1330);
 
 -- --------------------------------------------------------
 
@@ -840,10 +843,20 @@ CREATE TABLE `tag` (
 
 CREATE TABLE `user` (
   `user_id` int NOT NULL,
+  `username` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `person_id` int DEFAULT NULL,
   `email_address` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `person_id` int NOT NULL
+  `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`user_id`, `username`, `password`, `person_id`, `email_address`, `created`, `updated`) VALUES
+(2, 'admin@example.net', '9nSnjrDDPrwYUyeL', NULL, 'admin@example.net', '2022-01-06 02:58:46', '2022-01-06 02:58:46');
 
 -- --------------------------------------------------------
 
@@ -1253,7 +1266,7 @@ ALTER TABLE `tag`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `user_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user_permission`

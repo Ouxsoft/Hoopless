@@ -40,7 +40,7 @@ class User
     /**
      * @var int
      *
-     * @ORM\Column(name="person_id", type="integer", nullable=false)
+     * @ORM\Column(name="person_id", type="integer", nullable=true)
      */
     private $personId;
 
@@ -77,6 +77,86 @@ class User
     public function __construct()
     {
         $this->person = new ArrayCollection();
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getUsername(): ?string
+    {
+        return $this->username;
+    }
+
+    /**
+     * @param string|null $username
+     */
+    public function setUsername(?string $username): void
+    {
+        $this->username = $username;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPersonId(): int
+    {
+        return $this->personId;
+    }
+
+    /**
+     * @param int $personId
+     */
+    public function setPersonId(int $personId): void
+    {
+        $this->personId = $personId;
+    }
+
+    /**
+     * @return Person
+     */
+    public function getPerson(): Person
+    {
+        return $this->person;
+    }
+
+    /**
+     * @param Person $person
+     */
+    public function setPerson(Person $person): void
+    {
+        $this->person = $person;
+    }
+
+    /**
+     * @return DateTime
+     */
+    public function getCreated(): DateTime
+    {
+        return $this->created;
+    }
+
+    /**
+     * @param DateTime $created
+     */
+    public function setCreated(DateTime $created): void
+    {
+        $this->created = $created;
+    }
+
+    /**
+     * @return DateTime
+     */
+    public function getUpdated(): DateTime
+    {
+        return $this->updated;
+    }
+
+    /**
+     * @param DateTime $updated
+     */
+    public function setUpdated(DateTime $updated): void
+    {
+        $this->updated = $updated;
     }
 
     /**

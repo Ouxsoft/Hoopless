@@ -23,14 +23,16 @@ class PageController extends AbstractController
     }
 
     /**
-     * @Route("/backend/login", priority=5, name="loginRoute", methods={"GET"})
+     * @Route("/login", priority=5, name="loginRoute", methods={"GET"})
+     * @param PHPMarkup $phpmarkup
+     * @return Response
      */
-    public function loginpage(PHPMarkup $phpmarkup): Response
+    public function loginPage(PHPMarkup $phpmarkup): Response
     {
-        $phpmarkup->addProperty('url', '/backend/login');
+        $phpmarkup->addProperty('url', '/login');
 
         return new Response(
-            $phpmarkup->parseFile('backend/login.php')
+            $phpmarkup->parseFile('/login.php')
         );
     }
 

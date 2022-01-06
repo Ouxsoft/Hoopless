@@ -13,6 +13,9 @@ namespace App\Element\Partial;
 use App\Entity\Blog;
 use App\Entity\News;
 use Ouxsoft\PHPMarkup\Element\AbstractElement;
+use Symfony\Component\HttpFoundation\Session\Attribute\AttributeBag;
+use Symfony\Component\HttpFoundation\Session\Session;
+use Symfony\Component\HttpFoundation\Session\Storage\NativeSessionStorage;
 
 /**
  * Class PageHeader.
@@ -88,8 +91,10 @@ class PageHeader extends AbstractElement
 
     public function onRender()
     {
+        $session = new Session(new NativeSessionStorage(), new AttributeBag());
 
-        session_start();
+        $session->start();
+
         return $this->view->render('/partial/page-header.html.twig', [
             'page' => [
                 'title' => $this->getArgByName('title'),
@@ -98,7 +103,7 @@ class PageHeader extends AbstractElement
             ],
             'menu' => $this->menu,
             'user' => [
-                'username' => $_SESSION['username'] ?? null,
+                'username' => $session->get('username', null),
             ],
             'site_name' => $_ENV['SITE_NAME'] ?? 'Site Name',
             'breadcrumbs' => [

@@ -62,7 +62,7 @@ class Person
     /**
      * @var ArrayCollection
      *
-     * @ORM\ManyToOne(targetEntity="Address", inversedBy="person")
+     * @ORM\ManyToOne(targetEntity="Address")
      * @ORM\JoinColumn(name="address_id", referencedColumnName="address_id")
      */
     private $address;

@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -23,6 +24,13 @@ class User
     private $userId;
 
     /**
+     * @var string|null username used to login
+     *
+     * @ORM\Column(name="username", type="string", length=255, nullable=true)
+     */
+    private $username;
+
+    /**
      * @var string a hash containing user password
      *
      * @ORM\Column(name="password", type="string", length=255, nullable=true)
@@ -37,8 +45,10 @@ class User
     private $personId;
 
     /**
+     * @var Person
+     *
      * @ORM\OneToOne(targetEntity="Person", mappedBy="user")
-     * @ORM\JoinColumn(name="person_id", referencedColumnName="person_id")
+     * @ORM\JoinColumn(name="person_id", referencedColumnName="person_id", nullable=true)
      */
     private $person;
 
@@ -48,6 +58,26 @@ class User
      * @ORM\Column(name="email_address", type="string", length=255, nullable=false)
      */
     private $emailAddress;
+
+    /**
+     * @var DateTime
+     *
+     * @ORM\Column(name="created", type="datetime", nullable=false, options={"default"="CURRENT_TIMESTAMP"})
+     */
+    private $created;
+
+    /**
+     * @var DateTime
+     *
+     * @ORM\Column(name="updated", type="datetime", nullable=false, options={"default"="CURRENT_TIMESTAMP"})
+     */
+    private $updated;
+
+
+    public function __construct()
+    {
+        $this->person = new ArrayCollection();
+    }
 
     /**
      * @return int

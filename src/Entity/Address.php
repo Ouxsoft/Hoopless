@@ -71,14 +71,6 @@ class Address
      */
     private $country;
 
-    /**
-     * @var array Person who have address
-     *
-     * @ORM\OneToMany(targetEntity="Person", mappedBy="address")
-     * @ORM\JoinColumn(name="address_id", referencedColumnName="address_id")
-     */
-    private $occupants;
-
     public function getStreetAddress1(): string
     {
         return $this->streetAddress1;

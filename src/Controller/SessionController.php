@@ -18,12 +18,12 @@ class SessionController extends AbstractController
      * @param SessionService $sessionService
      * @return RedirectResponse
      */
-    public function signin(Request $request, SessionService $sessionService): Response
+    public function signIn(Request $request, SessionService $sessionService): Response
     {
         $username = $request->get('username') ?? '';
         $password = $request->get('password') ?? '';
 
-        if ($sessionService->signin($username, $password)) {
+        if ($sessionService->signIn($username, $password)) {
             return $this->redirectToRoute('frontpageRoute');
         }
 
@@ -37,9 +37,10 @@ class SessionController extends AbstractController
      * @param SessionService $sessionService
      * @return RedirectResponse
      */
-    public function signout(Request $request, SessionService $sessionService): Response
+    public function signOut(Request $request, SessionService $sessionService): Response
     {
-        $sessionService->signout();
+        $sessionService->signOut();
+
         return $this->redirectToRoute('frontpageRoute');
     }
 

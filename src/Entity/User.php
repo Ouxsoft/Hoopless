@@ -53,6 +53,14 @@ class User
     private $person;
 
     /**
+     * @var Person
+     *
+     * @ORM\OneToMany(targetEntity="UserRole", mappedBy="user")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="user_id", nullable=true)
+     */
+    private $roles;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="email_address", type="string", length=255, nullable=false)
@@ -77,6 +85,7 @@ class User
     public function __construct()
     {
         $this->person = new ArrayCollection();
+        $this->roles = new ArrayCollection();
     }
 
     /**

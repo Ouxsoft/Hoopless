@@ -17,7 +17,7 @@ class File
     /**
      * @var int
      *
-     * @ORM\Column(name="event_id", type="integer", nullable=false)
+     * @ORM\Column(name="file_id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */

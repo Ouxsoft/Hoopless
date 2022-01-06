@@ -2,43 +2,33 @@
 
 namespace App\Entity;
 
-use DateTime;
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Image
- * A image is an uploaded file containing an original image.
+ * Role
  *
- * @ORM\Table(name="image")
+ * A role has permissions and is assigned a user or group
+ *
+ * @ORM\Table(name="role")
  * @ORM\Entity
  */
-class Image
+class Role
 {
     /**
      * @var int
      *
-     * @ORM\Column(name="image_id", type="integer", nullable=false)
+     * @ORM\Column(name="role_id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $imageId;
+    private $roleId;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="file_id", type="integer", nullable=false)
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\Column(name="name", type="string", length=255)
      */
-    private $fileId;
-
-    /**
-     * @var File
-     *
-     * @ORM\ManyToOne(targetEntity="File")
-     * @ORM\JoinColumn(name="file_id", referencedColumnName="file_id", nullable=true)
-     */
-    private $file;
+    private $name;
 
     /**
      * @var DateTime
@@ -54,49 +44,68 @@ class Image
      */
     private $updated;
 
-
-    public function __construct()
+    /**
+     * @return int
+     */
+    public function getRoleId(): int
     {
-        $this->file = new ArrayCollection();
+        return $this->roleId;
     }
 
-    public function getImageId(): int
+    /**
+     * @param int $roleId
+     */
+    public function setRoleId(int $roleId): void
     {
-        return $this->imageId;
+        $this->roleId = $roleId;
     }
 
-    public function setImageId(int $imageId): void
+    /**
+     * @return int
+     */
+    public function getName(): int
     {
-        $this->imageId = $imageId;
+        return $this->name;
     }
 
-    public function getFileId(): int
+    /**
+     * @param int $name
+     */
+    public function setName(int $name): void
     {
-        return $this->fileId;
+        $this->name = $name;
     }
 
-    public function setFileId(int $fileId): void
-    {
-        $this->fileId = $fileId;
-    }
-
+    /**
+     * @return DateTime
+     */
     public function getCreated(): DateTime
     {
         return $this->created;
     }
 
+    /**
+     * @param DateTime $created
+     */
     public function setCreated(DateTime $created): void
     {
         $this->created = $created;
     }
 
+    /**
+     * @return DateTime
+     */
     public function getUpdated(): DateTime
     {
         return $this->updated;
     }
 
+    /**
+     * @param DateTime $updated
+     */
     public function setUpdated(DateTime $updated): void
     {
         $this->updated = $updated;
     }
+
 }

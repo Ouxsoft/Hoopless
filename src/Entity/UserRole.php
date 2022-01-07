@@ -37,6 +37,10 @@ class UserRole
      */
     private $roleId;
 
+
+
+    private $user;
+
     /**
      * @return int
      */

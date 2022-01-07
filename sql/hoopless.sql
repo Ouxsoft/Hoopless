@@ -33,11 +33,11 @@ DROP TABLE IF EXISTS `address`;
 CREATE TABLE `address` (
   `address_id` int NOT NULL AUTO_INCREMENT,
   `country_id` int NOT NULL,
-  `street_address_1` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `street_address_2` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `locality` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `region` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `postal_code` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `street_address_1` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `street_address_2` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `locality` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `region` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `postal_code` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`address_id`),
   KEY `IDX_D4E6F81F92F3E70` (`country_id`),
   CONSTRAINT `FK_D4E6F81F92F3E70` FOREIGN KEY (`country_id`) REFERENCES `country` (`country_id`)
@@ -245,7 +245,7 @@ CREATE TABLE `doctrine_migration_versions` (
 
 LOCK TABLES `doctrine_migration_versions` WRITE;
 /*!40000 ALTER TABLE `doctrine_migration_versions` DISABLE KEYS */;
-INSERT INTO `doctrine_migration_versions` VALUES ('App\\Migrations\\Version20210710031913','2022-01-03 16:27:59',3637),('App\\Migrations\\Version20210710044359','2022-01-03 16:28:03',333),('App\\Migrations\\Version20210710053110','2022-01-03 16:28:03',377),('App\\Migrations\\Version20211118041608','2022-01-03 16:28:03',106),('App\\Migrations\\Version20211212044950','2022-01-03 16:28:03',347),('App\\Migrations\\Version20211223175512','2022-01-03 16:28:04',225),('App\\Migrations\\Version20211224033039','2022-01-03 16:28:04',119),('App\\Migrations\\Version20220105052430','2022-01-05 06:53:20',1469),('App\\Migrations\\Version20220105062638','2022-01-05 07:03:22',NULL),('App\\Migrations\\Version20220105065220','2022-01-05 06:55:43',2158),('App\\Migrations\\Version20220105070113','2022-01-05 07:07:54',1816),('App\\Migrations\\Version20220105071520','2022-01-05 07:15:47',2263),('App\\Migrations\\Version20220105072801','2022-01-05 07:28:19',1585),('App\\Migrations\\Version20220106025745','2022-01-06 02:57:58',1330);
+INSERT INTO `doctrine_migration_versions` VALUES ('App\\Migrations\\Version20210710031913','2022-01-03 16:27:59',3637),('App\\Migrations\\Version20210710044359','2022-01-03 16:28:03',333),('App\\Migrations\\Version20210710053110','2022-01-03 16:28:03',377),('App\\Migrations\\Version20211118041608','2022-01-03 16:28:03',106),('App\\Migrations\\Version20211212044950','2022-01-03 16:28:03',347),('App\\Migrations\\Version20211223175512','2022-01-03 16:28:04',225),('App\\Migrations\\Version20211224033039','2022-01-03 16:28:04',119),('App\\Migrations\\Version20220105052430','2022-01-05 06:53:20',1469),('App\\Migrations\\Version20220105062638','2022-01-05 07:03:22',NULL),('App\\Migrations\\Version20220105065220','2022-01-05 06:55:43',2158),('App\\Migrations\\Version20220105070113','2022-01-05 07:07:54',1816),('App\\Migrations\\Version20220105071520','2022-01-05 07:15:47',2263),('App\\Migrations\\Version20220105072801','2022-01-05 07:28:19',1585),('App\\Migrations\\Version20220106025745','2022-01-06 02:57:58',1330),('App\\Migrations\\Version20220106061318','2022-01-06 06:21:44',3742),('App\\Migrations\\Version20220106062802','2022-01-06 06:30:16',1551),('App\\Migrations\\Version20220106063039','2022-01-06 06:46:09',1723),('App\\Migrations\\Version20220106063837','2022-01-06 06:46:11',27);
 /*!40000 ALTER TABLE `doctrine_migration_versions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -311,14 +311,14 @@ DROP TABLE IF EXISTS `file`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `file` (
-  `event_id` int NOT NULL AUTO_INCREMENT,
+  `file_id` int NOT NULL AUTO_INCREMENT,
   `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `filename` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `mime_type` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `path` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`event_id`)
+  PRIMARY KEY (`file_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -490,53 +490,6 @@ LOCK TABLES `gallery_image` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `group`
---
-
-DROP TABLE IF EXISTS `group`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `group` (
-  `group_id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  PRIMARY KEY (`group_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `group`
---
-
-LOCK TABLES `group` WRITE;
-/*!40000 ALTER TABLE `group` DISABLE KEYS */;
-/*!40000 ALTER TABLE `group` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `group_permission`
---
-
-DROP TABLE IF EXISTS `group_permission`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `group_permission` (
-  `group_permission_id` int NOT NULL AUTO_INCREMENT,
-  `group_id` int NOT NULL,
-  `permission_id` int NOT NULL,
-  PRIMARY KEY (`group_permission_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `group_permission`
---
-
-LOCK TABLES `group_permission` WRITE;
-/*!40000 ALTER TABLE `group_permission` DISABLE KEYS */;
-/*!40000 ALTER TABLE `group_permission` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `image`
 --
 
@@ -548,7 +501,8 @@ CREATE TABLE `image` (
   `file_id` int NOT NULL,
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`image_id`)
+  PRIMARY KEY (`image_id`),
+  KEY `IDX_C53D045F93CB796C` (`file_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -712,30 +666,6 @@ LOCK TABLES `page_revision` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `permission`
---
-
-DROP TABLE IF EXISTS `permission`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `permission` (
-  `permission_id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `description` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  PRIMARY KEY (`permission_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `permission`
---
-
-LOCK TABLES `permission` WRITE;
-/*!40000 ALTER TABLE `permission` DISABLE KEYS */;
-/*!40000 ALTER TABLE `permission` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `person`
 --
 
@@ -744,9 +674,9 @@ DROP TABLE IF EXISTS `person`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `person` (
   `person_id` int NOT NULL AUTO_INCREMENT,
-  `first_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `middle_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `last_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `first_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `middle_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `last_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `address_id` int DEFAULT NULL,
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -824,6 +754,85 @@ CREATE TABLE `profile` (
 LOCK TABLES `profile` WRITE;
 /*!40000 ALTER TABLE `profile` DISABLE KEYS */;
 /*!40000 ALTER TABLE `profile` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `resource`
+--
+
+DROP TABLE IF EXISTS `resource`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `resource` (
+  `resource_id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `description` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`resource_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `resource`
+--
+
+LOCK TABLES `resource` WRITE;
+/*!40000 ALTER TABLE `resource` DISABLE KEYS */;
+INSERT INTO `resource` VALUES (1,'stylesheet-builder','Build CSS files form SCSS','2022-01-07 02:11:24','2022-01-07 02:11:24');
+/*!40000 ALTER TABLE `resource` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `role`
+--
+
+DROP TABLE IF EXISTS `role`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `role` (
+  `role_id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`role_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `role`
+--
+
+LOCK TABLES `role` WRITE;
+/*!40000 ALTER TABLE `role` DISABLE KEYS */;
+INSERT INTO `role` VALUES (1,'administrator','2022-01-07 02:12:25','2022-01-07 02:12:25'),(2,'editor','2022-01-07 02:12:25','2022-01-07 02:12:25'),(3,'author','2022-01-07 02:12:33','2022-01-07 02:12:33');
+/*!40000 ALTER TABLE `role` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `role_resource`
+--
+
+DROP TABLE IF EXISTS `role_resource`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `role_resource` (
+  `role_resource_id` int NOT NULL AUTO_INCREMENT,
+  `role_id` int NOT NULL,
+  `resource_id` int NOT NULL,
+  `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`role_resource_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `role_resource`
+--
+
+LOCK TABLES `role_resource` WRITE;
+/*!40000 ALTER TABLE `role_resource` DISABLE KEYS */;
+/*!40000 ALTER TABLE `role_resource` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -908,27 +917,27 @@ INSERT INTO `user` VALUES (2,'admin@example.net','9nSnjrDDPrwYUyeL',NULL,'admin@
 UNLOCK TABLES;
 
 --
--- Table structure for table `user_permission`
+-- Table structure for table `user_role`
 --
 
-DROP TABLE IF EXISTS `user_permission`;
+DROP TABLE IF EXISTS `user_role`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `user_permission` (
-  `user_permission_id` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `user_role` (
+  `user_role_id` int NOT NULL AUTO_INCREMENT,
   `user_id` int NOT NULL,
-  `permission_id` int NOT NULL,
-  PRIMARY KEY (`user_permission_id`)
+  `role_id` int NOT NULL,
+  PRIMARY KEY (`user_role_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `user_permission`
+-- Dumping data for table `user_role`
 --
 
-LOCK TABLES `user_permission` WRITE;
-/*!40000 ALTER TABLE `user_permission` DISABLE KEYS */;
-/*!40000 ALTER TABLE `user_permission` ENABLE KEYS */;
+LOCK TABLES `user_role` WRITE;
+/*!40000 ALTER TABLE `user_role` DISABLE KEYS */;
+/*!40000 ALTER TABLE `user_role` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -940,4 +949,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-01-06  3:22:20
+-- Dump completed on 2022-01-07  2:20:17

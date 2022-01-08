@@ -99,7 +99,7 @@ class PageHeader extends AbstractElement
             'page' => [
                 'title' => $this->getArgByName('title'),
                 'tier' => $this->getArgByName('tier'),
-                'image' => $this->getArgByName('image'),
+                'image' => $this->getArgByName('image') ?? '',
             ],
             'menu' => $this->menu,
             'user' => [

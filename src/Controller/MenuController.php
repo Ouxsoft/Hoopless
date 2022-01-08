@@ -16,6 +16,8 @@ class MenuController extends AbstractController
 {
     /**
      * @Route("/api/menu", priority=5, name="apiMenusRoute", methods={"GET"})
+     * @param MenuService $menuService
+     * @return Response
      */
     public function getMenus(MenuService $menuService): Response
     {
@@ -35,6 +37,9 @@ class MenuController extends AbstractController
 
     /**
      * @Route("/api/menu/{menuId}", priority=5, name="apiMenuRoute", methods={"GET"})
+     * @param MenuService $menuService
+     * @param int $menuId
+     * @return Response
      */
     public function getMenu(MenuService $menuService, int $menuId): Response
     {

@@ -87,18 +87,6 @@
     </nav>
 
     {% if page.tier == 1 %}
-        <div class="hero-feature w-100" style="background-image:url('{{  image  }}');">
-            <aside class="info-box bg-primary shadow p-4 d-none d-lg-block editable">
-                <partial name="News">
-                    <arg name="limit" type="int">1</arg>
-                    <arg name="format">
-                        <span class="text-white text-decoration-none fs-4">
-                            {{ story.title }}
-                        </span>
-                    </arg>
-                </partial>
-            </aside>
-        </div>
     {% elseif page.tier == 2 %}
         <div class="hero-feature w-100 bg-dark">
             <div class="container-fluid pt-5 pb-5" style="background-size: cover; background-image:url('{{  page.image  }}');">

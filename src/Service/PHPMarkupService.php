@@ -10,27 +10,20 @@ use Twig\Environment;
 use Twig\Extension\StringLoaderExtension;
 use Twig\Loader\FilesystemLoader;
 
-/**
- * Class AuthService.
- */
-class PHPMarkup
+class PHPMarkupService
 {
     // TODO remove trailing slash
-    public const PAGE_DIR = __DIR__.'/../../public/';
-    public const CONFIG_DIR = __DIR__.'/../../config/';
-    public const ENTITY_DIR = __DIR__.'/../../src/Entity/';
-    public const ASSET_DIR = __DIR__.'/../../public/assets/';
-    public const TEMPLATE_DIR = __DIR__.'/../../public/assets/templates/';
+    public const PAGE_DIR = __DIR__ . '/../../public/';
+    public const CONFIG_DIR = __DIR__ . '/../../config/';
 
     private $processor;
 
-    public function __construct()
+    public function __construct(EntityManager $em, Environment $twig)
     {
         // load config
         $appConfig = [];
         $appConfig['elements'] = require self::CONFIG_DIR.'elements.php';
         $appConfig['routines'] = require self::CONFIG_DIR.'routines.php';
-        $appConfig['database'] = require self::CONFIG_DIR.'database.php';
 
         // instantiate processor with configuration and set to parse buffer
         $this->processor = ProcessorFactory::getInstance();
@@ -38,25 +31,12 @@ class PHPMarkup
         $this->processor->addRoutines($appConfig['routines']);
         $this->processor->addElements($appConfig['elements']);
 
-        // setup twig
-        $loader = new FilesystemLoader(self::TEMPLATE_DIR);
-        $twig = new Environment($loader);
+        // twig
         $twig->addExtension(new StringLoaderExtension());
         $this->processor->addProperty('view', $twig);
 
-        // setup doctrine for database access
-        $doctrineConfig = Setup::createAnnotationMetadataConfiguration(
-            [self::ENTITY_DIR],
-            true,
-            null,
-            null,
-            false
-        );
-        $entityManager = EntityManager::create(
-            $appConfig['database'],
-            $doctrineConfig
-        );
-        $this->processor->addProperty('em', $entityManager);
+        // em
+        $this->processor->addProperty('em', $em);
 
         // stylesheets
         $stylesheets = new UniqueArray();

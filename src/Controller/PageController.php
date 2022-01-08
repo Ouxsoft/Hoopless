@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Service\PHPMarkup;
+use App\Service\PHPMarkupService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,7 +13,7 @@ class PageController extends AbstractController
     /**
      * @Route("/", priority=5, name="frontpageRoute", methods={"GET"})
      */
-    public function frontpage(PHPMarkup $phpmarkup): Response
+    public function frontpage(PHPMarkupService $phpmarkup): Response
     {
         $phpmarkup->addProperty('url', '/');
 
@@ -24,10 +24,10 @@ class PageController extends AbstractController
 
     /**
      * @Route("/login", priority=5, name="loginRoute", methods={"GET"})
-     * @param PHPMarkup $phpmarkup
+     * @param PHPMarkupService $phpmarkup
      * @return Response
      */
-    public function loginPage(PHPMarkup $phpmarkup): Response
+    public function loginPage(PHPMarkupService $phpmarkup): Response
     {
         $phpmarkup->addProperty('url', '/login');
 
@@ -39,7 +39,7 @@ class PageController extends AbstractController
     /**
      * @Route("/{page}", priority=1, name="subpageRoute", requirements={"page"=".+"})
      */
-    public function indexAction(PHPMarkup $phpmarkup, string $page): Response
+    public function indexAction(PHPMarkupService $phpmarkup, string $page): Response
     {
         $phpmarkup->addProperty('url', '/'.$page);
 
@@ -66,7 +66,7 @@ class PageController extends AbstractController
     /**
      * @Route("/blog/{blogId}", priority=2, name="blogRoute")
      */
-    public function blogAction(PHPMarkup $phpmarkup, string $blogId): Response
+    public function blogAction(PHPMarkupService $phpmarkup, string $blogId): Response
     {
         $phpmarkup->addProperty('blogId', $blogId);
         $phpmarkup->addProperty('url', '/blogs');
@@ -79,7 +79,7 @@ class PageController extends AbstractController
     /**
      * @Route("/news/{newsId}", priority=2, name="newsRoute")
      */
-    public function newsAction(PHPMarkup $phpmarkup, string $newsId): Response
+    public function newsAction(PHPMarkupService $phpmarkup, string $newsId): Response
     {
         $phpmarkup->addProperty('newsId', $newsId);
         $phpmarkup->addProperty('url', '/news');

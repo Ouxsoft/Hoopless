@@ -1,2 +1,3 @@
 sh eol=lf
 stack eol=lf
+console eol=lf

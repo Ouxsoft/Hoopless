@@ -13,6 +13,7 @@ function show_help {
   stop [environment]         - Stop development environment containers
   exec [container]           - Exec program inside the container
   kill [container]           - Kill a container by name
+  console                    - Symfont console commands
   config                     - Show docker config
   errors                     - Show apache2 error log
   wipe                       - Remove all docker containers
@@ -189,6 +190,11 @@ function docker_db_migrate {
   docker exec --user root ocms-php-fpm php ./vendor/bin/doctrine-migrations migrations:migrate
 }
 
+function symfony_console {
+  local command=$1
+  docker exec ocms-php-fpm ./bin/console $command
+}
+
 function nginx_reload {
   docker exec -it ocms-webserver nginx -s reload
 }
@@ -213,6 +219,8 @@ elif [ "$arg_1" == "exec" ]; then
   docker_exec $arg_2 ${@:3:99}
 elif [ "$arg_1" == "kill" ]; then
   docker_kill $arg_2
+elif [ "$arg_1" == "console" ]; then
+  symfony_console $arg_2
 elif [ "$arg_1" == "config" ]; then
   docker_config $arg_2
 elif [ "$arg_1" == "errors" ]; then

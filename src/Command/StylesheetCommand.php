@@ -2,17 +2,11 @@
 
 namespace App\Command;
 
-use App\Repository\CommentRepository;
 use ScssPhp\ScssPhp\Compiler;
-use ScssPhp\ScssPhp\Exception\CompilerException;
-use ScssPhp\ScssPhp\Formatter\Compressed;
 use ScssPhp\ScssPhp\OutputStyle;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Style\SymfonyStyle;
-use Symfony\Component\HttpFoundation\Response;
 
 class StylesheetCommand extends Command
 {

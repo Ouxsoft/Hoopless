@@ -125,9 +125,6 @@
         "migration-up" : [
             "vendor/bin/doctrine-migrations migrate"
         ],
-        "clear-cache" : [
-            "find var/cache/images/ -type f -not -name '.gitignore' -delete"
-        ],
         "fix-code": [
             "php-cs-fixer fix --using-cache=no public/",
             "php-cs-fixer fix --using-cache=no src/",

@@ -192,7 +192,7 @@ function docker_db_migrate {
 
 function symfony_console {
   local command=$1
-  docker exec ocms-php-fpm ./bin/console $command
+  docker exec --user root ocms-php-fpm ./bin/console $command
 }
 
 function nginx_reload {
@@ -200,8 +200,7 @@ function nginx_reload {
 }
 
 function clear_cache {
-  rm -r ./var/cache/images/*
-  #docker exec -it ocms-webserver rm -r /application/var/cache/images/*
+  docker exec --user root ocms-php-fpm composer clear-image-cache
 }
 
 function composer_update {

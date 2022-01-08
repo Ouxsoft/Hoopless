@@ -4,11 +4,9 @@ namespace App\Service;
 
 use App\Model\UniqueArray;
 use Doctrine\ORM\EntityManager;
-use Doctrine\ORM\Tools\Setup;
 use Ouxsoft\PHPMarkup\Factory\ProcessorFactory;
 use Twig\Environment;
 use Twig\Extension\StringLoaderExtension;
-use Twig\Loader\FilesystemLoader;
 
 class PHPMarkupService
 {

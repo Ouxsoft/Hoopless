@@ -5,6 +5,7 @@ namespace App\Command;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Style\SymfonyStyle;
 
 class ImageCacheClear extends Command
 {
@@ -24,7 +25,11 @@ class ImageCacheClear extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
+        $io = new SymfonyStyle($input, $output);
+
         shell_exec("find {$this->imageCacheDir} -type f -not -name '.gitignore' -delete");
+
+        $io->success('Image cache cleared');
 
         return Command::SUCCESS;
     }
